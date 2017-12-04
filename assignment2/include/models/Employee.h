@@ -2,6 +2,7 @@
 #define EMPLOYEE_H
 #include <iostream>
 #include <string>
+#include "SalaryUI.h"
 using namespace std;
 
 class Employee
