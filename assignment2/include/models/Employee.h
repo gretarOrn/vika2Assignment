@@ -8,6 +8,11 @@ class Employee
 {
     public:
         Employee(string name, string ssn, double salary, int month, int year);
+        string getName();
+        char* getSSN();
+        double getSalary();
+        int getMonth();
+        int getYear();
 
     private:
         string name;

@@ -10,4 +10,18 @@ Employee::Employee(string name, string ssn, double salary, int month, int year)
     this->month = month;
     this->year = year;
 }
-
+string Employee::getName(){
+    return name;
+}
+char* Employee::getSSN() {
+    return ssn;
+}
+double Employee::getSalary() {
+    return salary;
+}
+int Employee::getMonth() {
+    return month;
+}
+int Employee::getYear() {
+    return year;
+}
