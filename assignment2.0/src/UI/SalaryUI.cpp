@@ -1,4 +1,4 @@
-#include "SalaryUI.h"
+#include "..\..\include\UI\SalaryUI.h"
 
 SalaryUI::SalaryUI()
 {

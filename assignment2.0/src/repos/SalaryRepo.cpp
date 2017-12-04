@@ -1,4 +1,4 @@
-#include "SalaryRepo.h"
+#include "..\..\include\repos\SalaryRepo.h"
 
 SalaryRepo::SalaryRepo()
 {

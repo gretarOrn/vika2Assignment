@@ -1,6 +1,6 @@
 #ifndef SALARYREPO_H
 #define SALARYREPO_H
-#include "Salary.h"
+#include "..\..\include\models\Salary.h"
 //#include <fstream>
 
 

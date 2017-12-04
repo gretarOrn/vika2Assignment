@@ -1,7 +1,7 @@
 #ifndef SALARYUI_H
 #define SALARYUI_H
-#include "Salary.h"
-#include "SalaryService.h"
+#include "..\..\include\models\Salary.h"
+#include "..\..\include\services\SalaryService.h"
 
 class SalaryUI
 {

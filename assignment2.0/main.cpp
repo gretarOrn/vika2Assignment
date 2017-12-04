@@ -1,5 +1,5 @@
 #include <iostream>
-#include "SalaryUI.h"
+#include "..\..\include\UI\SalaryUI.h"
 
 
 using namespace std;

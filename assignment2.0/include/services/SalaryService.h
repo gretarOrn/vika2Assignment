@@ -1,7 +1,7 @@
 #ifndef SALARYSERVICE_H
 #define SALARYSERVICE_H
-#include "Salary.h"
-#include "..\repos\SalaryRepo.h"
+#include "..\..\include\models\Salary.h"
+#include "..\..\include\repos\SalaryRepo.h"
 
 class SalaryService
 {

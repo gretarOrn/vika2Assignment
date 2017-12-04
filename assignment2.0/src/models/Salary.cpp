@@ -1,4 +1,4 @@
-#include "Salary.h"
+#include "..\..\include\models\Salary.h"
 
 Salary::Salary(string name, string ssn, double salary, int month, int year)
 {
