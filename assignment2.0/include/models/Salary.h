@@ -2,6 +2,7 @@
 #define SALARY_H
 #include <string>
 #include <iostream>
+#include <fstream>
 using namespace std;
 
 class Salary
@@ -15,6 +16,7 @@ class Salary
         int getYear();
 
         friend ostream& operator <<(ostream& out, const Salary& salary);
+        friend ofstream& operator <<(ofstream& fout, const Salary& salary);
     private:
         string name;
         char ssn[10];

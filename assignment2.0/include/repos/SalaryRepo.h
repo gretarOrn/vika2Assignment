@@ -1,14 +1,14 @@
 #ifndef SALARYREPO_H
 #define SALARYREPO_H
 #include "Salary.h"
-#include <fstream>
+//#include <fstream>
 
 
 class SalaryRepo
 {
     public:
         SalaryRepo();
-        void addSalary(Salary salary);
+        void addSalary(const Salary& salary);
     private:
 };
 

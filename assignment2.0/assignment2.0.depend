@@ -1,13 +1,15 @@
 # depslib dependency file v1.0
-1446667744 source:c:\users\greta\documents\3viknaafangi\vika2assignment\assignment2.0\main.cpp
+1512403682 source:c:\users\greta\documents\3viknaafangi\vika2assignment\assignment2.0\main.cpp
 	<iostream>
+	"SalaryUI.h"
 
-1512401041 source:c:\users\greta\documents\3viknaafangi\vika2assignment\assignment2.0\src\models\salary.cpp
+1512404655 source:c:\users\greta\documents\3viknaafangi\vika2assignment\assignment2.0\src\models\salary.cpp
 	"Salary.h"
 
-1512401031 c:\users\greta\documents\3viknaafangi\vika2assignment\assignment2.0\include\models\salary.h
+1512404403 c:\users\greta\documents\3viknaafangi\vika2assignment\assignment2.0\include\models\salary.h
 	<string>
 	<iostream>
+	<fstream>
 
 1512401361 source:c:\users\greta\documents\3viknaafangi\vika2assignment\assignment2.0\src\ui\salaryui.cpp
 	"SalaryUI.h"
@@ -20,13 +22,12 @@
 	"Salary.h"
 	"..\repos\SalaryRepo.h"
 
-1512402243 c:\users\greta\documents\3viknaafangi\vika2assignment\assignment2.0\include\repos\salaryrepo.h
+1512404428 c:\users\greta\documents\3viknaafangi\vika2assignment\assignment2.0\include\repos\salaryrepo.h
 	"Salary.h"
-	<fstream>
 
-1512402181 source:c:\users\greta\documents\3viknaafangi\vika2assignment\assignment2.0\src\repos\salaryrepo.cpp
+1512403577 source:c:\users\greta\documents\3viknaafangi\vika2assignment\assignment2.0\src\repos\salaryrepo.cpp
 	"SalaryRepo.h"
 
-1512402030 source:c:\users\greta\documents\3viknaafangi\vika2assignment\assignment2.0\src\services\salaryservice.cpp
+1512403577 source:c:\users\greta\documents\3viknaafangi\vika2assignment\assignment2.0\src\services\salaryservice.cpp
 	"SalaryService.h"
 

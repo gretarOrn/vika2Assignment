@@ -1,0 +1,13 @@
+Name: Gr‚tar
+SSN: 1304933199Àt
+Salary: 130
+date: 6/1993
+Name: Gretar
+SSN: 1304933199
+Salary: 120
+date: 4/1993
+Egill
+1212123199
+1
+2
+8
