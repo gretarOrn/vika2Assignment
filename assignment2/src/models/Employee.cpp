@@ -25,3 +25,10 @@ int Employee::getMonth() {
 int Employee::getYear() {
     return year;
 }
+ostream& operator <<(ostream& out, const Employee& employee) {
+    out <<"Name: " << employee.name <<endl;
+    out <<"SSN: "<< employee.ssn <<endl;
+    out <<"Salary: " << employee.salary << endl;
+    out <<"date: " <<employee.month <<"/" << employee.year << endl;
+    return out;
+}

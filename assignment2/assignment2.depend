@@ -1,4 +1,12 @@
 # depslib dependency file v1.0
-1446667744 source:c:\users\greta\documents\3viknaafangi\vika2assignment\assignment2\main.cpp
+1512396071 source:c:\users\greta\documents\3viknaafangi\vika2assignment\assignment2\main.cpp
 	<iostream>
+	"Employee.h"
+
+1512394923 source:c:\users\greta\documents\3viknaafangi\vika2assignment\assignment2\src\models\employee.cpp
+	"Employee.h"
+
+1512396071 c:\users\greta\documents\3viknaafangi\vika2assignment\assignment2\include\models\employee.h
+	<iostream>
+	<string>
 
