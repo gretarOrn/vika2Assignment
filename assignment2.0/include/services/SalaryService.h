@@ -2,7 +2,7 @@
 #define SALARYSERVICE_H
 #include "..\..\include\models\Salary.h"
 #include "..\..\include\repos\SalaryRepo.h"
-#include "InvalidNameException.h"
+#include "..\..\include\error\InvalidNameException.h"
 
 class SalaryService
 {

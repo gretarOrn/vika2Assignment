@@ -3,7 +3,7 @@
 #include "..\..\include\models\Salary.h"
 #include "..\..\include\services\SalaryService.h"
 #include <vector>
-#include "InvalidNameException.h"
+#include "..\..\include\error\InvalidNameException.h"
 
 class SalaryUI
 {
