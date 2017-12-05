@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="3VV_Vika3_Pizza_3-Layer" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/3VV_Vika3_Pizza_3-Layer" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+					<Add directory="include" />
+					<Add directory="include/models" />
+					<Add directory="include/repositories" />
+					<Add directory="include/services" />
+					<Add directory="include/ui" />
+					<Add directory="src" />
+					<Add directory="src/models" />
+					<Add directory="src/repositories" />
+					<Add directory="src/services" />
+					<Add directory="src/ui" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/3VV_Vika3_Pizza_3-Layer" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add directory="include/ui" />
+					<Add directory="include/services" />
+					<Add directory="include/repositories" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+		</Compiler>
+		<Unit filename="include/models/DataBase.h" />
+		<Unit filename="include/models/Extras.h" />
+		<Unit filename="include/models/Order.h" />
+		<Unit filename="include/models/Pizza.h" />
+		<Unit filename="include/models/PizzaSauce.h" />
+		<Unit filename="include/models/PizzaSize.h" />
+		<Unit filename="include/models/PriceList.h" />
+		<Unit filename="include/models/Topping.h" />
+		<Unit filename="include/repositories/SuperRepo.h" />
+		<Unit filename="include/services/OrderService.h" />
+		<Unit filename="include/services/PizzaService.h" />
+		<Unit filename="include/ui/AdminUI.h" />
+		<Unit filename="include/ui/BakerUI.h" />
+		<Unit filename="include/ui/MainUI.h" />
+		<Unit filename="include/ui/SalesUI.h" />
+		<Unit filename="main.cpp" />
+		<Unit filename="src/models/DataBase.cpp" />
+		<Unit filename="src/models/Extras.cpp" />
+		<Unit filename="src/models/Order.cpp" />
+		<Unit filename="src/models/Pizza.cpp" />
+		<Unit filename="src/models/PizzaSauce.cpp" />
+		<Unit filename="src/models/PizzaSize.cpp" />
+		<Unit filename="src/models/PriceList.cpp" />
+		<Unit filename="src/models/Topping.cpp" />
+		<Unit filename="src/repositories/SuperRepo.cpp" />
+		<Unit filename="src/services/OrderService.cpp" />
+		<Unit filename="src/services/PizzaService.cpp" />
+		<Unit filename="src/ui/AdminUI.cpp" />
+		<Unit filename="src/ui/BakerUI.cpp" />
+		<Unit filename="src/ui/MainUI.cpp" />
+		<Unit filename="src/ui/SalesUI.cpp" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

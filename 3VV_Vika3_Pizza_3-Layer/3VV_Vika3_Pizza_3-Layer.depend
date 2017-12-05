@@ -1,0 +1,227 @@
+# depslib dependency file v1.0
+1512394748 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\verk\3vv_vika3_pizza_3-layer\main.cpp
+	"MainUI.h"
+
+1512473315 c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\verk\3vv_vika3_pizza_3-layer\include\ui\mainui.h
+	<cstdlib>
+	"AdminUI.h"
+	"SalesUI.h"
+	"BakerUI.h"
+
+1512482059 c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\verk\3vv_vika3_pizza_3-layer\include\ui\adminui.h
+	"SuperRepo.h"
+	"Extra.h"
+	"Pizza.h"
+	<iostream>
+
+1512055730 c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\verk\3vv_vika3_pizza_3-layer\include\model\extras.h
+	<iostream>
+	<iomanip>
+	<fstream>
+	<string>
+
+1512248576 c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\verk\3vv_vika3_pizza_3-layer\include\model\pizza.h
+	"Topping.h"
+	"PizzaSauce.h"
+
+1512138704 c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\verk\3vv_vika3_pizza_3-layer\include\model\topping.h
+	<iostream>
+	<iomanip>
+	<fstream>
+	<string>
+
+1512334324 c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\verk\3vv_vika3_pizza_3-layer\include\model\pizzasauce.h
+	<iostream>
+	<iomanip>
+	<fstream>
+	<string>
+
+1512046080 c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\verk\3vv_vika3_pizza_3-layer\include\ui\bakerui.h
+
+1512124107 c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\verk\3vv_vika3_pizza_3-layer\include\ui\salesui.h
+	"Order.h"
+
+1512248576 c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\verk\3vv_vika3_pizza_3-layer\include\model\order.h
+	"Extras.h"
+	"Pizza.h"
+
+1512316393 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\verk\3vv_vika3_pizza_3-layer\src\model\database.cpp
+	"DataBase.h"
+
+1512324215 c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\verk\3vv_vika3_pizza_3-layer\include\model\database.h
+	"Extras.h"
+	"Pizza.h"
+	"PizzaSauce.h"
+	"PizzaSize.h"
+	"Topping.h"
+
+1512054727 c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\verk\3vv_vika3_pizza_3-layer\include\model\pizzasize.h
+
+1512395052 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\verk\3vv_vika3_pizza_3-layer\src\model\extras.cpp
+	"Extras.h"
+
+1512248797 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\verk\3vv_vika3_pizza_3-layer\src\model\order.cpp
+	"Order.h"
+
+1512390346 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\verk\3vv_vika3_pizza_3-layer\src\model\pizza.cpp
+	"Pizza.h"
+
+1512390396 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\verk\3vv_vika3_pizza_3-layer\src\model\pizzasauce.cpp
+	"PizzaSauce.h"
+
+1512054727 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\verk\3vv_vika3_pizza_3-layer\src\model\pizzasize.cpp
+	"PizzaSize.h"
+
+1512240835 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\verk\3vv_vika3_pizza_3-layer\src\model\pricelist.cpp
+	"PriceList.h"
+
+1512142717 c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\verk\3vv_vika3_pizza_3-layer\include\model\pricelist.h
+	<iostream>
+	<fstream>
+
+1512141769 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\verk\3vv_vika3_pizza_3-layer\src\model\topping.cpp
+	"Topping.h"
+
+1512483543 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\verk\3vv_vika3_pizza_3-layer\src\ui\adminui.cpp
+	"AdminUI.h"
+
+1512395059 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\verk\3vv_vika3_pizza_3-layer\src\ui\bakerui.cpp
+	"BakerUI.h"
+
+1512399379 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\verk\3vv_vika3_pizza_3-layer\src\ui\mainui.cpp
+	"MainUI.h"
+
+1512466953 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\verk\3vv_vika3_pizza_3-layer\src\ui\salesui.cpp
+	"SalesUI.h"
+
+1512055730 c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\verk\3vv_vika3_pizza_3-layer\include\models\extras.h
+	<iostream>
+	<iomanip>
+	<fstream>
+	<string>
+
+1512467919 c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\verk\3vv_vika3_pizza_3-layer\include\models\pizza.h
+	"DataBase.h"
+	"SuperRepo.h"
+	"Topping.h"
+	"PizzaSauce.h"
+	"PizzaSize.h"
+	"PizzaType.h"
+
+1512402182 c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\verk\3vv_vika3_pizza_3-layer\include\models\topping.h
+	<iostream>
+	<iomanip>
+	<fstream>
+	<string>
+
+1512404401 c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\verk\3vv_vika3_pizza_3-layer\include\models\pizzasauce.h
+	<iostream>
+	<iomanip>
+	<fstream>
+	<string>
+
+1512484133 c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\verk\3vv_vika3_pizza_3-layer\include\models\order.h
+	"Extra.h"
+	"Pizza.h"
+	"Location.h"
+
+1512316393 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\verk\3vv_vika3_pizza_3-layer\src\models\database.cpp
+	"DataBase.h"
+
+1512482054 c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\verk\3vv_vika3_pizza_3-layer\include\models\database.h
+	"Extra.h"
+	"Pizza.h"
+	"PizzaSauce.h"
+	"PizzaSize.h"
+	"PizzaType.h"
+	"Topping.h"
+	<vector>
+
+1512405297 c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\verk\3vv_vika3_pizza_3-layer\include\models\pizzasize.h
+	<iostream>
+	<iomanip>
+
+1512395052 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\verk\3vv_vika3_pizza_3-layer\src\models\extras.cpp
+	"Extras.h"
+
+1512484133 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\verk\3vv_vika3_pizza_3-layer\src\models\order.cpp
+	"Order.h"
+
+1512467998 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\verk\3vv_vika3_pizza_3-layer\src\models\pizza.cpp
+	"Pizza.h"
+
+1512404401 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\verk\3vv_vika3_pizza_3-layer\src\models\pizzasauce.cpp
+	"PizzaSauce.h"
+
+1512405732 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\verk\3vv_vika3_pizza_3-layer\src\models\pizzasize.cpp
+	"PizzaSize.h"
+
+1512240835 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\verk\3vv_vika3_pizza_3-layer\src\models\pricelist.cpp
+	"PriceList.h"
+
+1512142717 c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\verk\3vv_vika3_pizza_3-layer\include\models\pricelist.h
+	<iostream>
+	<fstream>
+
+1512405732 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\verk\3vv_vika3_pizza_3-layer\src\models\topping.cpp
+	"Topping.h"
+
+1512395320 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\verk\3vv_vika3_pizza_3-layer\src\services\pizzaservice.cpp
+	"PizzaService.h"
+
+1512395320 c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\verk\3vv_vika3_pizza_3-layer\include\services\pizzaservice.h
+
+1512403772 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\verk\3vv_vika3_pizza_3-layer\src\repositories\superrepo.cpp
+	"SuperRepo.h"
+
+1512482051 c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\verk\3vv_vika3_pizza_3-layer\include\repositories\superrepo.h
+	"Extra.h"
+	"Pizza.h"
+	"PizzaSauce.h"
+	"PizzaSize.h"
+	"Topping.h"
+
+1512395946 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\verk\3vv_vika3_pizza_3-layer\src\services\extraservice.cpp
+	"ExtraService.h"
+
+1512395946 c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\verk\3vv_vika3_pizza_3-layer\include\services\extraservice.h
+
+1512395999 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\verk\3vv_vika3_pizza_3-layer\src\services\orderservice.cpp
+	"OrderService.h"
+
+1512395999 c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\verk\3vv_vika3_pizza_3-layer\include\services\orderservice.h
+
+1512396050 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\verk\3vv_vika3_pizza_3-layer\src\services\pizzasauceservice.cpp
+	"PizzaSauceService.h"
+
+1512396050 c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\verk\3vv_vika3_pizza_3-layer\include\services\pizzasauceservice.h
+
+1512396081 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\verk\3vv_vika3_pizza_3-layer\src\services\pizzasizeservice.cpp
+	"PizzaSizeService.h"
+
+1512396081 c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\verk\3vv_vika3_pizza_3-layer\include\services\pizzasizeservice.h
+
+1512395914 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\verk\3vv_vika3_pizza_3-layer\src\services\toppingservice.cpp
+	"ToppingService.h"
+
+1512395914 c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\verk\3vv_vika3_pizza_3-layer\include\services\toppingservice.h
+
+1512468393 c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\verk\3vv_vika3_pizza_3-layer\include\models\pizzatype.h
+
+1512468393 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\verk\3vv_vika3_pizza_3-layer\src\models\pizzatype.cpp
+	"PizzaType.h"
+
+1512478055 c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\verk\3vv_vika3_pizza_3-layer\include\models\location.h
+
+1512483336 c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\verk\3vv_vika3_pizza_3-layer\include\models\extra.h
+	<iostream>
+	<iomanip>
+	<fstream>
+	<string>
+
+1512478055 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\verk\3vv_vika3_pizza_3-layer\src\models\location.cpp
+	"Location.h"
+
+1512483373 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\verk\3vv_vika3_pizza_3-layer\src\models\extra.cpp
+	"Extra.h"
+
