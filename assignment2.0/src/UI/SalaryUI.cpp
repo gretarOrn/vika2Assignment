@@ -75,15 +75,14 @@ void SalaryUI::mainMenu() {
         }
         else if(input == '3') {
             system("CLS");
-            string ssn, year;
+            string ssn;
+            int year;
             cout <<"Enter desired SSN: ";
             cin >>ssn;
             cout <<"Enter desired year: ";
             cin >>year;
-            int counter;
-            Salary* listi = new Salary[12];
-
-
+            double totalsalary = salary_service.salaryForSSNYear(ssn, year);
+            cout <<"Total salary of " << ssn <<" for the year "<< year <<" is: " << totalsalary << endl;
 
         }
         else if(input == '4') {

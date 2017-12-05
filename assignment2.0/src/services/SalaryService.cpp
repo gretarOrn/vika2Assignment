@@ -68,4 +68,29 @@ Salary* SalaryService::salaryForSSN(string ssn, int& counter) {
     return ssn_list;
 
 }
+double SalaryService::salaryForSSNYear(string ssn, int year) {
+    int size = salary_repo.sizeOfList();
+    string tempSSN;
+    int tempYear;
+    double totalSalary = 0;
+    Salary* total_list = new Salary[size];
+    total_list = salary_repo.salaryList();
+    bool check = true;
+    for(int i = 0; i < size; i++) {
+        tempSSN = total_list[i].getSSN();
+        tempYear = total_list[i].getYear();
+        for(int j = 0; (j < 10); j++) {
+            if(tempSSN[j] != ssn.at(j)) {
+                check = false;
+            }
 
+        }
+
+        if(check && tempYear == year) {
+            totalSalary += total_list[i].getSalary();
+        }
+        check = true;
+    }
+
+    return totalSalary;
+}
