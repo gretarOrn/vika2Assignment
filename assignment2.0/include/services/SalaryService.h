@@ -3,6 +3,10 @@
 #include "..\..\include\models\Salary.h"
 #include "..\..\include\repos\SalaryRepo.h"
 #include "..\..\include\error\InvalidNameException.h"
+#include "..\..\include\error\InvalidSSNException.h"
+#include "..\..\include\error\InvalidSalaryException.h"
+#include "..\..\include\error\InvalidMonthException.h"
+#include "..\..\include\error\InvalidYearException.h"
 
 class SalaryService
 {

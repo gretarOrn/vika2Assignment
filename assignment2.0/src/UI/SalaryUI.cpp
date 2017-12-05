@@ -14,6 +14,7 @@ void SalaryUI::mainMenu() {
         cout <<"2) get all salary records for a given SSN." << endl;
         cout <<"3) get total salary for a given year and a given SSN." << endl;
         cout <<"4) get the name of employee with the highest total salary for a given year." << endl;
+        cout <<"5) Exit." << endl;
 
         cin >>input;
         if(input == '1') {
@@ -36,7 +37,24 @@ void SalaryUI::mainMenu() {
                 salary_service.addSalary(salary);
             }
             catch(InvalidNameException) {
+                system("CLS");
                 cout <<"Invalid name!" << endl;
+            }
+            catch(InvalidSSNException) {
+                system("CLS");
+                cout <<"Invalid SSN!" << endl;
+            }
+            catch(InvalidSalaryException) {
+                system("CLS");
+                cout <<"Invalid Salary!" << endl;
+            }
+            catch(InvalidMonthException) {
+                system("CLS");
+                cout <<"Invalid month!" << endl;
+            }
+            catch(InvalidYearException) {
+                system("CLS");
+                cout <<"Invalid Year!" << endl;
             }
 
         }
@@ -47,17 +65,16 @@ void SalaryUI::mainMenu() {
 
 
         }
-        else if(input == '2') {
+        else if(input == '3') {
 
 
         }
-        else if(input == '2') {
+        else if(input == '4') {
 
 
         }
-        else {
-            cout <<"\nWrong input." << endl;
+        else if(input == '5') {
+            exit(0);
         }
-
     }
 }

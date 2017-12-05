@@ -9,9 +9,7 @@ Salary::Salary() {
 Salary::Salary(string name, string ssn, double salary, int month, int year)
 {
     this->name = name;
-
     this->ssn = ssn;
-    this->ssn.at(10) = '\0';
     this->msalary = salary;
     this->month = month;
     this->year = year;
@@ -40,14 +38,9 @@ ostream& operator <<(ostream& out, const Salary& salary) {
     return out;
 }
 ofstream& operator <<(ofstream& fout, const Salary& salary) {
-    fout.open("Salary.txt", ios::app);
-    if(fout.is_open()) {
-        fout << salary.name << endl;
-        fout << salary.ssn <<endl;
-        fout << salary.msalary << endl;
-        fout << salary.month << endl;
-        fout << salary.year << endl;
-        fout.close();
-    }
+    fout.open("Salary.dat", ios::binary|ios::app);
+    fout.write((char*)(&salary), sizeof(Salary));
+    fout.close();
+
     return fout;
 }
