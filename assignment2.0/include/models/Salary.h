@@ -4,6 +4,7 @@
 #include <iostream>
 #include <fstream>
 using namespace std;
+static const int MAX_SIZE = 15;
 
 class Salary
 {
@@ -19,11 +20,13 @@ class Salary
         friend ostream& operator <<(ostream& out, const Salary& salary);
         friend ofstream& operator <<(ofstream& fout, const Salary& salary);
     private:
-        string name;
-        string ssn;
+        char name[MAX_SIZE];
+        char ssn[MAX_SIZE];
         double msalary;
         int month;
         int year;
+        void strToCharArrayName(string str);
+        void strToCharArraySSN(string str);
 };
 
 #endif // SALARY_H

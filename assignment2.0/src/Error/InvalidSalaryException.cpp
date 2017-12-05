@@ -1,4 +1,4 @@
-#include "InvalidSalaryException.h"
+#include "..\..\include\error\InvalidSalaryException.h"
 
 InvalidSalaryException::InvalidSalaryException()
 {

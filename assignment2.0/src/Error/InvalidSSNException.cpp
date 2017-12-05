@@ -1,4 +1,4 @@
-#include "InvalidSSNException.h"
+#include "..\..\include\error\InvalidSSNException.h"
 
 InvalidSSNException::InvalidSSNException()
 {

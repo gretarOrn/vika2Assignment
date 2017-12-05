@@ -43,3 +43,5 @@ bool SalaryService::validSalary(const Salary& salary){
     }
     return true;
 }
+
+
