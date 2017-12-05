@@ -63,6 +63,10 @@ void SalaryUI::mainMenu() {
             cout <<"Enter desired SSN: ";
             cin >>ssn;
 
+            salary_service.salaryForSSN(ssn);
+            for(int i = 0; i < 10; i++) {
+            }
+
 
         }
         else if(input == '3') {

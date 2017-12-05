@@ -43,5 +43,28 @@ bool SalaryService::validSalary(const Salary& salary){
     }
     return true;
 }
+Salary* SalaryService::salaryForSSN(string ssn) {
+    int size = salary_repo.sizeOfList();
+    string tempSSN;
+    Salary* total_list = new Salary[size];
+    Salary* ssn_list = new Salary[size];
+    bool check;
+    int counter = 0;
+    for(int i = 0; i < size; i++) {
+        tempSSN = total_list[i].getSSN();
+        for(int j = 0; j < 10; j++) {
+            if(tempSSN[j] == ssn[j]) {
+                check = true;
+            }
+            else {
+                check = false;
+            }
+        }
+        if(check) {
+            ssn_list[counter] = total_list[i];
+        }
+    }
+    return ssn_list;
 
+}
 
