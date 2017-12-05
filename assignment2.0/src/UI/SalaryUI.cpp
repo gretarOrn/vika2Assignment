@@ -86,6 +86,12 @@ void SalaryUI::mainMenu() {
 
         }
         else if(input == '4') {
+            system("CLS");
+            int year;
+            cout << "Enter desired year: ";
+            cin >> year;
+            string name = salary_service.highestSalaryYear(year);
+            cout << "Name with highest salary: " << name << endl;
 
 
         }
