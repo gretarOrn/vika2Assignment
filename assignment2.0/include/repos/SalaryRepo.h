@@ -1,7 +1,8 @@
 #ifndef SALARYREPO_H
 #define SALARYREPO_H
 #include "..\..\include\models\Salary.h"
-//#include <fstream>
+#include <vector>
+
 
 
 class SalaryRepo
@@ -9,6 +10,8 @@ class SalaryRepo
     public:
         SalaryRepo();
         void addSalary(const Salary& salary);
+
+
     private:
 };
 

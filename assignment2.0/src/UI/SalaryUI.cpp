@@ -31,10 +31,19 @@ void SalaryUI::mainMenu() {
             cout <<"Year: ";
             cin >>year;
             Salary salary(name,SSN,msalary,month,year);
-            salary_service.addSalary(salary);
+            try {
+
+                salary_service.addSalary(salary);
+            }
+            catch(InvalidNameException) {
+                cout <<"Invalid name!" << endl;
+            }
 
         }
         else if(input == '2') {
+            string ssn;
+            cout <<"Enter desired SSN: ";
+            cin >>ssn;
 
 
         }

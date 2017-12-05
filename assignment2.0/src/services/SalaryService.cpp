@@ -14,6 +14,19 @@ void SalaryService::addSalary(const Salary& salary) {
     }
 }
 bool SalaryService::validSalary(const Salary& salary) {
-    /// vantar villu check hérna
+    string name = salary.getName();
+/*    string ssn = salary.getSSN();
+    double msalary = salary.getSalary();
+    int month,year;
+    month = salary.getMonth();
+    year = salary.getYear();
+*/
+    for(unsigned int i = 0; i < name.length(); i++) {
+
+        if(isdigit(name[i])) {
+            throw InvalidNameException();
+        }
+    }
+
     return true;
 }

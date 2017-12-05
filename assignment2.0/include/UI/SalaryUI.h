@@ -2,6 +2,8 @@
 #define SALARYUI_H
 #include "..\..\include\models\Salary.h"
 #include "..\..\include\services\SalaryService.h"
+#include <vector>
+#include "InvalidNameException.h"
 
 class SalaryUI
 {

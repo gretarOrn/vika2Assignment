@@ -1,30 +1,35 @@
 #include "..\..\include\models\Salary.h"
-
+Salary::Salary() {
+    name = "";
+    ssn = "";
+    msalary = 0;
+    month = 0;
+    year = 0;
+}
 Salary::Salary(string name, string ssn, double salary, int month, int year)
 {
     this->name = name;
-    for(unsigned int i = 0; i < ssn.size(); i++) {
-        this->ssn[i] = ssn.at(i);
-    }
-    this->ssn[ssn.size()] = '\0';
+
+    this->ssn = ssn;
+    this->ssn.at(10) = '\0';
     this->msalary = salary;
     this->month = month;
     this->year = year;
 }
-string Salary::getName(){
-    return name;
+string Salary::getName() const{
+    return this->name;
 }
-char* Salary::getSSN() {
-    return ssn;
+string Salary::getSSN() const{
+    return this->ssn;
 }
-double Salary::getSalary() {
-    return msalary;
+double Salary::getSalary() const{
+    return this->msalary;
 }
-int Salary::getMonth() {
-    return month;
+int Salary::getMonth() const{
+    return this->month;
 }
-int Salary::getYear() {
-    return year;
+int Salary::getYear() const{
+    return this->year;
 }
 ostream& operator <<(ostream& out, const Salary& salary) {
     out <<"Name: " << salary.name <<endl;

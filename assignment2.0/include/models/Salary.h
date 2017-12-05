@@ -8,18 +8,19 @@ using namespace std;
 class Salary
 {
     public:
+        Salary();
         Salary(string name, string ssn, double salary, int month, int year);
-        string getName();
-        char* getSSN();
-        double getSalary();
-        int getMonth();
-        int getYear();
+        string getName() const;
+        string getSSN() const;
+        double getSalary() const;
+        int getMonth() const;
+        int getYear() const;
 
         friend ostream& operator <<(ostream& out, const Salary& salary);
         friend ofstream& operator <<(ofstream& fout, const Salary& salary);
     private:
         string name;
-        char ssn[10];
+        string ssn;
         double msalary;
         int month;
         int year;

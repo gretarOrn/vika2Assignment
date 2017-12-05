@@ -10,3 +10,4 @@ void SalaryRepo::addSalary(const Salary& salary) {
     fout << salary;
 
 }
+
