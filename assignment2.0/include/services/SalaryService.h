@@ -13,7 +13,7 @@ class SalaryService
     public:
         SalaryService();
         void addSalary(const Salary& salary);
-        Salary* salaryForSSN(string ssn);
+        Salary* salaryForSSN(string ssn, int& counter);
 
     private:
         SalaryRepo salary_repo;

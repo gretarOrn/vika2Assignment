@@ -49,8 +49,8 @@ void Salary::strToCharArrayName(string str) {
     for ( int i = 0; i < n; i++) {
         this->name[i] = str[i];
     }
-    this->name[n-1] = '\0';
-    this->name[MAX_SIZE - 1] = '\0';
+    this->name[n] = '\0';
+    this->name[MAX_SIZE] = '\0';
 
 }
 void Salary::strToCharArraySSN(string str) {
@@ -58,8 +58,8 @@ void Salary::strToCharArraySSN(string str) {
     for ( int i = 0; i < n; i++) {
         this->ssn[i] = str[i];
     }
-    this->ssn[n-1] = '\0';
-    this->ssn[MAX_SIZE - 1] = '\0';
+    this->ssn[n] = '\0';
+    this->ssn[MAX_SIZE] = '\0';
 
 }
 

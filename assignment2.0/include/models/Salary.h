@@ -4,7 +4,8 @@
 #include <iostream>
 #include <fstream>
 using namespace std;
-static const int MAX_SIZE = 15;
+static const int MAX_SIZE = 11;
+
 
 class Salary
 {
