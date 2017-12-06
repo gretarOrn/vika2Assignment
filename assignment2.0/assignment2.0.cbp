@@ -7,7 +7,7 @@
 		<Option compiler="gcc" />
 		<Build>
 			<Target title="Debug">
-				<Option output="bin/Debug/assignment2.0" prefix_auto="1" extension_auto="1" />
+				<Option output="bin/Debug/assignment2" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/Debug/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
@@ -16,7 +16,7 @@
 				</Compiler>
 			</Target>
 			<Target title="Release">
-				<Option output="bin/Release/assignment2.0" prefix_auto="1" extension_auto="1" />
+				<Option output="bin/Release/assignment2" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/Release/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
@@ -32,7 +32,25 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="include/Error/InvalidMonthException.h" />
+		<Unit filename="include/Error/InvalidNameException.h" />
+		<Unit filename="include/Error/InvalidSSNException.h" />
+		<Unit filename="include/Error/InvalidSalaryException.h" />
+		<Unit filename="include/Error/InvalidYearException.h" />
+		<Unit filename="include/UI/SalaryUI.h" />
+		<Unit filename="include/models/Salary.h" />
+		<Unit filename="include/repos/SalaryRepo.h" />
+		<Unit filename="include/services/SalaryService.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/Error/InvalidMonthException.cpp" />
+		<Unit filename="src/Error/InvalidNameException.cpp" />
+		<Unit filename="src/Error/InvalidSSNException.cpp" />
+		<Unit filename="src/Error/InvalidSalaryException.cpp" />
+		<Unit filename="src/Error/InvalidYearException.cpp" />
+		<Unit filename="src/UI/SalaryUI.cpp" />
+		<Unit filename="src/models/Salary.cpp" />
+		<Unit filename="src/repos/SalaryRepo.cpp" />
+		<Unit filename="src/services/SalaryService.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />
