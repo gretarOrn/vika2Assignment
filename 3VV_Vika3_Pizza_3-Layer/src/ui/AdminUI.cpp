@@ -129,6 +129,7 @@ void AdminUI::addPizzas() {
 }
 
 void AdminUI::addExtras() {
+    /*
     ofstream fout;
 
     Extra extra;
@@ -150,4 +151,5 @@ void AdminUI::addExtras() {
         cout << "Continue? (y/n) ";
         cin >> userInput;
     } while(userInput == 'y');
+*/
 }

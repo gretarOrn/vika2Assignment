@@ -20,37 +20,61 @@ class DataBase
         DataBase();
         ~DataBase();
 
+        SuperRepo repo;
+
         Extra* extraMaster;
+        Location* locationMaster;
+        Order* activeOrderMaster;
+        Order* inactiveOrderMaster;
         Pizza* pizzaMaster;
         PizzaSauce* sauceMaster;
         PizzaSize* sizeMaster;
+        PizzaType* typeMaster;
+        PriceList* priceMaster;
         Topping* toppingMaster;
 
-        int getExtraID();
-        int getPizzaID();
-        int getOrderID();
-        int getSauceID();
-        int getSizeID();
-        int getToppingID();
+        int getExtraID() const;
+        int getLocationID() const;
+        int getOrderID() const;
+        int getInactive() const;
+        int getPizzaID() const;
+        int getSauceID() const;
+        int getSizeID() const;
+        int getTypeID() const;
+        int getPriceID() const;
+        int getToppingID() const;
 
         void incrementExtraID();
-        void incrementPizzaID();
+        void incrementLocationID();
         void incrementOrderID();
+        void incrementPizzaID();
         void incrementSauceID();
         void incrementSizeID();
+        void incrementTypeID();
+        void incrementPriceID();
         void incrementToppingID();
-
-
 
 
     private:
         int extraID;
-        int pizzaID;
+        int locationID;
         int orderID;
+        int pizzaID;
         int sauceID;
         int sizeID;
+        int typeID;
+        int priceID;
         int toppingID;
 
+        void setExtraID();
+        void setLocationID();
+        void setOrderID();
+        void setPizzaID();
+        void setSauceID();
+        void setSizeID();
+        void setTypeID();
+        void setPriceID();
+        void setToppingID();
 };
 
 #endif // DATABASE_H

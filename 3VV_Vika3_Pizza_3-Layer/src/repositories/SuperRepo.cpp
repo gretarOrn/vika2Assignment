@@ -93,7 +93,7 @@ void SuperRepo::writeToLocationFile(Location location) const {
 
 
 /// Order
-int SuperRepo::getOrderLines() const {
+int SuperRepo::getActiveOrderLines() const {
     ifstream fin;
     int recordCount = 0;
     fin.open("ActiveOrders.dat", ios::binary);
@@ -106,7 +106,7 @@ int SuperRepo::getOrderLines() const {
     return recordCount;
 }
 
-Order* SuperRepo::readOrderFile() {
+Order* SuperRepo::readActiveOrderFile() {
     ifstream fin;
     Order* masterList = 0;
     fin.open("ActiveOrders.dat");
@@ -125,13 +125,52 @@ Order* SuperRepo::readOrderFile() {
     return masterList;
 }
 
-void SuperRepo::writeToOrderFile(Order order) const {
+void SuperRepo::writeToActiveOrderFile(Order order) const {
     ofstream fout;
     fout.open("ActiveOrders.dat", ios::binary|ios::app);
     fout.write((char*)(&order), sizeof(Order));
     fout.close();
 }
 
+/// InactiveOrder
+int SuperRepo::getInactiveOrderLines() const {
+    ifstream fin;
+    int recordCount = 0;
+    fin.open("CompletedOrders.dat", ios::binary);
+    if(fin.is_open()) {
+        fin.seekg(0, fin.end);
+        recordCount = fin.tellg() / sizeof(Order);
+        fin.seekg(0, fin.beg);
+    }
+    fin.close();
+    return recordCount;
+}
+
+Order* SuperRepo::readInactiveOrderFile() {
+    ifstream fin;
+    Order* masterList = 0;
+    fin.open("CompletedOrders.dat");
+        if(fin.is_open()) {
+            fin.seekg(0, fin.end);
+            int recordCount = fin.tellg() / sizeof(Order);
+            fin.seekg(0, fin.beg);
+
+            masterList = new Order[recordCount];
+
+            fin.read((char*)(masterList), (recordCount * sizeof(Order)));
+        } else {
+            cout << "Unable to open file.";
+        }
+    fin.close();
+    return masterList;
+}
+
+void SuperRepo::writeToInactiveOrderFile(Order order) const {
+    ofstream fout;
+    fout.open("CompletedOrders.dat", ios::binary|ios::app);
+    fout.write((char*)(&order), sizeof(Order));
+    fout.close();
+}
 
 /// Pizza
 int SuperRepo::getPizzaLines() const {
@@ -293,6 +332,46 @@ void SuperRepo::writeToTypeFile(PizzaType type) const {
     ofstream fout;
     fout.open("PizzaType.dat", ios::binary|ios::app);
     fout.write((char*)(&type), sizeof(PizzaType));
+    fout.close();
+}
+
+/// Price
+int SuperRepo::getPriceLines() const{
+    ifstream fin;
+    int recordCount = 0;
+    fin.open("PriceList.dat", ios::binary);
+    if(fin.is_open()) {
+        fin.seekg(0, fin.end);
+        recordCount = fin.tellg() / sizeof(PriceList);
+        fin.seekg(0, fin.beg);
+    }
+    fin.close();
+    return recordCount;
+}
+
+PriceList* SuperRepo::readPriceFile() {
+    ifstream fin;
+    PriceList* masterList = 0;
+    fin.open("PriceList.dat");
+        if(fin.is_open()) {
+            fin.seekg(0, fin.end);
+            int recordCount = fin.tellg() / sizeof(PriceList);
+            fin.seekg(0, fin.beg);
+
+            masterList = new PriceList[recordCount];
+
+            fin.read((char*)(masterList), (recordCount * sizeof(PriceList)));
+        } else {
+            cout << "Unable to open file.";
+        }
+    fin.close();
+    return masterList;
+}
+
+void SuperRepo::writeToPriceFile(PriceList price) const{
+    ofstream fout;
+    fout.open("PriceList.dat", ios::binary|ios::app);
+    fout.write((char*)(&price), sizeof(PriceList));
     fout.close();
 }
 

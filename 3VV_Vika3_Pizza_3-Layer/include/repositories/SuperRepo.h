@@ -8,6 +8,7 @@
 #include "PizzaSauce.h"
 #include "PizzaSize.h"
 #include "PizzaType.h"
+#include "PriceList.h"
 #include "Topping.h"
 
 
@@ -27,10 +28,15 @@ class SuperRepo
         Location* readLocationFile();
         void writeToLocationFile(Location location) const;
 
-        /// Order
-        int getOrderLines() const;
-        Order* readOrderFile();
-        void writeToOrderFile(Order order) const;
+        /// ActiveOrder
+        int getActiveOrderLines() const;
+        Order* readActiveOrderFile();
+        void writeToActiveOrderFile(Order order) const;
+
+        /// InactiveOrder
+        int getInactiveOrderLines() const;
+        Order* readInactiveOrderFile();
+        void writeToInactiveOrderFile(Order order) const;
 
         /// Pizza
         int getPizzaLines() const;
@@ -51,6 +57,11 @@ class SuperRepo
         int getTypeLines() const;
         PizzaType* readTypeFile();
         void writeToTypeFile(PizzaType type) const;
+
+        /// Price
+        int getPriceLines() const;
+        PriceList* readPriceFile();
+        void writeToPriceFile(PriceList price) const;
 
         /// Topping
         int getToppingLines() const;

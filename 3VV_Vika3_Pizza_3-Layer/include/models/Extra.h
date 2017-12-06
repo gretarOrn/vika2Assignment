@@ -12,26 +12,32 @@ class Extra
     public:
         Extra();
 
+        int getIdNumber() const;
         string getName() const;
         double getPrice() const;
-        int getLines() const;
+        bool getActiveState() const;
+        //int getLines() const;
 
+        void setIdNumber(int newIdNumber);
         void setName(string newName);
-        void setPrice(double newPrice);
-        void setPriceingCategory(int newPriceCategory);
+        //void setPrice(double newPrice);
+        void setPriceCategory(int newPriceCategory);
+        void setActiveState(bool newState);
 
-        Extra* readFile();
+        //Extra* readFile();
 
         friend istream&  operator >> (istream& in, Extra& extra);
         friend ostream&  operator << (ostream& out, const Extra& extra);
-        friend ifstream& operator >> (ifstream& fin, Extra& extra);
-        friend ofstream& operator << (ofstream& fout, const Extra& extra);
+        //friend ifstream& operator >> (ifstream& fin, Extra& extra);
+        //friend ofstream& operator << (ofstream& fout, const Extra& extra);
 
     private:
         static const int MAX_STRING_LENGTH = 24;
 
+        int idNumber;
         char name[MAX_STRING_LENGTH];
         int priceCategory;
+        bool isActive;
 
         void strToCharArr(string name);
 
