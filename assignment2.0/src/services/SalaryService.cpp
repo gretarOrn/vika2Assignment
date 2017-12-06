@@ -70,7 +70,7 @@ bool SalaryService::validSalary(const Salary& salary){
     if(month < 0 || month > 12) {
         throw InvalidMonthException();
     }
-    if(year > 2017) {
+    if(year > 2017 || year < 0) {
         throw InvalidYearException();
     }
     return true;
