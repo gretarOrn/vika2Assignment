@@ -4,35 +4,27 @@ SalesUI::SalesUI()
 {
     //ctor
 }
-void SalesUI::startUp() {
-/*
-    cout << "wanna create order? (y/n) ";
-    char c;
-    cin >> c;
 
-    if (c == 'y') {
-        Order order;
-        order.pizzaOrders();
-        order.setDelMethod();
-        order.setAddress();
-        order.setComments();
-    }
-    while (c != 'n') {
-        cout << "wanna create another order? (y/n)" << endl;
+void SalesUI::startUp() {
+    char c;
+    while (c != 'q') {
+        system("CLS");
+        cout << "Sales:" << endl;
+        cout << "1)\t" << "Create an order" << endl;
+        cout << "2)\t" << "Edit an order" << endl;
+        cout << "3)\t" << "..............." << endl;
+        cout << "q)\t" << "Go back" << endl;
+
         cin >> c;
-    if (c == 'y') {
-        Order order2;
-        order2.pizzaOrders();
-        order2.setDelMethod();
-        order2.setAddress();
-        order2.setComments();;
-        break;
+        if(c == '1') {
+
+        } else if(c == '2') {
+
+        } else if(c == '3') {
+
+        } else if(c != 'q') {
+
         }
     }
-*/
-}
-
-SalesUI::~SalesUI()
-{
-    //dtor
+    system("CLS");
 }

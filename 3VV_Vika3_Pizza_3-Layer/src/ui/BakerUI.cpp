@@ -4,11 +4,7 @@ BakerUI::BakerUI()
 {
     //ctor
 }
+
 void BakerUI::startUp() {
 
-}
-
-BakerUI::~BakerUI()
-{
-    //dtor
 }

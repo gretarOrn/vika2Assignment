@@ -2,12 +2,12 @@
 #define SALESUI_H
 
 #include "Order.h"
+#include <cstdlib>
 
 class SalesUI
 {
     public:
         SalesUI();
-        virtual ~SalesUI();
 
         void startUp();
 

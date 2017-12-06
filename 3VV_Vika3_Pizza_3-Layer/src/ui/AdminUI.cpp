@@ -14,14 +14,16 @@ void AdminUI::startUp() {
     char c;
 
     while(c != 'q') {
-        cout << "type 1 to add size" << endl;
-        cout << "type 2 to add sauce" << endl;
-        cout << "type 3 to add topping" << endl;
-        cout << "type 4 to add pizza to menu" << endl;
-        cout << "type 5 to add extras" << endl;
-        cout << "type 6 to add price" << endl;
-        cout << "type 7 to add location" << endl;
-        cout << "type q to add quit" << endl;
+        system("CLS");
+        cout << "Please select an admin option:" << endl;
+        cout << "1)\t" << "Size options" << endl;
+        cout << "2)\t" << "Sauce options" << endl;
+        cout << "3)\t" << "Topping options" << endl;
+        cout << "4)\t" << "Pizza menu options" << endl;
+        cout << "5)\t" << "Extra options" << endl;
+        cout << "6)\t" << "Price category options" << endl;
+        cout << "7)\t" << "Location options" << endl;
+        cout << "q)\t" << "Go back" << endl;
 
         cin >> c;
         if (c == '1') {
@@ -46,25 +48,32 @@ void AdminUI::startUp() {
 
         }
     }
+    system("CLS");
 }
 
 void AdminUI::addSauces() {
-    ofstream fout;
+    char c;
+    while(c != 'q') {
+        system("CLS");
+        cout << "Sauce options" << endl;
+        cout << "1)\t" << "Add a sauce" << endl;
+        cout << "2)\t" << "Edit a sauce" << endl;
+        cout << "3)\t" << "\"remove a sauce\"" << endl;
+        cout << "q)\t" << "Go back" << endl;
 
-    PizzaSauce sauce;
+        cin >> c;
+        if (c == '1') {
+            AdminService adminSer;
+            adminSer.addSauces();
+        }
+        if (c == '2') {
 
-    sauce.displaySauce();
+        }
+        if (c == '3') {
 
-    char userInput;
-
-    do {
-        userInput = 'n';
-        cout << "Add a sauce: " << endl;
-        cin >> sauce;
-        fout << sauce;
-        cout << "Continue? (y/n) ";
-        cin >> userInput;
-    } while(userInput == 'y');
+        }
+    }
+    system("CLS");
 }
 
 void AdminUI::addToppings() {

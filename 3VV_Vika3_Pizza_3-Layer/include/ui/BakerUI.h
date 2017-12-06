@@ -6,10 +6,8 @@ class BakerUI
 {
     public:
         BakerUI();
-        void startUp();
-        virtual ~BakerUI();
 
-    protected:
+        void startUp();
 
     private:
 };

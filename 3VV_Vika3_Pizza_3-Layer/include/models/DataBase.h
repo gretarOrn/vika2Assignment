@@ -2,10 +2,13 @@
 #define DATABASE_H
 
 #include "Extra.h"
+#include "Location.h"
+#include "Order.h"
 #include "Pizza.h"
 #include "PizzaSauce.h"
 #include "PizzaSize.h"
 #include "PizzaType.h"
+#include "PriceList.h"
 #include "Topping.h"
 
 #include <vector>
