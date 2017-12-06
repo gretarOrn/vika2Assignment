@@ -14,6 +14,7 @@ DataBase::DataBase() {
 DataBase::~DataBase() {
     //dtor
 }
+///***************************************************************************************
 int DataBase::getExtraID() {
     return extraID;
 }
@@ -32,6 +33,7 @@ int DataBase::getSizeID() {
 int DataBase::getToppingID() {
     return toppingID;
 }
+///***************************************************************************************
 void DataBase::incrementExtraID() {
     extraID++;
 }

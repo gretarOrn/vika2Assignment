@@ -25,12 +25,14 @@ class DataBase
         PizzaSauce* sauceMaster;
         PizzaSize* sizeMaster;
         Topping* toppingMaster;
+
         int getExtraID();
         int getPizzaID();
         int getOrderID();
         int getSauceID();
         int getSizeID();
         int getToppingID();
+
         void incrementExtraID();
         void incrementPizzaID();
         void incrementOrderID();
