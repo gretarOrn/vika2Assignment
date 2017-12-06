@@ -12,12 +12,17 @@ void SalaryService::addSalary(const Salary& salary){
         Salary* total_list = new Salary[n];
         total_list = salary_repo.salaryList();
         bool check = true;
+        if(n == 0) {
+            salary_repo.addSalary(salary);
+        }
         for(int i = 0; i < n; i++) {
             if(salary.getSSN() == total_list[i].getSSN()) {
                 if(salary.getYear() == total_list[i].getYear()) {
                     if(salary.getMonth() == total_list[i].getMonth()) {
-                        total_list[i] = salary;
+                        total_list[i].setSalary(salary.getSalary());
                         salary_repo.addList(total_list, n);
+                        check = true;
+                        break;
                     }
                     else {
                         check = false;

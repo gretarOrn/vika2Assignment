@@ -17,6 +17,7 @@ class Salary
         double getSalary() const;
         int getMonth() const;
         int getYear() const;
+        void setSalary(double salary);
 
         friend ostream& operator <<(ostream& out, const Salary& salary);
         friend ofstream& operator <<(ofstream& fout, const Salary& salary);

@@ -40,6 +40,6 @@ void SalaryRepo::addList(const Salary* salary, int counter) {
 
     fout.open("Salary.dat", ios::binary);
     fout.clear();
-    fout.write((char*)(&salary), (sizeof(Salary)*(counter)));
+    fout.write((char*)(salary), (sizeof(Salary)*(counter)));
     fout.close();
 }
