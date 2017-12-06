@@ -63,3 +63,6 @@ void Salary::strToCharArraySSN(string str) {
 
 }
 
+void Salary::setSalary(double salary) {
+    this->msalary = salary;
+}
