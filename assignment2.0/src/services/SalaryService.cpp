@@ -7,7 +7,34 @@ SalaryService::SalaryService()
 
 void SalaryService::addSalary(const Salary& salary){
     if(validSalary(salary)) {
-        salary_repo.addSalary(salary);
+        int n = salary_repo.sizeOfList();
+        string tempSSN;
+        Salary* total_list = new Salary[n];
+        total_list = salary_repo.salaryList();
+        bool check = true;
+        for(int i = 0; i < n; i++) {
+            if(salary.getSSN() == total_list[i].getSSN()) {
+                if(salary.getYear() == total_list[i].getYear()) {
+                    if(salary.getMonth() == total_list[i].getMonth()) {
+                        total_list[i] = salary;
+                        salary_repo.addList(total_list, n);
+                    }
+                    else {
+                        check = false;
+                    }
+                }
+                else {
+                    check = false;
+                }
+            }
+            else {
+                check = false;
+            }
+        }
+        if(!check) {
+            salary_repo.addSalary(salary);
+        }
+
     }
 }
 bool SalaryService::validSalary(const Salary& salary){
