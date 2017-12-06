@@ -18,6 +18,7 @@ void SalaryUI::mainMenu() {
 
         cin >>input;
         if(input == '1') {
+            system("CLS");
             string name,SSN;
             double msalary;
             int month,year;
@@ -59,21 +60,38 @@ void SalaryUI::mainMenu() {
 
         }
         else if(input == '2') {
+            system("CLS");
             string ssn;
             cout <<"Enter desired SSN: ";
             cin >>ssn;
-
-            salary_service.salaryForSSN(ssn);
-            for(int i = 0; i < 10; i++) {
+            int counter;
+            Salary* listi = new Salary[12];
+            listi = salary_service.salaryForSSN(ssn, counter);
+            for(int i = 0; i < counter; i++) {
+                    cout << listi[i];
             }
 
 
         }
         else if(input == '3') {
-
+            system("CLS");
+            string ssn;
+            int year;
+            cout <<"Enter desired SSN: ";
+            cin >>ssn;
+            cout <<"Enter desired year: ";
+            cin >>year;
+            double totalsalary = salary_service.salaryForSSNYear(ssn, year);
+            cout <<"Total salary of " << ssn <<" for the year "<< year <<" is: " << totalsalary << endl;
 
         }
         else if(input == '4') {
+            system("CLS");
+            int year;
+            cout << "Enter desired year: ";
+            cin >> year;
+            string name = salary_service.highestSalaryYear(year);
+            cout << "Name with highest salary: " << name << endl;
 
 
         }

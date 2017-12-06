@@ -43,28 +43,78 @@ bool SalaryService::validSalary(const Salary& salary){
     }
     return true;
 }
-Salary* SalaryService::salaryForSSN(string ssn) {
-    int size = salary_repo.sizeOfList();
+Salary* SalaryService::salaryForSSN(string ssn, int& counter) {
+    int n = salary_repo.sizeOfList();
     string tempSSN;
-    Salary* total_list = new Salary[size];
-    Salary* ssn_list = new Salary[size];
-    bool check;
-    int counter = 0;
-    for(int i = 0; i < size; i++) {
+    Salary* total_list = new Salary[n];
+    Salary* ssn_list = new Salary[n];
+    bool check = true;
+    total_list = salary_repo.salaryList();
+    counter = 0;
+    for(int i = 0; i < n; i++) {
         tempSSN = total_list[i].getSSN();
-        for(int j = 0; j < 10; j++) {
-            if(tempSSN[j] == ssn[j]) {
-                check = true;
-            }
-            else {
+        for(int j = 0; (j < 10); j++) {
+            if(tempSSN[j] != ssn.at(j)) {
                 check = false;
             }
+
         }
         if(check) {
             ssn_list[counter] = total_list[i];
+            counter++;
         }
+        check = true;
     }
     return ssn_list;
 
 }
+double SalaryService::salaryForSSNYear(string ssn, int year) {
+    int n = salary_repo.sizeOfList();
+    string tempSSN;
+    int tempYear;
+    double totalSalary = 0;
+    Salary* total_list = new Salary[n];
+    total_list = salary_repo.salaryList();
+    bool check = true;
+    for(int i = 0; i < n; i++) {
+        tempSSN = total_list[i].getSSN();
+        tempYear = total_list[i].getYear();
+        for(int j = 0; (j < 10); j++) {
+            if(tempSSN[j] != ssn.at(j)) {
+                check = false;
+            }
 
+        }
+
+        if(check && tempYear == year) {
+            totalSalary += total_list[i].getSalary();
+        }
+        check = true;
+    }
+
+    return totalSalary;
+}
+string SalaryService::highestSalaryYear(int year) {
+    int n = salary_repo.sizeOfList();
+    Salary* total_list = new Salary[n];
+    total_list = salary_repo.salaryList();
+    int sal = 0;
+    int highSal = 0;
+    string name;
+    for (int i = 0; i < n; i++) {
+        sal = 0;
+        for (int j = 0; j < n; j++) {
+            if (total_list[i].getSSN() == total_list[j].getSSN()) {
+                sal += total_list[j].getSalary();
+
+            }
+        }
+        if (sal > highSal) {
+            highSal = sal;
+            name = total_list[i].getName();
+
+        }
+    }
+    return name;
+
+}
