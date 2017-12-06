@@ -14,7 +14,7 @@ class SalaryService
         SalaryService();
         void addSalary(const Salary& salary);
         Salary* salaryForSSN(string ssn, int& counter);
-        double salaryForSSNYear(string ssn, int year);
+        double salaryForSSNYear(string smsn, int year);
         string highestSalaryYear(int year);
 
     private:

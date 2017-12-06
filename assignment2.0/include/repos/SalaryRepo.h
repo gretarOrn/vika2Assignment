@@ -10,6 +10,7 @@ class SalaryRepo
     public:
         SalaryRepo();
         void addSalary(const Salary& salary);
+        void addList(const Salary* salary, int counter);
         Salary* salaryList();
         int sizeOfList();
 
