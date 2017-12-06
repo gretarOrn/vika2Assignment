@@ -4,7 +4,6 @@ MainUI::MainUI() {
     //ctor
 }
 
-
 void MainUI::startUI() {
     char c;
 
@@ -21,29 +20,28 @@ void MainUI::startUI() {
     cout  << endl;
 
     while (c != 'q') {
+        system("CLS");
         cout << "Please select a branch:" << endl;
-        cout << "1)\tAdministration" << endl;
-        cout << "2)\tSales" << endl;
-        cout << "3)\tBaking" << endl;
-        cout << "4)\tDelivery" << endl;
-        cout << "5)\tExit/Quit" << endl;
+        cout << "1)\t" << "Administration" << endl;
+        cout << "2)\t" << "Sales" << endl;
+        cout << "3)\t" << "Baking" << endl;
+        cout << "4)\t" << "Delivery" << endl;
+        cout << "5)\t" << "Exit/Quit" << endl;
 
         cin >> c;
-        if (c == '1') {
+        if(c == '1') {
             AdminUI adminUI;
             adminUI.startUp();
-        } else if (c == '2') {
+        } else if(c == '2') {
             SalesUI salesUI;
             salesUI.startUp();
-        } else if (c == '3') {
+        } else if(c == '3') {
             BakerUI bakerUI;
             bakerUI.startUp();
-        }
-        else {
-            if(c != 'q') {
-                cout << "try again" << endl;
-            }
+        } else if(c == '4') {
+
+
         }
     }
-    cout << "Shutting down." << endl;
+    cout << endl << "Shutting down." << endl;
 }

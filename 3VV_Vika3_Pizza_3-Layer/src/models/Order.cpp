@@ -26,7 +26,7 @@ string Order::getName() const {
 }
 
 Pizza* Order::getPizzas() const {
-    //return pizzas;
+//    return *pizzas[0];
     return 0;
 }
 

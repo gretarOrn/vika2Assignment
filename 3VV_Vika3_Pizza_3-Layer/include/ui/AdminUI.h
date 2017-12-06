@@ -1,11 +1,12 @@
 #ifndef ADMINUI_H
 #define ADMINUI_H
 
-#include "SuperRepo.h"
+#include "AdminService.h"
 #include "Extra.h"
 #include "Pizza.h"
 
 #include <iostream>
+#include <cstdlib>
 using namespace std;
 
 

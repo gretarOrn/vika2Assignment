@@ -93,7 +93,7 @@ ifstream& operator >> (ifstream& fin, Extra& extra) {
 
         fin.read((char*)(extraMaster), (recordCount * sizeof(Extra)));
     } else {
-        cout << "Unable to read the extra list." << cout;
+        cout << "Unable to read the extra list." << endl;
     }
     fin.close();
     return fin;
