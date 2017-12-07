@@ -37,7 +37,6 @@ class DataBase
         int getExtraID() const;
         int getLocationID() const;
         int getOrderID() const;
-        int getInactive() const;
         int getPizzaID() const;
         int getSauceID() const;
         int getSizeID() const;
@@ -54,6 +53,18 @@ class DataBase
         void incrementTypeID();
         void incrementPriceID();
         void incrementToppingID();
+
+        void refreshExtra();
+        void refreshLocation();
+        void refreshActiveOrder();
+        void refreshInactiveOrder();
+        void refreshPizza();
+        void refreshSauce();
+        void refreshSize();
+        void refreshType();
+        void refreshPrice();
+        void refreshTopping();
+
 
 
     private:

@@ -22,6 +22,10 @@ DataBase::DataBase() {
     setToppingID();
 }
 
+
+
+
+
 DataBase::~DataBase() {
     if(extraMaster != 0) {
         delete[] extraMaster;
@@ -37,6 +41,11 @@ DataBase::~DataBase() {
         delete[] activeOrderMaster;
     } else {
         delete activeOrderMaster;
+    }
+    if(inactiveOrderMaster != 0) {
+        delete[] inactiveOrderMaster;
+    } else {
+        delete inactiveOrderMaster;
     }
     if(pizzaMaster != 0) {
         delete[] pizzaMaster;
@@ -69,6 +78,90 @@ DataBase::~DataBase() {
         delete toppingMaster;
     }
 }
+void DataBase::refreshExtra() {
+    if (extraMaster != 0) {
+        delete[] extraMaster;
+    } else {
+        delete extraMaster;
+    }
+    priceMaster = repo.readPriceFile();
+}
+void DataBase::refreshLocation() {
+    if (locationMaster != 0) {
+        delete[] locationMaster;
+    } else {
+        delete locationMaster;
+    }
+    locationMaster = repo.readLocationFile();
+}
+void DataBase::refreshActiveOrder() {
+    if (activeOrderMaster != 0) {
+        delete[] activeOrderMaster;
+    } else {
+        delete activeOrderMaster;
+    }
+    activeOrderMaster = repo.readActiveOrderFile();
+}
+void DataBase::refreshInactiveOrder() {
+    if (priceMaster != 0) {
+        delete[] inactiveOrderMaster;
+    } else {
+        delete inactiveOrderMaster;
+    }
+    inactiveOrderMaster = repo.readInactiveOrderFile();
+}
+void DataBase::refreshPizza() {
+    if (pizzaMaster != 0) {
+        delete[] pizzaMaster;
+    } else {
+        delete pizzaMaster;
+    }
+    pizzaMaster = repo.readPizzaFile();
+}
+void DataBase::refreshSauce() {
+    if (sauceMaster != 0) {
+        delete[] sauceMaster;
+    } else {
+        delete sauceMaster;
+    }
+    sauceMaster = repo.readSauceFile();
+}
+
+void DataBase::refreshSize() {
+    if (sizeMaster != 0) {
+        delete[] sizeMaster;
+    } else {
+        delete sizeMaster;
+    }
+    sizeMaster = repo.readSizeFile();
+}
+void DataBase::refreshType() {
+    if (typeMaster != 0) {
+        delete[] typeMaster;
+    } else {
+        delete typeMaster;
+    }
+    typeMaster = repo.readTypeFile();
+}
+
+void DataBase::refreshPrice() {
+    if (priceMaster != 0) {
+        delete[] priceMaster;
+    } else {
+        delete priceMaster;
+    }
+    priceMaster = repo.readPriceFile();
+}
+void DataBase::refreshTopping() {
+    if (toppingMaster != 0) {
+        delete[] toppingMaster;
+    } else {
+        delete toppingMaster;
+    }
+    toppingMaster = repo.readToppingFile();
+}
+
+
 ///***************************************************************************************
 int DataBase::getExtraID() const{
     return extraID;
