@@ -16,10 +16,13 @@ class SalaryService
         Salary* salaryForSSN(string ssn, int& counter);
         double salaryForSSNYear(string smsn, int year);
         string highestSalaryYear(int year);
+        void isInt(int& num);
+        void isDouble(double& num);
 
     private:
         SalaryRepo salary_repo;
         bool validSalary(const Salary& salary);
+
 };
 
 #endif // SALARYSERVICE_H
