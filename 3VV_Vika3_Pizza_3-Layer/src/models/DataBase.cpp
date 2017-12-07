@@ -127,22 +127,27 @@ void DataBase::incrementToppingID() {
 }
 ///***************************************************************************************
 void DataBase::setExtraID() {
-    extraID = extraMaster[repo.getExtraLines() - 1].getIdNumber();
+    if (extraMaster == 0) {
+        extraID = 0;
+    } else {
+        extraID = extraMaster[repo.getExtraLines() - 1].getIdNumber();
+    }
 }
 void DataBase::setLocationID() {
-    locationID = locationMaster[repo.getLocationLines() - 1].getIdNumber();
+    if (locationMaster == 0) {
+        locationID = 0;
+    } else {
+        locationID = locationMaster[repo.getLocationLines() - 1].getIdNumber();
+    }
 }
 void DataBase::setOrderID() {
     if (activeOrderMaster != 0 && inactiveOrderMaster == 0) {
         orderID = inactiveOrderMaster[repo.getInactiveOrderLines() - 1].getOrderId();
-    }
-    if (activeOrderMaster == 0 && inactiveOrderMaster != 0) {
+    } else if (activeOrderMaster == 0 && inactiveOrderMaster != 0) {
         orderID = activeOrderMaster[repo.getActiveOrderLines() - 1].getOrderId();
-    }
-    if (activeOrderMaster == 0 && inactiveOrderMaster == 0) {
+    } else if (activeOrderMaster == 0 && inactiveOrderMaster == 0) {
         orderID = 0;
-    }
-    if(activeOrderMaster[repo.getActiveOrderLines() - 1].getOrderId() > inactiveOrderMaster[repo.getInactiveOrderLines() - 1].getOrderId()) {
+    } else if(activeOrderMaster[repo.getActiveOrderLines() - 1].getOrderId() > inactiveOrderMaster[repo.getInactiveOrderLines() - 1].getOrderId()) {
         orderID = activeOrderMaster[repo.getActiveOrderLines() - 1].getOrderId();
     } else {
         orderID = inactiveOrderMaster[repo.getInactiveOrderLines() - 1].getOrderId();

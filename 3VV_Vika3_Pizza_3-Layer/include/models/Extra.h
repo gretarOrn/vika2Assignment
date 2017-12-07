@@ -14,7 +14,7 @@ class Extra
 
         int getIdNumber() const;
         string getName() const;
-        double getPrice() const;
+        double getPriceCategory() const;
         bool getActiveState() const;
         //int getLines() const;
 

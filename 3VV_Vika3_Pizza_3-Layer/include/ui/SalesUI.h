@@ -1,8 +1,11 @@
 #ifndef SALESUI_H
 #define SALESUI_H
 
-#include "Order.h"
+#include "DataBase.h"
+#include "OrderService.h"
+#include "PizzaService.h"
 #include <cstdlib>
+#include <iomanip>
 
 class SalesUI
 {
@@ -12,6 +15,17 @@ class SalesUI
         void startUp();
 
     private:
-};
+        DataBase data;
+        OrderService orderSer;
+        PizzaService pizzaSer;
 
+        void createOrder();
+
+        void displaySizeList();
+        void displayTypeList();
+        void displaySauceList();
+        void displayToppingList();
+        void displayExtraList();
+};
+ 
 #endif // SALESUI_H

@@ -18,7 +18,7 @@ string Extra::getName() const{
     return name;
 }
 
-double Extra::getPrice() const{
+double Extra::getPriceCategory() const{
     return priceCategory;
 }
 
