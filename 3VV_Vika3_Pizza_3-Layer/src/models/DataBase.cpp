@@ -2,15 +2,24 @@
 
 DataBase::DataBase() {
     extraMaster = repo.readExtraFile();
+    setExtraID();
     locationMaster = repo.readLocationFile();
+    setLocationID();
     activeOrderMaster = repo.readActiveOrderFile();
     inactiveOrderMaster = repo.readInactiveOrderFile();
+    setOrderID();
     pizzaMaster = repo.readPizzaFile();
+    setPizzaID();
     sauceMaster = repo.readSauceFile();
+    setSauceID();
     sizeMaster = repo.readSizeFile();
+    setSizeID();
     typeMaster = repo.readTypeFile();
+    setTypeID();
     priceMaster = repo.readPriceFile();
+    setPriceID();
     toppingMaster = repo.readToppingFile();
+    setToppingID();
 }
 
 DataBase::~DataBase() {
@@ -131,21 +140,45 @@ void DataBase::setOrderID() {
     }
 }
 void DataBase::setPizzaID() {
-    pizzaID = pizzaMaster[repo.getPizzaLines() - 1].getIdNumber();
+    if (pizzaMaster == 0) {
+        pizzaID = 1;
+    } else {
+        pizzaID = pizzaMaster[repo.getPizzaLines() - 1].getIdNumber();
+    }
 }
 void DataBase::setSauceID() {
-    sauceID = sauceMaster[repo.getSauceLines() - 1].getIdNumber();
+    if (sauceMaster == 0) {
+        sauceID = 1;
+    } else {
+        sauceID = sauceMaster[repo.getSauceLines() - 1].getIdNumber();
+    }
 }
 void DataBase::setSizeID() {
-    sizeID = sizeMaster[repo.getSizeLines() - 1].getIdNumber();
+    if (sizeMaster == 0) {
+        sizeID = 1;
+    } else {
+        sizeID = sizeMaster[repo.getSizeLines() - 1].getIdNumber();
+    }
 }
 void DataBase::setTypeID() {
+    if (typeMaster == 0) {
+        typeID = 1;
+    } else {
     typeID = typeMaster[repo.getTypeLines() - 1].getIdNumber();
+    }
 }
 void DataBase::setPriceID() {
+    if (priceMaster == 0) {
+        priceID = 1;
+    } else {
     priceID = priceMaster[repo.getPriceLines() - 1].getIdNumber();
+    }
 }
 void DataBase::setToppingID() {
+    if (toppingMaster == 0) {
+        toppingID = 1;
+    } else {
     toppingID = toppingMaster[repo.getToppingLines() - 1].getIdNumber();
+    }
 }
 
