@@ -53,18 +53,18 @@
 
 1512475617 c:\c++\vika2\vika2assignment\assignment2.0\include\error\invalidnameexception.h
 
-1512489908 source:c:\c++\vika2\vika2assignment\assignment2.0\src\models\salary.cpp
+1512575865 source:c:\c++\vika2\vika2assignment\assignment2.0\src\models\salary.cpp
 	"..\..\include\models\Salary.h"
 
-1512489908 c:\c++\vika2\vika2assignment\assignment2.0\include\models\salary.h
+1512575865 c:\c++\vika2\vika2assignment\assignment2.0\include\models\salary.h
 	<string>
 	<iostream>
 	<fstream>
 
-1512485770 source:c:\c++\vika2\vika2assignment\assignment2.0\src\repos\salaryrepo.cpp
+1512575865 source:c:\c++\vika2\vika2assignment\assignment2.0\src\repos\salaryrepo.cpp
 	"..\..\include\repos\SalaryRepo.h"
 
-1512485770 c:\c++\vika2\vika2assignment\assignment2.0\include\repos\salaryrepo.h
+1512569287 c:\c++\vika2\vika2assignment\assignment2.0\include\repos\salaryrepo.h
 	"..\..\include\models\Salary.h"
 	<vector>
 
@@ -128,4 +128,69 @@
 	"..\..\include\services\SalaryService.h"
 	<vector>
 	<cstdlib>
+
+1512594469 source:c:\c++\vika2assignment\assignment2.0\main.cpp
+	<iostream>
+	"include\UI\SalaryUI.h"
+
+1512591911 c:\c++\vika2assignment\assignment2.0\include\ui\salaryui.h
+	"..\..\include\models\Salary.h"
+	"..\..\include\services\SalaryService.h"
+	<vector>
+	<cstdlib>
+
+1512591911 c:\c++\vika2assignment\assignment2.0\include\models\salary.h
+	<string>
+	<iostream>
+	<fstream>
+
+1512594685 c:\c++\vika2assignment\assignment2.0\include\services\salaryservice.h
+	"..\..\include\models\Salary.h"
+	"..\..\include\repos\SalaryRepo.h"
+	"..\..\include\error\InvalidNameException.h"
+	"..\..\include\error\InvalidSSNException.h"
+	"..\..\include\error\InvalidSalaryException.h"
+	"..\..\include\error\InvalidMonthException.h"
+	"..\..\include\error\InvalidYearException.h"
+
+1512591911 c:\c++\vika2assignment\assignment2.0\include\repos\salaryrepo.h
+	"..\..\include\models\Salary.h"
+	<vector>
+
+1512591911 c:\c++\vika2assignment\assignment2.0\include\error\invalidnameexception.h
+
+1512591911 c:\c++\vika2assignment\assignment2.0\include\error\invalidssnexception.h
+
+1512591911 c:\c++\vika2assignment\assignment2.0\include\error\invalidsalaryexception.h
+
+1512591911 c:\c++\vika2assignment\assignment2.0\include\error\invalidmonthexception.h
+
+1512591911 c:\c++\vika2assignment\assignment2.0\include\error\invalidyearexception.h
+
+1512591911 source:c:\c++\vika2assignment\assignment2.0\src\error\invalidmonthexception.cpp
+	"..\..\include\error\InvalidMonthException.h"
+
+1512591911 source:c:\c++\vika2assignment\assignment2.0\src\error\invalidnameexception.cpp
+	"..\..\include\error\InvalidNameException.h"
+
+1512591911 source:c:\c++\vika2assignment\assignment2.0\src\error\invalidsalaryexception.cpp
+	"..\..\include\error\InvalidSalaryException.h"
+
+1512591911 source:c:\c++\vika2assignment\assignment2.0\src\error\invalidssnexception.cpp
+	"..\..\include\error\InvalidSSNException.h"
+
+1512591911 source:c:\c++\vika2assignment\assignment2.0\src\error\invalidyearexception.cpp
+	"..\..\include\error\InvalidYearException.h"
+
+1512591911 source:c:\c++\vika2assignment\assignment2.0\src\models\salary.cpp
+	"..\..\include\models\Salary.h"
+
+1512591911 source:c:\c++\vika2assignment\assignment2.0\src\repos\salaryrepo.cpp
+	"..\..\include\repos\SalaryRepo.h"
+
+1512594659 source:c:\c++\vika2assignment\assignment2.0\src\services\salaryservice.cpp
+	"..\..\include\services\SalaryService.h"
+
+1512594758 source:c:\c++\vika2assignment\assignment2.0\src\ui\salaryui.cpp
+	"..\..\include\UI\SalaryUI.h"
 

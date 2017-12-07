@@ -70,10 +70,24 @@ bool SalaryService::validSalary(const Salary& salary){
     if(month < 0 || month > 12) {
         throw InvalidMonthException();
     }
-    if(year > 2017) {
+    if(year > 2017 || year < 0) {
         throw InvalidYearException();
     }
     return true;
+}
+void SalaryService::isInt(int& num) {
+    if (cin.fail()) {
+        cin.clear();
+        cin.ignore(256, '\n');
+        num = -1;
+    }
+}
+void SalaryService::isDouble(double& num) {
+    if (cin.fail()) {
+        cin.clear();
+        cin.ignore(256, '\n');
+        num = -1;
+    }
 }
 Salary* SalaryService::salaryForSSN(string ssn, int& counter) {
     int n = salary_repo.sizeOfList();

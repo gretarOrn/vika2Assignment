@@ -2,15 +2,24 @@
 
 DataBase::DataBase() {
     extraMaster = repo.readExtraFile();
+    setExtraID();
     locationMaster = repo.readLocationFile();
+    setLocationID();
     activeOrderMaster = repo.readActiveOrderFile();
     inactiveOrderMaster = repo.readInactiveOrderFile();
+    setOrderID();
     pizzaMaster = repo.readPizzaFile();
+    setPizzaID();
     sauceMaster = repo.readSauceFile();
+    setSauceID();
     sizeMaster = repo.readSizeFile();
+    setSizeID();
     typeMaster = repo.readTypeFile();
+    setTypeID();
     priceMaster = repo.readPriceFile();
+    setPriceID();
     toppingMaster = repo.readToppingFile();
+    setToppingID();
 }
 
 DataBase::~DataBase() {
@@ -121,33 +130,64 @@ void DataBase::setExtraID() {
     extraID = extraMaster[repo.getExtraLines() - 1].getIdNumber();
 }
 void DataBase::setLocationID() {
-    //locationID = locationMaster[repo.getLocationLines() - 1].getIdNumber();
+    locationID = locationMaster[repo.getLocationLines() - 1].getIdNumber();
 }
 void DataBase::setOrderID() {
-/*
-    if(activeOrderMaster[repo.getActiveOrderLines() - 1].getIdNumber() > inactiveOrderMaster[repo.getInactiveOrderLines() - 1].getIdNumber()) {
-        orderID = activeOrderMaster[repo.getActiveOrderLines() - 1].getIdNumber();
-    } else {
-        orderID = inactiveOrderMaster[repo.getInactiveOrderLines() - 1].getIdNumber();
+    if (activeOrderMaster != 0 && inactiveOrderMaster == 0) {
+        orderID = inactiveOrderMaster[repo.getInactiveOrderLines() - 1].getOrderId();
     }
-*/
+    if (activeOrderMaster == 0 && inactiveOrderMaster != 0) {
+        orderID = activeOrderMaster[repo.getActiveOrderLines() - 1].getOrderId();
+    }
+    if (activeOrderMaster == 0 && inactiveOrderMaster == 0) {
+        orderID = 0;
+    }
+    if(activeOrderMaster[repo.getActiveOrderLines() - 1].getOrderId() > inactiveOrderMaster[repo.getInactiveOrderLines() - 1].getOrderId()) {
+        orderID = activeOrderMaster[repo.getActiveOrderLines() - 1].getOrderId();
+    } else {
+        orderID = inactiveOrderMaster[repo.getInactiveOrderLines() - 1].getOrderId();
+    }
 }
 void DataBase::setPizzaID() {
-    pizzaID = pizzaMaster[repo.getPizzaLines() - 1].getIdNumber();
+    if (pizzaMaster == 0) {
+        pizzaID = 0;
+    } else {
+        pizzaID = pizzaMaster[repo.getPizzaLines() - 1].getIdNumber();
+    }
 }
 void DataBase::setSauceID() {
-    sauceID = sauceMaster[repo.getSauceLines() - 1].getIdNumber();
+    if (sauceMaster == 0) {
+        sauceID = 0;
+    } else {
+        sauceID = sauceMaster[repo.getSauceLines() - 1].getIdNumber();
+    }
 }
 void DataBase::setSizeID() {
-    sizeID = sizeMaster[repo.getSizeLines() - 1].getIdNumber();
+    if (sizeMaster == 0) {
+        sizeID = 0;
+    } else {
+        sizeID = sizeMaster[repo.getSizeLines() - 1].getIdNumber();
+    }
 }
 void DataBase::setTypeID() {
+    if (typeMaster == 0) {
+        typeID = 0;
+    } else {
     typeID = typeMaster[repo.getTypeLines() - 1].getIdNumber();
+    }
 }
 void DataBase::setPriceID() {
-    //priceID = priceIDMaster[repo.getPriceLines() - 1].getIdNumber();
+    if (priceMaster == 0) {
+        priceID = 0;
+    } else {
+    priceID = priceMaster[repo.getPriceLines() - 1].getIdNumber();
+    }
 }
 void DataBase::setToppingID() {
+    if (toppingMaster == 0) {
+        toppingID = 0;
+    } else {
     toppingID = toppingMaster[repo.getToppingLines() - 1].getIdNumber();
+    }
 }
 

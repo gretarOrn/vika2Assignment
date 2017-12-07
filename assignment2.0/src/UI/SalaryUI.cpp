@@ -26,12 +26,15 @@ void SalaryUI::mainMenu() {
             cin >>name;
             cout <<"SSN: ";
             cin >>SSN;
-            cout <<"Salary: ";
+            cout <<"Salary(double): ";
             cin >>msalary;
-            cout <<"Month: ";
+            salary_service.isDouble(msalary);
+            cout <<"Month(int): ";
             cin >>month;
-            cout <<"Year: ";
+            salary_service.isInt(month);
+            cout <<"Year(int): ";
             cin >>year;
+            salary_service.isInt(year);
             Salary salary(name,SSN,msalary,month,year);
             try {
 

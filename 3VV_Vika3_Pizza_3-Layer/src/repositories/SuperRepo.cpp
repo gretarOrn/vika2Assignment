@@ -9,7 +9,7 @@ SuperRepo::~SuperRepo()
 {
     //dtor
 }
-
+///***************************************************************************************
 /// Extra
 int SuperRepo::getExtraLines() const {
     ifstream fin;
@@ -50,7 +50,7 @@ void SuperRepo::writeToExtraFile(Extra extra) const {
     fout.close();
 }
 
-
+///***************************************************************************************
 /// Location
 int SuperRepo::getLocationLines() const {
     ifstream fin;
@@ -91,8 +91,8 @@ void SuperRepo::writeToLocationFile(Location location) const {
     fout.close();
 }
 
-
-/// Order
+///***************************************************************************************
+/// ActiveOrder
 int SuperRepo::getActiveOrderLines() const {
     ifstream fin;
     int recordCount = 0;
@@ -132,6 +132,7 @@ void SuperRepo::writeToActiveOrderFile(Order order) const {
     fout.close();
 }
 
+///***************************************************************************************
 /// InactiveOrder
 int SuperRepo::getInactiveOrderLines() const {
     ifstream fin;
@@ -172,6 +173,7 @@ void SuperRepo::writeToInactiveOrderFile(Order order) const {
     fout.close();
 }
 
+///***************************************************************************************
 /// Pizza
 int SuperRepo::getPizzaLines() const {
     ifstream fin;
@@ -212,7 +214,7 @@ void SuperRepo::writeToPizzaFile(Pizza pizza) const {
     fout.close();
 }
 
-
+///***************************************************************************************
 /// Sauce
 int SuperRepo::getSauceLines() const {
     ifstream fin;
@@ -253,7 +255,7 @@ void SuperRepo::writeToSauceFile(PizzaSauce sauce) const {
     fout.close();
 }
 
-
+///***************************************************************************************
 /// Size
 int SuperRepo::getSizeLines() const {
     ifstream fin;
@@ -294,7 +296,7 @@ void SuperRepo::writeToSizeFile(PizzaSize size) const {
     fout.close();
 }
 
-
+///***************************************************************************************
 /// Type
 int SuperRepo::getTypeLines() const {
     ifstream fin;
@@ -335,6 +337,7 @@ void SuperRepo::writeToTypeFile(PizzaType type) const {
     fout.close();
 }
 
+///***************************************************************************************
 /// Price
 int SuperRepo::getPriceLines() const{
     ifstream fin;
@@ -375,7 +378,7 @@ void SuperRepo::writeToPriceFile(PriceList price) const{
     fout.close();
 }
 
-
+///***************************************************************************************
 /// Topping
 int SuperRepo::getToppingLines() const{
     ifstream fin;
@@ -415,3 +418,5 @@ void SuperRepo::writeToToppingFile(Topping topping) const {
     fout.write((char*)(&topping), sizeof(Topping));
     fout.close();
 }
+
+
