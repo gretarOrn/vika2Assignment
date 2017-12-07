@@ -8,7 +8,7 @@ SalesUI::SalesUI()
 void SalesUI::startUp() {
     char c;
     while (c != 'q') {
-        system("CLS");
+        //system("CLS");
         cout << "Sales:" << endl;
         cout << "1)\t" << "Create an order" << endl;
         cout << "2)\t" << "Edit an order" << endl;
@@ -17,6 +17,7 @@ void SalesUI::startUp() {
 
         cin >> c;
         if(c == '1') {
+            cout << "bla" << endl;
             createOrder();
         } else if(c == '2') {
 
@@ -27,7 +28,7 @@ void SalesUI::startUp() {
         }
     }
     system("CLS");
-} 
+}
 
 void SalesUI::createOrder() {
     system("CLS");
@@ -45,6 +46,7 @@ void SalesUI::createOrder() {
 
 
 void SalesUI::displaySizeList() {
+    cout << "Is this working?" << endl;
     PizzaSize* sizeList = data.sizeMaster;
     int length = data.getSizeID();
     for(int i = 0; i < length; i++) {
@@ -55,6 +57,7 @@ void SalesUI::displaySizeList() {
 }
 
 void SalesUI::displayTypeList() {
+    cout << "Is this working?" << endl;
     PizzaType* typeList = data.typeMaster;
     int length = data.getTypeID();
     for(int i = 0; i < length; i++) {
@@ -65,6 +68,7 @@ void SalesUI::displayTypeList() {
 }
 
 void SalesUI::displaySauceList() {
+    cout << "Is this working?" << endl;
     PizzaSauce* sauceList = data.sauceMaster;
     int length = data.getSauceID();
     for(int i = 0; i < length; i++) {
@@ -75,6 +79,7 @@ void SalesUI::displaySauceList() {
 }
 
 void SalesUI::displayToppingList() {
+    cout << "Is this working?" << endl;
     Topping* toppingList = data.toppingMaster;
     int length = data.getToppingID();
     for(int i = 0; i < length; i++) {
@@ -85,6 +90,7 @@ void SalesUI::displayToppingList() {
 }
 
 void SalesUI::displayExtraList() {
+    cout << "Is this working?" << endl;
     Extra* extraList = data.extraMaster;
     int length = data.getExtraID();
     for(int i = 0; i < length; i++) {

@@ -25,7 +25,7 @@ class AdminUI
         void addPizzas();
         void addExtras();
         //6
-        //7
+        void addPriceCategory();
         //DataBase dataBase;
         AdminService adminService;
 

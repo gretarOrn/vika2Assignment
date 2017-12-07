@@ -24,64 +24,6 @@ bool PizzaSauce::getActive() const{
     return active;
 }
 
-/*int PizzaSauce::getLines() const{
-    ifstream fin;
-    int recordCount = 0;
-    fin.open("PizzaSauce.dat", ios::binary);
-    if(fin.is_open()) {
-        fin.seekg(0, fin.end);
-        recordCount = fin.tellg() / sizeof(PizzaSauce);
-    }
-    fin.close();
-    return recordCount;
-}*/
-
-PizzaSauce* PizzaSauce::readFile() {
-    ifstream fin;
-    PizzaSauce* sauceMaster = 0;
-    fin.open("PizzaSauce.dat", ios::binary);
-    if(fin.is_open()) {
-        fin.seekg(0, fin.end);
-        int recorndCount = fin.tellg() / sizeof(PizzaSauce);
-        fin.seekg(0, fin.beg);
-        sauceMaster = new PizzaSauce[recorndCount];
-
-        fin.read((char*)(sauceMaster), (recorndCount * sizeof(PizzaSauce)));
-    } else {
-        cout << "Unable to read the sauce list." << endl;
-    }
-    fin.close();
-    return sauceMaster;
-}
-
-void PizzaSauce::writeToFile() const{
-
-}
-
-void PizzaSauce::displaySauce() const{
-    ifstream fin;
-    PizzaSauce* sauceMaster = 0;
-    fin.open("PizzaSauce.dat", ios::binary);
-    int recordCount = 0;
-    if(fin.is_open()) {
-        fin.seekg(0, fin.end);
-        recordCount = fin.tellg() / sizeof(PizzaSauce);
-        fin.seekg(0, fin.beg);
-        sauceMaster = new PizzaSauce[recordCount];
-
-        fin.read((char*)(sauceMaster), (recordCount * sizeof(PizzaSauce)));
-    } else {
-        cout << "Unable to read the sauce list." << endl;
-    }
-    fin.close();
-
-    for(int i = 0; i < recordCount; i++) {
-        if(sauceMaster[i].active) {
-            cout << sauceMaster[i];
-        }
-    }
-}
-
 void PizzaSauce::setIdNumber(int newIdNumber) {
     idNumber = newIdNumber;
 }
@@ -127,15 +69,4 @@ istream& operator >> (istream& in, PizzaSauce& sauce) {
 ostream& operator << (ostream& out, const PizzaSauce& sauce) {
     out << sauce.idNumber << ") " <<  '\t' << setw(sauce.MAX_STRING_LENGTH) << left << sauce.name << " | Price category: " << sauce.priceCategory << endl;
     return out;
-}
-
-ifstream& operator >> (ifstream& fin, PizzaSauce& sauce) {
-    return fin;
-}
-
-ofstream& operator << (ofstream& fout, const PizzaSauce& sauce) {
-    fout.open("PizzaSauce.dat", ios::binary|ios::app);
-    fout.write((char*)(&sauce), sizeof(PizzaSauce));
-    fout.close();
-    return fout;
 }

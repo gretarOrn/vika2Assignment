@@ -18,11 +18,6 @@ class PizzaSauce
         int getPriceCategory() const;
         bool getActive() const;
 
-        int getLines() const;
-        PizzaSauce* readFile();
-        void writeToFile() const;
-        void displaySauce() const;
-
         void setIdNumber(int newIdNumber);
         void setName(string newName);
         void setPriceCategory(int newPriceCategory);
@@ -30,8 +25,7 @@ class PizzaSauce
 
         friend istream& operator >> (istream& in, PizzaSauce& sauce);
         friend ostream& operator << (ostream& out, const PizzaSauce& sauce);
-        friend ifstream& operator >> (ifstream& fin, PizzaSauce& sauce);
-        friend ofstream& operator << (ofstream& fout, const PizzaSauce& sauce);
+
 
     private:
         static const int MAX_STRING_LENGTH = 24;

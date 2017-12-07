@@ -12,16 +12,32 @@ AdminService::~AdminService()
 
 void AdminService::addSauces(string name, int priceCat) {
     PizzaSauce sauce;
+    dataBase.incrementSauceID();
+    sauce.setIdNumber(dataBase.getSauceID());
     sauce.setName(name);
     sauce.setPriceCategory(priceCat);
+    sauce.setActive(true);
     repo.writeToSauceFile(sauce);
 }
 
 void AdminService::addToppings(string name, int priceCat) {
     Topping topping;
+    dataBase.incrementToppingID();
+    topping.setIdNumber(dataBase.getToppingID());
     topping.setName(name);
     topping.setPriceCategory(priceCat);
+    topping.setActiveState(true);
     repo.writeToToppingFile(topping);
+}
+
+void AdminService::addPriceCategory(string name, int price) {
+    PriceList priceCat;
+    dataBase.incrementPriceID();
+    priceCat.setIdNumber(dataBase.getPriceID());
+    priceCat.setName(name);
+    priceCat.setPrice(price);
+    priceCat.setActiveState(true);
+    repo.writeToPriceFile(priceCat);
 }
 
 void AdminService::addPizzas() {
@@ -80,6 +96,9 @@ int AdminService::sauceListSize() {
 }
 int AdminService::toppingListSize() {
     return repo.getToppingLines();
+}
+int AdminService::priceListSize() {
+    return repo.getPriceLines();
 }
 
 bool AdminService::validateName(string name) {
