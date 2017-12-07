@@ -17,30 +17,11 @@ void AdminService::addSauces(string name, int priceCat) {
     repo.writeToSauceFile(sauce);
 }
 
-void AdminService::addToppings() {
-    ofstream fout;
-
-    SuperRepo repo;
+void AdminService::addToppings(string name, int priceCat) {
     Topping topping;
-
-    int toppingMasterSize = repo.getToppingLines();
-    Topping* toppingMaster = repo.readToppingFile();
-
-    for(int i = 0; i < toppingMasterSize; i++) {
-        cout << toppingMaster[i];
-    }
-
-    char userInput;
-
-    do {
-        userInput = 'n';
-        cout << "Add a topping: " << endl;
-        cin >> topping;
-        //fout << topping;
-        repo.writeToToppingFile(topping);
-        cout << "Continue? (y/n) ";
-        cin >> userInput;
-    } while(userInput == 'y');
+    topping.setName(name);
+    topping.setPriceCategory(priceCat);
+    repo.writeToToppingFile(topping);
 }
 
 void AdminService::addPizzas() {
@@ -97,6 +78,10 @@ void AdminService::addExtras() {
 int AdminService::sauceListSize() {
     return repo.getSauceLines();
 }
+int AdminService::toppingListSize() {
+    return repo.getToppingLines();
+}
+
 bool AdminService::validateName(string name) {
     for(unsigned int i = 0; i < name.size(); i++) {
         if(isalpha(name.at(i))) {

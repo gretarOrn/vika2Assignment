@@ -11,13 +11,14 @@ class AdminService
         virtual ~AdminService();
 
         void addSauces(string name, int prizeCat);
-        void addToppings();
+        void addToppings(string name, int priceCat);
         void addPizzas();
         void addExtras();
 
         SuperRepo repo;
         DataBase dataBase;
         int sauceListSize();
+        int toppingListSize();
 
         bool validateName(string name);
         bool validatePrizeCategory(int cat);

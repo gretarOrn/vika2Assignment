@@ -102,29 +102,46 @@ void AdminUI::addSauces() {
 }
 
 void AdminUI::addToppings() {
-    ofstream fout;
-
-    SuperRepo repo;
-    Topping topping;
-
-    int toppingMasterSize = repo.getToppingLines();
-    Topping* toppingMaster = repo.readToppingFile();
-
-    for(int i = 0; i < toppingMasterSize; i++) {
-        cout << toppingMaster[i];
+    char c;
+    while(c != 'q') {
+        DataBase dataBase;
+        system("CLS");
+        cout << "Sauce options" << endl;
+        cout << "1)\t" << "Add a topping" << endl;
+        cout << "2)\t" << "Edit a topping" << endl;
+        cout << "3)\t" << "\"remove a topping\"" << endl;
+        cout << "q)\t" << "Go back" << endl;
+        cin >> c;
+        if (c == '1') {
+            string nameinput;
+            int prizeinput;
+            bool valid;
+            Topping* listi = dataBase.toppingMaster;
+            cout <<"Sacues in current list: " << endl;
+            for (int i = 0; i < adminService.toppingListSize(); i++) {
+                cout << listi[i].getIdNumber();
+                cout << ")\t" << listi[i].getName();
+                cout << "\t|" << listi[i].getPriceCategory();
+                cout <<endl;
+            }
+            do{
+            cout <<"\nEnter name of new topping: ";
+            cin >>nameinput;
+            valid = adminService.validateName(nameinput);
+            }while(!valid);
+            do{
+                cout <<"\nEnter prize catagory for new topping: ";
+                cin >>prizeinput;
+                valid = adminService.validatePrizeCategory(prizeinput);
+            }while(!valid);
+                /// prenta út lista af sósum nú þegar í lista. (sem að hann nær í úr admin service, sem að nær sjálfur í listann úr database);
+                /// cin'a nafn á sósu
+                /// validate'a nafn í service
+                /// cin'a integer og validate'a
+                /// adda ef allt er valid þá senda sósuna í listann hérna
+            adminService.addToppings(nameinput, prizeinput);
+        }
     }
-
-    char userInput;
-
-    do {
-        userInput = 'n';
-        cout << "Add a topping: " << endl;
-        cin >> topping;
-        //fout << topping;
-        repo.writeToToppingFile(topping);
-        cout << "Continue? (y/n) ";
-        cin >> userInput;
-    } while(userInput == 'y');
 }
 
 void AdminUI::addPizzas() {
