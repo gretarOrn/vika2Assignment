@@ -333,3 +333,8 @@
 1512578400 source:c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\src\ui\adminui.cpp
 	"AdminUI.h"
 
+1512657894 source:c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\src\exceptions\unabletoreadfileexception.cpp
+	"UnableToReadFileException.h"
+
+1512657894 c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\include\exceptions\unabletoreadfileexception.h
+
