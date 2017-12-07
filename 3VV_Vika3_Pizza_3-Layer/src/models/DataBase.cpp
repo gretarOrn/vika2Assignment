@@ -121,16 +121,14 @@ void DataBase::setExtraID() {
     extraID = extraMaster[repo.getExtraLines() - 1].getIdNumber();
 }
 void DataBase::setLocationID() {
-    //locationID = locationMaster[repo.getLocationLines() - 1].getIdNumber();
+    locationID = locationMaster[repo.getLocationLines() - 1].getIdNumber();
 }
 void DataBase::setOrderID() {
-/*
-    if(activeOrderMaster[repo.getActiveOrderLines() - 1].getIdNumber() > inactiveOrderMaster[repo.getInactiveOrderLines() - 1].getIdNumber()) {
-        orderID = activeOrderMaster[repo.getActiveOrderLines() - 1].getIdNumber();
+    if(activeOrderMaster[repo.getActiveOrderLines() - 1].getOrderId() > inactiveOrderMaster[repo.getInactiveOrderLines() - 1].getOrderId()) {
+        orderID = activeOrderMaster[repo.getActiveOrderLines() - 1].getOrderId();
     } else {
-        orderID = inactiveOrderMaster[repo.getInactiveOrderLines() - 1].getIdNumber();
+        orderID = inactiveOrderMaster[repo.getInactiveOrderLines() - 1].getOrderId();
     }
-*/
 }
 void DataBase::setPizzaID() {
     pizzaID = pizzaMaster[repo.getPizzaLines() - 1].getIdNumber();
@@ -145,7 +143,7 @@ void DataBase::setTypeID() {
     typeID = typeMaster[repo.getTypeLines() - 1].getIdNumber();
 }
 void DataBase::setPriceID() {
-    //priceID = priceIDMaster[repo.getPriceLines() - 1].getIdNumber();
+    priceID = priceMaster[repo.getPriceLines() - 1].getIdNumber();
 }
 void DataBase::setToppingID() {
     toppingID = toppingMaster[repo.getToppingLines() - 1].getIdNumber();
