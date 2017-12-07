@@ -4,9 +4,10 @@
 #include "AdminService.h"
 #include "Extra.h"
 #include "Pizza.h"
-
+#include "DataBase.h"
 #include <iostream>
 #include <cstdlib>
+#include <fstream>
 using namespace std;
 
 
@@ -25,6 +26,8 @@ class AdminUI
         void addExtras();
         //6
         //7
+        //DataBase dataBase;
+        AdminService adminService;
 
     private:
 };

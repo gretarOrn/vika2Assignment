@@ -10,23 +10,11 @@ AdminService::~AdminService()
     //dtor
 }
 
-void AdminService::addSauces() {
-    ofstream fout;
-
+void AdminService::addSauces(string name, int priceCat) {
     PizzaSauce sauce;
-
-    sauce.displaySauce();
-
-    char userInput;
-
-    do {
-        userInput = 'n';
-        cout << "Add a sauce: " << endl;
-        cin >> sauce;
-        fout << sauce;
-        cout << "Continue? (y/n) ";
-        cin >> userInput;
-    } while(userInput == 'y');
+    sauce.setName(name);
+    sauce.setPriceCategory(priceCat);
+    repo.writeToSauceFile(sauce);
 }
 
 void AdminService::addToppings() {
@@ -105,4 +93,21 @@ void AdminService::addExtras() {
         cin >> userInput;
     } while(userInput == 'y');
 */
+}
+int AdminService::sauceListSize() {
+    return repo.getSauceLines();
+}
+bool AdminService::validateName(string name) {
+    for(unsigned int i = 0; i < name.size(); i++) {
+        if(isalpha(name.at(i))) {
+            return true;
+        }
+    }
+    return false;
+}
+bool AdminService::validatePrizeCategory(int cat) {
+    if(cat > 0 && cat <= dataBase.getPriceID()) {
+        return true;
+    }
+    return false;
 }

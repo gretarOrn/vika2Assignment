@@ -24,7 +24,7 @@ bool PizzaSauce::getActive() const{
     return active;
 }
 
-int PizzaSauce::getLines() const{
+/*int PizzaSauce::getLines() const{
     ifstream fin;
     int recordCount = 0;
     fin.open("PizzaSauce.dat", ios::binary);
@@ -34,7 +34,7 @@ int PizzaSauce::getLines() const{
     }
     fin.close();
     return recordCount;
-}
+}*/
 
 PizzaSauce* PizzaSauce::readFile() {
     ifstream fin;
@@ -112,7 +112,7 @@ void PizzaSauce::strToCharArr(string nameStr) {
 
 
 istream& operator >> (istream& in, PizzaSauce& sauce) {
-    sauce.idNumber = (sauce.getLines() + 1);
+/*    sauce.idNumber = (sauce.getLines() + 1);
     string nameStr;
     cout << "Enter sauce name: ";
     in >> ws;
@@ -120,7 +120,7 @@ istream& operator >> (istream& in, PizzaSauce& sauce) {
     sauce.strToCharArr(nameStr);
     cout << "Enter price category: ";
     in >> sauce.priceCategory;
-    sauce.active = true;
+    sauce.active = true; */
     return in;
 }
 

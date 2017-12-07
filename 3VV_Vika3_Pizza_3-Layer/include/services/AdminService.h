@@ -2,6 +2,7 @@
 #define ADMINSERVICE_H
 
 #include "SuperRepo.h"
+#include "DataBase.h"
 
 class AdminService
 {
@@ -9,10 +10,17 @@ class AdminService
         AdminService();
         virtual ~AdminService();
 
-        void addSauces();
+        void addSauces(string name, int prizeCat);
         void addToppings();
         void addPizzas();
         void addExtras();
+
+        SuperRepo repo;
+        DataBase dataBase;
+        int sauceListSize();
+
+        bool validateName(string name);
+        bool validatePrizeCategory(int cat);
 
     private:
 

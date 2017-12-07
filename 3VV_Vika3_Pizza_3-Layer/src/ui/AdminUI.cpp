@@ -54,17 +54,42 @@ void AdminUI::startUp() {
 void AdminUI::addSauces() {
     char c;
     while(c != 'q') {
+        DataBase dataBase;
         system("CLS");
         cout << "Sauce options" << endl;
         cout << "1)\t" << "Add a sauce" << endl;
         cout << "2)\t" << "Edit a sauce" << endl;
         cout << "3)\t" << "\"remove a sauce\"" << endl;
         cout << "q)\t" << "Go back" << endl;
-
         cin >> c;
         if (c == '1') {
-            AdminService adminSer;
-            adminSer.addSauces();
+            string nameinput;
+            int prizeinput;
+            bool valid;
+            PizzaSauce* listi = dataBase.sauceMaster;
+            cout <<"Sacues in current list: " << endl;
+            for (int i = 0; i < adminService.sauceListSize(); i++) {
+                cout << listi[i].getIdNumber();
+                cout << ")\t" << listi[i].getName();
+                cout << "\t|" << listi[i].getPriceCategory();
+                cout <<endl;
+            }
+            do{
+            cout <<"\nEnter name of new sauce: ";
+            cin >>nameinput;
+            valid = adminService.validateName(nameinput);
+            }while(!valid);
+            do{
+                cout <<"\nEnter prize catagory for new sauce: ";
+                cin >>prizeinput;
+                valid = adminService.validatePrizeCategory(prizeinput);
+            }while(!valid);
+                /// prenta út lista af sósum nú þegar í lista. (sem að hann nær í úr admin service, sem að nær sjálfur í listann úr database);
+                /// cin'a nafn á sósu
+                /// validate'a nafn í service
+                /// cin'a integer og validate'a
+                /// adda ef allt er valid þá senda sósuna í listann hérna
+            adminService.addSauces(nameinput, prizeinput);
         }
         if (c == '2') {
 
