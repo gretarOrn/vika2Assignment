@@ -23,9 +23,6 @@ DataBase::DataBase() {
 }
 
 
-
-
-
 DataBase::~DataBase() {
     if(extraMaster != 0) {
         delete[] extraMaster;
@@ -78,6 +75,7 @@ DataBase::~DataBase() {
         delete toppingMaster;
     }
 }
+///***************************************************************************************
 void DataBase::refreshExtra() {
     if (extraMaster != 0) {
         delete[] extraMaster;
@@ -160,8 +158,6 @@ void DataBase::refreshTopping() {
     }
     toppingMaster = repo.readToppingFile();
 }
-
-
 ///***************************************************************************************
 int DataBase::getExtraID() const{
     return extraID;

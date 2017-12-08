@@ -5,19 +5,14 @@ AdminService::AdminService()
     //ctor
 }
 
-AdminService::~AdminService()
-{
-    //dtor
-}
-
-void AdminService::addSauces(string name, int priceCat) {
-    PizzaSauce sauce;
-    dataBase.incrementSauceID();
-    sauce.setIdNumber(dataBase.getSauceID());
-    sauce.setName(name);
-    sauce.setPriceCategory(priceCat);
-    sauce.setActive(true);
-    repo.writeToSauceFile(sauce);
+void AdminService::addPriceCategory(string name, int price) {
+    PriceList priceCat;
+    dataBase.incrementPriceID();
+    priceCat.setIdNumber(dataBase.getPriceID());
+    priceCat.setName(name);
+    priceCat.setPrice(price);
+    priceCat.setActiveState(true);
+    repo.writeToPriceFile(priceCat);
 }
 
 void AdminService::addToppings(string name, int priceCat) {
@@ -30,15 +25,16 @@ void AdminService::addToppings(string name, int priceCat) {
     repo.writeToToppingFile(topping);
 }
 
-void AdminService::addPriceCategory(string name, int price) {
-    PriceList priceCat;
-    dataBase.incrementPriceID();
-    priceCat.setIdNumber(dataBase.getPriceID());
-    priceCat.setName(name);
-    priceCat.setPrice(price);
-    priceCat.setActiveState(true);
-    repo.writeToPriceFile(priceCat);
+void AdminService::addSauces(string name, int priceCat) {
+    PizzaSauce sauce;
+    dataBase.incrementSauceID();
+    sauce.setIdNumber(dataBase.getSauceID());
+    sauce.setName(name);
+    sauce.setPriceCategory(priceCat);
+    sauce.setActiveState(true);
+    repo.writeToSauceFile(sauce);
 }
+
 
 void AdminService::addPizzas() {
     /*
@@ -56,7 +52,6 @@ void AdminService::addPizzas() {
     char userInput;
 
     do {
-        userInput = 'n';
         cout << "Add an Pizza to the menu: " << endl;
         cin >> pizza;
         fout << pizza;
@@ -91,15 +86,7 @@ void AdminService::addExtras() {
     } while(userInput == 'y');
 */
 }
-int AdminService::sauceListSize() {
-    return repo.getSauceLines();
-}
-int AdminService::toppingListSize() {
-    return repo.getToppingLines();
-}
-int AdminService::priceListSize() {
-    return repo.getPriceLines();
-}
+
 
 bool AdminService::validateName(string name) {
     for(unsigned int i = 0; i < name.size(); i++) {
@@ -109,9 +96,14 @@ bool AdminService::validateName(string name) {
     }
     return false;
 }
-bool AdminService::validatePrizeCategory(int cat) {
-    if(cat > 0 && cat <= dataBase.getPriceID()) {
+bool AdminService::validatePriceCategory(int category) {
+    if(category > 0 && category <= dataBase.getPriceID()) {
         return true;
     }
     return false;
+}
+bool AdminService::validatePrice(double price) {
+    /// Needs double validation
+
+    return true;
 }

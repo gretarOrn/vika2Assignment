@@ -20,7 +20,7 @@ int PizzaSauce::getPriceCategory() const{
     return priceCategory;
 }
 
-bool PizzaSauce::getActive() const{
+bool PizzaSauce::getActiveState() const{
     return active;
 }
 
@@ -36,7 +36,7 @@ void PizzaSauce::setPriceCategory(int newPriceCatagory) {
     priceCategory = newPriceCatagory;
 }
 
-void PizzaSauce::setActive(bool newState) {
+void PizzaSauce::setActiveState(bool newState) {
     active = newState;
 }
 

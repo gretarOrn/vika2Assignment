@@ -16,12 +16,12 @@ class PizzaSauce
         int getIdNumber() const;
         string getName() const;
         int getPriceCategory() const;
-        bool getActive() const;
+        bool getActiveState() const;
 
         void setIdNumber(int newIdNumber);
         void setName(string newName);
         void setPriceCategory(int newPriceCategory);
-        void setActive(bool newState);
+        void setActiveState(bool newState);
 
         friend istream& operator >> (istream& in, PizzaSauce& sauce);
         friend ostream& operator << (ostream& out, const PizzaSauce& sauce);
