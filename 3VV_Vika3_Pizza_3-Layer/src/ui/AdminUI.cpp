@@ -87,7 +87,7 @@ void AdminUI::PriceOptions() {
     char c;
     while(c != 'q') {
         system("CLS");
-        cout << "Sauce options" << endl;
+        cout << "Price options" << endl;
         cout << "1)\t" << "Add a price category" << endl;
         cout << "2)\t" << "Edit a price category" << endl;
         cout << "3)\t" << "Display price categories" << endl;
@@ -161,7 +161,7 @@ void AdminUI::toppingOptions() {
     while(c != 'q') {
         DataBase dataBase;
         system("CLS");
-        cout << "Sauce options" << endl;
+        cout << "Topping options" << endl;
         cout << "1)\t" << "Add a topping" << endl;
         cout << "2)\t" << "Edit a topping" << endl;
         cout << "3)\t" << "Display a toppings" << endl;
