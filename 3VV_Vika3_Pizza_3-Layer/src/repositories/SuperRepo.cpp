@@ -27,7 +27,7 @@ int SuperRepo::getExtraLines() const {
 Extra* SuperRepo::readExtraFile() {
     ifstream fin;
     Extra* masterList = 0;
-    fin.open("Extra.dat");
+    fin.open("Extras.dat");
         if(fin.is_open()) {
             fin.seekg(0, fin.end);
             int recordCount = fin.tellg() / sizeof(Extra);
