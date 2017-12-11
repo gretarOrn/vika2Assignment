@@ -190,23 +190,24 @@
 1512648463 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\main.cpp
 	"MainUI.h"
 
-1512473315 c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\include\ui\mainui.h
+1512991478 c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\include\ui\mainui.h
 	<cstdlib>
 	"AdminUI.h"
 	"SalesUI.h"
 	"BakerUI.h"
+	"DeliveryUI.h"
 
-1512727951 c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\include\ui\adminui.h
+1512992912 c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\include\ui\adminui.h
 	"DataBase.h"
 	"AdminService.h"
 	<iostream>
 	<cstdlib>
 
-1512736780 c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\include\services\adminservice.h
+1513000816 c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\include\services\adminservice.h
 	"SuperRepo.h"
 	"DataBase.h"
 
-1512576318 c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\include\repositories\superrepo.h
+1512990752 c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\include\repositories\superrepo.h
 	"Extra.h"
 	"Location.h"
 	"Order.h"
@@ -228,12 +229,12 @@
 	<iomanip>
 	<string>
 
-1512488121 c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\include\models\order.h
+1512990757 c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\include\models\order.h
 	"Extra.h"
 	"Pizza.h"
 	"Location.h"
 
-1512489971 c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\include\models\pizza.h
+1513003036 c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\include\models\pizza.h
 	"Topping.h"
 	"PizzaSauce.h"
 	"PizzaSize.h"
@@ -289,9 +290,13 @@
 	"DataBase.h"
 	"SuperRepo.h"
 
-1512484340 c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\include\services\pizzaservice.h
+1512997108 c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\include\services\pizzaservice.h
+	"DataBase.h"
 
-1512486332 c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\include\ui\bakerui.h
+1512990757 c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\include\ui\bakerui.h
+	"DataBase.h"
+	<iostream>
+	<cstdlib>
 
 1512659444 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\src\exceptions\unabletoreadfileexception.cpp
 	"UnableToReadFileException.h"
@@ -307,7 +312,7 @@
 1512654410 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\src\models\order.cpp
 	"Order.h"
 
-1512484340 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\src\models\pizza.cpp
+1513003047 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\src\models\pizza.cpp
 	"Pizza.h"
 
 1512729770 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\src\models\pizzasauce.cpp
@@ -325,10 +330,10 @@
 1512405732 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\src\models\topping.cpp
 	"Topping.h"
 
-1512734222 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\src\repositories\superrepo.cpp
+1512990752 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\src\repositories\superrepo.cpp
 	"SuperRepo.h"
 
-1512736780 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\src\services\adminservice.cpp
+1513004761 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\src\services\adminservice.cpp
 	"AdminService.h"
 
 1512395946 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\src\services\extraservice.cpp
@@ -344,7 +349,7 @@
 
 1512396050 c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\include\services\pizzasauceservice.h
 
-1512484340 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\src\services\pizzaservice.cpp
+1512997338 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\src\services\pizzaservice.cpp
 	"PizzaService.h"
 
 1512396081 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\src\services\pizzasizeservice.cpp
@@ -357,19 +362,19 @@
 
 1512395914 c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\include\services\toppingservice.h
 
-1512486332 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\src\ui\bakerui.cpp
+1512990757 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\src\ui\bakerui.cpp
 	"BakerUI.h"
 
-1512568963 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\src\ui\mainui.cpp
+1512991478 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\src\ui\mainui.cpp
 	"MainUI.h"
 
 1512661400 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\src\ui\salesui.cpp
 	"SalesUI.h"
 
-1512733821 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\src\models\database.cpp
+1512990752 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\src\models\database.cpp
 	"DataBase.h"
 
-1512734160 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\src\ui\adminui.cpp
+1513000854 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\src\ui\adminui.cpp
 	"AdminUI.h"
 
 1512740866 source:c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\main.cpp
@@ -562,5 +567,13 @@
 	<cstdlib>
 
 1512746880 source:c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\src\ui\deliveryui.cpp
+	"DeliveryUI.h"
+
+1512990757 c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\include\ui\deliveryui.h
+	"DataBase.h"
+	<iostream>
+	<cstdlib>
+
+1512990757 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\src\ui\deliveryui.cpp
 	"DeliveryUI.h"
 

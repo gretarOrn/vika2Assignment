@@ -41,20 +41,40 @@ void Pizza::setName(string newName) {
     strToCharArr(newName);
 }
 
-void Pizza::setSize(PizzaSize newSize) {
-    size = newSize;
+void Pizza::setSize(const PizzaSize& newSize) {
+    size.setIdNumber(newSize.getIdNumber());
+    size.setName(newSize.getName());
+    size.setPriceCategory(newSize.getPriceCategory());
+    size.setActiveState(newSize.getActiveState());
 }
 
-void Pizza::setSause(PizzaSauce newSauce) {
-    sauce = newSauce;
+void Pizza::setType(const PizzaType& newType) {
+    type.setIdNumber(newType.getIdNumber());
+    type.setName(newType.getName());
+    type.setPriceCategory(newType.getPriceCategory());
+    type.setActiveState(newType.getActiveState());
 }
 
-void Pizza::addTopping(Topping topping) {
+void Pizza::setSause(const PizzaSauce& newSauce) {
+    sauce.setIdNumber(newSauce.getIdNumber());
+    sauce.setName(newSauce.getName());
+    sauce.setPriceCategory(newSauce.getPriceCategory());
+    sauce.setActiveState(newSauce.getActiveState());
+}
+
+void Pizza::addTopping(const Topping& newTopping) {
 
 }
 
-void Pizza::addToppings() {
-
+void Pizza::setToppings(Topping* topp) {
+    for(int i = 0; i < MAX_TOPPINGS_PIZZA; i++) {
+        if(topp[i].getIdNumber() != 0) {
+            toppings[i].setIdNumber(topp[i].getIdNumber());
+            toppings[i].setName(topp[i].getName());
+            toppings[i].setPriceCategory(topp[i].getPriceCategory());
+            toppings[i].setActiveState(topp[i].getActiveState());
+        }
+    }
 }
 
 

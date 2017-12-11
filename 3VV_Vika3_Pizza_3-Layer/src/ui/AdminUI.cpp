@@ -47,12 +47,31 @@ void AdminUI::startUp() {
 
 /// Specials
 void AdminUI::orderOptions() {
-
+    char c;
+    while(c != 'q') {
+        system("CLS");
+        cout << "Special options" << endl;
+        cout << "1)\t" << "Add a special" << endl;
+        cout << "2)\t" << "Edit a special" << endl;
+        cout << "3)\t" << "Display specials" << endl;
+        cout << "q)\t" << "Go back" << endl;
+        cin >> c;
+               if (c == '1') {
+            addOrders();
+        } else if (c == '2') {
+            editOrders();
+        } else if (c == '3') {
+            displaySpecialsOrders();
+        }
+    }
 }
 void AdminUI::displayActiveOrders() {
 
 }
 void AdminUI::displayInactiveOrders() {
+
+}
+void AdminUI::displaySpecialsOrders() {
 
 }
 void AdminUI::addOrders() {
@@ -67,13 +86,90 @@ void AdminUI::removeOrders() {
 
 /// Pizza menu
 void AdminUI::pizzaOptions() {
-
+    char c;
+    while(c != 'q') {
+        system("CLS");
+        cout << "Pizza menu options" << endl;
+        cout << "1)\t" << "Add a pizza to the menu" << endl;
+        cout << "2)\t" << "Edit a pizza in the menu" << endl;
+        cout << "3)\t" << "Display pizza menu" << endl;
+        cout << "q)\t" << "Go back" << endl;
+        cin >> c;
+               if (c == '1') {
+            addPizzas();
+        } else if (c == '2') {
+            editPizzas();
+        } else if (c == '3') {
+            displayPizzaMenu();
+        }
+    }
 }
 void AdminUI::displayPizzaMenu() {
 
 }
 void AdminUI::addPizzas() {
+    Pizza pizza;
+    char userInput;
+    string nameInput;
+    int sizeSelection;
+    int typeSelection;
+    int sauceSelection;
+    int toppingSelection[pizza.MAX_TOPPINGS_PIZZA];
 
+    bool valid;
+    do {
+        system("CLS");
+        displayPizzaMenu();
+        cout << "Add a Pizza: " << endl;
+        do{
+            cout << "Enter pizza name: ";
+            cin >> ws;
+            getline(cin, nameInput);
+            valid = adminService.validateName(nameInput);
+        } while(!valid);
+        displaySizes();
+        do {
+            cout << "Select size:" << endl;
+            cin >> sizeSelection;
+            //valid = adminService.validateSize(sizeSelection);
+            valid = true;
+        } while(!valid);
+        displayBases();
+        do {
+            cout << "Select Base:" << endl;
+            cin >> typeSelection;
+            //valid = adminService.validateSize(typeSelection);
+            valid = true;
+        } while(!valid);
+        displaySauces();
+        do {
+            cout << "Select sauce:" << endl;
+            cin >> sauceSelection;
+            //valid = adminService.validateSize(sauceSelection);
+            valid = true;
+        } while(!valid);
+        displayToppings();
+
+        cout << endl << "Choose toppings: " << endl;
+
+        int counter = 0;
+        int tempToppingSelection;
+        cout << "Select toppings, press 0 to stop." << endl;
+
+        while((counter < pizza.MAX_TOPPINGS_PIZZA) && (tempToppingSelection != 0)) {
+            cin >> tempToppingSelection;
+            if(true /*adminService.validateTopping()*/) {
+               toppingSelection[counter] = tempToppingSelection;
+               counter++;
+            }
+        }
+
+        adminService.addPizza(nameInput, sizeSelection, typeSelection, sauceSelection, toppingSelection);
+        dataBase.refreshPizza();
+        cout << "Continue? (y/n) ";
+        cin >> userInput;
+    } while(userInput == 'y');
+    system("CLS");
 }
 void AdminUI::editPizzas() {
 
@@ -169,6 +265,10 @@ void AdminUI::toppingOptions() {
         cin >> c;
         if (c == '1') {
             addToppings();
+        } else if (c == '2') {
+            editToppings();
+        } else if (c == '3') {
+            displayToppings();
         }
     }
 }
@@ -217,9 +317,51 @@ void AdminUI::addToppings() {
         cout << "Continue? (y/n) ";
         cin >> userInput;
     } while(userInput == 'y');
+    system("CLS");
 }
 void AdminUI::editToppings() {
 
+    int userInput;
+    char userInput2;
+    string newNameInput;
+    int newPriceInput;
+    bool newStateInput;
+    bool valid;
+    Topping* toppingList = dataBase.toppingMaster;
+    displayToppings();
+
+    do {
+        cout << "Select topping: ";
+        cin >> userInput;
+        //valid = adminService.validateSelection();
+        valid = true;
+    } while(!valid);
+    do{
+        cout << "Enter new topping name: ";
+        cin >> ws;
+        getline(cin, newNameInput);
+        valid = adminService.validateName(newNameInput);
+    } while(!valid);
+    displayPriceCategory();
+    do {
+        cout << "Select a new price category: ";
+        cin >> newPriceInput;
+        valid = adminService.validatePriceCategory(newPriceInput);
+    } while(!valid);
+    while(true) {
+        cout << "Is active? (y/n) ";
+        cin >> userInput2;
+        if(userInput2 == 'y' || userInput2 == 'Y') {
+            newStateInput = true;
+            break;
+        } else if(userInput2 == 'n' || userInput2 == 'N') {
+            newStateInput = false;
+            break;
+        }
+    }
+//    adminService.editTopping((toppingList[userInput - 1].getIdNumber()), newNameInput, newPriceInput, newStateInput);
+    dataBase.refreshTopping();
+    system("CLS");
 }
 void AdminUI::removeToppings() {
 

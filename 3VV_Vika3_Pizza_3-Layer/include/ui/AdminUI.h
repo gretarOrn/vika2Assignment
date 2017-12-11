@@ -21,6 +21,7 @@ class AdminUI
         void orderOptions();
         void displayActiveOrders();
         void displayInactiveOrders();
+        void displaySpecialsOrders();
         void addOrders();
         void editOrders();
         void removeOrders();

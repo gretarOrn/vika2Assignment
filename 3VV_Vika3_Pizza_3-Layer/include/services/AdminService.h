@@ -12,7 +12,7 @@ class AdminService
         DataBase dataBase;
         SuperRepo repo;
 
-        void addPizza();
+        void addPizza(string name, int sizeSelection, int typeSelection, int sauceSelection, int toppingSelection[]);
         void addPriceCategory(string name, int price);
         void addTopping(string name, int priceCat);
         void addExtra(string name, int prizeCat);

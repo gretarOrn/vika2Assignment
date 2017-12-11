@@ -4,6 +4,25 @@ AdminService::AdminService()
 {
     //ctor
 }
+void AdminService::addPizza(string name, int sizeSelection, int typeSelection, int sauceSelection, int* toppingSelection) {
+    Pizza pizza;
+    dataBase.incrementPizzaID();
+    pizza.setIdNumber(dataBase.getPizzaID());
+    pizza.setName(name);
+    pizza.setSize(dataBase.sizeMaster[sizeSelection - 1]);
+    pizza.setType(dataBase.typeMaster[typeSelection - 1]);
+    pizza.setSause(dataBase.sauceMaster[sauceSelection - 1]);
+    Topping* toppings = pizza.getToppings();
+    for(int i = 0; i < pizza.MAX_TOPPINGS_PIZZA; i++) {
+        if(toppings[i].getIdNumber() != 0) {
+            toppings[i].setIdNumber(dataBase.toppingMaster[toppingSelection[i] -1].getIdNumber());
+            toppings[i].setName(dataBase.toppingMaster[toppingSelection[i] -1].getName());
+            toppings[i].setPriceCategory(dataBase.toppingMaster[toppingSelection[i] -1].getPriceCategory());
+            toppings[i].setActiveState(dataBase.toppingMaster[toppingSelection[i] -1].getActiveState());
+        }
+    }
+    repo.writeToPizzaFile(pizza);
+}
 
 void AdminService::addPriceCategory(string name, int price) {
     PriceList priceCat;
@@ -76,32 +95,19 @@ void AdminService::addLocation(string name, string address) {
 }
 
 
-void AdminService::addPizza() {
-    /*
-    ofstream fout;
 
-    Pizza pizza;
 
-    int pizzaMasterSize = pizza.getLines();
-    Pizza* pizzaMaster = pizza.readPizzaMenu();
-
-    for(int i = 0; i < pizzaMasterSize; i++) {
-         cout << pizzaMaster[i];
-    }
-
-    char userInput;
-
-    do {
-        cout << "Add an Pizza to the menu: " << endl;
-        cin >> pizza;
-        fout << pizza;
-        cout << "Continue? (y/n) ";
-        cin >> userInput;
-    } while(userInput == 'y');
-    */
+/*
+void AdminService::editTopping(int newIdNumber, string newName, int newPriceCat, bool newState) {
+    Topping topping;
+    topping.setIdNumber(newIdNumber);
+    topping.setName(newName);
+    topping.setPriceCategory(newPriceCat);
+    topping.setActiveState(newState);
+    SuperRepo repo;
+    //repo.insertIntoToppingFile(topping, newIdNumber);
 }
-
-
+*/
 
 
 bool AdminService::validateName(string name) {
