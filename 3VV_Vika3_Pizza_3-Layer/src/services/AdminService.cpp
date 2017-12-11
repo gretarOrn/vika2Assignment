@@ -11,7 +11,7 @@ void AdminService::addPizza(string name, int sizeSelection, int typeSelection, i
     pizza.setName(name);
     pizza.setSize(dataBase.sizeMaster[sizeSelection - 1]);
     pizza.setType(dataBase.typeMaster[typeSelection - 1]);
-    pizza.setSause(dataBase.sauceMaster[sauceSelection - 1]);
+    pizza.setSauce(dataBase.sauceMaster[sauceSelection - 1]);
     Topping* toppings = pizza.getToppings();
     for(int i = 0; i < pizza.MAX_TOPPINGS_PIZZA; i++) {
         if(toppings[i].getIdNumber() != 0) {

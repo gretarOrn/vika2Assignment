@@ -320,7 +320,7 @@ void AdminUI::addToppings() {
     system("CLS");
 }
 void AdminUI::editToppings() {
-
+/*
     int userInput;
     char userInput2;
     string newNameInput;
@@ -362,6 +362,7 @@ void AdminUI::editToppings() {
 //    adminService.editTopping((toppingList[userInput - 1].getIdNumber()), newNameInput, newPriceInput, newStateInput);
     dataBase.refreshTopping();
     system("CLS");
+*/
 }
 void AdminUI::removeToppings() {
 

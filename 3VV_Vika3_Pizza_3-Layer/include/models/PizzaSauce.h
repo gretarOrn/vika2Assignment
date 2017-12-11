@@ -11,6 +11,8 @@ using namespace std;
 class PizzaSauce
 {
     public:
+        static const int MAX_STRING_LENGTH = 24;
+
         PizzaSauce();
 
         int getIdNumber() const;
@@ -28,8 +30,6 @@ class PizzaSauce
 
 
     private:
-        static const int MAX_STRING_LENGTH = 24;
-
         int idNumber;
         char name[MAX_STRING_LENGTH];
         int priceCategory;

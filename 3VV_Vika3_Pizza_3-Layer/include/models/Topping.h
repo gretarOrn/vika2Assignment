@@ -11,6 +11,7 @@ using namespace std;
 class Topping
 {
     public:
+        static const int MAX_STRING_LENGTH = 24;
         Topping();
 
         int getIdNumber() const;
@@ -27,8 +28,6 @@ class Topping
         friend ostream&  operator << (ostream& out, const Topping& topping);
 
     private:
-        static const int MAX_STRING_LENGTH = 24;
-
         int idNumber;
         char name[MAX_STRING_LENGTH];
         int priceCategory;

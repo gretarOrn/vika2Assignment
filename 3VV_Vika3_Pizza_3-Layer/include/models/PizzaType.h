@@ -11,6 +11,7 @@ using namespace std;
 class PizzaType
 {
     public:
+        static const int MAX_STRING_LENGTH = 24;
         PizzaType();
 
         int getIdNumber() const;
@@ -27,8 +28,6 @@ class PizzaType
         friend ostream&  operator << (ostream& out, const PizzaType& type);
 
     private:
-        static const int MAX_STRING_LENGTH = 24;
-
         int idNumber;
         char name[MAX_STRING_LENGTH];
         int priceCategory;

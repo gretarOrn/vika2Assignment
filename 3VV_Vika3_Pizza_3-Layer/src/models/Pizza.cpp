@@ -30,10 +30,11 @@ PizzaSauce Pizza::getPizzaSauce() const {
 Topping* Pizza::getToppings() {
     return toppings;
 }
+/*
 Topping Pizza::getTopping(int index) {
     return toppings[index];
 }
-
+*/
 ///***************************************************************************************
 
 void Pizza::setIdNumber(int newIdNumber) {
@@ -51,7 +52,6 @@ void Pizza::setSize(const PizzaSize& newSize) {
     size.setActiveState(newSize.getActiveState());
 }
 
-<<<<<<< HEAD
 void Pizza::setType(const PizzaType& newType) {
     type.setIdNumber(newType.getIdNumber());
     type.setName(newType.getName());
@@ -59,7 +59,7 @@ void Pizza::setType(const PizzaType& newType) {
     type.setActiveState(newType.getActiveState());
 }
 
-void Pizza::setSause(const PizzaSauce& newSauce) {
+void Pizza::setSauce(const PizzaSauce& newSauce) {
     sauce.setIdNumber(newSauce.getIdNumber());
     sauce.setName(newSauce.getName());
     sauce.setPriceCategory(newSauce.getPriceCategory());
@@ -67,36 +67,15 @@ void Pizza::setSause(const PizzaSauce& newSauce) {
 }
 
 void Pizza::addTopping(const Topping& newTopping) {
-=======
-void Pizza::setSauce(PizzaSauce newSauce) {
-    sauce.setName(newSauce.getName());
-}
-void Pizza::setType(PizzaType newType) {
-    type = newType;
-}
 
-//void Pizza::addTopping() {
-//
-//
-//}
+}
 
 void Pizza::addToppings(Topping* arr) {
     for (int i = 0; arr[i].getIdNumber() != 0; i++) {
-        toppings[i].setIdNumber(arr[i].getIdNumber());
-        toppings[i].setName(arr[i].getName());
-        toppings[i].setPriceCategory(arr[i].getPriceCategory());
-    }
->>>>>>> b32bae04cefa5fa036426e4dd5658e6c88f7362e
-
-}
-
-void Pizza::setToppings(Topping* topp) {
-    for(int i = 0; i < MAX_TOPPINGS_PIZZA; i++) {
-        if(topp[i].getIdNumber() != 0) {
-            toppings[i].setIdNumber(topp[i].getIdNumber());
-            toppings[i].setName(topp[i].getName());
-            toppings[i].setPriceCategory(topp[i].getPriceCategory());
-            toppings[i].setActiveState(topp[i].getActiveState());
+        if(arr[i].getIdNumber() != 0) {
+            toppings[i].setIdNumber(arr[i].getIdNumber());
+            toppings[i].setName(arr[i].getName());
+            toppings[i].setPriceCategory(arr[i].getPriceCategory());
         }
     }
 }

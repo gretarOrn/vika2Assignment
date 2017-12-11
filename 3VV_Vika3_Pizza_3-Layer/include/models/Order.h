@@ -18,8 +18,8 @@ class Order
 
         int getOrderId() const;
         string getName() const;
-        Pizza* getPizzas() ;
-        Extra* getExtras() const;
+        Pizza* getPizzas();
+        Extra* getExtras();
         bool isDelivered() const;
         int getLocationId() const;
         string getAddress() const;
@@ -44,11 +44,6 @@ class Order
         //void pizzaOrders();
 
     private:
-
-
-
-
-
         int orderId;
         char name[MAX_NAME_LENGTH];
         Pizza pizzas[MAX_PIZZAS_ORDER];

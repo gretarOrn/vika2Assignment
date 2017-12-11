@@ -10,6 +10,8 @@ using namespace std;
 class Extra
 {
     public:
+        static const int MAX_STRING_LENGTH = 24;
+
         Extra();
 
         int getIdNumber() const;
@@ -27,7 +29,7 @@ class Extra
         friend ostream&  operator << (ostream& out, const Extra& extra);
 
     private:
-        static const int MAX_STRING_LENGTH = 24;
+
 
         int idNumber;
         char name[MAX_STRING_LENGTH];

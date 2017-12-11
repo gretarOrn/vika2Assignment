@@ -29,9 +29,8 @@ Pizza* Order::getPizzas()  {
     return pizzas;
 }
 
-Extra* Order::getExtras() const {
-    //return extras;
-    return 0;
+Extra* Order::getExtras()  {
+    return extras;
 }
 
 bool Order::isDelivered() const {

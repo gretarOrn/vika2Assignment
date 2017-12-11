@@ -9,6 +9,9 @@ using namespace std;
 class Location
 {
     public:
+        static const int MAX_STRING_LENGTH = 24;
+        static const int MAX_ADDRESS_LENGTH = 24;
+
         Location();
 
         int getIdNumber() const;
@@ -25,8 +28,6 @@ class Location
         friend ostream&  operator << (ostream& out, const Location& location);
 
     private:
-        static const int MAX_STRING_LENGTH = 24;
-        static const int MAX_ADDRESS_LENGTH = 24;
 
         int idNumber;
         char name[MAX_STRING_LENGTH];

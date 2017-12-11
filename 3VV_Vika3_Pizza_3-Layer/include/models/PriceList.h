@@ -8,6 +8,7 @@ using namespace std;
 class PriceList
 {
     public:
+        static const int MAX_STRING_LENGTH = 24;
         PriceList();
 
         int getIdNumber() const;
@@ -27,8 +28,6 @@ class PriceList
         //friend ofstream& operator << (ofstream& fout, const PriceList& price);
 
     private:
-        static const int MAX_STRING_LENGTH = 24;
-
         int idNumber;
         char name[MAX_STRING_LENGTH];
         double price;
