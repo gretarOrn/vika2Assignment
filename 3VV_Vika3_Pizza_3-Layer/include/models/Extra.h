@@ -21,6 +21,7 @@ class Extra
         void setName(string newName);
         void setPriceCategory(int newPriceCategory);
         void setActiveState(bool newState);
+        void addExtra(Extra newExtra);
 
         friend istream&  operator >> (istream& in, Extra& extra);
         friend ostream&  operator << (ostream& out, const Extra& extra);

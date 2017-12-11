@@ -4,6 +4,7 @@
 #include "DataBase.h"
 #include "OrderService.h"
 #include "PizzaService.h"
+#include "ExtraService.h"
 #include <cstdlib>
 #include <iomanip>
 
@@ -20,6 +21,7 @@ class SalesUI
         PizzaService pizzaSer;
 
         void createOrder();
+        void printPizza(Pizza pizza, int counter);
 
         void displaySizeList();
         void displayTypeList();
@@ -27,5 +29,5 @@ class SalesUI
         void displayToppingList();
         void displayExtraList();
 };
- 
+
 #endif // SALESUI_H

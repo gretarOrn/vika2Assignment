@@ -44,6 +44,12 @@ void Extra::setPriceCategory(int newPriceCategory) {
 void Extra::setActiveState(bool newState) {
     isActive = newState;
 }
+void Extra::addExtra(Extra newExtra) {
+    idNumber = newExtra.getIdNumber();
+    strToCharArr(newExtra.getName());
+    priceCategory = newExtra.getPriceCategory();
+    isActive = newExtra.getActiveState();
+}
 
 ///***************************************************************************************
 /// Converts strings to a character array.

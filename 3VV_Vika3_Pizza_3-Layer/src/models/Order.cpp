@@ -4,12 +4,12 @@ Order::Order()
 {
     orderId = 0;
     name[0] = '\0';
-    //Pizza pizzas[MAX_PIZZAS_ORDER];
-    //Extras extras[MAX_EXTRAS_ORDER];
+    Pizza pizzas[MAX_PIZZAS_ORDER];
+    Extra extras[MAX_EXTRAS_ORDER];
     delivery = false;
     locationId = 0;
     address[0] = '\0';
-    totalPirce = 0.0;
+    totalPrice = 0.0;
     comment[0] = '\0';
     paymentStatus = false;
     orderStatus = 0;
@@ -25,9 +25,8 @@ string Order::getName() const {
     return name;
 }
 
-Pizza* Order::getPizzas() const {
-//    return *pizzas[0];
-    return 0;
+Pizza* Order::getPizzas()  {
+    return pizzas;
 }
 
 Extra* Order::getExtras() const {
@@ -48,7 +47,7 @@ string Order::getAddress() const {
 }
 
 double Order::getTotalPrice() const {
-    return totalPirce;
+    return totalPrice;
 }
 
 string Order::getComment() const {
@@ -82,7 +81,6 @@ void Order::addPizzas() {       //Kallar á fall í sevices
 }
 
 void Order::addExtras() {       //Kallar á fall í sevices
-
 }
 
 void Order::setDeliveryMethod(bool isDelivered) {
@@ -102,7 +100,7 @@ void Order::setAddress(string newAddress) {
 }
 
 void Order::setTotalPrice(double newPrice) {
-    totalPirce = newPrice;
+    totalPrice = newPrice;
 }
 
 void Order::setComment(string newComment) {

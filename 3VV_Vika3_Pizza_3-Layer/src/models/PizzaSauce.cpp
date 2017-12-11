@@ -20,6 +20,10 @@ int PizzaSauce::getPriceCategory() const{
     return priceCategory;
 }
 
+/*double PizzaSauce::getPrice() const {
+
+} */
+
 bool PizzaSauce::getActiveState() const{
     return active;
 }

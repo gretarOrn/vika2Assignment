@@ -18,7 +18,7 @@ class Order
 
         int getOrderId() const;
         string getName() const;
-        Pizza* getPizzas() const;
+        Pizza* getPizzas() ;
         Extra* getExtras() const;
         bool isDelivered() const;
         int getLocationId() const;
@@ -46,6 +46,9 @@ class Order
     private:
 
 
+
+
+
         int orderId;
         char name[MAX_NAME_LENGTH];
         Pizza pizzas[MAX_PIZZAS_ORDER];
@@ -53,7 +56,7 @@ class Order
         bool delivery;
         int locationId;
         char address[MAX_ADDRESS_LENGTH];
-        double totalPirce;
+        double totalPrice;
         char comment[MAX_COMMENT_LENGTH];
         bool paymentStatus;
         int orderStatus;
