@@ -23,6 +23,7 @@ class Extra
         //void setPrice(double newPrice);
         void setPriceCategory(int newPriceCategory);
         void setActiveState(bool newState);
+        void addExtra(Extra newExtra);
 
         //Extra* readFile();
 

@@ -8,16 +8,13 @@
 	"SalesUI.h"
 	"BakerUI.h"
 
-1512665856 c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\include\ui\adminui.h
-	"AdminService.h"
-	"Extra.h"
-	"Pizza.h"
+1512730024 c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\include\ui\adminui.h
 	"DataBase.h"
+	"AdminService.h"
 	<iostream>
 	<cstdlib>
-	<fstream>
 
-1512665856 c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\include\services\adminservice.h
+1512730024 c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\include\services\adminservice.h
 	"SuperRepo.h"
 	"DataBase.h"
 
@@ -32,7 +29,7 @@
 	"PriceList.h"
 	"Topping.h"
 
-1512660720 c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\include\models\extra.h
+1513000587 c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\include\models\extra.h
 	<iostream>
 	<iomanip>
 	<fstream>
@@ -43,12 +40,12 @@
 	<iomanip>
 	<string>
 
-1512484707 c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\include\models\order.h
+1513000243 c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\include\models\order.h
 	"Extra.h"
 	"Pizza.h"
 	"Location.h"
 
-1512557700 c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\include\models\pizza.h
+1512993719 c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\include\models\pizza.h
 	"Topping.h"
 	"PizzaSauce.h"
 	"PizzaSize.h"
@@ -60,7 +57,7 @@
 	<fstream>
 	<string>
 
-1512665856 c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\include\models\pizzasauce.h
+1512730024 c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\include\models\pizzasauce.h
 	<iostream>
 	<iomanip>
 	<fstream>
@@ -93,10 +90,11 @@
 	"SuperRepo.h"
 	<vector>
 
-1512660720 c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\include\ui\salesui.h
+1512999850 c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\include\ui\salesui.h
 	"DataBase.h"
 	"OrderService.h"
 	"PizzaService.h"
+	"ExtraService.h"
 	<cstdlib>
 	<iomanip>
 
@@ -104,7 +102,11 @@
 	"DataBase.h"
 	"SuperRepo.h"
 
-1512484707 c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\include\services\pizzaservice.h
+1512993526 c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\include\services\pizzaservice.h
+	"Pizza.h"
+	"..\models\pizzaSauce.h"
+	"..\models\topping.h"
+	"DataBase.h"
 
 1512557700 c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\include\ui\bakerui.h
 
@@ -113,19 +115,19 @@
 
 1512657894 c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\include\exceptions\unabletoreadfileexception.h
 
-1512660720 source:c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\src\models\extra.cpp
+1513000977 source:c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\src\models\extra.cpp
 	"Extra.h"
 
 1512650047 source:c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\src\models\location.cpp
 	"Location.h"
 
-1512557700 source:c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\src\models\order.cpp
+1512999674 source:c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\src\models\order.cpp
 	"Order.h"
 
-1512484707 source:c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\src\models\pizza.cpp
+1512993646 source:c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\src\models\pizza.cpp
 	"Pizza.h"
 
-1512665856 source:c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\src\models\pizzasauce.cpp
+1512732095 source:c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\src\models\pizzasauce.cpp
 	"PizzaSauce.h"
 
 1512484707 source:c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\src\models\pizzasize.cpp
@@ -140,18 +142,20 @@
 1512484707 source:c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\src\models\topping.cpp
 	"Topping.h"
 
-1512665852 source:c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\src\repositories\superrepo.cpp
+1512740926 source:c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\src\repositories\superrepo.cpp
 	"SuperRepo.h"
 
-1512665856 source:c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\src\services\adminservice.cpp
+1512730024 source:c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\src\services\adminservice.cpp
 	"AdminService.h"
 
-1512484707 source:c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\src\services\extraservice.cpp
+1512995771 source:c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\src\services\extraservice.cpp
 	"ExtraService.h"
 
-1512484707 c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\include\services\extraservice.h
+1513000197 c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\include\services\extraservice.h
+	"Extra.h"
+	"DataBase.h"
 
-1512484707 source:c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\src\services\orderservice.cpp
+1512732391 source:c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\src\services\orderservice.cpp
 	"OrderService.h"
 
 1512484707 source:c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\src\services\pizzasauceservice.cpp
@@ -159,7 +163,7 @@
 
 1512484707 c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\include\services\pizzasauceservice.h
 
-1512484707 source:c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\src\services\pizzaservice.cpp
+1512993542 source:c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\src\services\pizzaservice.cpp
 	"PizzaService.h"
 
 1512484707 source:c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\src\services\pizzasizeservice.cpp
@@ -172,7 +176,7 @@
 
 1512484707 c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\include\services\toppingservice.h
 
-1512665856 source:c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\src\ui\adminui.cpp
+1512730024 source:c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\src\ui\adminui.cpp
 	"AdminUI.h"
 
 1512557700 source:c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\src\ui\bakerui.cpp
@@ -181,10 +185,10 @@
 1512569703 source:c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\src\ui\mainui.cpp
 	"MainUI.h"
 
-1512665856 source:c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\src\ui\salesui.cpp
+1513001394 source:c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\src\ui\salesui.cpp
 	"SalesUI.h"
 
-1512668592 source:c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\src\models\database.cpp
+1512730024 source:c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\src\models\database.cpp
 	"DataBase.h"
 
 1512648463 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\main.cpp

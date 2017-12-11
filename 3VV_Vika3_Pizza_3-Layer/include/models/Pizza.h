@@ -28,9 +28,14 @@ class Pizza
         void setIdNumber(int newIdNumber);
         void setName(string newName);
         void setSize(PizzaSize newSize);
-        void setSause(PizzaSauce newSauce);
-        void addTopping(Topping topping);
-        void addToppings();
+        void setSauce(PizzaSauce newSauce);
+        void setType(PizzaType newType);
+        void addToppings(Topping* arr);
+        void addTopping();
+
+        Topping getTopping(int index);
+
+        static const int MAX_TOPPINGS_PIZZA = 10;
 
         friend istream&  operator >> (istream& in, Pizza& pizza);
         friend ostream&  operator << (ostream& out, const Pizza& pizza);
@@ -38,7 +43,7 @@ class Pizza
         //friend ofstream& operator << (ofstream& fout, const Pizza& pizza);
 
     private:
-        static const int MAX_TOPPINGS_PIZZA = 10;
+
         static const int MAX_PIZZA_LENGTH = 24;
 
         int idNumber;
@@ -47,6 +52,7 @@ class Pizza
         PizzaType type;
         PizzaSauce sauce;
         Topping toppings[MAX_TOPPINGS_PIZZA];
+
 
         void strToCharArr(string nameStr);
 };

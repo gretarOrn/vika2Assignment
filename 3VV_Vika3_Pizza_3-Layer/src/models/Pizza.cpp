@@ -30,6 +30,9 @@ PizzaSauce Pizza::getPizzaSauce() const {
 Topping* Pizza::getToppings() {
     return toppings;
 }
+Topping Pizza::getTopping(int index) {
+    return toppings[index];
+}
 
 ///***************************************************************************************
 
@@ -45,15 +48,24 @@ void Pizza::setSize(PizzaSize newSize) {
     size = newSize;
 }
 
-void Pizza::setSause(PizzaSauce newSauce) {
-    sauce = newSauce;
+void Pizza::setSauce(PizzaSauce newSauce) {
+    sauce.setName(newSauce.getName());
+}
+void Pizza::setType(PizzaType newType) {
+    type = newType;
 }
 
-void Pizza::addTopping(Topping topping) {
+//void Pizza::addTopping() {
+//
+//
+//}
 
-}
-
-void Pizza::addToppings() {
+void Pizza::addToppings(Topping* arr) {
+    for (int i = 0; arr[i].getIdNumber() != 0; i++) {
+        toppings[i].setIdNumber(arr[i].getIdNumber());
+        toppings[i].setName(arr[i].getName());
+        toppings[i].setPriceCategory(arr[i].getPriceCategory());
+    }
 
 }
 

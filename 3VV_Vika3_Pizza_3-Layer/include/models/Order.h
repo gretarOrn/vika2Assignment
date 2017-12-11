@@ -12,7 +12,7 @@ class Order
 
         int getOrderId() const;
         string getName() const;
-        Pizza* getPizzas() const;
+        Pizza* getPizzas() ;
         Extra* getExtras() const;
         bool isDelivered() const;
         int getLocationId() const;
@@ -34,11 +34,12 @@ class Order
         void setComment(string newComment);
         void setPaymentStatus(bool isPayed);
         void setOrderStatus(int newOrderStatus);
+        static const int MAX_EXTRAS_ORDER = 10;
 
         //void pizzaOrders();
 
     private:
-        static const int MAX_EXTRAS_ORDER = 10;
+
         static const int MAX_PIZZAS_ORDER = 10;
         static const int MAX_NAME_LENGTH = 24;
         static const int MAX_ADDRESS_LENGTH = 24;
@@ -51,7 +52,7 @@ class Order
         bool delivery;
         int locationId;
         char address[MAX_ADDRESS_LENGTH];
-        double totalPirce;
+        double totalPrice;
         char comment[MAX_COMMENT_LENGTH];
         bool paymentStatus;
         int orderStatus;
