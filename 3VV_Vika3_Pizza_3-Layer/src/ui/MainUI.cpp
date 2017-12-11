@@ -38,7 +38,8 @@ void MainUI::startUI() {
             BakerUI bakerUI;
             bakerUI.startUp();
         } else if(c == '4') {
-
+            DeliveryUI deliveryUI;
+            deliveryUI.startUp();
 
         }
     }
