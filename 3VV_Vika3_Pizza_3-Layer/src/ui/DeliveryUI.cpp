@@ -5,7 +5,9 @@ DeliveryUI::DeliveryUI()
     //ctor
 }
 void DeliveryUI::startUp() {
-    int c;
+    int c,d;
+    char answer;
+    Order* orderList = dataBase.activeOrderMaster;
     while(c != 0) {
         system("CLS");
         cout <<"Locations: "<<endl;
@@ -13,9 +15,30 @@ void DeliveryUI::startUp() {
         cout << "Select Location: ";
         cin >> c;
         /// validate input í orderservice
-        displayOrders(c);
+        displayOrders(d);
         cout << "Select OrderID: ";
-        cin >> c;
+        cin >> d;
+        for(int i = 0; i < dataBase.getOrderID(); i++) {
+            if(orderList[i].getLocationId() == c) {
+                if(orderList[i].getOrderId() == d) {
+                    if(orderList[i].getOrderStatus() == 3){
+                        cout <<"Set order to \"in transit\"?(y/n): ";
+                        cin >>answer;
+                        if(answer == 'y') {
+//                            OrderService.setOrderStatus(4);
+                        }
+                    }
+                    else if(orderList[i].getOrderStatus() == 4) {
+                        cout <<"Set order to \"delivered\"?(y/n): ";
+                        cin >>answer;
+                        if(answer == 'y') {
+//                            OrderService.setOrderStatus(5);
+                        }
+                    }
+                }
+            }
+        }
+
 
     }
 }

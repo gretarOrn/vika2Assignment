@@ -1,0 +1,10 @@
+#ifndef INVALIDLOCATIONEXCEPTION_H
+#define INVALIDLOCATIONEXCEPTION_H
+
+
+class InvalidLocationException
+{
+
+};
+
+#endif // INVALIDLOCATIONEXCEPTION_H

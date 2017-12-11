@@ -23,6 +23,7 @@
 					<Add directory="src/repositories" />
 					<Add directory="src/services" />
 					<Add directory="src/ui" />
+					<Add directory="include/exceptions" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -35,6 +36,7 @@
 					<Add directory="include/ui" />
 					<Add directory="include/services" />
 					<Add directory="include/repositories" />
+					<Add directory="include/exceptions" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -45,6 +47,7 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="include/exceptions/InvalidLocationException.h" />
 		<Unit filename="include/models/DataBase.h" />
 		<Unit filename="include/models/Extra.h" />
 		<Unit filename="include/models/Location.h" />
@@ -57,17 +60,21 @@
 		<Unit filename="include/models/Topping.h" />
 		<Unit filename="include/repositories/SuperRepo.h" />
 		<Unit filename="include/services/AdminService.h" />
+		<Unit filename="include/services/BakerUIService.h" />
 		<Unit filename="include/services/ExtraService.h" />
 		<Unit filename="include/services/OrderService.h" />
 		<Unit filename="include/services/PizzaSauceService.h" />
 		<Unit filename="include/services/PizzaService.h" />
 		<Unit filename="include/services/PizzaSizeService.h" />
 		<Unit filename="include/services/ToppingService.h" />
+		<Unit filename="include/services/ValidateService.h" />
 		<Unit filename="include/ui/AdminUI.h" />
 		<Unit filename="include/ui/BakerUI.h" />
+		<Unit filename="include/ui/DeliveryUI.h" />
 		<Unit filename="include/ui/MainUI.h" />
 		<Unit filename="include/ui/SalesUI.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/exceptions/InvalidLocationException.cpp" />
 		<Unit filename="src/models/DataBase.cpp" />
 		<Unit filename="src/models/Extra.cpp" />
 		<Unit filename="src/models/Location.cpp" />
@@ -80,14 +87,17 @@
 		<Unit filename="src/models/Topping.cpp" />
 		<Unit filename="src/repositories/SuperRepo.cpp" />
 		<Unit filename="src/services/AdminService.cpp" />
+		<Unit filename="src/services/BakerUIService.cpp" />
 		<Unit filename="src/services/ExtraService.cpp" />
 		<Unit filename="src/services/OrderService.cpp" />
 		<Unit filename="src/services/PizzaSauceService.cpp" />
 		<Unit filename="src/services/PizzaService.cpp" />
 		<Unit filename="src/services/PizzaSizeService.cpp" />
 		<Unit filename="src/services/ToppingService.cpp" />
+		<Unit filename="src/services/ValidateService.cpp" />
 		<Unit filename="src/ui/AdminUI.cpp" />
 		<Unit filename="src/ui/BakerUI.cpp" />
+		<Unit filename="src/ui/DeliveryUI.cpp" />
 		<Unit filename="src/ui/MainUI.cpp" />
 		<Unit filename="src/ui/SalesUI.cpp" />
 		<Extensions>
