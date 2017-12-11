@@ -22,6 +22,7 @@ class SalesUI
 
         void createOrder();
         void printPizza(Pizza pizza, int counter);
+        void printExtra(const Extra& extra);
 
         void displaySizeList();
         void displayTypeList();

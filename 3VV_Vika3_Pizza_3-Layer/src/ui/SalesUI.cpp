@@ -41,6 +41,7 @@ void SalesUI::createOrder() {
     Pizza pizza;
     PizzaService pizzaservice;
     ExtraService extraservice;
+    OrderService orderservice;
     cout << endl;
     cout << "create a pizza" << endl;
     int i = 0;
@@ -93,9 +94,14 @@ void SalesUI::createOrder() {
         displayExtraList();
         cin >> input;
         order.getExtras()[i].addExtra(extraservice.addExtra(input));
+        cout << endl;
+        printExtra(order.getExtras()[i]);
 
 
     }
+    orderservice.addToOrder(order);
+
+    return;
 
 
 
@@ -103,7 +109,7 @@ void SalesUI::createOrder() {
     //displayExtraList();
 }
 void SalesUI::printPizza(Pizza pizza, int counter) {
-    cout << "name: " << endl;
+    cout << "name: " << pizza.getName() << endl;
     cout << "size: " << pizza.getSize().getName() << endl;
     cout << "sauce: " << pizza.getPizzaSauce().getName() << endl;
     cout << "type: " << pizza.getType().getName() << endl;
@@ -115,6 +121,10 @@ void SalesUI::printPizza(Pizza pizza, int counter) {
     cout << endl;
 
 
+}
+void SalesUI::printExtra(const Extra& extra) {
+    cout << "name: " << extra.getName() << endl;
+    cout << "price: " << extra.getPriceCategory() << endl;
 }
 
 

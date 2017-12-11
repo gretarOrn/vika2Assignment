@@ -13,12 +13,12 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
-					<Add directory="include" />
+					<Add directory="include/exceptions" />
 					<Add directory="include/models" />
 					<Add directory="include/repositories" />
 					<Add directory="include/services" />
 					<Add directory="include/ui" />
-					<Add directory="src" />
+					<Add directory="src/exceptions" />
 					<Add directory="src/models" />
 					<Add directory="src/repositories" />
 					<Add directory="src/services" />

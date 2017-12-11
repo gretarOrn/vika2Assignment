@@ -230,10 +230,11 @@ void DataBase::setLocationID() {
     }
 }
 void DataBase::setOrderID() {
+
     if (activeOrderMaster != 0 && inactiveOrderMaster == 0) {
-        orderID = inactiveOrderMaster[repo.getInactiveOrderLines() - 1].getOrderId();
-    } else if (activeOrderMaster == 0 && inactiveOrderMaster != 0) {
         orderID = activeOrderMaster[repo.getActiveOrderLines() - 1].getOrderId();
+    } else if (activeOrderMaster == 0 && inactiveOrderMaster != 0) {
+        orderID = inactiveOrderMaster[repo.getInactiveOrderLines() - 1].getOrderId();
     } else if (activeOrderMaster == 0 && inactiveOrderMaster == 0) {
         orderID = 0;
     } else if(activeOrderMaster[repo.getActiveOrderLines() - 1].getOrderId() > inactiveOrderMaster[repo.getInactiveOrderLines() - 1].getOrderId()) {

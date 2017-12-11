@@ -10,6 +10,7 @@ class OrderService
     public:
         OrderService();
         virtual ~OrderService();
+        void addToOrder(Order order);
 
     private:
 };

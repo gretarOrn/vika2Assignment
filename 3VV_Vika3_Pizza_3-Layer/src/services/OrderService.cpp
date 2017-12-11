@@ -9,4 +9,10 @@ OrderService::~OrderService()
 {
     //dtor
 }
+void OrderService::addToOrder(Order order) {
+    SuperRepo superRepo;
+    superRepo.writeToActiveOrderFile(order);
+
+
+}
 
