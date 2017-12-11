@@ -15,7 +15,7 @@ void AdminService::addPriceCategory(string name, int price) {
     repo.writeToPriceFile(priceCat);
 }
 
-void AdminService::addToppings(string name, int priceCat) {
+void AdminService::addTopping(string name, int priceCat) {
     Topping topping;
     dataBase.incrementToppingID();
     topping.setIdNumber(dataBase.getToppingID());
@@ -25,7 +25,27 @@ void AdminService::addToppings(string name, int priceCat) {
     repo.writeToToppingFile(topping);
 }
 
-void AdminService::addSauces(string name, int priceCat) {
+void AdminService::addExtra(string name, int priceCat) {
+    Extra extra;
+    dataBase.incrementExtraID();
+    extra.setIdNumber(dataBase.getExtraID());
+    extra.setName(name);
+    extra.setPriceCategory(priceCat);
+    extra.setActiveState(true);
+    repo.writeToExtraFile(extra);
+}
+
+void AdminService::addSize(string name, int priceCat) {
+    PizzaSize size;
+    dataBase.incrementSizeID();
+    size.setIdNumber(dataBase.getSizeID());
+    size.setName(name);
+    size.setPriceCategory(priceCat);
+    size.setActiveState(true);
+    repo.writeToSizeFile(size);
+}
+
+void AdminService::addSauce(string name, int priceCat) {
     PizzaSauce sauce;
     dataBase.incrementSauceID();
     sauce.setIdNumber(dataBase.getSauceID());
@@ -35,8 +55,28 @@ void AdminService::addSauces(string name, int priceCat) {
     repo.writeToSauceFile(sauce);
 }
 
+void AdminService::addType(string name, int priceCat) {
+    PizzaType type;
+    dataBase.incrementTypeID();
+    type.setIdNumber(dataBase.getTypeID());
+    type.setName(name);
+    type.setPriceCategory(priceCat);
+    type.setActiveState(true);
+    repo.writeToTypeFile(type);
+}
 
-void AdminService::addPizzas() {
+void AdminService::addLocation(string name, string address) {
+    Location loc;
+    dataBase.incrementLocationID();
+    loc.setIdNumber(dataBase.getLocationID());
+    loc.setName(name);
+    loc.setAddress(address);
+    loc.setActiveState(true);
+    repo.writeToLocationFile(loc);
+}
+
+
+void AdminService::addPizza() {
     /*
     ofstream fout;
 
@@ -61,31 +101,7 @@ void AdminService::addPizzas() {
     */
 }
 
-void AdminService::addExtras() {
-/*
-    ofstream fout;
 
-    Extra extra;
-
-    int extraMasterSize = extra.getLines();
-    Extra* extraMaster = extra.readFile();
-
-    for(int i = 0; i < extraMasterSize; i++) {
-        cout << (i + 1) << ")" << extraMaster[i];
-    }
-
-    char userInput;
-
-    do {
-        userInput = 'n';
-        cout << "Add an extra: " << endl;
-        cin >> extra;
-        fout << extra;
-        cout << "Continue? (y/n) ";
-        cin >> userInput;
-    } while(userInput == 'y');
-*/
-}
 
 
 bool AdminService::validateName(string name) {

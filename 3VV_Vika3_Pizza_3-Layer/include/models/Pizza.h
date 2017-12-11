@@ -12,6 +12,9 @@
 class Pizza
 {
     public:
+        static const int MAX_TOPPINGS_PIZZA = 10;
+        static const int MAX_PIZZA_LENGTH = 24;
+
         Pizza();
 
         int getIdNumber() const;
@@ -35,7 +38,6 @@ class Pizza
 
         Topping getTopping(int index);
 
-        static const int MAX_TOPPINGS_PIZZA = 10;
 
         friend istream&  operator >> (istream& in, Pizza& pizza);
         friend ostream&  operator << (ostream& out, const Pizza& pizza);
@@ -44,7 +46,9 @@ class Pizza
 
     private:
 
-        static const int MAX_PIZZA_LENGTH = 24;
+
+
+
 
         int idNumber;
         char name[MAX_PIZZA_LENGTH];

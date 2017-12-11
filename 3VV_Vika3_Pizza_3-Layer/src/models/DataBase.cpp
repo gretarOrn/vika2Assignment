@@ -82,7 +82,7 @@ void DataBase::refreshExtra() {
     } else {
         delete extraMaster;
     }
-    priceMaster = repo.readPriceFile();
+    extraMaster = repo.readExtraFile();
 }
 void DataBase::refreshLocation() {
     if (locationMaster != 0) {

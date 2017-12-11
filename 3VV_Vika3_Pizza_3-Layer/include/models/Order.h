@@ -8,6 +8,12 @@
 class Order
 {
     public:
+        static const int MAX_EXTRAS_ORDER = 10;
+        static const int MAX_PIZZAS_ORDER = 10;
+        static const int MAX_NAME_LENGTH = 24;
+        static const int MAX_ADDRESS_LENGTH = 24;
+        static const int MAX_COMMENT_LENGTH = 64;
+
         Order();
 
         int getOrderId() const;
@@ -34,16 +40,14 @@ class Order
         void setComment(string newComment);
         void setPaymentStatus(bool isPayed);
         void setOrderStatus(int newOrderStatus);
-        static const int MAX_EXTRAS_ORDER = 10;
 
         //void pizzaOrders();
 
     private:
 
-        static const int MAX_PIZZAS_ORDER = 10;
-        static const int MAX_NAME_LENGTH = 24;
-        static const int MAX_ADDRESS_LENGTH = 24;
-        static const int MAX_COMMENT_LENGTH = 64;
+
+
+
 
         int orderId;
         char name[MAX_NAME_LENGTH];
