@@ -25,6 +25,8 @@ class AdminService
         bool validatePriceCategory(int category);
         bool validatePrice(double price);
 
+        bool validateTopping(int topping);
+
     private:
 
 };

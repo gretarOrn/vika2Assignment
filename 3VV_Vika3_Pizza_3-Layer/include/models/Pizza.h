@@ -21,7 +21,7 @@ class Pizza
         string getName() const;
         PizzaSize getSize() const;
         PizzaType getType() const;
-        PizzaSauce getPizzaSauce() const;
+        PizzaSauce getSauce() const;
         Topping* getToppings();
         //Topping getTopping(int index);
 

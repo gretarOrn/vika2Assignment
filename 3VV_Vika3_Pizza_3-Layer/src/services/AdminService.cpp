@@ -14,7 +14,7 @@ void AdminService::addPizza(string name, int sizeSelection, int typeSelection, i
     pizza.setSauce(dataBase.sauceMaster[sauceSelection - 1]);
     Topping* toppings = pizza.getToppings();
     for(int i = 0; i < pizza.MAX_TOPPINGS_PIZZA; i++) {
-        if(toppings[i].getIdNumber() != 0) {
+        if(toppingSelection[i] != 0) {
             toppings[i].setIdNumber(dataBase.toppingMaster[toppingSelection[i] -1].getIdNumber());
             toppings[i].setName(dataBase.toppingMaster[toppingSelection[i] -1].getName());
             toppings[i].setPriceCategory(dataBase.toppingMaster[toppingSelection[i] -1].getPriceCategory());
@@ -128,4 +128,11 @@ bool AdminService::validatePrice(double price) {
     /// Needs double validation
 
     return true;
+}
+
+bool AdminService::validateTopping(int topping) {
+    if(topping > 0 && topping <= dataBase.getToppingID()) {
+        return true;
+    }
+    return false;
 }

@@ -111,7 +111,7 @@ void SalesUI::createOrder() {
 void SalesUI::printPizza(Pizza pizza, int counter) {
     cout << "name: " << pizza.getName() << endl;
     cout << "size: " << pizza.getSize().getName() << endl;
-    cout << "sauce: " << pizza.getPizzaSauce().getName() << endl;
+    cout << "sauce: " << pizza.getSauce().getName() << endl;
     cout << "type: " << pizza.getType().getName() << endl;
     cout << "Toppings: ";
     for (int i = 0; i < (counter - 1); i++) {

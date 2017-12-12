@@ -15,6 +15,7 @@ class PizzaService
 
 
     private:
+        DataBase dataBase;
 };
 
 #endif // PIZZASERVICE_H

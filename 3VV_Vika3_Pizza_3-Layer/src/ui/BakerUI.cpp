@@ -86,7 +86,7 @@ void BakerUI::displayPizza(Pizza pizza) {
     cout <<"\n" << pizza.getName();
     cout <<"\t" << pizza.getType().getName();
     cout <<"\t" << pizza.getSize().getName();
-    cout <<"\t" << pizza.getPizzaSauce().getName() << endl;
+    cout <<"\t" << pizza.getSauce().getName() << endl;
     cout <<"Toppings: ";
     for(int i = 0; i < pizza.MAX_TOPPINGS_PIZZA; i++) {
         cout <<toppings[i].getName() << ", ";

@@ -23,7 +23,7 @@ PizzaType Pizza::getType() const {
     return type;
 }
 
-PizzaSauce Pizza::getPizzaSauce() const {
+PizzaSauce Pizza::getSauce() const {
     return sauce;
 }
 

@@ -6,44 +6,41 @@ PizzaService::PizzaService() {
 
 PizzaSauce PizzaService::addSauce(int sauceNR) {
     PizzaSauce pizzaSauce;
-    DataBase database;
-    pizzaSauce.setIdNumber(database.sauceMaster[sauceNR - 1].getIdNumber());
-    pizzaSauce.setName(database.sauceMaster[sauceNR - 1].getName());
-    pizzaSauce.setPriceCategory(database.sauceMaster[sauceNR - 1].getPriceCategory());
-
+    pizzaSauce.setIdNumber(dataBase.sauceMaster[sauceNR - 1].getIdNumber());
+    pizzaSauce.setName(dataBase.sauceMaster[sauceNR - 1].getName());
+    pizzaSauce.setPriceCategory(dataBase.sauceMaster[sauceNR - 1].getPriceCategory());
+    pizzaSauce.setActiveState(dataBase.sauceMaster[sauceNR - 1].getActiveState());
     return pizzaSauce;
 
 }
 PizzaSize PizzaService::addSize(int sizeNR) {
     PizzaSize pizzaSize;
-    DataBase database;
-    pizzaSize.setIdNumber(database.sizeMaster[sizeNR - 1].getIdNumber());
-    pizzaSize.setName(database.sizeMaster[sizeNR - 1].getName());
-    pizzaSize.setPriceCategory(database.sizeMaster[sizeNR - 1].getPriceCategory());
-
+    pizzaSize.setIdNumber(dataBase.sizeMaster[sizeNR - 1].getIdNumber());
+    pizzaSize.setName(dataBase.sizeMaster[sizeNR - 1].getName());
+    pizzaSize.setPriceCategory(dataBase.sizeMaster[sizeNR - 1].getPriceCategory());
+    //pizzaSize.setActiveState(dataBase.pizzaMaster[sizeNR - 1].getActiveState());
     return pizzaSize;
 
 }
 PizzaType PizzaService::addType(int typeNR) {
     PizzaType pizzaType;
-    DataBase database;
-    pizzaType.setIdNumber(database.typeMaster[typeNR - 1].getIdNumber());
-    pizzaType.setName(database.typeMaster[typeNR - 1].getName());
-    pizzaType.setPriceCategory(database.typeMaster[typeNR - 1].getPriceCategory());
-
+    pizzaType.setIdNumber(dataBase.typeMaster[typeNR - 1].getIdNumber());
+    pizzaType.setName(dataBase.typeMaster[typeNR - 1].getName());
+    pizzaType.setPriceCategory(dataBase.typeMaster[typeNR - 1].getPriceCategory());
+    pizzaType.setActiveState(dataBase.typeMaster[typeNR - 1].getActiveState());
     return pizzaType;
 }
 
 Topping* PizzaService::addTopping(int *arr, Pizza& pizza) {
-    DataBase database;
     int counter = 0;
     for (int i = 0; arr[i] != 0; i++) {
         counter ++;
     }
     for (int i = 0; arr[i] != 0; i++) {
-        pizza.getToppings()[i].setIdNumber(database.toppingMaster[arr[i] - 1].getIdNumber());
-        pizza.getToppings()[i].setName(database.toppingMaster[arr[i] - 1].getName());
-        pizza.getToppings()[i].setPriceCategory(database.toppingMaster[arr[i] - 1].getPriceCategory());
+        pizza.getToppings()[i].setIdNumber(dataBase.toppingMaster[arr[i] - 1].getIdNumber());
+        pizza.getToppings()[i].setName(dataBase.toppingMaster[arr[i] - 1].getName());
+        pizza.getToppings()[i].setPriceCategory(dataBase.toppingMaster[arr[i] - 1].getPriceCategory());
+        pizza.getToppings()[i].setActiveState(dataBase.toppingMaster[arr[i] - 1].getActiveState());
     }
     return pizza.getToppings();
 
