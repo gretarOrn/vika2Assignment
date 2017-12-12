@@ -147,7 +147,7 @@ void SalesUI::displayTypeList() {
     for(int i = 0; i < length; i++) {
         cout << typeList[i].getIdNumber() << ")\t"
              << setw(24) << left << typeList[i].getName() << "\t"
-             << typeList[i].getPriceCategory() << endl;
+             << typeList[i].getPriceOfset() << endl;
     }
     cout << endl;
 }

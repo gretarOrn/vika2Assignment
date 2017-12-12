@@ -16,12 +16,12 @@ class PizzaType
 
         int getIdNumber() const;
         string getName() const;
-        int getPriceCategory() const;
+        double getPriceOfset() const;
         bool getActiveState() const;
 
         void setIdNumber(int newIdNumber);
         void setName(string newName);
-        void setPriceCategory(int newPriceCategory);
+        void setPriceOfset(double newPriceOfset);
         void setActiveState(bool newState);
 
         friend istream&  operator >> (istream& in, PizzaType& type);
@@ -30,7 +30,7 @@ class PizzaType
     private:
         int idNumber;
         char name[MAX_STRING_LENGTH];
-        int priceCategory;
+        double priceOfset;
         bool isActive;
 
         void strToCharArr(string newName);

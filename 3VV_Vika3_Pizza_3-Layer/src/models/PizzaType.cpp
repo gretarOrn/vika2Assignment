@@ -3,7 +3,7 @@
 PizzaType::PizzaType() {
     idNumber = 0;
     name[0] = '\0';
-    priceCategory = 0;
+    priceOfset = 0.0;
     isActive = false;
 }
 
@@ -17,8 +17,8 @@ string PizzaType::getName() const{
     return name;
 }
 
-int PizzaType::getPriceCategory() const{
-    return priceCategory;
+double PizzaType::getPriceOfset() const{
+    return priceOfset;
 }
 
 bool PizzaType::getActiveState() const{
@@ -39,8 +39,8 @@ void PizzaType::setName(string newName) {
     name[MAX_STRING_LENGTH - 1] = '\0';       // Adds the esc.character to the end of the charArray.
 }
 
-void PizzaType::setPriceCategory(int newPriceCategory) {
-    priceCategory = newPriceCategory;
+void PizzaType::setPriceOfset(double newPriceOfset) {
+    priceOfset = newPriceOfset;
 }
 
 void PizzaType::setActiveState(bool newState) {
@@ -66,12 +66,12 @@ istream&  operator >> (istream& in, PizzaType& type) {
     getline(in, nameStr);
     type.strToCharArr(nameStr);
     cout << "Enter price category: ";
-    in >> type.priceCategory;
+    in >> type.priceOfset;
     type.setActiveState(true);
     return in;
 }
 
 ostream& operator << (ostream& out, const PizzaType& type) {
-    out << '\t' << setw(type.MAX_STRING_LENGTH) << left << type.name << " | Price category: " << type.priceCategory << endl;
+    out << '\t' << setw(type.MAX_STRING_LENGTH) << left << type.name << " | Price category: " << type.priceOfset << endl;
     return out;
 }

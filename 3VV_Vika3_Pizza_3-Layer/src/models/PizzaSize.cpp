@@ -20,6 +20,13 @@ string PizzaSize::getName() const{
 int PizzaSize::getPriceCategory() const{
     return priceCategory;
 }
+double PizzaSize::getToppingMult() const {
+    return toppingPriceMultiplyer;
+}
+
+double PizzaSize::getToppingOfset() const {
+    return toppingPriceOfset;
+}
 
 bool PizzaSize::getActiveState() const{
     return isActive;
@@ -37,6 +44,14 @@ void PizzaSize::setName(string newName) {
 
 void PizzaSize::setPriceCategory(int newPriceCategory) {
     priceCategory = newPriceCategory;
+}
+
+void PizzaSize::setToppingMult(double newToppingMult) {
+    toppingPriceMultiplyer = newToppingMult;
+}
+
+void PizzaSize::setToppingOfset(double newToppingOfset) {
+    toppingPriceOfset = newToppingOfset;
 }
 
 void PizzaSize::setActiveState(bool newState) {

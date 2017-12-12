@@ -110,9 +110,7 @@ void AdminUI::displayPizzaMenu() {
         cout << "Pizzas in current menu: " << endl;
         for (int i = 0; i < adminService.repo.getPizzaLines(); i++) {
             cout << pizzaList[i].getIdNumber();
-            if(pizzaList[i].getName() != ""){
-                cout << ")\t" << setw(pizzaList[0].MAX_PIZZA_LENGTH) << left << pizzaList[i].getName();
-            }
+            cout << ")\t" << setw(pizzaList[0].MAX_PIZZA_LENGTH) << left << pizzaList[i].getName();
             cout << " | " << setw(pizzaList[0].getSize().MAX_STRING_LENGTH) << left << pizzaList[i].getSize().getName();
             cout << " | " << setw(pizzaList[0].getType().MAX_STRING_LENGTH) << left << pizzaList[i].getType().getName();
             cout << " | " << setw(pizzaList[0].getSauce().MAX_STRING_LENGTH) << left << pizzaList[i].getSauce().getName() << endl;
@@ -648,14 +646,12 @@ void AdminUI::baseOptions() {
 }
 void AdminUI::displayBases() {
     PizzaType* typeList = dataBase.typeMaster;
-    PriceList* priceList = dataBase.priceMaster;
     if(typeList != 0) {
         cout << "Bases in current list: " << endl;
         for (int i = 0; i < adminService.repo.getTypeLines(); i++) {
             cout << typeList[i].getIdNumber();
             cout << ")\t" << setw(typeList[0].MAX_STRING_LENGTH) << left << typeList[i].getName();
-            cout << " | " << setw(priceList[0].MAX_STRING_LENGTH) << left << priceList[typeList[i].getPriceCategory()-1].getName();
-            cout << " | " << setw(4) << right << priceList[typeList[i].getPriceCategory()-1].getPrice() << "kr | ";
+            cout << " | " << setw(4) << right << typeList[i].getPriceOfset() << "kr | ";
             if(typeList[i].getActiveState()) {
                 cout << "Active";
             } else {

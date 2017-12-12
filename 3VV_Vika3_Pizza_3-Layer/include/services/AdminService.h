@@ -18,7 +18,7 @@ class AdminService
         void addExtra(string name, int prizeCat);
         void addSize(string name, int prizeCat);
         void addSauce(string name, int prizeCat);
-        void addType(string name, int prizeCat);
+        void addType(string name, double priceOfset);
         void addLocation(string name, string address);
 
         bool validateName(string name);

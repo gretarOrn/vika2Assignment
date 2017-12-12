@@ -74,12 +74,12 @@ void AdminService::addSauce(string name, int priceCat) {
     repo.writeToSauceFile(sauce);
 }
 
-void AdminService::addType(string name, int priceCat) {
+void AdminService::addType(string name, double priceOfset) {
     PizzaType type;
     dataBase.incrementTypeID();
     type.setIdNumber(dataBase.getTypeID());
     type.setName(name);
-    type.setPriceCategory(priceCat);
+    type.setPriceOfset(priceOfset);
     type.setActiveState(true);
     repo.writeToTypeFile(type);
 }

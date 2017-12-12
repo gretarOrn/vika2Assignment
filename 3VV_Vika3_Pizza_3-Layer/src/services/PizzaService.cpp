@@ -26,7 +26,7 @@ PizzaType PizzaService::addType(int typeNR) {
     PizzaType pizzaType;
     pizzaType.setIdNumber(dataBase.typeMaster[typeNR - 1].getIdNumber());
     pizzaType.setName(dataBase.typeMaster[typeNR - 1].getName());
-    pizzaType.setPriceCategory(dataBase.typeMaster[typeNR - 1].getPriceCategory());
+    pizzaType.setPriceOfset(dataBase.typeMaster[typeNR - 1].getPriceOfset());
     pizzaType.setActiveState(dataBase.typeMaster[typeNR - 1].getActiveState());
     return pizzaType;
 }
