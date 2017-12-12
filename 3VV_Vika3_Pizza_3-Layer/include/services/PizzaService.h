@@ -12,6 +12,7 @@ class PizzaService
         Topping* addTopping(int* arr, Pizza& pizza);
         PizzaSize addSize(int sizeNR);
         PizzaType addType(int typeNR);
+        double getPrice(Pizza pizza);
 
 
     private:
