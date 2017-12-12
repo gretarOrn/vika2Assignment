@@ -313,7 +313,7 @@ void AdminUI::displayToppings() {
             cout << toppingList[i].getIdNumber();
             cout << ")\t" << setw(toppingList[0].MAX_STRING_LENGTH) << left << toppingList[i].getName();
             cout << " | " << setw(priceList[0].MAX_STRING_LENGTH) << left << priceList[toppingList[i].getPriceCategory()-1].getName();
-            cout << " | " << setw(4) << right << priceList[toppingList[i].getPriceCategory()-1].getPrice() << "kr | ";
+            cout << " | " << setw(4) << right << (priceList[toppingList[i].getPriceCategory()-1].getPrice() * dataBase.sizeMaster[0].getToppingMult()) + dataBase.sizeMaster[0].getToppingOffset() << "kr | ";
             if(toppingList[i].getActiveState()) {
                 cout << "Active";
             } else {
@@ -516,6 +516,8 @@ void AdminUI::addSize() {
     char userInput;
     string nameInput;
     int priceInput;
+    double toppingMult;
+    double toppingOffset;
     bool valid;
     do {
         system("CLS");
@@ -532,6 +534,17 @@ void AdminUI::addSize() {
             cout << "Select a price category: ";
             cin >> priceInput;
             valid = adminService.validatePriceCategory(priceInput);
+        } while(!valid);
+        do {
+            cout << "Enter topping price Multiplier: ";
+            cin >> toppingMult;
+            //valid = adminService.validateMult(toppingMult);
+            valid = true;
+        } while(!valid);
+        do {
+            cout << "Enter topping price offset: ";
+            cin >> toppingOffset;
+            valid = adminService.validatePrice(toppingOffset);
         } while(!valid);
         adminService.addSize(nameInput, priceInput);
         dataBase.refreshSize();
@@ -651,7 +664,7 @@ void AdminUI::displayBases() {
         for (int i = 0; i < adminService.repo.getTypeLines(); i++) {
             cout << typeList[i].getIdNumber();
             cout << ")\t" << setw(typeList[0].MAX_STRING_LENGTH) << left << typeList[i].getName();
-            cout << " | " << setw(4) << right << typeList[i].getPriceOfset() << "kr | ";
+            cout << " | " << setw(4) << right << typeList[i].getPriceOffset() << "kr | ";
             if(typeList[i].getActiveState()) {
                 cout << "Active";
             } else {
@@ -664,7 +677,7 @@ void AdminUI::displayBases() {
 void AdminUI::addBase() {
     char userInput;
     string nameInput;
-    int priceInput;
+    double priceInput;
     bool valid;
     do {
         system("CLS");
@@ -676,13 +689,10 @@ void AdminUI::addBase() {
             getline(cin, nameInput);
             valid = adminService.validateName(nameInput);
         } while(!valid);
-
-        displayPriceCategory();
-
         do {
-            cout <<"Select a price category: ";
+            cout <<"Enter a price offset: ";
             cin >> priceInput;
-            valid = adminService.validatePriceCategory(priceInput);
+            valid = adminService.validatePrice(priceInput);
         } while(!valid);
 
         adminService.addType(nameInput, priceInput);

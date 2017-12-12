@@ -55,7 +55,7 @@ void Pizza::setSize(const PizzaSize& newSize) {
 void Pizza::setType(const PizzaType& newType) {
     type.setIdNumber(newType.getIdNumber());
     type.setName(newType.getName());
-    type.setPriceOfset(newType.getPriceOfset());
+    type.setPriceOffset(newType.getPriceOffset());
     type.setActiveState(newType.getActiveState());
 }
 

@@ -15,14 +15,14 @@ class PizzaSize
         string getName() const;
         int getPriceCategory() const;
         double getToppingMult() const;
-        double getToppingOfset() const;
+        double getToppingOffset() const;
         bool getActiveState() const;
 
         void setIdNumber(int newIdNumber);
         void setName(string newName);
         void setPriceCategory(int newPriceCategory);
         void setToppingMult(double newToppingMult);
-        void setToppingOfset(double newToppingOfset);
+        void setToppingOffset(double newToppingOffset);
         void setActiveState(bool newState);
 
         friend istream&  operator >> (istream& in, PizzaSize& size);
@@ -33,7 +33,7 @@ class PizzaSize
         char name[MAX_STRING_LENGTH];
         int priceCategory;
         double toppingPriceMultiplyer;
-        double toppingPriceOfset;
+        double toppingPriceOffset;
         bool isActive;
 
         void strToCharArr(string name);

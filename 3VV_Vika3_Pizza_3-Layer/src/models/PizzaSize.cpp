@@ -4,6 +4,8 @@ PizzaSize::PizzaSize() {
     idNumber = 0;
     name[0] = '\0';
     priceCategory = 0;
+    toppingPriceMultiplyer = 1.0;
+    toppingPriceOffset = 0.0;
     isActive = false;
 }
 
@@ -24,8 +26,8 @@ double PizzaSize::getToppingMult() const {
     return toppingPriceMultiplyer;
 }
 
-double PizzaSize::getToppingOfset() const {
-    return toppingPriceOfset;
+double PizzaSize::getToppingOffset() const {
+    return toppingPriceOffset;
 }
 
 bool PizzaSize::getActiveState() const{
@@ -50,8 +52,8 @@ void PizzaSize::setToppingMult(double newToppingMult) {
     toppingPriceMultiplyer = newToppingMult;
 }
 
-void PizzaSize::setToppingOfset(double newToppingOfset) {
-    toppingPriceOfset = newToppingOfset;
+void PizzaSize::setToppingOffset(double newToppingOffset) {
+    toppingPriceOffset = newToppingOffset;
 }
 
 void PizzaSize::setActiveState(bool newState) {
