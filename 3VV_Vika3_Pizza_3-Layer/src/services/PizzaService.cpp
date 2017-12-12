@@ -46,6 +46,23 @@ Topping* PizzaService::addTopping(int *arr, Pizza& pizza) {
 
 
 }
+double PizzaService::getPrice(Pizza pizza) {
+    PriceList* priceList = dataBase.priceMaster;
+
+    double num = 0;
+    double mult = pizza.getSize().getToppingMult();
+    double off = pizza.getSize().getToppingOffset();
+    for (int i = 0; pizza.getToppings()[i].getName() != ""; i++) {
+        num += priceList[pizza.getToppings()[i].getPriceCategory()-1].getPrice() * mult + off;
+    }
+    num += priceList[pizza.getSize().getPriceCategory() - 1].getPrice();
+    num += pizza.getType().getPriceOffset() * mult;
+
+    return  num;
+
+
+
+}
 /*void Pizza::addSause() {
 
     int lines = sauce.getLines();

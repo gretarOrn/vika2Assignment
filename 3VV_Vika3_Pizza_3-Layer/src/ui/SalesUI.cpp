@@ -109,6 +109,7 @@ void SalesUI::createOrder() {
     //displayExtraList();
 }
 void SalesUI::printPizza(Pizza pizza, int counter) {
+    PizzaService pizzaService;
     cout << "name: " << pizza.getName() << endl;
     cout << "size: " << pizza.getSize().getName() << endl;
     cout << "sauce: " << pizza.getSauce().getName() << endl;
@@ -118,6 +119,8 @@ void SalesUI::printPizza(Pizza pizza, int counter) {
         cout << pizza.getToppings()[i].getName() << " ";
     }
     cout << endl;
+    cout << "Total Price of Pizza: " << pizzaService.getPrice(pizza) << endl;
+
     cout << endl;
 
 
