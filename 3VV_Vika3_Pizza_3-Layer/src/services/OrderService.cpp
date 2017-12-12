@@ -9,11 +9,23 @@ OrderService::~OrderService()
 {
     //dtor
 }
-void OrderService::addToOrder(Order order) {
-    SuperRepo superRepo;
-    superRepo.writeToActiveOrderFile(order);
 
+void OrderService::addPizzaToOrder(Order& order, const Pizza& pizza) {
 
+}
+
+void OrderService::addInfoToOrder(Order& order, bool delivery, int locationId, string address, string comment) {
+    dataBase.incrementOrderID();
+    order.setOrderId(dataBase.getOrderID());
+    order.setDeliveryMethod(delivery);
+    order.setLocation(locationId);
+    order.setAddress(address);
+    order.setComment(comment);
+    order.setOrderStatus(1);
+}
+
+void OrderService::saveOrder(Order order) {
+    repo.writeToActiveOrderFile(order);
 }
 
 double OrderService::getPrice(Order order) {

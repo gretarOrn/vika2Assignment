@@ -5,6 +5,7 @@
 #include "OrderService.h"
 #include "PizzaService.h"
 #include "ExtraService.h"
+#include "AdminService.h" //Temp
 #include <cstdlib>
 #include <iomanip>
 
@@ -19,11 +20,16 @@ class SalesUI
         OrderService orderSer;
         PizzaService pizzaSer;
         ExtraService extraSer;
+        AdminService adminSer;
+
+        int defaultLocationId;
 
         void createOrder();
         void addPizzaFromMenu(Order& order);
         void createCustomPizza(Order& order);
         void addExtraToOrder(Order& order);
+
+        void addInfo(Order& order);
 
 
         void printPizza(Pizza pizza, int counter);
@@ -35,6 +41,7 @@ class SalesUI
         void displaySauceList();
         void displayToppingList();
         void displayExtraList();
+        void displayLocationList();
 };
 
 #endif // SALESUI_H

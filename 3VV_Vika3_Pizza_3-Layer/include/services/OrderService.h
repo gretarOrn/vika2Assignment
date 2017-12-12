@@ -11,11 +11,17 @@ class OrderService
     public:
         OrderService();
         virtual ~OrderService();
-        void addToOrder(Order order);
+
+        DataBase dataBase;
+        SuperRepo repo;
+
+
+        void addPizzaToOrder(Order& order, const Pizza& pizza);
+        void addInfoToOrder(Order& order, bool delivery, int locationId, string address, string comment);
+        void saveOrder(Order order);
         double getPrice(Order order);
 
     private:
-        DataBase dataBase;
         PizzaService pizzaService;
 };
 
