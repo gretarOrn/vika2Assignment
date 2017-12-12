@@ -34,7 +34,7 @@ void SalesUI::createOrder() {
     char c;
     while (c != 'q') {
         //system("CLS");
-        cout << "Sales:" << endl;
+        cout << "Order:" << endl;
         cout << "1)\t" << "Add pizza from menu" << endl;
         cout << "2)\t" << "Create custom pizza" << endl;
         cout << "3)\t" << "Add an Extra" << endl;
@@ -55,30 +55,9 @@ void SalesUI::createOrder() {
 }
 
 void SalesUI::addPizzaFromMenu(Order& order) {
-    char c;
-    int input;
-    for (int i = 0; i < order.MAX_EXTRAS_ORDER; i++) {
-        cout << "want another extra?(y/n)" << endl;
-        cin >> c;
-        if (c != 'y') {
-            break;
-        }
-        displayExtraList();
-        cin >> input;
-        order.getExtras()[i].addExtra(extraSer.addExtra(input));
-        cout << endl;
-        printExtra(order.getExtras()[i]);
-
-
-    }
-    orderSer.addToOrder(order);
-
-    return;
-
-
-
-
-    //displayExtraList();
+    system("CLS");
+    cout << "Pizza Menu:" << endl;
+    displayPizzaMenu();
 }
 
 void SalesUI::createCustomPizza(Order& order) {
@@ -128,28 +107,54 @@ void SalesUI::createCustomPizza(Order& order) {
 
 }
 
+void SalesUI::addExtraToOrder(Order& order) {
+    char c;
+    int input;
+    for (int i = 0; i < order.MAX_EXTRAS_ORDER; i++) {
+        cout << "want another extra?(y/n)" << endl;
+        cin >> c;
+        if (c != 'y') {
+            break;
+        }
+        displayExtraList();
+        cin >> input;
+        order.getExtras()[i].addExtra(extraSer.addExtra(input));
+        cout << endl;
+        printExtra(order.getExtras()[i]);
+
+
+    }
+    orderSer.addToOrder(order);
+
+    return;
+}
+
 void SalesUI::printPizza(Pizza pizza, int counter) {
-    PizzaService pizzaService;
-    cout << "name: " << pizza.getName() << endl;
-    cout << "size: " << pizza.getSize().getName() << endl;
-    cout << "sauce: " << pizza.getSauce().getName() << endl;
-    cout << "type: " << pizza.getType().getName() << endl;
+    if(pizza.getName() != ""){
+        cout << "Name: " << pizza.getName() << endl;
+    } else {
+        cout << "Name: Custom pizza" << endl;
+    }
+    cout << "Size: " << pizza.getSize().getName() << endl;
+    cout << "Sauce: " << pizza.getSauce().getName() << endl;
+    cout << "Type: " << pizza.getType().getName() << endl;
     cout << "Toppings: ";
     for (int i = 0; i < (counter - 1); i++) {
-        cout << pizza.getToppings()[i].getName() << " ";
+        cout << pizza.getToppings()[i].getName() << ", ";
     }
     cout << endl;
-    cout << "Total Price of Pizza: " << pizzaService.getPrice(pizza) << endl;
-
+    cout << "Total Price of Pizza: " << pizzaSer.getPrice(pizza) << endl;
     cout << endl;
-
-
 }
+
 void SalesUI::printExtra(const Extra& extra) {
-    cout << "name: " << extra.getName() << endl;
-    cout << "price: " << extra.getPriceCategory() << endl;
+    cout << "Name: " << extra.getName() << endl;
+    cout << "Price: " << extra.getPriceCategory() << endl;
 }
 
+void SalesUI::displayPizzaMenu() {
+
+}
 
 void SalesUI::displaySizeList() {
     PizzaSize* sizeList = dataBase.sizeMaster;

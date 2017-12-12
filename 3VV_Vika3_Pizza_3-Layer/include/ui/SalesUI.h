@@ -23,11 +23,13 @@ class SalesUI
         void createOrder();
         void addPizzaFromMenu(Order& order);
         void createCustomPizza(Order& order);
+        void addExtraToOrder(Order& order);
 
 
         void printPizza(Pizza pizza, int counter);
         void printExtra(const Extra& extra);
 
+        void displayPizzaMenu();
         void displaySizeList();
         void displayTypeList();
         void displaySauceList();
