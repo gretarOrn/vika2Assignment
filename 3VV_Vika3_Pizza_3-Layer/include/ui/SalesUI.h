@@ -12,15 +12,19 @@ class SalesUI
 {
     public:
         SalesUI();
-
         void startUp();
 
     private:
-        DataBase data;
+        DataBase dataBase;
         OrderService orderSer;
         PizzaService pizzaSer;
+        ExtraService extraSer;
 
         void createOrder();
+        void addPizzaFromMenu(Order& order);
+        void createCustomPizza(Order& order);
+
+
         void printPizza(Pizza pizza, int counter);
         void printExtra(const Extra& extra);
 

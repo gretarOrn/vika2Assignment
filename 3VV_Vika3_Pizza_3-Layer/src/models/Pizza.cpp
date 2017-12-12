@@ -41,7 +41,7 @@ double Pizza::getTotalPrice() const {
     return totalPrice;
 }
 
-bool Pizza::getAcriveState() const {
+bool Pizza::getActiveState() const {
     return isActive;
 }
 
