@@ -46,6 +46,14 @@ Topping* PizzaService::addTopping(int *arr, Pizza& pizza) {
 
 
 }
+double PizzaService::getPrice(Pizza pizza) {
+    PriceList priceList;
+    double num = 0;
+    for (int i = 0; pizza.getToppings()[i].getName() != ""; i++) {
+        num += pizza.getToppings()[i].getPriceCategory();
+    }
+
+}
 /*void Pizza::addSause() {
 
     int lines = sauce.getLines();
