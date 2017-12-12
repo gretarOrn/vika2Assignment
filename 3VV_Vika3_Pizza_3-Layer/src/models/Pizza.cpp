@@ -3,6 +3,8 @@
 Pizza::Pizza() {
     idNumber = 0;
     name[0] = '\0';
+    totalPrice = 0.0;
+    isActive = false;
 }
 
 ///***************************************************************************************
@@ -35,6 +37,14 @@ Topping Pizza::getTopping(int index) {
     return toppings[index];
 }
 */
+double Pizza::getTotalPrice() const {
+    return totalPrice;
+}
+
+bool Pizza::getAcriveState() const {
+    return isActive;
+}
+
 ///***************************************************************************************
 
 void Pizza::setIdNumber(int newIdNumber) {
@@ -49,6 +59,8 @@ void Pizza::setSize(const PizzaSize& newSize) {
     size.setIdNumber(newSize.getIdNumber());
     size.setName(newSize.getName());
     size.setPriceCategory(newSize.getPriceCategory());
+    size.setToppingMult(newSize.getToppingMult());
+    size.setToppingOffset(newSize.getToppingMult());
     size.setActiveState(newSize.getActiveState());
 }
 
@@ -80,6 +92,13 @@ void Pizza::addToppings(Topping* arr) {
     }
 }
 
+void Pizza::setTotalPrice(double newPrice) {
+    totalPrice = newPrice;
+}
+
+void Pizza::setActiveState(bool newState) {
+    isActive = newState;
+}
 
 
 ///***************************************************************************************

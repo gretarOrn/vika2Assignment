@@ -13,6 +13,7 @@ Order::Order()
     comment[0] = '\0';
     paymentStatus = false;
     orderStatus = 0;
+    isActive = false;
 }
 
 ///***************************************************************************************
@@ -61,6 +62,9 @@ int Order::getOrderStatus() const {
     return orderStatus;
 }
 
+bool Order::getActiveState() const {
+    return isActive;
+}
 ///***************************************************************************************
 
 void Order::setOrderId(int newOrderId) {
@@ -118,6 +122,9 @@ void Order::setOrderStatus(int newOrderStatus) {
     orderStatus = newOrderStatus;
 }
 
+void Order::setActiveState(bool newState) {
+    isActive = newState;
+}
 ///***************************************************************************************
 
 /*
