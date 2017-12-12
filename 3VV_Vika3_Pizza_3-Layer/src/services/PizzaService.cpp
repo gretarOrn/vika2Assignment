@@ -18,7 +18,7 @@ PizzaSize PizzaService::addSize(int sizeNR) {
     pizzaSize.setIdNumber(dataBase.sizeMaster[sizeNR - 1].getIdNumber());
     pizzaSize.setName(dataBase.sizeMaster[sizeNR - 1].getName());
     pizzaSize.setPriceCategory(dataBase.sizeMaster[sizeNR - 1].getPriceCategory());
-    //pizzaSize.setActiveState(dataBase.pizzaMaster[sizeNR - 1].getActiveState());
+    pizzaSize.setActiveState(dataBase.pizzaMaster[sizeNR - 1].getActiveState());
     return pizzaSize;
 
 }

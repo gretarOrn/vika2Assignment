@@ -24,7 +24,7 @@ class Pizza
         PizzaSauce getSauce() const;
         Topping* getToppings();
         double getTotalPrice() const;
-        bool getAcriveState() const;
+        bool getActiveState() const;
         //Topping getTopping(int index);
 
         void setIdNumber(int newIdNumber);
