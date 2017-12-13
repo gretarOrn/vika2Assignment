@@ -30,42 +30,6 @@ void SalesUI::startUp() {
         if(c == '1') {
             createOrder();
         } else if(c == '2') {
-            Order* orderList = dataBase.activeOrderMaster;
-            int lines = orderSer.repo.getActiveOrderLines();
-            int lineNr;
-<<<<<<< HEAD
-
-            //displayOrder(orderList[lineNr -1]);
-
-            for(int i = 0; i < lines; i++) {
-                displayOrder(orderList[i]);
-            }
-            cin >> lineNr;
-            orderSer.repo.writeAllButToActiveOrderFile(orderList, lineNr - 1);
-=======
-            cin >> lineNr;
-            displayOrder(orderList[lineNr]);
-            /*
-            for(int i = 0; i < lines; i++) {
-                displayOrder(orderList[i]);
-            }
-
-            orderSer.repo.writeAllButToActiveOrderFile(orderList, lineNr);
->>>>>>> 740932c682f05bd84ae6a7d378a3d2d2f369fd08
-            lines = orderSer.repo.getActiveOrderLines();
-            for(int i = 0; i < lines; i++) {
-                displayOrder(orderList[i]);
-            }
-<<<<<<< HEAD
-
-=======
-            */
->>>>>>> 740932c682f05bd84ae6a7d378a3d2d2f369fd08
-
-
-
-
-
 
         } else if(c == '3') {
 
@@ -273,13 +237,13 @@ void SalesUI::addInfo(Order& order) {
             getline(cin, address);
             //valid = adminSer.validateName(address);
         } while(!valid);
-        cout << "Add comment? (y/n) ";
-        cin >> userInput;
-        if(userInput == 'y') {
-            cout << "Comment: ";
-            cin >> ws;
-            getline(cin, comment);
-        }
+    }
+    cout << "Add comment? (y/n) ";
+    cin >> userInput;
+    if(userInput == 'y') {
+        cout << "Comment: ";
+        cin >> ws;
+        getline(cin, comment);
     }
     while(true) {
         cout << "Has order been payed? (y/n) ";

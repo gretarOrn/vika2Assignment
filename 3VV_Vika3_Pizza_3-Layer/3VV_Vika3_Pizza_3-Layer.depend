@@ -87,9 +87,18 @@
 	"PriceList.h"
 	"Topping.h"
 
-1513082049 c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\include\services\adminservice.h
+1513170434 c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\include\services\adminservice.h
 	"SuperRepo.h"
 	"DataBase.h"
+	"InvalidNameException.h"
+	"InvalidPriceException.h"
+	"InvalidSizeException.h"
+	"InvalidTypeException.h"
+	"InvalidSauceException.h"
+	"InvalidToppingException.h"
+	"InvalidMultException.h"
+	"InvalidOffsetException.h"
+	"InvalidExtraException.h"
 
 1513161530 c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\include\ui\salesui.h
 	"DataBase.h"
@@ -100,7 +109,7 @@
 	<cstdlib>
 	<iomanip>
 
-1513163793 c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\include\services\orderservice.h
+1513173912 c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\include\services\orderservice.h
 	"DataBase.h"
 	"SuperRepo.h"
 	"pizzaService.h"
@@ -112,12 +121,12 @@
 	"Extra.h"
 	"DataBase.h"
 
-1512990757 c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\include\ui\bakerui.h
+1513170434 c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\include\ui\bakerui.h
 	"DataBase.h"
 	<iostream>
 	<cstdlib>
 
-1512990757 c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\include\ui\deliveryui.h
+1513170434 c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\include\ui\deliveryui.h
 	"DataBase.h"
 	<iostream>
 	<cstdlib>
@@ -143,10 +152,10 @@
 1512405732 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\src\models\topping.cpp
 	"Topping.h"
 
-1513165818 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\src\repositories\superrepo.cpp
+1513173912 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\src\repositories\superrepo.cpp
 	"SuperRepo.h"
 
-1513082049 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\src\services\adminservice.cpp
+1513170434 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\src\services\adminservice.cpp
 	"AdminService.h"
 
 1512396050 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\src\services\pizzasauceservice.cpp
@@ -164,10 +173,10 @@
 
 1512395914 c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\include\services\toppingservice.h
 
-1513082225 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\src\ui\adminui.cpp
+1513170434 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\src\ui\adminui.cpp
 	"AdminUI.h"
 
-1513073747 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\src\ui\bakerui.cpp
+1513170434 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\src\ui\bakerui.cpp
 	"BakerUI.h"
 
 1512991478 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\src\ui\mainui.cpp
@@ -213,14 +222,15 @@
 
 1513005242 c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\include\exceptions\invalidlocationexception.h
 
-1513005243 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\src\ui\deliveryui.cpp
+1513170434 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\src\ui\deliveryui.cpp
 	"DeliveryUI.h"
 
-<<<<<<< HEAD
-1513166973 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\src\ui\salesui.cpp
-=======
-1513164059 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\src\ui\salesui.cpp
->>>>>>> 740932c682f05bd84ae6a7d378a3d2d2f369fd08
+1513005243 D
+
+1513173912 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\src\ui\salesui.cpp
+	"SalesUI.h"
+
+1513164059 932c682f05bd84ae6a7d378a3d2d2f369fd08
 	"SalesUI.h"
 
 1512484707 source:c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\main.cpp
@@ -686,4 +696,22 @@
 
 1513168693 source:c:\users\greta\documents\3vv_vika3_pizza_3-layer\src\ui\adminui.cpp
 	"AdminUI.h"
+
+1513170434 c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\include\exceptions\invalidnameexception.h
+
+1513170434 c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\include\exceptions\invalidpriceexception.h
+
+1513170434 c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\include\exceptions\invalidsizeexception.h
+
+1513170434 c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\include\exceptions\invalidtypeexception.h
+
+1513170434 c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\include\exceptions\invalidsauceexception.h
+
+1513170434 c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\include\exceptions\invalidtoppingexception.h
+
+1513170434 c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\include\exceptions\invalidmultexception.h
+
+1513170434 c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\include\exceptions\invalidoffsetexception.h
+
+1513170434 c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\include\exceptions\invalidextraexception.h
 

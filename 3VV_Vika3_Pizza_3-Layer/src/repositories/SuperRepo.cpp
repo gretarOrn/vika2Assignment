@@ -135,14 +135,10 @@ void SuperRepo::writeToActiveOrderFile(const Order& order) {
 void SuperRepo::writeAllButToActiveOrderFile(Order* order, int lineNr) {
     int lines = getActiveOrderLines();
     ofstream fout("ActiveOrders.dat", ios::binary|ios::trunc);
-    fout.write((char*)(order), ((lineNr) * sizeof(Order)));
+    fout.write((char*)(order), ((lineNr - 1) * sizeof(Order)));
     fout.close();
     fout.open("ActiveOrders.dat", ios::binary|ios::app);
-<<<<<<< HEAD
-    fout.write((char*)(&order[lineNr + 1]), ((lines - lineNr) * sizeof(Order)));
-=======
-    fout.write((char*)(&order[lineNr + 1]), ((lines - lineNr - 1) * sizeof(Order)));
->>>>>>> 740932c682f05bd84ae6a7d378a3d2d2f369fd08
+    fout.write((char*)(&order[lineNr]), ((lines - lineNr) * sizeof(Order)));
     fout.close();
 }
 
