@@ -13,6 +13,8 @@
 #include "InvalidMultException.h"
 #include "InvalidOffsetException.h"
 #include "InvalidExtraException.h"
+#include "InvalidPizzaException.h"
+#include "InvalidLocationException.h"
 
 class AdminService
 {
@@ -40,6 +42,8 @@ class AdminService
         void validatePrice(double price, bool& valid);
         void validateExtra(int priceInput,bool& valid);
         void validateToppingSelection(int tempToppingSelection,bool& valid);
+        void validatePizzaSelection(int pizzaSelection, bool& valid);
+        void validateLocation(int locationSelection, bool& valid);
 
         void validateTopping(int topping, bool& valid);
 

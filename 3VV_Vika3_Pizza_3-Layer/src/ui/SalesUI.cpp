@@ -30,9 +30,25 @@ void SalesUI::startUp() {
         if(c == '1') {
             createOrder();
         } else if(c == '2') {
+            Order* orderList = dataBase.activeOrderMaster;
+            int index;
+            cout << "Lines: " << orderSer.repo.getActiveOrderLines() << endl;
+            /*for(int i = 0; i < orderSer.repo.getActiveOrderLines(); i++) {
+                displayOrder(orderList[i]);
+                cout << endl;
+            }*/
+            cout << "Select order to move to inactive: ";
+            cin >> index;
+            orderSer.moveOrderToInactiveFile(index);
 
+            cout << "Lines: " << orderSer.repo.getActiveOrderLines() << endl;
         } else if(c == '3') {
-
+            Order* inactiveOrderList = dataBase.inactiveOrderMaster;
+            cout << orderSer.repo.getInactiveOrderLines() << endl;
+            /*for(int i = 0; i < orderSer.repo.getInactiveOrderLines(); i++) {
+                displayOrder(inactiveOrderList[i]);
+                cout << endl;
+            }*/
         } else if(c != 'q') {
 
         }
@@ -84,11 +100,18 @@ void SalesUI::addPizzaFromMenu(Order& order) {
             }
         }
         cout << "----------------------------------------------------------------" << endl << endl;
+        displayPizzaMenu();
         do {
-            displayPizzaMenu();
+
             cout << "Select Pizza: ";
             cin >> input;
-            //valid = adminSer.validatePizzaSelection()
+            try {
+                adminSer.validatePizzaSelection(input,valid);
+            }
+            catch(InvalidPizzaException) {
+                cout <<"Invalid selection." << endl;
+            }
+
         } while(!valid);
         orderSer.addPizzaToOrder(order, pizzaMenu[input - 1]);
 
@@ -214,29 +237,37 @@ void SalesUI::addInfo(Order& order) {
             cout << "Try again." << endl;
         }
     }
+    valid = false;
     if(delivery) {
         do {
             cout << "Enter delivery address: ";
             cin >> ws;
             getline(cin, address);
-            //valid = adminSer.validateName(address);
+            try{
+                adminSer.validateName(address, valid);
+            } catch(InvalidNameException) {
+                cout << "Invalid address." << endl;
+            }
         } while(!valid);
         userSelection = defaultLocationId;
     } else {
+        valid = false;
         do {
             system("CLS");
             displayLocationList();
             cout << "Select pickup location: ";
             cin >> userSelection;
-            ///valid = AdminSer.validateLocation(userSelection);
-            valid = true;
+            try{
+                adminSer.validateLocation(userSelection, valid);
+            }
+            catch(InvalidLocationException) {
+                cout <<"Invalid location." << endl;
+            }
         } while(!valid);
-        do {
+
             cout << "Enter customer name / phone number: ";
             cin >> ws;
             getline(cin, address);
-            //valid = adminSer.validateName(address);
-        } while(!valid);
     }
     cout << "Add comment? (y/n) ";
     cin >> userInput;

@@ -27,7 +27,7 @@ int SuperRepo::getExtraLines() const {
 Extra* SuperRepo::readExtraFile() {
     ifstream fin;
     Extra* masterList = 0;
-    fin.open("Extras.dat");
+    fin.open("Extras.dat", ios::binary);
         if(fin.is_open()) {
             fin.seekg(0, fin.end);
             int recordCount = fin.tellg() / sizeof(Extra);
@@ -68,7 +68,7 @@ int SuperRepo::getLocationLines() const {
 Location* SuperRepo::readLocationFile() {
     ifstream fin;
     Location* masterList = 0;
-    fin.open("Locations.dat");
+    fin.open("Locations.dat", ios::binary);
         if(fin.is_open()) {
             fin.seekg(0, fin.end);
             int recordCount = fin.tellg() / sizeof(Location);
@@ -109,7 +109,7 @@ int SuperRepo::getActiveOrderLines() const {
 Order* SuperRepo::readActiveOrderFile() {
     ifstream fin;
     Order* masterList = 0;
-    fin.open("ActiveOrders.dat");
+    fin.open("ActiveOrders.dat", ios::binary);
         if(fin.is_open()) {
             fin.seekg(0, fin.end);
             int recordCount = fin.tellg() / sizeof(Order);
@@ -134,14 +134,34 @@ void SuperRepo::writeToActiveOrderFile(const Order& order) {
 
 void SuperRepo::writeAllButToActiveOrderFile(Order* order, int lineNr) {
     int lines = getActiveOrderLines();
-    ofstream fout("ActiveOrders.dat", ios::binary|ios::trunc);
-    fout.write((char*)(order), ((lineNr - 1) * sizeof(Order)));
-    fout.close();
-    fout.open("ActiveOrders.dat", ios::binary|ios::app);
+    ofstream fout;
+    remove("ActiveOrders.dat");
+    if(lineNr > 1) {
+        fout.open("Temp.dat", ios::binary);
+        fout.write((char*)(order), ((lineNr - 1) * sizeof(Order)));
+        fout.close();
+    }
+    fout.open("Temp.dat", ios::binary|ios::app);
     fout.write((char*)(&order[lineNr]), ((lines - lineNr) * sizeof(Order)));
     fout.close();
+    rename("Temp.dat", "ActiveOrders.dat");
 }
 
+void SuperRepo::writeAllToActiveOrderFile(Order* order) {
+    ifstream fin;
+    int recordCount = 0;
+    fin.open("ActiveOrders.dat", ios::binary);
+    if(fin.is_open()) {
+        fin.seekg(0, fin.end);
+        recordCount = fin.tellg() / sizeof(Order);
+        fin.seekg(0, fin.beg);
+    }
+    fin.close();
+    ofstream fout;
+    fout.open("ActiveOrders.dat", ios::binary|ios::app);
+    fout.write((char*)(&order), (recordCount * sizeof(Order)));
+    fout.close();
+}
 ///***************************************************************************************
 /// InactiveOrder
 int SuperRepo::getInactiveOrderLines() const {
@@ -160,7 +180,7 @@ int SuperRepo::getInactiveOrderLines() const {
 Order* SuperRepo::readInactiveOrderFile() {
     ifstream fin;
     Order* masterList = 0;
-    fin.open("CompletedOrders.dat");
+    fin.open("CompletedOrders.dat", ios::binary);
         if(fin.is_open()) {
             fin.seekg(0, fin.end);
             int recordCount = fin.tellg() / sizeof(Order);
@@ -201,7 +221,7 @@ int SuperRepo::getPizzaLines() const {
 Pizza* SuperRepo::readPizzaFile() {
     ifstream fin;
     Pizza* masterList = 0;
-    fin.open("PizzaMenu.dat");
+    fin.open("PizzaMenu.dat", ios::binary);
         if(fin.is_open()) {
             fin.seekg(0, fin.end);
             int recordCount = fin.tellg() / sizeof(Pizza);
@@ -242,7 +262,7 @@ int SuperRepo::getSauceLines() const {
 PizzaSauce* SuperRepo::readSauceFile() {
     ifstream fin;
     PizzaSauce* masterList = 0;
-    fin.open("PizzaSauce.dat");
+    fin.open("PizzaSauce.dat", ios::binary);
         if(fin.is_open()) {
             fin.seekg(0, fin.end);
             int recordCount = fin.tellg() / sizeof(PizzaSauce);
@@ -283,7 +303,7 @@ int SuperRepo::getSizeLines() const {
 PizzaSize* SuperRepo::readSizeFile() {
     ifstream fin;
     PizzaSize* masterList = 0;
-    fin.open("PizzaSize.dat");
+    fin.open("PizzaSize.dat", ios::binary);
         if(fin.is_open()) {
             fin.seekg(0, fin.end);
             int recordCount = fin.tellg() / sizeof(PizzaSize);
@@ -324,7 +344,7 @@ int SuperRepo::getTypeLines() const {
 PizzaType* SuperRepo::readTypeFile() {
     ifstream fin;
     PizzaType* masterList = 0;
-    fin.open("PizzaType.dat");
+    fin.open("PizzaType.dat", ios::binary);
         if(fin.is_open()) {
             fin.seekg(0, fin.end);
             int recordCount = fin.tellg() / sizeof(PizzaType);
@@ -365,7 +385,7 @@ int SuperRepo::getPriceLines() const{
 PriceList* SuperRepo::readPriceFile() {
     ifstream fin;
     PriceList* masterList = 0;
-    fin.open("PriceList.dat");
+    fin.open("PriceList.dat", ios::binary);
         if(fin.is_open()) {
             fin.seekg(0, fin.end);
             int recordCount = fin.tellg() / sizeof(PriceList);
@@ -406,7 +426,7 @@ int SuperRepo::getToppingLines() const{
 Topping* SuperRepo::readToppingFile() {
     ifstream fin;
     Topping* masterList = 0;
-    fin.open("Toppings.dat");
+    fin.open("Toppings.dat", ios::binary);
         if(fin.is_open()) {
             fin.seekg(0, fin.end);
             int recordCount = fin.tellg() / sizeof(Topping);

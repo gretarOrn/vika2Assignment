@@ -80,6 +80,7 @@ void OrderService::moveOrderToInactiveFile(int orderIndex) {
 
 void OrderService::saveOrder(const Order& order) {
     repo.writeToActiveOrderFile(order);
+    dataBase.refreshActiveOrder();
 }
 
 double OrderService::getPrice(Order& order) {
