@@ -1,0 +1,8 @@
+#ifndef INVALIDOFFSETEXCEPTION_H
+#define INVALIDOFFSETEXCEPTION_H
+
+
+class InvalidOffsetException
+{};
+
+#endif // INVALIDOFFSETEXCEPTION_H
