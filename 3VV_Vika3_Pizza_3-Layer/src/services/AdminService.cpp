@@ -207,6 +207,24 @@ void AdminService::validateToppingSelection(int tempToppingSelection ,bool& vali
         throw(InvalidToppingException());
     }
 }
+void AdminService::validatePizzaSelection(int pizzaSelection, bool& valid) {
+    if(pizzaSelection > 0 && dataBase.getPizzaID() >= pizzaSelection) {
+        valid = true;
+        return;
+    }
+    if(!valid) {
+        throw(InvalidPizzaException());
+    }
+}
+void AdminService::validateLocation(int locationSelection, bool& valid) {
+    if(locationSelection > 0 && dataBase.getLocationID() >= locationSelection) {
+        valid = true;
+        return;
+    }
+    if(!valid) {
+        throw(InvalidLocationException());
+    }
+}
 void AdminService::isInt(int& num) {
     if (cin.fail()) {
         cin.clear();
