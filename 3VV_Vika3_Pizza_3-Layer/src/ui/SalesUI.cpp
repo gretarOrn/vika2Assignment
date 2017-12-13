@@ -30,6 +30,27 @@ void SalesUI::startUp() {
         if(c == '1') {
             createOrder();
         } else if(c == '2') {
+            Order* orderList = dataBase.activeOrderMaster;
+            int lines = orderSer.repo.getActiveOrderLines();
+            int lineNr;
+            cin >> lineNr;
+            displayOrder(orderList[lineNr]);
+            /*
+            for(int i = 0; i < lines; i++) {
+                displayOrder(orderList[i]);
+            }
+
+            orderSer.repo.writeAllButToActiveOrderFile(orderList, lineNr);
+            lines = orderSer.repo.getActiveOrderLines();
+            for(int i = 0; i < lines; i++) {
+                displayOrder(orderList[i]);
+            }
+            */
+
+
+
+
+
 
         } else if(c == '3') {
 
@@ -159,9 +180,6 @@ void SalesUI::createCustomPizza(Order& order) {
         printPizza(order.getPizzas()[i], counter);
         i++;
 
-
-
-
         cout << "Add another pizza to order? (y/n) " << endl;
         cin >> c;
     } while (c == 'y');
@@ -193,8 +211,6 @@ void SalesUI::addExtraToOrder(Order& order) {
             break;
         }
     }
-    //addInfo(order);
-    //orderSer.addToOrder(order);
 }
 
 void SalesUI::addInfo(Order& order) {
@@ -224,7 +240,7 @@ void SalesUI::addInfo(Order& order) {
             cout << "Enter delivery address: ";
             cin >> ws;
             getline(cin, address);
-            valid = adminSer.validateName(address);
+            //valid = adminSer.validateName(address);
         } while(!valid);
         userSelection = defaultLocationId;
     } else {
@@ -240,7 +256,7 @@ void SalesUI::addInfo(Order& order) {
             cout << "Enter customer name / phone number: ";
             cin >> ws;
             getline(cin, address);
-            valid = adminSer.validateName(address);
+            //valid = adminSer.validateName(address);
         } while(!valid);
         cout << "Add comment? (y/n) ";
         cin >> userInput;

@@ -15,9 +15,11 @@ class DeliveryUI
 
     private:
         DataBase dataBase;
+        SuperRepo repo;
 
         void displayLocations();
         void displayOrders(int locationID);
+        int findOrderID(int conter, int locationID);
 };
 
 #endif // DELIVERYUI_H

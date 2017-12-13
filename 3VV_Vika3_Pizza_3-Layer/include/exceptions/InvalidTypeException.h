@@ -1,0 +1,9 @@
+#ifndef INVALIDTYPEEXCEPTION_H
+#define INVALIDTYPEEXCEPTION_H
+
+
+class InvalidTypeException
+{
+};
+
+#endif // INVALIDTYPEEXCEPTION_H

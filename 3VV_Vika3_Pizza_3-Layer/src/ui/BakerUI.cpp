@@ -8,6 +8,8 @@ BakerUI::BakerUI()
 void BakerUI::startUp() {
     int c;
     int d;
+    int e;
+    int f;
     while(c != 0) {
         system("CLS");
         cout <<"Locations: "<<endl;
@@ -16,24 +18,27 @@ void BakerUI::startUp() {
         cin >> c;
         /// validate input í orderservice
         displayOrders(c);
-        cout << "Select OrderID: ";
-        cin >> c;
-        displayOrder(c);
+        do{
+            cout << "Select an order: ";
+            cin >> d;
+        }while(d <= repo.getActiveOrderLines());
+        f = findOrderID(d,c);
+        displayOrder(f);
         cout <<" set pizza to \"on the make line\"(2), \"done\"(3) or no change(0): ";
-        cin >> d;
+        cin >> e;
         dataBase.refreshActiveOrder();
         Order* orderList = dataBase.activeOrderMaster;
-        if (d == 2) {
-            for(int i = 0; i < dataBase.getOrderID(); i++) {
-                if(orderList[i].getOrderId() == c) {
-                    //setOrderStatus(d);
+        if (e == 2) {
+            for(int i = 0; i < repo.getActiveOrderLines(); i++) {
+                if(orderList[i].getOrderId() == f) {
+                    //setOrderStatus(e);
                 }
             }
         }
-        else if(d == 3) {
-            for(int i = 0; i < dataBase.getOrderID(); i++) {
-                if(orderList[i].getOrderId() == c) {
-                    //setOrderStatus(d);
+        else if(e == 3) {
+            for(int i = 0; i < repo.getActiveOrderLines(); i++) {
+                if(orderList[i].getOrderId() == f) {
+                    //setOrderStatus(e);
                 }
             }
         }
@@ -57,24 +62,39 @@ void BakerUI::displayLocations() {
 void BakerUI::displayOrders(int locationID) {
     dataBase.refreshActiveOrder();
     Order* orderList = dataBase.activeOrderMaster;
+    int counter = 1;
     cout << "Orders already on the make line: " << endl;
-    for(int i = 0; i < dataBase.getOrderID(); i++) {
+    for(int i = 0; i < repo.getActiveOrderLines(); i++) {
         if(orderList[i].getLocationId() == locationID) {
             if(orderList[i].getOrderStatus() == 2) {
+<<<<<<< HEAD
                 cout << "\n" << orderList[i].getOrderId();
                 cout << ")\t" << setw(24) << left << orderList[i].getAddress();
+=======
+                cout <<"\n" << counter <<")\t";
+                cout << "ID: " <<orderList[i].getOrderId();
+                cout << ")\t" << setw(24) << left << orderList[i].getName();
+>>>>>>> 740932c682f05bd84ae6a7d378a3d2d2f369fd08
                 cout << " | " << setw(5) << left << orderList[i].getComment();
+                counter++;
             }
         }
     }
     cout <<"\n**********************************************************" << endl;
     cout <<"\nOrders ready for the make line: " << endl;
-    for(int i = 0; i < dataBase.getOrderID(); i++) {
+    for(int i = 0; i < repo.getActiveOrderLines(); i++) {
         if(orderList[i].getLocationId() == locationID) {
             if(orderList[i].getOrderStatus() == 1) {
+<<<<<<< HEAD
                 cout << "\n" << orderList[i].getOrderId();
                 cout << ")\t" << setw(24) << left << orderList[i].getAddress();
+=======
+                cout << "\n" << counter <<")\t";
+                cout << "ID: " << orderList[i].getOrderId();
+                cout << ")\t" << setw(24) << left << orderList[i].getName();
+>>>>>>> 740932c682f05bd84ae6a7d378a3d2d2f369fd08
                 cout << " | " << setw(5) << left << orderList[i].getComment();
+                counter++;
             }
         }
     }
@@ -88,7 +108,10 @@ void BakerUI::displayPizza(Pizza pizza) {
     cout <<"\t" << pizza.getSauce().getName() << endl;
     cout <<"Toppings: ";
     for(int i = 0; i < pizza.MAX_TOPPINGS_PIZZA; i++) {
-        cout <<toppings[i].getName() << ", ";
+            if(toppings[i].getIdNumber() != 0) {
+
+                cout <<toppings[i].getName() << ", ";
+            }
     }
     cout <<endl;
 
@@ -102,7 +125,7 @@ void BakerUI::displayOrder(int orderID) {
     Order* orderList = dataBase.activeOrderMaster;
     Pizza* pizzaList;
     Extra* extraList;
-    for(int i = 0; i < dataBase.getOrderID(); i++) {
+    for(int i = 0; i < repo.getActiveOrderLines(); i++) {
         if(orderList[i].getOrderId() == orderID) {
             pizzaList = orderList[i].getPizzas();
             cout <<"OrderID: " << orderList[i].getOrderId();
@@ -123,4 +146,31 @@ void BakerUI::displayOrder(int orderID) {
             }
         }
     }
+}
+int BakerUI::findOrderID(int counter, int locationID) {
+    dataBase.refreshActiveOrder();
+    Order* orderList = dataBase.activeOrderMaster;
+    int counter2 = 1;
+       for(int i = 0; i < repo.getActiveOrderLines(); i++) {
+        if(orderList[i].getLocationId() == locationID) {
+            if(orderList[i].getOrderStatus() == 2) {
+                if(counter2 == counter) {
+                    return orderList[i].getOrderId();
+                }
+                counter2++;
+            }
+        }
+    }
+
+    for(int i = 0; i < repo.getActiveOrderLines(); i++) {
+        if(orderList[i].getLocationId() == locationID) {
+            if(orderList[i].getOrderStatus() == 1) {
+                if(counter2 == counter) {
+                    return orderList[i].getOrderId();
+                }
+                counter2++;
+            }
+        }
+    }
+    return 0;
 }

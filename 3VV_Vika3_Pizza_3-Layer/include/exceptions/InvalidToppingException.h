@@ -1,0 +1,10 @@
+#ifndef INVALIDTOPPINGEXCEPTION_H
+#define INVALIDTOPPINGEXCEPTION_H
+
+
+class InvalidToppingException
+{
+
+};
+
+#endif // INVALIDTOPPINGEXCEPTION_H

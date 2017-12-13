@@ -6,6 +6,7 @@ DeliveryUI::DeliveryUI()
 }
 void DeliveryUI::startUp() {
     int c,d;
+    int orderID;
     char answer;
     Order* orderList = dataBase.activeOrderMaster;
     while(c != 0) {
@@ -15,12 +16,15 @@ void DeliveryUI::startUp() {
         cout << "Select Location: ";
         cin >> c;
         /// validate input í orderservice
-        displayOrders(d);
-        cout << "Select OrderID: ";
-        cin >> d;
+        displayOrders(c);
+        do{
+            cout << "Select an order: ";
+            cin >> d;
+        }while(d <= repo.getActiveOrderLines());
+        orderID = findOrderID(d,c);
         for(int i = 0; i < dataBase.getOrderID(); i++) {
             if(orderList[i].getLocationId() == c) {
-                if(orderList[i].getOrderId() == d) {
+                if(orderList[i].getOrderId() == orderID) {
                     if(orderList[i].getOrderStatus() == 3){
                         cout <<"Set order to \"in transit\"?(y/n): ";
                         cin >>answer;
@@ -60,13 +64,16 @@ void DeliveryUI::displayLocations() {
 void DeliveryUI::displayOrders(int locationID) {
     dataBase.refreshActiveOrder();
     Order* orderList = dataBase.activeOrderMaster;
+    int counter = 1;
     cout << "Orders ready for delivery: " << endl;
     for(int i = 0; i < dataBase.getOrderID(); i++) {
         if(orderList[i].getLocationId() == locationID) {
             if(orderList[i].getOrderStatus() == 3) {
-                cout << "\n" << orderList[i].getOrderId();
+                cout <<"\n" << counter <<")\t";
+                cout << "ID:" << orderList[i].getOrderId();
                 cout << ")\t" << setw(24) << left << orderList[i].getName();
                 cout << " | " << setw(5) << left << orderList[i].getAddress();
+                counter++;
             }
         }
     }
@@ -74,11 +81,40 @@ void DeliveryUI::displayOrders(int locationID) {
     cout <<"\nOrders in transit: " << endl;
     for(int i = 0; i < dataBase.getOrderID(); i++) {
         if(orderList[i].getLocationId() == locationID) {
-            if(orderList[i].getOrderStatus() == 2) {
+            if(orderList[i].getOrderStatus() == 4) {
+                cout <<"\n" << counter <<")\t";
                 cout << "\n" << orderList[i].getOrderId();
                 cout << ")\t" << setw(24) << left << orderList[i].getName();
                 cout << " | " << setw(5) << left << orderList[i].getAddress();
+                counter++;
             }
         }
     }
+}
+int DeliveryUI::findOrderID(int counter, int locationID) {
+    dataBase.refreshActiveOrder();
+    Order* orderList = dataBase.activeOrderMaster;
+    int counter2 = 1;
+       for(int i = 0; i < repo.getActiveOrderLines(); i++) {
+        if(orderList[i].getLocationId() == locationID) {
+            if(orderList[i].getOrderStatus() == 3) {
+                if(counter2 == counter) {
+                    return orderList[i].getOrderId();
+                }
+                counter2++;
+            }
+        }
+    }
+
+    for(int i = 0; i < repo.getActiveOrderLines(); i++) {
+        if(orderList[i].getLocationId() == locationID) {
+            if(orderList[i].getOrderStatus() == 4) {
+                if(counter2 == counter) {
+                    return orderList[i].getOrderId();
+                }
+                counter2++;
+            }
+        }
+    }
+    return 0;
 }

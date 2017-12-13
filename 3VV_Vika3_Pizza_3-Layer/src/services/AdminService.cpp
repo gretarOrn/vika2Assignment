@@ -114,29 +114,110 @@ void AdminService::editTopping(int newIdNumber, string newName, int newPriceCat,
 */
 
 
-bool AdminService::validateName(string name) {
+void AdminService::validateName(string name, bool& valid) {
     for(unsigned int i = 0; i < name.size(); i++) {
         if(isalpha(name.at(i))) {
-            return true;
+            valid = true;
+            return;
         }
     }
-    return false;
-}
-bool AdminService::validatePriceCategory(int category) {
-    if(category > 0 && category <= dataBase.getPriceID()) {
-        return true;
+    if(!valid) {
+        throw(InvalidNameException());
     }
-    return false;
 }
-bool AdminService::validatePrice(double price) {
-    /// Needs double validation
-
-    return true;
-}
-
-bool AdminService::validateTopping(int topping) {
-    if(topping > 0 && topping <= dataBase.getToppingID()) {
-        return true;
+void AdminService::validatePriceCategory(int category, bool& valid) {
+    if(category > 0 ) {
+        valid = true;
+        return;
     }
-    return false;
+    if(!valid) {
+        throw(InvalidPriceException());
+    }
+}
+void AdminService::validatePrice(double price, bool& valid) {
+    if(price > 0) {
+        valid = true;
+        return;
+    }
+    if(!valid) {
+        throw(InvalidOffsetException());
+    }
+}
+
+void AdminService::validateTopping(int topping, bool& valid) {
+    if(topping > 0 && dataBase.getPriceID() >= topping) {
+        valid = true;
+        return;
+    }
+    if(!valid) {
+        throw(InvalidToppingException());
+    }
+}
+void AdminService::validateSize(int sizeSelection, bool& valid) {
+    if(sizeSelection > 0) {
+        valid = true;
+        return;
+    }
+    if(!valid) {
+        throw(InvalidSizeException());
+    }
+}
+void AdminService::validateType(int typeSelection, bool& valid) {
+    if(typeSelection > 0 && dataBase.getPriceID() >= typeSelection) {
+        valid = true;
+        return;
+    }
+    if(!valid) {
+        throw(InvalidTypeException());
+    }
+}
+void AdminService::validateSauce(int sauceSelection, bool& valid) {
+    if(sauceSelection > 0 && dataBase.getPriceID() >= sauceSelection) {
+        valid = true;
+        return;
+    }
+    if(!valid) {
+        throw(InvalidSauceException());
+    }
+}
+void AdminService::validateMult(double toppingMult, bool& valid) {
+    if(toppingMult > 0 && toppingMult <= 2) {
+        valid = true;
+        return;
+    }
+    if(!valid) {
+        throw(InvalidMultException());
+    }
+}
+void AdminService::validateExtra(int priceInput,bool& valid) {
+    if(priceInput > 0 && dataBase.getPriceID() >= priceInput) {
+        valid = true;
+        return;
+    }
+    if(!valid) {
+        throw(InvalidExtraException());
+    }
+}
+void AdminService::validateToppingSelection(int tempToppingSelection ,bool& valid) {
+    if(tempToppingSelection > 0 && dataBase.getToppingID() >= tempToppingSelection) {
+        valid = true;
+        return;
+    }
+    if(!valid) {
+        throw(InvalidToppingException());
+    }
+}
+void AdminService::isInt(int& num) {
+    if (cin.fail()) {
+        cin.clear();
+        cin.ignore(256, '\n');
+        num = -1;
+    }
+}
+void AdminService::isDouble(double& num) {
+    if (cin.fail()) {
+        cin.clear();
+        cin.ignore(256, '\n');
+        num = -1;
+    }
 }

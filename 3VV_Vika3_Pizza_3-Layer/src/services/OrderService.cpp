@@ -26,7 +26,7 @@ void OrderService::addPizzaToOrder(Order& order, const Pizza& pizza) {
     }
 }
 
-void OrderService::addEctraToOrder(Order& order, const Extra& extra) {
+void OrderService::addExtraToOrder(Order& order, const Extra& extra) {
     int counter = 0;
     while(counter < order.MAX_EXTRAS_ORDER) {
         // If a pizzas sauce has no name the pizza is created by the default constructor and is blank.

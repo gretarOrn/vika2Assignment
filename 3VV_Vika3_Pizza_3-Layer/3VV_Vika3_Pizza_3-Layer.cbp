@@ -45,6 +45,16 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="include/exceptions/InvalidExtraException.h" />
+		<Unit filename="include/exceptions/InvalidLocationException.h" />
+		<Unit filename="include/exceptions/InvalidMultException.h" />
+		<Unit filename="include/exceptions/InvalidNameException.h" />
+		<Unit filename="include/exceptions/InvalidOffsetException.h" />
+		<Unit filename="include/exceptions/InvalidPriceException.h" />
+		<Unit filename="include/exceptions/InvalidSauceException.h" />
+		<Unit filename="include/exceptions/InvalidSizeException.h" />
+		<Unit filename="include/exceptions/InvalidToppingException.h" />
+		<Unit filename="include/exceptions/InvalidTypeException.h" />
 		<Unit filename="include/exceptions/UnableToReadFileException.h" />
 		<Unit filename="include/models/DataBase.h" />
 		<Unit filename="include/models/Extra.h" />
@@ -70,6 +80,16 @@
 		<Unit filename="include/ui/MainUI.h" />
 		<Unit filename="include/ui/SalesUI.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/exceptions/InvalidExtraException.cpp" />
+		<Unit filename="src/exceptions/InvalidLocationException.cpp" />
+		<Unit filename="src/exceptions/InvalidMultException.cpp" />
+		<Unit filename="src/exceptions/InvalidNameException.cpp" />
+		<Unit filename="src/exceptions/InvalidOffsetException.cpp" />
+		<Unit filename="src/exceptions/InvalidPriceException.cpp" />
+		<Unit filename="src/exceptions/InvalidSauceException.cpp" />
+		<Unit filename="src/exceptions/InvalidSizeException.cpp" />
+		<Unit filename="src/exceptions/InvalidToppingException.cpp" />
+		<Unit filename="src/exceptions/InvalidTypeException.cpp" />
 		<Unit filename="src/exceptions/UnableToReadFileException.cpp" />
 		<Unit filename="src/models/DataBase.cpp" />
 		<Unit filename="src/models/Extra.cpp" />

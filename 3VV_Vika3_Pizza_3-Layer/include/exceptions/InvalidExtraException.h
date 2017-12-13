@@ -1,0 +1,10 @@
+#ifndef INVALIDEXTRAEXCEPTION_H
+#define INVALIDEXTRAEXCEPTION_H
+
+
+class InvalidExtraException
+{
+
+};
+
+#endif // INVALIDEXTRAEXCEPTION_H
