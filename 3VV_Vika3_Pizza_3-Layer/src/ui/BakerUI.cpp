@@ -32,7 +32,8 @@ void BakerUI::startUp() {
             for(int i = 0; i < repo.getActiveOrderLines(); i++) {
                 if(orderList[i].getOrderId() == f) {
                     orderList[i].setOrderStatus(e);
-                   // orderService.saveOrders(orderList);
+                    orderService.saveOrders(orderList);
+                    dataBase.refreshActiveOrder();
                 }
             }
         }
@@ -40,7 +41,8 @@ void BakerUI::startUp() {
             for(int i = 0; i < repo.getActiveOrderLines(); i++) {
                 if(orderList[i].getOrderId() == f) {
                     orderList[i].setOrderStatus(e);
-                   // orderService.saveOrders(orderList);
+                    orderService.saveOrders(orderList);
+                    dataBase.refreshActiveOrder();
                 }
             }
         }

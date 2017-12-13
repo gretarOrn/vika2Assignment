@@ -29,35 +29,31 @@ void SalesUI::startUp() {
         cin >> c;
         if(c == '1') {
             createOrder();
-        } else if(c == '2') {
+        /* else if(c == '2') {
             Order* orderList = dataBase.activeOrderMaster;
-
-            int index;
-            cout << "Lines: " << orderSer.repo.getActiveOrderLines() << endl;
-            /*for(int i = 0; i < orderSer.repo.getActiveOrderLines(); i++) {
-
             int lines = orderSer.repo.getActiveOrderLines();
             int lineNr;
             cin >> lineNr;
             displayOrder(orderList[lineNr]);
            */ /*
             for(int i = 0; i < lines; i++) {
-
                 displayOrder(orderList[i]);
-                cout << endl;
-            }*/
-            cout << "Select order to move to inactive: ";
-            cin >> index;
-            orderSer.moveOrderToInactiveFile(index);
+            }
 
-            cout << "Lines: " << orderSer.repo.getActiveOrderLines() << endl;
+            orderSer.repo.writeAllButToActiveOrderFile(orderList, lineNr);
+            lines = orderSer.repo.getActiveOrderLines();
+            for(int i = 0; i < lines; i++) {
+                displayOrder(orderList[i]);
+            }
+            */
+
+
+
+
+
+
         } else if(c == '3') {
-            Order* inactiveOrderList = dataBase.inactiveOrderMaster;
-            cout << orderSer.repo.getInactiveOrderLines() << endl;
-            /*for(int i = 0; i < orderSer.repo.getInactiveOrderLines(); i++) {
-                displayOrder(inactiveOrderList[i]);
-                cout << endl;
-            }*/
+
         } else if(c != 'q') {
 
         }
@@ -254,7 +250,8 @@ void SalesUI::addInfo(Order& order) {
             getline(cin, address);
             try{
                 adminSer.validateName(address, valid);
-            } catch(InvalidNameException) {
+            }
+            catch(InvalidNameException) {
                 cout << "Invalid address." << endl;
             }
         } while(!valid);
@@ -277,13 +274,14 @@ void SalesUI::addInfo(Order& order) {
             cout << "Enter customer name / phone number: ";
             cin >> ws;
             getline(cin, address);
-    }
-    cout << "Add comment? (y/n) ";
-    cin >> userInput;
-    if(userInput == 'y') {
-        cout << "Comment: ";
-        cin >> ws;
-        getline(cin, comment);
+
+        cout << "Add comment? (y/n) ";
+        cin >> userInput;
+        if(userInput == 'y') {
+            cout << "Comment: ";
+            cin >> ws;
+            getline(cin, comment);
+        }
     }
     while(true) {
         cout << "Has order been payed? (y/n) ";
