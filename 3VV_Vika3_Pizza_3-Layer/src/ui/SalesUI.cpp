@@ -30,6 +30,27 @@ void SalesUI::startUp() {
         if(c == '1') {
             createOrder();
         } else if(c == '2') {
+            Order* orderList = dataBase.activeOrderMaster;
+            int lines = orderSer.repo.getActiveOrderLines();
+            int lineNr;
+
+            //displayOrder(orderList[lineNr -1]);
+
+            for(int i = 0; i < lines; i++) {
+                displayOrder(orderList[i]);
+            }
+            cin >> lineNr;
+            orderSer.repo.writeAllButToActiveOrderFile(orderList, lineNr - 1);
+            lines = orderSer.repo.getActiveOrderLines();
+            for(int i = 0; i < lines; i++) {
+                displayOrder(orderList[i]);
+            }
+
+
+
+
+
+
 
         } else if(c == '3') {
 
@@ -159,9 +180,6 @@ void SalesUI::createCustomPizza(Order& order) {
         printPizza(order.getPizzas()[i], counter);
         i++;
 
-
-
-
         cout << "Add another pizza to order? (y/n) " << endl;
         cin >> c;
     } while (c == 'y');
@@ -193,8 +211,6 @@ void SalesUI::addExtraToOrder(Order& order) {
             break;
         }
     }
-    //addInfo(order);
-    //orderSer.addToOrder(order);
 }
 
 void SalesUI::addInfo(Order& order) {
