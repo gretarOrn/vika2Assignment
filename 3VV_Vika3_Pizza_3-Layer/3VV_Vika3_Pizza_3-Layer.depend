@@ -307,7 +307,7 @@
 	"PriceList.h"
 	"Topping.h"
 
-1513170240 c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\include\services\adminservice.h
+1513178678 c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\include\services\adminservice.h
 	"SuperRepo.h"
 	"DataBase.h"
 	"InvalidNameException.h"
@@ -319,6 +319,8 @@
 	"InvalidMultException.h"
 	"InvalidOffsetException.h"
 	"InvalidExtraException.h"
+	"InvalidPizzaException.h"
+	"InvalidLocationException.h"
 
 1513163540 c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\include\ui\salesui.h
 	"DataBase.h"
@@ -403,7 +405,7 @@
 
 1512484707 c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\include\services\toppingservice.h
 
-1513175299 source:c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\src\ui\bakerui.cpp
+1513178534 source:c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\src\ui\bakerui.cpp
 	"BakerUI.h"
 
 1513170240 source:c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\src\ui\deliveryui.cpp
@@ -743,4 +745,6 @@
 
 1513170240 source:c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\src\exceptions\invalidtypeexception.cpp
 	"InvalidTypeException.h"
+
+1513178678 c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\include\exceptions\invalidpizzaexception.h
 
