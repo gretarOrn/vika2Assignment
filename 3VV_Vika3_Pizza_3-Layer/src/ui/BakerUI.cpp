@@ -37,7 +37,6 @@ void BakerUI::startUp() {
                 }
             }
         }
-
     }
 }
 void BakerUI::displayLocations() {
@@ -63,7 +62,7 @@ void BakerUI::displayOrders(int locationID) {
         if(orderList[i].getLocationId() == locationID) {
             if(orderList[i].getOrderStatus() == 2) {
                 cout << "\n" << orderList[i].getOrderId();
-                cout << ")\t" << setw(24) << left << orderList[i].getName();
+                cout << ")\t" << setw(24) << left << orderList[i].getAddress();
                 cout << " | " << setw(5) << left << orderList[i].getComment();
             }
         }
@@ -74,7 +73,7 @@ void BakerUI::displayOrders(int locationID) {
         if(orderList[i].getLocationId() == locationID) {
             if(orderList[i].getOrderStatus() == 1) {
                 cout << "\n" << orderList[i].getOrderId();
-                cout << ")\t" << setw(24) << left << orderList[i].getName();
+                cout << ")\t" << setw(24) << left << orderList[i].getAddress();
                 cout << " | " << setw(5) << left << orderList[i].getComment();
             }
         }
