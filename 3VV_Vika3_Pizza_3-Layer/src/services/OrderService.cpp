@@ -97,3 +97,14 @@ double OrderService::getPrice(Order& order) {
     }
     return num;
 }
+
+bool OrderService::validateOrdersInLocation(int locationID) {
+    dataBase.refreshActiveOrder();
+    Order* orderList = dataBase.activeOrderMaster;
+    for (int i = 0; i < repo.getActiveOrderLines(); i++) {
+        if (orderList[i].getLocationId() == locationID) {
+            return true;
+        }
+    }
+    return false;
+}

@@ -158,7 +158,7 @@ void SuperRepo::writeAllToActiveOrderFile(Order* order) {
     }
     fin.close();
     ofstream fout;
-    fout.open("ActiveOrders.dat", ios::binary|ios::app);
+    fout.open("ActiveOrders.dat", ios::binary);
     fout.write((char*)(&order), (recordCount * sizeof(Order)));
     fout.close();
 }

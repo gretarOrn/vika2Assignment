@@ -15,7 +15,7 @@ class OrderService
         DataBase dataBase;
         SuperRepo repo;
 
-
+        bool validateOrdersInLocation(int locationID);
         void addPizzaToOrder(Order& order, const Pizza& pizza);
         void addExtraToOrder(Order& order, const Extra& extra);
         void addInfoToOrder(Order& order, bool delivery, int locationId, string address, string comment, bool payed);

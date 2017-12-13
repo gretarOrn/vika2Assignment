@@ -31,9 +31,18 @@ void SalesUI::startUp() {
             createOrder();
         } else if(c == '2') {
             Order* orderList = dataBase.activeOrderMaster;
+
             int index;
             cout << "Lines: " << orderSer.repo.getActiveOrderLines() << endl;
             /*for(int i = 0; i < orderSer.repo.getActiveOrderLines(); i++) {
+
+            int lines = orderSer.repo.getActiveOrderLines();
+            int lineNr;
+            cin >> lineNr;
+            displayOrder(orderList[lineNr]);
+           */ /*
+            for(int i = 0; i < lines; i++) {
+
                 displayOrder(orderList[i]);
                 cout << endl;
             }*/
@@ -220,7 +229,7 @@ void SalesUI::addInfo(Order& order) {
     int userSelection;
     bool delivery;
     bool payed;
-    bool valid;
+    bool valid = true;
     string address;
     string comment;
     while(true) {
