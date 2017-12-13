@@ -3,6 +3,7 @@
 
 #include "DataBase.h"
 #include "AdminService.h"
+#include "ValidateService.h"
 
 #include <iostream>
 #include <cstdlib>
@@ -16,6 +17,7 @@ class AdminUI
     private:
         AdminService adminService;
         DataBase dataBase;
+        ValidateService validate;
 
         /// Specials
         void orderOptions();

@@ -21,7 +21,7 @@ void BakerUI::startUp() {
         do{
             cout << "Select an order: ";
             cin >> d;
-        }while(d <= repo.getActiveOrderLines());
+        }while(!(d <= repo.getActiveOrderLines()));
         f = findOrderID(d,c);
         displayOrder(f);
         cout <<" set pizza to \"on the make line\"(2), \"done\"(3) or no change(0): ";
@@ -68,10 +68,10 @@ void BakerUI::displayOrders(int locationID) {
     for(int i = 0; i < repo.getActiveOrderLines(); i++) {
         if(orderList[i].getLocationId() == locationID) {
             if(orderList[i].getOrderStatus() == 2) {
-                cout <<"\n" << counter <<")\t";
+                cout <<"\n" << counter <<")\t|";
                 cout << "ID: " <<orderList[i].getOrderId();
                 cout << ")\t" << setw(24) << left << orderList[i].getName();
-                cout << " | " << setw(5) << left << orderList[i].getComment();
+                cout << " | " << setw(5) << left << orderList[i].getComment() << endl;
                 counter++;
             }
         }

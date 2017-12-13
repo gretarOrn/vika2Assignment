@@ -29,14 +29,14 @@ void DeliveryUI::startUp() {
                         cout <<"Set order to \"in transit\"?(y/n): ";
                         cin >>answer;
                         if(answer == 'y') {
-//                            OrderService.setOrderStatus(4);
+                            orderList[i].setOrderStatus(4);
                         }
                     }
                     else if(orderList[i].getOrderStatus() == 4) {
                         cout <<"Set order to \"delivered\"?(y/n): ";
                         cin >>answer;
                         if(answer == 'y') {
-//                            OrderService.setOrderStatus(5);
+                            orderList[i].setOrderStatus(5);
                         }
                     }
                 }
