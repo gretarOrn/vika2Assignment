@@ -33,6 +33,7 @@ void SalesUI::startUp() {
             Order* orderList = dataBase.activeOrderMaster;
             int lines = orderSer.repo.getActiveOrderLines();
             int lineNr;
+<<<<<<< HEAD
 
             //displayOrder(orderList[lineNr -1]);
 
@@ -41,11 +42,25 @@ void SalesUI::startUp() {
             }
             cin >> lineNr;
             orderSer.repo.writeAllButToActiveOrderFile(orderList, lineNr - 1);
-            lines = orderSer.repo.getActiveOrderLines();
+=======
+            cin >> lineNr;
+            displayOrder(orderList[lineNr]);
+            /*
             for(int i = 0; i < lines; i++) {
                 displayOrder(orderList[i]);
             }
 
+            orderSer.repo.writeAllButToActiveOrderFile(orderList, lineNr);
+>>>>>>> 740932c682f05bd84ae6a7d378a3d2d2f369fd08
+            lines = orderSer.repo.getActiveOrderLines();
+            for(int i = 0; i < lines; i++) {
+                displayOrder(orderList[i]);
+            }
+<<<<<<< HEAD
+
+=======
+            */
+>>>>>>> 740932c682f05bd84ae6a7d378a3d2d2f369fd08
 
 
 
@@ -240,7 +255,7 @@ void SalesUI::addInfo(Order& order) {
             cout << "Enter delivery address: ";
             cin >> ws;
             getline(cin, address);
-            valid = adminSer.validateName(address);
+            //valid = adminSer.validateName(address);
         } while(!valid);
         userSelection = defaultLocationId;
     } else {
@@ -256,7 +271,7 @@ void SalesUI::addInfo(Order& order) {
             cout << "Enter customer name / phone number: ";
             cin >> ws;
             getline(cin, address);
-            valid = adminSer.validateName(address);
+            //valid = adminSer.validateName(address);
         } while(!valid);
         cout << "Add comment? (y/n) ";
         cin >> userInput;

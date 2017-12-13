@@ -1,0 +1,9 @@
+#ifndef INVALIDMULTEXCEPTION_H
+#define INVALIDMULTEXCEPTION_H
+
+
+class InvalidMultException
+{
+};
+
+#endif // INVALIDMULTEXCEPTION_H
