@@ -33,8 +33,9 @@ class SalesUI
 
 
         void printPizza(Pizza pizza, int counter);
-        void printExtra(const Extra& extra);
+        void printExtra(Order& order);
 
+        void displayOrder(Order& order);
         void displayPizzaMenu();
         void displaySizeList();
         void displayTypeList();

@@ -46,6 +46,24 @@ Topping* PizzaService::addTopping(int *arr, Pizza& pizza) {
 
 
 }
+
+void PizzaService::addPizzaToOrder(Pizza& pizza, const Topping& topping) {
+    int counter = 0;
+    while(counter < pizza.MAX_TOPPINGS_PIZZA) {
+        // If a pizzas sauce has no name the pizza is created by the default constructor and is blank.
+        if(pizza.getToppings()[counter].getName() == "") {
+            pizza.getToppings()[counter] = topping;
+            break;
+        }
+        counter++;
+    }
+    if(counter == pizza.MAX_TOPPINGS_PIZZA -1) {
+        /// Throw maxToppingsPerPizzaException();
+        cout << "You have reached the maximum amount of toppings on this pizza." << endl;
+        cin.clear();
+    }
+}
+
 double PizzaService::getPrice(Pizza pizza) {
     PriceList* priceList = dataBase.priceMaster;
 

@@ -17,9 +17,10 @@ class OrderService
 
 
         void addPizzaToOrder(Order& order, const Pizza& pizza);
-        void addInfoToOrder(Order& order, bool delivery, int locationId, string address, string comment);
-        void saveOrder(Order order);
-        double getPrice(Order order);
+        void addEctraToOrder(Order& order, const Extra& extra);
+        void addInfoToOrder(Order& order, bool delivery, int locationId, string address, string comment, bool payed);
+        void saveOrder(const Order& order);
+        double getPrice(Order& order);
 
     private:
         PizzaService pizzaService;
