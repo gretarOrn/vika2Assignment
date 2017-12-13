@@ -29,13 +29,13 @@ void SalesUI::startUp() {
         cin >> c;
         if(c == '1') {
             createOrder();
-        } else if(c == '2') {
+        /* else if(c == '2') {
             Order* orderList = dataBase.activeOrderMaster;
             int lines = orderSer.repo.getActiveOrderLines();
             int lineNr;
             cin >> lineNr;
             displayOrder(orderList[lineNr]);
-            /*
+           */ /*
             for(int i = 0; i < lines; i++) {
                 displayOrder(orderList[i]);
             }
@@ -218,7 +218,7 @@ void SalesUI::addInfo(Order& order) {
     int userSelection;
     bool delivery;
     bool payed;
-    bool valid;
+    bool valid = true;
     string address;
     string comment;
     while(true) {
