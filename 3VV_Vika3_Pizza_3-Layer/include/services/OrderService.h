@@ -21,6 +21,7 @@ class OrderService
         void addInfoToOrder(Order& order, bool delivery, int locationId, string address, string comment, bool payed);
         void moveOrderToInactiveFile(int orderIndex);
         void saveOrder(const Order& order);
+        void saveOrders(Order* order);
         double getPrice(Order& order);
 
     private:
