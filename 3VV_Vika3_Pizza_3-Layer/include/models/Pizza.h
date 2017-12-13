@@ -23,6 +23,8 @@ class Pizza
         PizzaType getType() const;
         PizzaSauce getSauce() const;
         Topping* getToppings();
+        double getTotalPrice() const;
+        bool getActiveState() const;
         //Topping getTopping(int index);
 
         void setIdNumber(int newIdNumber);
@@ -32,6 +34,8 @@ class Pizza
         void setSauce(const PizzaSauce& newSauce);
         void addTopping(const Topping& topping);
         void addToppings(Topping* arr);
+        void setTotalPrice(double newPrice);
+        void setActiveState(bool newState);
 
         friend istream&  operator >> (istream& in, Pizza& pizza);
         friend ostream&  operator << (ostream& out, const Pizza& pizza);
@@ -43,6 +47,8 @@ class Pizza
         PizzaType type;
         PizzaSauce sauce;
         Topping toppings[MAX_TOPPINGS_PIZZA];
+        double totalPrice;
+        bool isActive;
 
         void strToCharArr(string nameStr);
 };

@@ -8,10 +8,11 @@ class PizzaService
 {
     public:
         PizzaService();
-        PizzaSauce addSauce(int sauceNR);
-        Topping* addTopping(int* arr, Pizza& pizza);
         PizzaSize addSize(int sizeNR);
         PizzaType addType(int typeNR);
+        PizzaSauce addSauce(int sauceNR);
+        Topping* addTopping(int* arr, Pizza& pizza);
+        void addPizzaToOrder(Pizza& pizza, const Topping& topping);
         double getPrice(Pizza pizza);
 
 

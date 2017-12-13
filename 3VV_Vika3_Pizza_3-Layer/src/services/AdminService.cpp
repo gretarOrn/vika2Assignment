@@ -4,8 +4,7 @@ AdminService::AdminService()
 {
     //ctor
 }
-void AdminService::addPizza(string name, int sizeSelection, int typeSelection, int sauceSelection, int* toppingSelection) {
-
+void AdminService::addPizza(string name, int sizeSelection, int typeSelection, int sauceSelection, int* toppingSelection, double totalPrice) {
     Pizza pizza;
     dataBase.incrementPizzaID();
     pizza.setIdNumber(dataBase.getPizzaID());
@@ -22,11 +21,12 @@ void AdminService::addPizza(string name, int sizeSelection, int typeSelection, i
             toppings[i].setActiveState(dataBase.toppingMaster[toppingSelection[i] -1].getActiveState());
         }
     }
+    pizza.setTotalPrice(totalPrice);
+    pizza.setActiveState(true);
     repo.writeToPizzaFile(pizza);
 }
 
 void AdminService::addPriceCategory(string name, int price) {
-
     PriceList priceCat;
     dataBase.incrementPriceID();
     priceCat.setIdNumber(dataBase.getPriceID());
@@ -56,12 +56,14 @@ void AdminService::addExtra(string name, int priceCat) {
     repo.writeToExtraFile(extra);
 }
 
-void AdminService::addSize(string name, int priceCat) {
+void AdminService::addSize(string name, int priceCat, double toppingMult, double toppingOffset) {
     PizzaSize size;
     dataBase.incrementSizeID();
     size.setIdNumber(dataBase.getSizeID());
     size.setName(name);
     size.setPriceCategory(priceCat);
+    size.setToppingMult(toppingMult);
+    size.setToppingOffset(toppingOffset);
     size.setActiveState(true);
     repo.writeToSizeFile(size);
 }

@@ -6,6 +6,17 @@ SalesUI::SalesUI()
 }
 
 void SalesUI::startUp() {
+    system("CLS");
+    int locationId;
+    bool valid = true;
+    do {
+        displayLocationList();
+        cout << "Select location: ";
+        cin >> locationId;
+        ///valid = adminSer.validateLocationSelection(locationId);
+    } while(!valid);
+    defaultLocationId = locationId;
+    system("CLS");
     char c;
     while (c != 'q') {
         //system("CLS");
@@ -17,9 +28,29 @@ void SalesUI::startUp() {
 
         cin >> c;
         if(c == '1') {
-            cout << "bla" << endl;
             createOrder();
         } else if(c == '2') {
+            Order* orderList = dataBase.activeOrderMaster;
+            int lines = orderSer.repo.getActiveOrderLines();
+            int lineNr;
+            cin >> lineNr;
+            displayOrder(orderList[lineNr]);
+            /*
+            for(int i = 0; i < lines; i++) {
+                displayOrder(orderList[i]);
+            }
+
+            orderSer.repo.writeAllButToActiveOrderFile(orderList, lineNr);
+            lines = orderSer.repo.getActiveOrderLines();
+            for(int i = 0; i < lines; i++) {
+                displayOrder(orderList[i]);
+            }
+            */
+
+
+
+
+
 
         } else if(c == '3') {
 
@@ -31,110 +62,336 @@ void SalesUI::startUp() {
 }
 
 void SalesUI::createOrder() {
-    system("CLS");
-   // cout << "Is this working?" << endl;
-  //  displaySizeList();
-   // cout << endl;
- //   displayTypeList();
-   // cout << endl;
     Order order;
-    Pizza pizza;
-    PizzaService pizzaservice;
-    ExtraService extraservice;
-    OrderService orderservice;
-    cout << endl;
-    cout << "create a pizza" << endl;
+    char c;
+    while (c != 'q') {
+        cout << "Order:" << endl;
+        cout << "1)\t" << "Add pizza from menu" << endl;
+        cout << "2)\t" << "Create custom pizza" << endl;
+        cout << "3)\t" << "Add an Extra" << endl;
+        cout << "4)\t" << "Complete order" << endl;
+        cout << "q)\t" << "Cancel order" << endl;
+
+        cin >> c;
+        if(c == '1') {
+            addPizzaFromMenu(order);
+        } else if(c == '2') {
+            createCustomPizza(order);
+        } else if(c == '3') {
+            addExtraToOrder(order);
+        } else if(c == '4') {
+            addInfo(order);
+            break;
+        } else if(c != 'q') {
+
+        }
+        system("CLS");
+    }
+
+}
+
+void SalesUI::addPizzaFromMenu(Order& order) {
+    system("CLS");
+    char c;
+    int input;
+    bool valid = true;
+    Pizza* pizzaMenu = dataBase.pizzaMaster;
+    do{
+        system("CLS");
+        cout << "Pizzas in current order: " << endl;
+        for(int i = 0; i < order.MAX_PIZZAS_ORDER; i++) {
+            if(order.getPizzas()[i].getName() != "") {
+                cout << (i + 1) << ")  " << order.getPizzas()[i].getName() << endl;
+            }
+        }
+        cout << "----------------------------------------------------------------" << endl << endl;
+        do {
+            displayPizzaMenu();
+            cout << "Select Pizza: ";
+            cin >> input;
+            //valid = adminSer.validatePizzaSelection()
+        } while(!valid);
+        orderSer.addPizzaToOrder(order, pizzaMenu[input - 1]);
+
+        cout << endl << "Add more pizzas from menu? (y/n) ";
+        cin >> c;
+    } while(c == 'y');
+    system("CLS");
+    cout << "Pizzas in current order: " << endl;
+    for(int i = 0; i < order.MAX_PIZZAS_ORDER; i++) {
+        if(order.getPizzas()[i].getName() != "") {
+            cout << (i + 1) << ")  " << order.getPizzas()[i].getName() << endl;
+        }
+    }
+}
+
+void SalesUI::createCustomPizza(Order& order) {
+    system("CLS");
+
+    cout << "Create a pizza" << endl;
     int i = 0;
     char c;
     int input;
     do {
-        displaySauceList();
-        cout << "select sauce" << endl;
-
-        cin >> input;
-        order.getPizzas()[i].setSauce(pizzaservice.addSauce(input));
-        cout << endl;
+        system("CLS");
+        cout << "Pizzas in current order: " << endl;
+        for(int k = 0; k < order.MAX_PIZZAS_ORDER; k++) {
+                if(order.getPizzas()[k].getName() != "") {
+                    cout << (k + 1) << ")  " << order.getPizzas()[k].getName() << endl;
+                    i++;
+                } else if(order.getPizzas()[k].getSauce().getIdNumber() != 0) {
+                    cout << (k + 1) << ")  Custom pizza" << endl;
+                    i++;
+                }
+        }
+        cout << "----------------------------------------------------------------" << endl << endl;
 
         displaySizeList();
-        cout << "select size" << endl;
+        cout << "Select size: ";
         cin >> input;
-        order.getPizzas()[i].setSize(pizzaservice.addSize(input));
+        order.getPizzas()[i].setSize(pizzaSer.addSize(input));
         cout << endl;
 
         displayTypeList();
-        cout << "select type" << endl;
+        cout << "Select type: ";
         cin >> input;
-        order.getPizzas()[i].setType(pizzaservice.addType(input));
+        order.getPizzas()[i].setType(pizzaSer.addType(input));
+        cout << endl;
+
+        displaySauceList();
+        cout << "Select sauce: " << endl;
+        cin >> input;
+        order.getPizzas()[i].setSauce(pizzaSer.addSauce(input));
         cout << endl;
 
         displayToppingList();
-        cout << "select toppings (type 0 to stop)" << endl;
+        cout << "Select toppings (type 0 to stop)" << endl;
         int counter = 0;
-        int arr[pizza.MAX_TOPPINGS_PIZZA];
-        for (int j = 0; j < pizza.MAX_TOPPINGS_PIZZA; j++) {
+        int arr[dataBase.pizzaMaster[0].MAX_TOPPINGS_PIZZA];
+        for (int j = 0; j < dataBase.pizzaMaster[0].MAX_TOPPINGS_PIZZA; j++) {
             cin >> arr[j];
             counter ++;
             if (arr[j] == 0) break;
+            //pizzaSer.addPizzaToOrder(order.getPizzas()[i], dataBase.toppingMaster[arr[j]]);
         }
-        order.getPizzas()[i].addToppings(pizzaservice.addTopping(arr, order.getPizzas()[i]));
+        order.getPizzas()[i].addToppings(pizzaSer.addTopping(arr, order.getPizzas()[i]));
         cout << endl;
 
         printPizza(order.getPizzas()[i], counter);
         i++;
-        cout << "wanna add another pizza (y/n)" << endl;
 
+        cout << "Add another pizza to order? (y/n) " << endl;
         cin >> c;
     } while (c == 'y');
+    system("CLS");
+    cout << "Pizzas in current order: " << endl;
+    for(int k = 0; k < order.MAX_PIZZAS_ORDER; k++) {
+        if(order.getPizzas()[k].getName() != "") {
+            cout << (k + 1) << ")  " << order.getPizzas()[k].getName() << endl;
+        } else if(order.getPizzas()[k].getSauce().getIdNumber() != 0) {
+            cout << (k + 1) << ")  Custom pizza" << endl;
+        }
+    }
+}
+
+void SalesUI::addExtraToOrder(Order& order) {
+    char c;
+    int input;
     for (int i = 0; i < order.MAX_EXTRAS_ORDER; i++) {
-        cout << "want another extra?(y/n)" << endl;
+        printExtra(order);
+        cout << "----------------------------------------------------------------" << endl << endl;
+        displayExtraList();
+        cout << "Select extra: ";
+        cin >> input;
+        order.getExtras()[i].addExtra(extraSer.addExtra(input));
+        cout << endl;
+        cout << "Add another extra to order? (y/n) " << endl;
         cin >> c;
         if (c != 'y') {
             break;
         }
-        displayExtraList();
-        cin >> input;
-        order.getExtras()[i].addExtra(extraservice.addExtra(input));
-        cout << endl;
-        printExtra(order.getExtras()[i]);
-
-
     }
-    orderservice.addToOrder(order);
-
-    return;
-
-
-
-
-    //displayExtraList();
 }
+
+void SalesUI::addInfo(Order& order) {
+    char userInput;
+    int userSelection;
+    bool delivery;
+    bool payed;
+    bool valid;
+    string address;
+    string comment;
+    while(true) {
+        cout << "Pickup or delivery? (p/d) ";
+        cin >> userInput;
+        if(userInput == 'p') {
+            delivery = false;
+            break;
+        } else if(userInput == 'd') {
+            delivery = true;
+            break;
+        } else {
+            system("CLS");
+            cout << "Try again." << endl;
+        }
+    }
+    if(delivery) {
+        do {
+            cout << "Enter delivery address: ";
+            cin >> ws;
+            getline(cin, address);
+            //valid = adminSer.validateName(address);
+        } while(!valid);
+        userSelection = defaultLocationId;
+    } else {
+        do {
+            system("CLS");
+            displayLocationList();
+            cout << "Select pickup location: ";
+            cin >> userSelection;
+            ///valid = AdminSer.validateLocation(userSelection);
+            valid = true;
+        } while(!valid);
+        do {
+            cout << "Enter customer name / phone number: ";
+            cin >> ws;
+            getline(cin, address);
+            //valid = adminSer.validateName(address);
+        } while(!valid);
+        cout << "Add comment? (y/n) ";
+        cin >> userInput;
+        if(userInput == 'y') {
+            cout << "Comment: ";
+            cin >> ws;
+            getline(cin, comment);
+        }
+    }
+    while(true) {
+        cout << "Has order been payed? (y/n) ";
+        cin >> userInput;
+        if(userInput == 'y') {
+            payed = true;
+            break;
+        } else if(userInput == 'n') {
+            payed = false;
+            break;
+        } else {
+            system("CLS");
+            cout << "Try again." << endl;
+        }
+    }
+    orderSer.addInfoToOrder(order, delivery, userSelection, address, comment, payed);
+    displayOrder(order);
+    cout << "confirm order? (y/n) ";
+    cin >> userInput;
+    if(userInput == 'y') {
+        cout << "Order saved" <<endl;
+        orderSer.saveOrder(order);
+    } else {
+        cout << "Order canceled" << endl;
+    }
+}
+
 void SalesUI::printPizza(Pizza pizza, int counter) {
-    PizzaService pizzaService;
-    cout << "name: " << pizza.getName() << endl;
-    cout << "size: " << pizza.getSize().getName() << endl;
-    cout << "sauce: " << pizza.getSauce().getName() << endl;
-    cout << "type: " << pizza.getType().getName() << endl;
+    if(pizza.getName() != ""){
+        cout << "Name: " << pizza.getName() << endl;
+    } else {
+        cout << "Name: Custom pizza" << endl;
+    }
+    cout << "Size: " << pizza.getSize().getName() << endl;
+    cout << "Sauce: " << pizza.getSauce().getName() << endl;
+    cout << "Type: " << pizza.getType().getName() << endl;
     cout << "Toppings: ";
     for (int i = 0; i < (counter - 1); i++) {
-        cout << pizza.getToppings()[i].getName() << " ";
+        cout << pizza.getToppings()[i].getName() << ", ";
     }
     cout << endl;
-    cout << "Total Price of Pizza: " << pizzaService.getPrice(pizza) << endl;
-
+    cout << "Total Price of Pizza: " << pizzaSer.getPrice(pizza) << endl;
     cout << endl;
-
-
-}
-void SalesUI::printExtra(const Extra& extra) {
-    cout << "name: " << extra.getName() << endl;
-    cout << "price: " << extra.getPriceCategory() << endl;
 }
 
+void SalesUI::printExtra(Order& order) {
+    system("CLS");
+    cout << "Extras in current order: " << endl;
+    for(int i = 0; i < order.MAX_EXTRAS_ORDER; i++) {
+        if(order.getExtras()[i].getName() != "") {
+            cout << (i + 1) << ")  " << order.getExtras()[i].getName() << endl;
+        }
+    }
+}
+
+///******************************************************************************************
+
+void SalesUI::displayOrder(Order& order) {
+    Location* locList = dataBase.locationMaster;
+    cout << "Order ID: " << order.getOrderId() << endl;
+    if(order.getName() != "") {
+        cout << order.getName() << endl;
+    }
+    cout << "Pizzas in current order: " << endl;
+    for(int i = 0; i < order.MAX_PIZZAS_ORDER; i++) {
+        if(order.getPizzas()[i].getName() != "") {
+            cout << (i + 1) << ")  " << order.getPizzas()[i].getName() << endl;
+        } else if(order.getPizzas()[i].getSauce().getIdNumber() != 0) {
+            cout << (i + 1) << ")  Custom pizza" << endl;
+        }
+    }
+    cout << "Extras in current order: " << endl;
+    for(int i = 0; i < order.MAX_EXTRAS_ORDER; i++) {
+        if(order.getExtras()[i].getName() != "") {
+            cout << (i + 1) << ")  " << order.getExtras()[i].getName() << endl;
+        }
+    }
+    if(order.isDelivered()) {
+        cout << "Deliver to: " << order.getAddress() << endl;
+        cout << "Total price: " <<orderSer.getPrice(order) << endl;
+        if(order.getPaymentStatus()) {
+            cout << "Payment status: Payed" << endl;
+        } else {
+            cout << "Payment status: Payed at delivery" << endl;
+        }
+    } else {
+        cout << "Pickup at: " << locList[order.getLocationId() - 1].getAddress() << endl;
+        cout << "Name or phone: " << order.getAddress() << endl;
+        cout << "Total price: " <<orderSer.getPrice(order) << endl;
+        if(order.getPaymentStatus()) {
+            cout << "Payment status: Payed" << endl;
+        } else {
+            cout << "Payment status: Payed at delivery" << endl;
+        }
+    }
+    if(order.getComment() != "") {
+        cout << "Comment: " << order.getComment() << endl;
+    }
+
+}
+
+void SalesUI::displayPizzaMenu() {
+    Pizza* pizzaList = dataBase.pizzaMaster;
+    if(pizzaList != 0) {
+        cout << "Pizzas menu: " << endl;
+        for (int i = 0; i < orderSer.repo.getPizzaLines(); i++) {
+            if(pizzaList[i].getActiveState()) {
+                cout << pizzaList[i].getIdNumber();
+                cout << ")\t" << /* setw(pizzaList[0].MAX_PIZZA_LENGTH) << left << */ pizzaList[i].getName();
+                cout << " | " << /* setw(pizzaList[0].getSize().MAX_STRING_LENGTH) << left << */ pizzaList[i].getSize().getName();
+                cout << " | " << /* setw(pizzaList[0].getType().MAX_STRING_LENGTH) << left << */ pizzaList[i].getType().getName() + " base";
+                cout << " | " << /* setw(pizzaList[0].getSauce().MAX_STRING_LENGTH) << left << */ pizzaList[i].getSauce().getName() + " sauce" << endl;
+                cout << "\t " << "Toppings: ";
+                for(int j = 0; j < pizzaList[0].MAX_TOPPINGS_PIZZA; j++) {
+                    if(pizzaList[i].getToppings()[j].getIdNumber() != 0) {
+                        cout << pizzaList[i].getToppings()[j].getName() << ", ";
+                    }
+                }
+                cout << endl;
+            }
+        }
+    }
+}
 
 void SalesUI::displaySizeList() {
-   // cout << "Is this working?" << endl;
-    PizzaSize* sizeList = data.sizeMaster;
-    int length = data.getSizeID();
+    PizzaSize* sizeList = dataBase.sizeMaster;
+    int length = dataBase.getSizeID();
     for(int i = 0; i < length; i++) {
         cout << sizeList[i].getIdNumber() << ")\t"
              << setw(24) << left << sizeList[i].getName() << "\t"
@@ -144,9 +401,8 @@ void SalesUI::displaySizeList() {
 }
 
 void SalesUI::displayTypeList() {
- //   cout << "Is this working?" << endl;
-    PizzaType* typeList = data.typeMaster;
-    int length = data.getTypeID();
+    PizzaType* typeList = dataBase.typeMaster;
+    int length = dataBase.getTypeID();
     for(int i = 0; i < length; i++) {
         cout << typeList[i].getIdNumber() << ")\t"
              << setw(24) << left << typeList[i].getName() << "\t"
@@ -156,9 +412,8 @@ void SalesUI::displayTypeList() {
 }
 
 void SalesUI::displaySauceList() {
- //   cout << "Is this working?" << endl;
-    PizzaSauce* sauceList = data.sauceMaster;
-    int length = data.getSauceID();
+    PizzaSauce* sauceList = dataBase.sauceMaster;
+    int length = dataBase.getSauceID();
     for(int i = 0; i < length; i++) {
         cout << sauceList[i].getIdNumber() << ")\t"
              << setw(24) << left << sauceList[i].getName() << "\t"
@@ -167,9 +422,8 @@ void SalesUI::displaySauceList() {
 }
 
 void SalesUI::displayToppingList() {
-   // cout << "Is this working?" << endl;
-    Topping* toppingList = data.toppingMaster;
-    int length = data.getToppingID();
+    Topping* toppingList = dataBase.toppingMaster;
+    int length = dataBase.getToppingID();
     for(int i = 0; i < length; i++) {
         cout << toppingList[i].getIdNumber() << ")\t"
              << setw(24) << left << toppingList[i].getName() << "\t"
@@ -178,13 +432,23 @@ void SalesUI::displayToppingList() {
 }
 
 void SalesUI::displayExtraList() {
- //   cout << "Is this working?" << endl;
-    Extra* extraList = data.extraMaster;
-    int length = data.getExtraID();
+    Extra* extraList = dataBase.extraMaster;
+    int length = dataBase.getExtraID();
     for(int i = 0; i < length; i++) {
         cout << extraList[i].getIdNumber() << ")\t"
              << setw(24) << left << extraList[i].getName() << "\t"
              << extraList[i].getPriceCategory() << endl;
+    }
+    cout << endl;
+}
+
+void SalesUI::displayLocationList() {
+    Location* locList = dataBase.locationMaster;
+    int length = dataBase.getLocationID();
+    for(int i = 0; i < length; i++) {
+        cout << locList[i].getIdNumber() << ")\t"
+             << setw(locList[0].MAX_STRING_LENGTH) << left << locList[i].getName() << " | "
+             << setw(locList[0].MAX_ADDRESS_LENGTH) << left << locList[i].getAddress() << endl;
     }
     cout << endl;
 }

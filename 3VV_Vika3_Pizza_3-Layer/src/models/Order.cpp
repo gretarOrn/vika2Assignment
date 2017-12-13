@@ -13,60 +13,50 @@ Order::Order()
     comment[0] = '\0';
     paymentStatus = false;
     orderStatus = 0;
+    isActive = false;
 }
 
 ///***************************************************************************************
-
 int Order::getOrderId() const {
     return orderId;
 }
-
 string Order::getName() const {
     return name;
 }
-
 Pizza* Order::getPizzas()  {
     return pizzas;
 }
-
 Extra* Order::getExtras()  {
     return extras;
 }
-
 bool Order::isDelivered() const {
     return delivery;
 }
-
 int Order::getLocationId() const {
     return locationId;
 }
-
 string Order::getAddress() const {
     return address;
 }
-
 double Order::getTotalPrice() const {
     return totalPrice;
 }
-
 string Order::getComment() const {
     return comment;
 }
-
 bool Order::getPaymentStatus() const {
     return paymentStatus;
 }
-
 int Order::getOrderStatus() const {
     return orderStatus;
 }
-
+bool Order::getActiveState() const {
+    return isActive;
+}
 ///***************************************************************************************
-
 void Order::setOrderId(int newOrderId) {
     orderId = newOrderId;
 }
-
 void Order::setName(string newName) {
     for(unsigned int i = 0; (i < newName.size()) && (i < MAX_NAME_LENGTH); i++) {
         name[i] = newName.at(i);
@@ -74,22 +64,17 @@ void Order::setName(string newName) {
     name[newName.size()] = '\0';
     name[MAX_NAME_LENGTH] = '\0';
 }
-
 void Order::addPizzas() {       //Kallar á fall í sevices
 
 }
-
 void Order::addExtras() {       //Kallar á fall í sevices
 }
-
 void Order::setDeliveryMethod(bool isDelivered) {
     delivery = isDelivered;
 }
-
 void Order::setLocation(int newLocationId) {
     locationId = newLocationId;
 }
-
 void Order::setAddress(string newAddress) {
     for(unsigned int i = 0; (i < newAddress.size()) && (i < MAX_ADDRESS_LENGTH); i++) {
         address[i] = newAddress.at(i);
@@ -97,11 +82,9 @@ void Order::setAddress(string newAddress) {
     address[newAddress.size()] = '\0';
     address[MAX_ADDRESS_LENGTH - 1] = '\0';
 }
-
 void Order::setTotalPrice(double newPrice) {
     totalPrice = newPrice;
 }
-
 void Order::setComment(string newComment) {
     for(unsigned int i = 0; (i < newComment.size()) && (i < MAX_COMMENT_LENGTH); i++) {
         comment[i] = newComment.at(i);
@@ -109,15 +92,15 @@ void Order::setComment(string newComment) {
     comment[newComment.size()] = '\0';
     comment[MAX_COMMENT_LENGTH - 1] = '\0';
 }
-
 void Order::setPaymentStatus(bool isPayed) {
     paymentStatus = isPayed;
 }
-
 void Order::setOrderStatus(int newOrderStatus) {
     orderStatus = newOrderStatus;
 }
-
+void Order::setActiveState(bool newState) {
+    isActive = newState;
+}
 ///***************************************************************************************
 
 /*

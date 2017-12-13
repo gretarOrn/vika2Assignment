@@ -49,7 +49,6 @@ void AdminUI::startUp() {
 void AdminUI::orderOptions() {
     char c;
     while(c != 'q') {
-        system("CLS");
         cout << "Special options" << endl;
         cout << "1)\t" << "Add a special" << endl;
         cout << "2)\t" << "Edit a special" << endl;
@@ -63,6 +62,7 @@ void AdminUI::orderOptions() {
         } else if (c == '3') {
             displaySpecialsOrders();
         }
+        system("CLS");
     }
 }
 void AdminUI::displayActiveOrders() {
@@ -88,7 +88,6 @@ void AdminUI::removeOrders() {
 void AdminUI::pizzaOptions() {
     char c;
     while(c != 'q') {
-        system("CLS");
         cout << "Pizza menu options" << endl;
         cout << "1)\t" << "Add a pizza to the menu" << endl;
         cout << "2)\t" << "Edit a pizza in the menu" << endl;
@@ -96,12 +95,18 @@ void AdminUI::pizzaOptions() {
         cout << "q)\t" << "Go back" << endl;
         cin >> c;
                if (c == '1') {
+            system("CLS");
             addPizzas();
+            system("CLS");
         } else if (c == '2') {
+            system("CLS");
             editPizzas();
+            system("CLS");
         } else if (c == '3') {
+            system("CLS");
             displayPizzaMenu();
         }
+
     }
 }
 void AdminUI::displayPizzaMenu() {
@@ -112,15 +117,14 @@ void AdminUI::displayPizzaMenu() {
             cout << pizzaList[i].getIdNumber();
             cout << ")\t" << setw(pizzaList[0].MAX_PIZZA_LENGTH) << left << pizzaList[i].getName();
             cout << " | " << setw(pizzaList[0].getSize().MAX_STRING_LENGTH) << left << pizzaList[i].getSize().getName();
-            cout << " | " << setw(pizzaList[0].getType().MAX_STRING_LENGTH) << left << pizzaList[i].getType().getName();
-            cout << " | " << setw(pizzaList[0].getSauce().MAX_STRING_LENGTH) << left << pizzaList[i].getSauce().getName() << endl;
-            cout << "Toppings: | ";
+            cout << " | " << setw(pizzaList[0].getType().MAX_STRING_LENGTH) << left << pizzaList[i].getType().getName() + " base";
+            cout << " | " << setw(pizzaList[0].getSauce().MAX_STRING_LENGTH) << left << pizzaList[i].getSauce().getName() + " sauce" << endl;
+            cout << "\t " << "Toppings: | ";
             for(int j = 0; j < pizzaList[0].MAX_TOPPINGS_PIZZA; j++) {
                 if(pizzaList[i].getToppings()[j].getIdNumber() != 0) {
                     cout << pizzaList[i].getToppings()[j].getName() << " | ";
                 }
             }
-
             /*
             if(pizzaList[i].getActiveState()) {
                 cout << "Active";
@@ -136,12 +140,16 @@ void AdminUI::addPizzas() {
     Pizza pizza;
     char userInput;
     string nameInput;
+    double totalPrice = 0.0;
     int sizeSelection;
     int typeSelection;
     int sauceSelection;
     int toppingSelection[pizza.MAX_TOPPINGS_PIZZA];
+    for(int i = 0; i < pizza.MAX_TOPPINGS_PIZZA; i++) {
+        toppingSelection[i] = 0;
+    }
 
-    bool valid = false;
+        bool valid = false;
     do {
         system("CLS");
         displayPizzaMenu();
@@ -226,9 +234,7 @@ void AdminUI::addPizzas() {
         for(int i = 0; i < 10; i++) {
             cout << toppingSelection[i] << " ";
         }
-
-        adminService.addPizza(nameInput, sizeSelection, typeSelection, sauceSelection, toppingSelection);
-
+        adminService.addPizza(nameInput, sizeSelection, typeSelection, sauceSelection, toppingSelection, totalPrice);
         dataBase.refreshPizza();
         cout << "Continue? (y/n) ";
         cin >> userInput;
@@ -314,7 +320,7 @@ void AdminUI::addPriceCategory() {
             }
         } while(!valid);
 
-            adminService.addPriceCategory(nameInput, PriceInput);
+        adminService.addPriceCategory(nameInput, PriceInput);
 
         cout << "Continue? (y/n) ";
         cin >> userInput;
@@ -641,7 +647,7 @@ void AdminUI::addSize() {
             }
 
         } while(!valid);
-        adminService.addSize(nameInput, priceInput);
+        adminService.addSize(nameInput, priceInput, toppingMult, toppingOffset);
         dataBase.refreshSize();
         cout << "Continue? (y/n) ";
         cin >> userInput;
@@ -698,7 +704,7 @@ void AdminUI::addSauces() {
     char userInput;
     string nameInput;
     int priceInput;
-    bool valid;
+    bool valid = false;
     do {
         system("CLS");
         displaySauces();

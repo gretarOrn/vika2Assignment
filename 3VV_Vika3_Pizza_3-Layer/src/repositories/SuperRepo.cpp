@@ -43,7 +43,7 @@ Extra* SuperRepo::readExtraFile() {
     return masterList;
 }
 
-void SuperRepo::writeToExtraFile(Extra extra) const {
+void SuperRepo::writeToExtraFile(const Extra& extra) {
     ofstream fout;
     fout.open("Extras.dat", ios::binary|ios::app);
     fout.write((char*)(&extra), sizeof(extra));
@@ -84,7 +84,7 @@ Location* SuperRepo::readLocationFile() {
     return masterList;
 }
 
-void SuperRepo::writeToLocationFile(Location location) const {
+void SuperRepo::writeToLocationFile(const Location& location) {
     ofstream fout;
     fout.open("Locations.dat", ios::binary|ios::app);
     fout.write((char*)(&location), sizeof(Location));
@@ -125,10 +125,20 @@ Order* SuperRepo::readActiveOrderFile() {
     return masterList;
 }
 
-void SuperRepo::writeToActiveOrderFile(Order order) const {
+void SuperRepo::writeToActiveOrderFile(const Order& order) {
     ofstream fout;
     fout.open("ActiveOrders.dat", ios::binary|ios::app);
     fout.write((char*)(&order), sizeof(Order));
+    fout.close();
+}
+
+void SuperRepo::writeAllButToActiveOrderFile(Order* order, int lineNr) {
+    int lines = getActiveOrderLines();
+    ofstream fout("ActiveOrders.dat", ios::binary|ios::trunc);
+    fout.write((char*)(order), ((lineNr) * sizeof(Order)));
+    fout.close();
+    fout.open("ActiveOrders.dat", ios::binary|ios::app);
+    fout.write((char*)(&order[lineNr + 1]), ((lines - lineNr - 1) * sizeof(Order)));
     fout.close();
 }
 
@@ -166,7 +176,7 @@ Order* SuperRepo::readInactiveOrderFile() {
     return masterList;
 }
 
-void SuperRepo::writeToInactiveOrderFile(Order order) const {
+void SuperRepo::writeToInactiveOrderFile(const Order& order) {
     ofstream fout;
     fout.open("CompletedOrders.dat", ios::binary|ios::app);
     fout.write((char*)(&order), sizeof(Order));
@@ -207,7 +217,7 @@ Pizza* SuperRepo::readPizzaFile() {
     return masterList;
 }
 
-void SuperRepo::writeToPizzaFile(Pizza pizza) const {
+void SuperRepo::writeToPizzaFile(const Pizza& pizza) {
     ofstream fout;
     fout.open("PizzaMenu.dat", ios::binary|ios::app);
     fout.write((char*)(&pizza), sizeof(Pizza));
@@ -248,7 +258,7 @@ PizzaSauce* SuperRepo::readSauceFile() {
     return masterList;
 }
 
-void SuperRepo::writeToSauceFile(PizzaSauce sauce) const {
+void SuperRepo::writeToSauceFile(const PizzaSauce& sauce) {
     ofstream fout;
     fout.open("PizzaSauce.dat", ios::binary|ios::app);
     fout.write((char*)(&sauce), sizeof(PizzaSauce));
@@ -289,7 +299,7 @@ PizzaSize* SuperRepo::readSizeFile() {
     return masterList;
 }
 
-void SuperRepo::writeToSizeFile(PizzaSize size) const {
+void SuperRepo::writeToSizeFile(const PizzaSize& size) {
     ofstream fout;
     fout.open("PizzaSize.dat", ios::binary|ios::app);
     fout.write((char*)(&size), sizeof(PizzaSize));
@@ -330,7 +340,7 @@ PizzaType* SuperRepo::readTypeFile() {
     return masterList;
 }
 
-void SuperRepo::writeToTypeFile(PizzaType type) const {
+void SuperRepo::writeToTypeFile(const PizzaType& type) {
     ofstream fout;
     fout.open("PizzaType.dat", ios::binary|ios::app);
     fout.write((char*)(&type), sizeof(PizzaType));
@@ -371,7 +381,7 @@ PriceList* SuperRepo::readPriceFile() {
     return masterList;
 }
 
-void SuperRepo::writeToPriceFile(PriceList price) const{
+void SuperRepo::writeToPriceFile(const PriceList& price) {
     ofstream fout;
     fout.open("PriceList.dat", ios::binary|ios::app);
     fout.write((char*)(&price), sizeof(PriceList));
@@ -412,7 +422,7 @@ Topping* SuperRepo::readToppingFile() {
     return masterList;
 }
 
-void SuperRepo::writeToToppingFile(Topping topping) const {
+void SuperRepo::writeToToppingFile(const Topping& topping) {
     ofstream fout;
     fout.open("Toppings.dat", ios::binary|ios::app);
     fout.write((char*)(&topping), sizeof(Topping));

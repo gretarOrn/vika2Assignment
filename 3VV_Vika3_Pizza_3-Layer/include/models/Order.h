@@ -27,6 +27,7 @@ class Order
         string getComment() const;
         bool getPaymentStatus() const;
         int getOrderStatus() const;
+        bool getActiveState() const;
 
 
         void setOrderId(int newOrderId);
@@ -40,6 +41,7 @@ class Order
         void setComment(string newComment);
         void setPaymentStatus(bool isPayed);
         void setOrderStatus(int newOrderStatus);
+        void setActiveState(bool newState);
 
         //void pizzaOrders();
 
@@ -55,6 +57,7 @@ class Order
         char comment[MAX_COMMENT_LENGTH];
         bool paymentStatus;
         int orderStatus;
+        bool isActive;
 
 };
 

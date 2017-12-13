@@ -21,52 +21,53 @@ class SuperRepo
         /// Extra
         int getExtraLines() const;
         Extra* readExtraFile();
-        void writeToExtraFile(Extra extra) const;
+        void writeToExtraFile(const Extra& extra);
 
         /// Location
         int getLocationLines() const;
         Location* readLocationFile();
-        void writeToLocationFile(Location location) const;
+        void writeToLocationFile(const Location& location);
 
         /// ActiveOrder
         int getActiveOrderLines() const;
         Order* readActiveOrderFile();
-        void writeToActiveOrderFile(Order order) const;
+        void writeToActiveOrderFile(const Order& order);
+        void writeAllButToActiveOrderFile(Order* order, int lineNr);
 
         /// InactiveOrder
         int getInactiveOrderLines() const;
         Order* readInactiveOrderFile();
-        void writeToInactiveOrderFile(Order order) const;
+        void writeToInactiveOrderFile(const Order& order);
 
         /// Pizza
         int getPizzaLines() const;
         Pizza* readPizzaFile();
-        void writeToPizzaFile(Pizza pizza) const;
+        void writeToPizzaFile(const Pizza& pizza);
 
         /// Sauce
         int getSauceLines() const;
         PizzaSauce* readSauceFile();
-        void writeToSauceFile(PizzaSauce sauce) const;
+        void writeToSauceFile(const PizzaSauce& sauce);
 
         /// Size
         int getSizeLines() const;
         PizzaSize* readSizeFile();
-        void writeToSizeFile(PizzaSize size) const;
+        void writeToSizeFile(const PizzaSize& size);
 
         /// Type
         int getTypeLines() const;
         PizzaType* readTypeFile();
-        void writeToTypeFile(PizzaType type) const;
+        void writeToTypeFile(const PizzaType& type);
 
         /// Price
         int getPriceLines() const;
         PriceList* readPriceFile();
-        void writeToPriceFile(PriceList price) const;
+        void writeToPriceFile(const PriceList& price);
 
         /// Topping
         int getToppingLines() const;
         Topping* readToppingFile();
-        void writeToToppingFile(Topping topping) const;
+        void writeToToppingFile(const Topping& topping);
 
     private:
 };

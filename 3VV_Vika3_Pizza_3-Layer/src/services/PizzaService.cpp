@@ -18,7 +18,7 @@ PizzaSize PizzaService::addSize(int sizeNR) {
     pizzaSize.setIdNumber(dataBase.sizeMaster[sizeNR - 1].getIdNumber());
     pizzaSize.setName(dataBase.sizeMaster[sizeNR - 1].getName());
     pizzaSize.setPriceCategory(dataBase.sizeMaster[sizeNR - 1].getPriceCategory());
-    //pizzaSize.setActiveState(dataBase.pizzaMaster[sizeNR - 1].getActiveState());
+    pizzaSize.setActiveState(dataBase.pizzaMaster[sizeNR - 1].getActiveState());
     return pizzaSize;
 
 }
@@ -46,6 +46,24 @@ Topping* PizzaService::addTopping(int *arr, Pizza& pizza) {
 
 
 }
+
+void PizzaService::addPizzaToOrder(Pizza& pizza, const Topping& topping) {
+    int counter = 0;
+    while(counter < pizza.MAX_TOPPINGS_PIZZA) {
+        // If a pizzas sauce has no name the pizza is created by the default constructor and is blank.
+        if(pizza.getToppings()[counter].getName() == "") {
+            pizza.getToppings()[counter] = topping;
+            break;
+        }
+        counter++;
+    }
+    if(counter == pizza.MAX_TOPPINGS_PIZZA -1) {
+        /// Throw maxToppingsPerPizzaException();
+        cout << "You have reached the maximum amount of toppings on this pizza." << endl;
+        cin.clear();
+    }
+}
+
 double PizzaService::getPrice(Pizza pizza) {
     PriceList* priceList = dataBase.priceMaster;
 
