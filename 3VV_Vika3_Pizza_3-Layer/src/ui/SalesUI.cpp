@@ -30,32 +30,33 @@ void SalesUI::startUp() {
         if(c == '1') {
             createOrder();
         } else if(c == '2') {
-            //Order* orderList = dataBase.activeOrderMaster;
+            Order* orderList = dataBase.activeOrderMaster;
             int lines = orderSer.repo.getActiveOrderLines();
             int index;
             cout << "Lines: " << lines << endl;
-            /*for(int i = 0; i < lines; i++) {
+            for(int i = 0; i < lines; i++) {
                 displayOrder(orderList[i]);
                 cout << endl;
-            }*/
+            }
 
             cout << "Select order to move to inactive: ";
             cin >> index;
             orderSer.moveOrderToInactiveFile(index);
             lines = orderSer.repo.getActiveOrderLines();
-
+            orderList = dataBase.activeOrderMaster;
+            cout << "*********************************************************************" << endl;
             cout << "Lines: " << lines << endl;
-            /*for(int i = 0; i < lines; i++) {
+            for(int i = 0; i < lines; i++) {
                 displayOrder(orderList[i]);
                 cout << endl;
-            }*/
+            }
         } else if(c == '3') {
-            //Order* inactiveOrderList = dataBase.inactiveOrderMaster;
+            Order* inactiveOrderList = dataBase.inactiveOrderMaster;
             cout << orderSer.repo.getInactiveOrderLines() << endl;
-            /*for(int i = 0; i < orderSer.repo.getInactiveOrderLines(); i++) {
+            for(int i = 0; i < orderSer.repo.getInactiveOrderLines(); i++) {
                 displayOrder(inactiveOrderList[i]);
                 cout << endl;
-            }*/
+            }
         } else if(c != 'q') {
 
         }
