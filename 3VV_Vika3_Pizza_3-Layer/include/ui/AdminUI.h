@@ -3,6 +3,7 @@
 
 #include "DataBase.h"
 #include "AdminService.h"
+#include "PizzaService.h"
 
 #include <iostream>
 #include <cstdlib>
@@ -15,6 +16,7 @@ class AdminUI
 
     private:
         AdminService adminService;
+        PizzaService pizzaService;
         DataBase dataBase;
 
         /// Specials

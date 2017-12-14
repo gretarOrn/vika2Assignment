@@ -115,23 +115,24 @@ void AdminUI::displayPizzaMenu() {
         cout << "Pizzas in current menu: " << endl;
         for (int i = 0; i < adminService.repo.getPizzaLines(); i++) {
             cout << pizzaList[i].getIdNumber();
-            cout << ")\t" << setw(pizzaList[0].MAX_PIZZA_LENGTH) << left << pizzaList[i].getName();
-            cout << " | " << setw(pizzaList[0].getSize().MAX_STRING_LENGTH) << left << pizzaList[i].getSize().getName();
-            cout << " | " << setw(pizzaList[0].getType().MAX_STRING_LENGTH) << left << pizzaList[i].getType().getName() + " base";
-            cout << " | " << setw(pizzaList[0].getSauce().MAX_STRING_LENGTH) << left << pizzaList[i].getSauce().getName() + " sauce" << endl;
-            cout << "\t " << "Toppings: | ";
+            cout << ")\t" << /* setw(pizzaList[0].MAX_PIZZA_LENGTH) << left << */ pizzaList[i].getName() << endl;
+            cout << "\t  " << /* setw(pizzaList[0].getSize().MAX_STRING_LENGTH) << left << */ setw(9) << pizzaList[i].getSize().getName();
+            cout << " | " << /* setw(pizzaList[0].getType().MAX_STRING_LENGTH) << left << */ pizzaList[i].getType().getName() + " base";
+            cout << " | " << /* setw(pizzaList[0].getSauce().MAX_STRING_LENGTH) << left << */ pizzaList[i].getSauce().getName() + " sauce" << endl;
+            cout << "\t  " << "Toppings: | ";
             for(int j = 0; j < pizzaList[0].MAX_TOPPINGS_PIZZA; j++) {
                 if(pizzaList[i].getToppings()[j].getIdNumber() != 0) {
                     cout << pizzaList[i].getToppings()[j].getName() << " | ";
                 }
             }
-            /*
+            cout << endl;
+            cout << "\t  " << "Price:    | " << pizzaService.getPrice(pizzaList[i]) << "kr | Is ";
             if(pizzaList[i].getActiveState()) {
                 cout << "Active";
             } else {
                 cout << "Inactive";
             }
-            */
+
             cout << endl;
         }
     }

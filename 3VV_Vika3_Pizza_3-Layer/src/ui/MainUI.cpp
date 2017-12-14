@@ -6,7 +6,6 @@ MainUI::MainUI() {
 
 void MainUI::startUI() {
     char c;
-
     while (c != 'q') {
         system("CLS");
         cout << " ____                    "   << endl;
