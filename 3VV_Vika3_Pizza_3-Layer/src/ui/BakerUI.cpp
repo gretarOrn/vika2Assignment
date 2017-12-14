@@ -76,11 +76,17 @@ void BakerUI::displayOrders(int locationID) {
     for(int i = 0; i < repo.getActiveOrderLines(); i++) {
         if(orderList[i].getLocationId() == locationID) {
             if(orderList[i].getOrderStatus() == 2) {
+<<<<<<< HEAD
+                cout <<"\n" << counter <<")\t|";
+                cout << "ID: " <<orderList[i].getOrderId();
+                cout << ")\t" << setw(24) << left << orderList[i].getName();
+=======
 
                 cout <<"\n" << counter <<")\t|";
                 cout << "ID: " <<orderList[i].getOrderId();
                 cout << ")\t" << setw(24) << left << orderList[i].getAddress();
 
+>>>>>>> d5bdb1b3fb617ae2303c869085c1d608944ae46c
                 cout << " | " << setw(5) << left << orderList[i].getComment() << endl;
                 counter++;
             }

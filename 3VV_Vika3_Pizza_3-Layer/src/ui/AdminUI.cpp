@@ -160,7 +160,7 @@ void AdminUI::addPizzas() {
             cin >> ws;
             getline(cin, nameInput);
             try {
-                adminService.validateName(nameInput,valid);
+                validate.validateName(nameInput,valid);
             }
             catch(InvalidNameException) {
                 cout <<"Invalid name input." << endl;
@@ -171,9 +171,9 @@ void AdminUI::addPizzas() {
         do {
             cout << "Select size: ";
             cin >> sizeSelection;
-            adminService.isInt(sizeSelection);
+            validate.isInt(sizeSelection);
             try {
-                adminService.validateSize(sizeSelection, valid);
+                validate.validateSize(sizeSelection, valid);
             }
             catch(InvalidSizeException) {
                 cout <<"Invalid size input" << endl;
@@ -185,9 +185,9 @@ void AdminUI::addPizzas() {
         do {
             cout << "Select Base: ";
             cin >> typeSelection;
-            adminService.isInt(typeSelection);
+            validate.isInt(typeSelection);
             try {
-                adminService.validateType(typeSelection, valid);
+                validate.validateType(typeSelection, valid);
             }
             catch(InvalidTypeException) {
                 cout <<"Invalid type input." << endl;
@@ -199,9 +199,9 @@ void AdminUI::addPizzas() {
         do {
             cout << "Select sauce: ";
             cin >> sauceSelection;
-            adminService.isInt(sauceSelection);
+            validate.isInt(sauceSelection);
             try {
-                adminService.validateSauce(sauceSelection, valid);
+                validate.validateSauce(sauceSelection, valid);
             }
             catch(InvalidSauceException) {
                 cout << "Invalid sauce input." << endl;
@@ -219,12 +219,12 @@ void AdminUI::addPizzas() {
         while(counter < pizza.MAX_TOPPINGS_PIZZA) {
             toppingSelection[counter] = 0;
             cin >> tempToppingSelection;
-            adminService.isInt(tempToppingSelection);
+            validate.isInt(tempToppingSelection);
             if(tempToppingSelection == 0) {
                 break;
             }
             try {
-                adminService.validateToppingSelection(tempToppingSelection, valid);
+                validate.validateToppingSelection(tempToppingSelection, valid);
             }
             catch(InvalidToppingException) {
                 cout << "Invalid topping input." << endl;
@@ -302,7 +302,7 @@ void AdminUI::addPriceCategory() {
             cin >> ws;
             getline(cin, nameInput);
             try {
-                adminService.validateName(nameInput,valid);
+                validate.validateName(nameInput,valid);
             }
             catch(InvalidNameException) {
                 cout <<"Invalid name input." << endl;
@@ -312,9 +312,9 @@ void AdminUI::addPriceCategory() {
         do{
             cout << "\nEnter category price:    ";
             cin >> PriceInput;
-            adminService.isDouble(PriceInput);
+            validate.isDouble(PriceInput);
             try {
-                adminService.validatePriceCategory(PriceInput,valid);
+                validate.validatePriceCategory(PriceInput,valid);
             }
             catch(InvalidPriceException) {
                 cout <<"Invalid price input." << endl;
@@ -388,7 +388,7 @@ void AdminUI::addToppings() {
             cin >> ws;
             getline(cin, nameInput);
             try {
-                adminService.validateName(nameInput,valid);
+                validate.validateName(nameInput,valid);
             }
             catch(InvalidNameException) {
                 cout <<"Invalid name input." << endl;
@@ -399,9 +399,9 @@ void AdminUI::addToppings() {
         do{
             cout << "\nEnter category price:    ";
             cin >> priceInput;
-            adminService.isInt(priceInput);
+            validate.isInt(priceInput);
             try {
-                adminService.validateTopping(priceInput,valid);
+                validate.validateTopping(priceInput,valid);
             }
             catch(InvalidToppingException) {
                 cout <<"Invalid price input." << endl;
@@ -516,7 +516,7 @@ void AdminUI::addExtras() {
             cin >> ws;
             getline(cin, nameInput);
             try {
-                adminService.validateName(nameInput,valid);
+                validate.validateName(nameInput,valid);
             }
             catch(InvalidNameException) {
                 cout <<"Invalid name input." << endl;
@@ -527,9 +527,9 @@ void AdminUI::addExtras() {
         do{
             cout << "\nEnter category price:    ";
             cin >> priceInput;
-            adminService.isInt(priceInput);
+            validate.isInt(priceInput);
             try {
-                adminService.validateExtra(priceInput,valid);
+                validate.validateExtra(priceInput,valid);
             }
             catch(InvalidExtraException) {
                 cout <<"Invalid price input." << endl;
@@ -603,7 +603,7 @@ void AdminUI::addSize() {
             cin >> ws;
             getline(cin, nameInput);
             try {
-                adminService.validateName(nameInput,valid);
+                validate.validateName(nameInput,valid);
             }
             catch(InvalidNameException) {
                 cout <<"Invalid name input." << endl;
@@ -614,9 +614,9 @@ void AdminUI::addSize() {
         do{
             cout << "\nEnter category price:    ";
             cin >> priceInput;
-            adminService.isInt(priceInput);
+            validate.isInt(priceInput);
             try {
-                adminService.validateSize(priceInput,valid);
+                validate.validateSize(priceInput,valid);
             }
             catch(InvalidSizeException) {
                 cout <<"Invalid price input." << endl;
@@ -626,9 +626,9 @@ void AdminUI::addSize() {
         do {
             cout << "Enter topping price Multiplier: ";
             cin >> toppingMult;
-            adminService.isDouble(toppingMult);
+            validate.isDouble(toppingMult);
             try {
-                adminService.validateMult(toppingMult, valid);
+                validate.validateMult(toppingMult, valid);
             }
             catch(InvalidMultException) {
                 cout <<"Invalid multiplier input." << endl;
@@ -639,9 +639,9 @@ void AdminUI::addSize() {
         do {
             cout << "Enter topping price offset: ";
             cin >> toppingOffset;
-            adminService.isDouble(toppingOffset);
+            validate.isDouble(toppingOffset);
             try {
-                adminService.validatePrice(toppingOffset, valid);
+                validate.validatePrice(toppingOffset, valid);
             }
             catch(InvalidOffsetException) {
                 cout << "Invalid Offset input." << endl;
@@ -715,7 +715,7 @@ void AdminUI::addSauces() {
             cin >> ws;
             getline(cin, nameInput);
             try {
-                adminService.validateName(nameInput,valid);
+                validate.validateName(nameInput,valid);
             }
             catch(InvalidNameException) {
                 cout <<"Invalid name input." << endl;
@@ -728,9 +728,9 @@ void AdminUI::addSauces() {
         do{
             cout << "\nEnter category price:    ";
             cin >> priceInput;
-            adminService.isInt(priceInput);
+            validate.isInt(priceInput);
             try {
-                adminService.validateSauce(priceInput,valid);
+                validate.validateSauce(priceInput,valid);
             }
             catch(InvalidSauceException) {
                 cout <<"Invalid price input." << endl;
@@ -802,7 +802,7 @@ void AdminUI::addBase() {
             cin >> ws;
             getline(cin, nameInput);
             try {
-                adminService.validateName(nameInput,valid);
+                validate.validateName(nameInput,valid);
             }
             catch(InvalidNameException) {
                 cout <<"Invalid name input." << endl;
@@ -812,9 +812,9 @@ void AdminUI::addBase() {
         do {
             cout <<"Enter a price offset: ";
             cin >> priceInput;
-            adminService.isDouble(priceInput);
+            validate.isDouble(priceInput);
             try {
-                adminService.validatePrice(priceInput, valid);
+                validate.validatePrice(priceInput, valid);
             }
             catch(InvalidOffsetException) {
                 cout << "Invalid offset." << endl;
@@ -888,7 +888,7 @@ void AdminUI::addLocation() {
             cin >> ws;
             getline(cin, nameInput);
             try {
-                adminService.validateName(nameInput,valid);
+                validate.validateName(nameInput,valid);
             }
             catch(InvalidNameException) {
                 cout <<"Invalid name input." << endl;
@@ -900,7 +900,7 @@ void AdminUI::addLocation() {
             cin >> ws;
             getline(cin, addressInput);
             try {
-                adminService.validateName(addressInput,valid);
+                validate.validateName(addressInput,valid);
             }
             catch(InvalidNameException) {
                 cout <<"Invalid address input." << endl;
