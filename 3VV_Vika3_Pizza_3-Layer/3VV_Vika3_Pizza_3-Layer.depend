@@ -125,9 +125,10 @@
 	"Extra.h"
 	"DataBase.h"
 
-1513180494 c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\include\ui\bakerui.h
+1513257073 c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\include\ui\bakerui.h
 	"DataBase.h"
 	"OrderService.h"
+	"ValidateService.h"
 	<iostream>
 	<cstdlib>
 
@@ -219,12 +220,12 @@
 1513249665 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\src\services\pizzaservice.cpp
 	"PizzaService.h"
 
-1513250094 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\src\services\validateservice.cpp
+1513257108 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\src\services\validateservice.cpp
 	"ValidateService.h"
 
-1513250094 c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\include\services\validateservice.h
-	"SuperRepo.h"
+1513257363 c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\include\services\validateservice.h
 	"DataBase.h"
+	"SuperRepo.h"
 	"InvalidNameException.h"
 	"InvalidPriceException.h"
 	"InvalidSizeException.h"
@@ -235,6 +236,7 @@
 	"InvalidOffsetException.h"
 	"InvalidExtraException.h"
 	"InvalidPizzaException.h"
+	"InvalidActiveOrderException.h"
 	"InvalidLocationException.h"
 
 1513005242 c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\include\exceptions\invalidlocationexception.h
@@ -1384,4 +1386,9 @@
 
 1513174780 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\src\exceptions\invalidpizzaexception.cpp
 	"InvalidPizzaException.h"
+
+1513257353 c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\include\exceptions\invalidactiveorderexception.h
+
+1513256998 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\src\exceptions\invalidactiveorderexception.cpp
+	"InvalidActiveOrderException.h"
 

@@ -106,6 +106,15 @@ void ValidateService::validatePizzaSelection(int pizzaSelection, bool& valid) {
         throw(InvalidPizzaException());
     }
 }
+void ValidateService::validateActiveOrderSelection(int orderSelection, bool& valid) {
+    if(orderSelection > 0 && repo.getActiveOrderLines() >= orderSelection) {
+        valid = true;
+        return;
+    }
+    if(!valid) {
+        throw(InvalidActiveOrderException());
+    }
+}
 void ValidateService::validateLocation(int locationSelection, bool& valid) {
     if(locationSelection > 0 && dataBase.getLocationID() >= locationSelection) {
         valid = true;

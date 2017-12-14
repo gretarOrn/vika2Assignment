@@ -6,41 +6,58 @@ BakerUI::BakerUI()
 }
 
 void BakerUI::startUp() {
-    int c, d , e , f;
+    int locationSelection, orderSelection, SelectedOrderId, orderStatus;
+    bool valid;
     OrderService orderService;
     system("CLS");
-    while(c != 0) {
-
+    while(locationSelection != 0) {
         cout <<"Locations: "<<endl;
         displayLocations();
-        cout << "Select Location: ";
-        cin >> c;
-        /// validate input í orderservice
-        if (orderService.validateOrdersInLocation(c)) {
-        displayOrders(c);
+        do {
+            cout << "Select Location: ";
+            cin >> locationSelection;
+            valid = false;
+            validate.isInt(locationSelection);
+            try {
+                validate.validateLocation(locationSelection, valid);
+            } catch(InvalidLocationException) {
+                cout << "Invalid location, try again." << endl;
+            }
+        } while(!valid);
+    system("CLS");
+    if (orderService.validateOrdersInLocation(locationSelection)) {
+        cout << "Location: " << dataBase.locationMaster[locationSelection - 1].getName() << endl;
+        displayOrders(locationSelection);
         do{
             cout << "Select an order: ";
-            cin >> d;
-        }while(!(d <= repo.getActiveOrderLines()));
-        f = findOrderID(d,c);
-        displayOrder(f);
-        cout <<" set pizza to \"on the make line\"(2), \"done\"(3) or no change(0): ";
-        cin >> e;
+            cin >> orderSelection;
+            valid = false;
+            validate.isInt(orderSelection);
+            try {
+                validate.validateActiveOrderSelection(orderSelection, valid);
+            } catch(InvalidActiveOrderException) {
+                cout << "Invalid order selection, try again." << endl;
+            }
+        } while(!valid);
+        SelectedOrderId = findOrderID(orderSelection, locationSelection);
+        displayOrder(SelectedOrderId);
+        cout <<"Set pizza status to \"In progress\"(2), \"done\"(3) or no change(0): ";
+        cin >> orderStatus;
         dataBase.refreshActiveOrder();
         Order* orderList = dataBase.activeOrderMaster;
-        if (e == 2) {
+        if (orderStatus == 2) {
             for(int i = 0; i < repo.getActiveOrderLines(); i++) {
-                if(orderList[i].getOrderId() == f) {
-                    orderList[i].setOrderStatus(e);
+                if(orderList[i].getOrderId() == SelectedOrderId) {
+                    orderList[i].setOrderStatus(orderStatus);
                     orderService.saveOrders(orderList);
                     dataBase.refreshActiveOrder();
                 }
             }
         }
-        else if(e == 3) {
+        else if(orderStatus == 3) {
             for(int i = 0; i < repo.getActiveOrderLines(); i++) {
-                if(orderList[i].getOrderId() == f) {
-                    orderList[i].setOrderStatus(e);
+                if(orderList[i].getOrderId() == SelectedOrderId) {
+                    orderList[i].setOrderStatus(orderStatus);
                     orderService.saveOrders(orderList);
                     dataBase.refreshActiveOrder();
                 }
@@ -48,11 +65,12 @@ void BakerUI::startUp() {
         }
     }
     else  {
-        cout << "no orders int that location: " << endl;
-        cout << "select another location: " << endl;
+        cout << "No orders in that location: " << endl;
+        cout << "Select another location: " << endl;
         }
     }
 }
+
 void BakerUI::displayLocations() {
     dataBase.refreshLocation();
     Location* locationList = dataBase.locationMaster;
@@ -72,21 +90,22 @@ void BakerUI::displayOrders(int locationID) {
     dataBase.refreshActiveOrder();
     Order* orderList = dataBase.activeOrderMaster;
     int counter = 1;
-    cout << "Orders already on the make line: " << endl;
+    cout << "******************************************************************************" << endl;
+    cout << "Orders already in progress: " << endl;
     for(int i = 0; i < repo.getActiveOrderLines(); i++) {
         if(orderList[i].getLocationId() == locationID) {
             if(orderList[i].getOrderStatus() == 2) {
-                cout <<"\n" << counter <<")\t|";
-                cout << "ID: " <<orderList[i].getOrderId();
-                cout << ")\t" << setw(24) << left << orderList[i].getAddress();
+                cout << counter << ")\t";
+                cout << "Order ID: " << orderList[i].getOrderId();
+                cout << "\t" << setw(24) << left << orderList[i].getAddress();
                 cout << " | " << setw(5) << left << orderList[i].getComment() << endl;
                 counter++;
             }
         }
     }
 
-    cout <<"\n**********************************************************" << endl;
-    cout <<"\nOrders ready for the make line: " << endl;
+    cout << endl << "******************************************************************************" << endl;
+    cout << "Orders ready for processing: ";
     for(int i = 0; i < repo.getActiveOrderLines(); i++) {
         if(orderList[i].getLocationId() == locationID) {
             if(orderList[i].getOrderStatus() == 1) {
