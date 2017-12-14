@@ -3,8 +3,15 @@
 
 #include "DataBase.h"
 #include "AdminService.h"
+<<<<<<< HEAD
+
+#include "ValidateService.h"
+
+#include "PizzaService.h"
+=======
 #include "PizzaService.h"
 #include "ValidateService.h"
+>>>>>>> c64e225b4932874fe5e069fa1e72ee8dafa64ad9
 
 #include <iostream>
 #include <cstdlib>
@@ -16,11 +23,28 @@ class AdminUI
         void startUp();
 
     private:
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+        AdminService adminService;
+        PizzaService pizzaService;
+        DataBase dataBase;
+        ValidateService validate;
+
+=======
+        DataBase dataBase;
+>>>>>>> 49bfc3e00dd137b0d642feddb8ee4362bba9e9e2
         AdminService adminService;
         DataBase dataBase;
         PizzaService pizzaService;
         ValidateService validate;
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> c64e225b4932874fe5e069fa1e72ee8dafa64ad9
+>>>>>>> 49bfc3e00dd137b0d642feddb8ee4362bba9e9e2
         /// Specials
         void orderOptions();
         void displayActiveOrders();
