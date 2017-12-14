@@ -2,6 +2,7 @@
 #define DELIVERYUI_H
 
 #include "DataBase.h"
+#include "OrderService.h"
 
 #include <iostream>
 #include <cstdlib>
@@ -16,6 +17,7 @@ class DeliveryUI
     private:
         DataBase dataBase;
         SuperRepo repo;
+        OrderService orderService;
 
         void displayLocations();
         void displayOrders(int locationID);
