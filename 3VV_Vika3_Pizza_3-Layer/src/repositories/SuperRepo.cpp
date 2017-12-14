@@ -14,7 +14,7 @@ SuperRepo::~SuperRepo()
 int SuperRepo::getExtraLines() const {
     ifstream fin;
     int recordCount = 0;
-    fin.open("Extras.dat", ios::binary);
+    fin.open(".\\data\\Extras.dat", ios::binary);
     if(fin.is_open()) {
         fin.seekg(0, fin.end);
         recordCount = fin.tellg() / sizeof(Extra);
