@@ -54,11 +54,3 @@ void Location::setActiveState(bool newState) {
 }
 
 ///***************************************************************************************
-
-istream&  operator >> (istream& in, Location& location) {
-    return in;
-}
-
-ostream&  operator << (ostream& out, const Location& location) {
-    return out;
-}

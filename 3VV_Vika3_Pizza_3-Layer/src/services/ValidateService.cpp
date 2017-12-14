@@ -116,7 +116,7 @@ void ValidateService::validateActiveOrderSelection(int orderSelection, bool& val
     }
 }
 void ValidateService::validateLocation(int locationSelection, bool& valid) {
-    if(locationSelection >= 0 && dataBase.getLocationID() >= locationSelection) {
+    if(locationSelection > 0 && dataBase.getLocationID() >= locationSelection) {
         valid = true;
         return;
     }

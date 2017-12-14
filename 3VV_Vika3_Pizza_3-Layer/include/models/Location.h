@@ -1,8 +1,6 @@
 #ifndef LOCATION_H
 #define LOCATION_H
 
-#include <iostream>
-#include <iomanip>
 #include <string>
 using namespace std;
 

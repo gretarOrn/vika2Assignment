@@ -1,8 +1,7 @@
 #ifndef PIZZASIZE_H
 #define PIZZASIZE_H
 
-#include <iostream>
-#include <iomanip>
+#include <string>
 using namespace std;
 
 class PizzaSize

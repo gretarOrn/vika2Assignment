@@ -4,6 +4,7 @@
 #include "DataBase.h"
 #include "OrderService.h"
 #include "ValidateService.h"
+#include "SuperRepo.h"
 
 #include <iostream>
 #include <cstdlib>
@@ -17,8 +18,8 @@ class BakerUI
 
     private:
         DataBase dataBase;
-        OrderService orderService;
         ValidateService validate;
+        OrderService orderService;
         SuperRepo repo;
 
         void displayLocations();

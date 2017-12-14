@@ -3,9 +3,8 @@
 
 #include "DataBase.h"
 #include "AdminService.h"
-#include "PizzaService.h"
 #include "ValidateService.h"
-
+#include "PizzaService.h"
 #include <iostream>
 #include <cstdlib>
 
@@ -20,8 +19,6 @@ class AdminUI
         AdminService adminService;
         PizzaService pizzaService;
         ValidateService validate;
-
-
 
         /// Specials
         void orderOptions();
