@@ -3,10 +3,15 @@
 
 #include "DataBase.h"
 #include "AdminService.h"
+<<<<<<< HEAD
 
 #include "ValidateService.h"
 
 #include "PizzaService.h"
+=======
+#include "PizzaService.h"
+#include "ValidateService.h"
+>>>>>>> c64e225b4932874fe5e069fa1e72ee8dafa64ad9
 
 #include <iostream>
 #include <cstdlib>
@@ -18,11 +23,21 @@ class AdminUI
         void startUp();
 
     private:
+<<<<<<< HEAD
         AdminService adminService;
         PizzaService pizzaService;
         DataBase dataBase;
         ValidateService validate;
 
+=======
+        DataBase dataBase;
+        AdminService adminService;
+        PizzaService pizzaService;
+        ValidateService validate;
+
+
+
+>>>>>>> c64e225b4932874fe5e069fa1e72ee8dafa64ad9
         /// Specials
         void orderOptions();
         void displayActiveOrders();
