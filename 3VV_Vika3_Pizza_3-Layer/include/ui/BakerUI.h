@@ -24,7 +24,7 @@ class BakerUI
 
         void displayLocations();
         ///breyta exit conditioninu í startup UI?
-        void displayOrders(int locationID);
+        int displayOrders(int locationID);
         void displayOrder(int orderID);
         void displayPizza(Pizza pizza);
         void displayExtra(Extra extra);

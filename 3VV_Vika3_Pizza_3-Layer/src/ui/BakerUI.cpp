@@ -6,7 +6,7 @@ BakerUI::BakerUI()
 }
 
 void BakerUI::startUp() {
-    int locationSelection, orderSelection, SelectedOrderId, orderStatus;
+    int locationSelection, orderSelection, selectedOrderId, orderStatus;
     bool valid;
     while(true) {
         system("CLS");
@@ -30,7 +30,7 @@ void BakerUI::startUp() {
             system("CLS");
             if(orderService.validateOrdersInLocation(locationSelection)) {
                 cout << "Location: " << dataBase.locationMaster[locationSelection - 1].getName() << endl;
-                displayOrders(locationSelection);
+                int counter = displayOrders(locationSelection);
 
                 do{
                     cout << endl << "Select an order, press 0 to go back: ";
@@ -41,33 +41,37 @@ void BakerUI::startUp() {
                         break;
                     }
                     try {
-                        validate.validateActiveOrderSelection(orderSelection, valid);
+                        validate.validateActiveOrderSelection(orderSelection, counter, valid);
                     } catch(InvalidActiveOrderException) {
                         cout << "Invalid order selection, try again." << endl;
                     }
                 } while(!valid);
-                SelectedOrderId = findOrderID(orderSelection, locationSelection);
-                displayOrder(SelectedOrderId);
+                selectedOrderId = findOrderID(orderSelection, locationSelection);
+                displayOrder(selectedOrderId);
                 do {
                     if(orderSelection == 0) {
                         break;
                     }
-                    cout <<"Set pizza status to \"In progress\"(1), \"done\"(2), \"Oh fuck, I dropped it\"(3) or no change(0): ";
+                    cout << "Set pizza status to: " << endl;
+                    cout << "1)  In progress" << endl;
+                    cout << "2)  Done" << endl;
+                    cout << "3)  Oh fuck, I dropped it" << endl;
+                    cout << "0)  Go back" << endl;
                     cin >> orderStatus;
-                    validate.isInt(SelectedOrderId);
+                    validate.isInt(selectedOrderId);
                 } while(!(0 <= orderStatus && orderStatus <= 3));
 
                 Order* orderList = dataBase.activeOrderMaster;
                 if (orderStatus == 1) {
                     for(int i = 0; i < repo.getActiveOrderLines(); i++) {
-                        if(orderList[i].getOrderId() == SelectedOrderId) {
+                        if(orderList[i].getOrderId() == selectedOrderId) {
                             orderList[i].setOrderStatus(2);
                             orderService.saveOrders(orderList);
                         }
                     }
                 } else if(orderStatus == 2) {
                     for(int i = 0; i < repo.getActiveOrderLines(); i++) {
-                        if(orderList[i].getOrderId() == SelectedOrderId) {
+                        if(orderList[i].getOrderId() == selectedOrderId) {
                             orderList[i].setOrderStatus(3);
                             orderService.saveOrders(orderList);
 
@@ -75,7 +79,7 @@ void BakerUI::startUp() {
                     }
                 } else if(orderStatus == 3) {
                     for(int i = 0; i < repo.getActiveOrderLines(); i++) {
-                        if(orderList[i].getOrderId() == SelectedOrderId) {
+                        if(orderList[i].getOrderId() == selectedOrderId) {
                             orderList[i].setOrderStatus(6);
                             orderService.copyOrderToInactiveFile(orderList[i]);
                             orderList[i].setOrderStatus(1);
@@ -101,7 +105,7 @@ void BakerUI::displayLocations() {
         }
 }
 
-void BakerUI::displayOrders(int locationID) {
+int BakerUI::displayOrders(int locationID) {
     Order* orderList = dataBase.activeOrderMaster;
     int counter = 1;
     cout << endl << "****************************************************************************************" << endl;
@@ -140,6 +144,7 @@ void BakerUI::displayOrders(int locationID) {
             }
         }
     }
+    return counter;
 }
 
 void BakerUI::displayOrder(int orderID) {
@@ -174,7 +179,11 @@ void BakerUI::displayOrder(int orderID) {
 }
 
 void BakerUI::displayPizza(Pizza pizza) {
-    cout << "  " << pizza.getName() << endl;
+    if(pizza.getName() != "") {
+        cout << "  " << pizza.getName() << endl;
+    } else {
+        cout << "  Custom pizza" << endl;
+    }
     cout << "    " <<  setw(9) << pizza.getSize().getName()
          << " | " << pizza.getType().getName() + " base"
          << " | " << pizza.getSauce().getName() + " sauce" << endl;
@@ -185,37 +194,33 @@ void BakerUI::displayPizza(Pizza pizza) {
         }
     }
     cout << endl;
-    //cout << "\n\t  " << "Price: " << pizzaSer.getPrice(pizzaList[i]) << "kr" << endl;
-
-
 }
 
 void BakerUI::displayExtra(Extra extra) {
-    cout  << extra.getName() << endl;
+    cout << "  " << extra.getName() << endl;
 }
 
-int BakerUI::findOrderID(int counter, int locationID) {
+int BakerUI::findOrderID(int orderSelection, int locationID) {
     dataBase.refreshActiveOrder();
     Order* orderList = dataBase.activeOrderMaster;
-    int counter2 = 1;
+    int counter = 1;
        for(int i = 0; i < repo.getActiveOrderLines(); i++) {
         if(orderList[i].getLocationId() == locationID) {
             if(orderList[i].getOrderStatus() == 2) {
-                if(counter2 == counter) {
+                if(counter == orderSelection) {
                     return orderList[i].getOrderId();
                 }
-                counter2++;
+                counter++;
             }
         }
     }
-
     for(int i = 0; i < repo.getActiveOrderLines(); i++) {
         if(orderList[i].getLocationId() == locationID) {
             if(orderList[i].getOrderStatus() == 1) {
-                if(counter2 == counter) {
+                if(counter == orderSelection) {
                     return orderList[i].getOrderId();
                 }
-                counter2++;
+                counter++;
             }
         }
     }

@@ -106,8 +106,8 @@ void ValidateService::validatePizzaSelection(int pizzaSelection, bool& valid) {
         throw(InvalidPizzaException());
     }
 }
-void ValidateService::validateActiveOrderSelection(int orderSelection, bool& valid) {
-    if(0 < orderSelection && orderSelection <= repo.getActiveOrderLines()) {
+void ValidateService::validateActiveOrderSelection(int orderSelection, int counter, bool& valid) {
+    if(0 < orderSelection && orderSelection <= counter) {
         valid = true;
         return;
     }
