@@ -16,12 +16,10 @@ class AdminUI
         void startUp();
 
     private:
-        DataBase dataBase;
         AdminService adminService;
+        DataBase dataBase;
         PizzaService pizzaService;
         ValidateService validate;
-
-
 
         /// Specials
         void orderOptions();

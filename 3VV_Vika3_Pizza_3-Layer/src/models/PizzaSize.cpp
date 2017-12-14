@@ -75,19 +75,3 @@ void PizzaSize::strToCharArr(string nameStr) {
 
 ///***************************************************************************************
 
-istream&  operator >> (istream& in, PizzaSize& size) {
-    string nameStr;
-    cout << "Enter size name:   ";
-    in >> ws;
-    getline(in, nameStr);
-    size.strToCharArr(nameStr);
-    cout << "Enter price category: ";
-    in >> size.priceCategory;
-    size.setActiveState(true);
-    return in;
-}
-
-ostream& operator << (ostream& out, const PizzaSize& size) {
-    out << size.idNumber << ")\t" << setw(size.MAX_STRING_LENGTH) << left << size.name << " | Price category: " << size.priceCategory << endl;
-    return out;
-}

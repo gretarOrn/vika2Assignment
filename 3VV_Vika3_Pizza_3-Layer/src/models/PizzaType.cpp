@@ -59,19 +59,3 @@ void PizzaType::strToCharArr(string nameStr) {
 
 ///***************************************************************************************
 
-istream&  operator >> (istream& in, PizzaType& type) {
-    string nameStr;
-    cout << "Enter type name:   ";
-    in >> ws;
-    getline(in, nameStr);
-    type.strToCharArr(nameStr);
-    cout << "Enter price category: ";
-    in >> type.priceOffset;
-    type.setActiveState(true);
-    return in;
-}
-
-ostream& operator << (ostream& out, const PizzaType& type) {
-    out << '\t' << setw(type.MAX_STRING_LENGTH) << left << type.name << " | Price category: " << type.priceOffset << endl;
-    return out;
-}

@@ -9,7 +9,7 @@
 	"BakerUI.h"
 	"DeliveryUI.h"
 
-1513263171 c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\include\ui\adminui.h
+1513250270 c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\include\ui\adminui.h
 	"DataBase.h"
 	"AdminService.h"
 	"PizzaService.h"
@@ -104,17 +104,16 @@
 	"InvalidPizzaException.h"
 	"InvalidLocationException.h"
 
-1513263229 c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\include\ui\salesui.h
+1513161530 c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\include\ui\salesui.h
 	"DataBase.h"
 	"OrderService.h"
 	"PizzaService.h"
 	"ExtraService.h"
 	"AdminService.h"
-	"ValidateService.h"
 	<cstdlib>
 	<iomanip>
 
-1513262486 c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\include\services\orderservice.h
+1513243858 c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\include\services\orderservice.h
 	"DataBase.h"
 	"SuperRepo.h"
 	"pizzaService.h"
@@ -126,7 +125,7 @@
 	"Extra.h"
 	"DataBase.h"
 
-1513264085 c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\include\ui\bakerui.h
+1513257073 c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\include\ui\bakerui.h
 	"DataBase.h"
 	"OrderService.h"
 	"ValidateService.h"
@@ -160,7 +159,7 @@
 1512405732 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\src\models\topping.cpp
 	"Topping.h"
 
-1513262254 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\src\repositories\superrepo.cpp
+1513245001 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\src\repositories\superrepo.cpp
 	"SuperRepo.h"
 
 1513174780 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\src\services\adminservice.cpp
@@ -184,10 +183,10 @@
 1513250094 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\src\ui\adminui.cpp
 	"AdminUI.h"
 
-1513264097 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\src\ui\bakerui.cpp
+1513250313 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\src\ui\bakerui.cpp
 	"BakerUI.h"
 
-1513263316 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\src\ui\mainui.cpp
+1513243997 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\src\ui\mainui.cpp
 	"MainUI.h"
 
 1513007130 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\src\exceptions\invalidlocationexception.cpp
@@ -213,7 +212,7 @@
 1513005243 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\src\services\extraservice.cpp
 	"ExtraService.h"
 
-1513262485 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\src\services\orderservice.cpp
+1513243858 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\src\services\orderservice.cpp
 	"OrderService.h"
 
 1512659444 c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\include\exceptions\unabletoreadfileexception.h
@@ -221,10 +220,10 @@
 1513249665 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\src\services\pizzaservice.cpp
 	"PizzaService.h"
 
-1513263156 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\src\services\validateservice.cpp
+1513257108 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\src\services\validateservice.cpp
 	"ValidateService.h"
 
-1513263156 c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\include\services\validateservice.h
+1513257363 c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\include\services\validateservice.h
 	"DataBase.h"
 	"SuperRepo.h"
 	"InvalidNameException.h"
@@ -245,7 +244,7 @@
 1513250094 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\src\ui\deliveryui.cpp
 	"DeliveryUI.h"
 
-1513263156 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\src\ui\salesui.cpp
+1513251393 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\src\ui\salesui.cpp
 	"SalesUI.h"
 
 1512484707 source:c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\main.cpp
@@ -258,13 +257,15 @@
 	"BakerUI.h"
 	"DeliveryUI.h"
 
-1513007633 c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\include\ui\adminui.h
+1513263864 c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\include\ui\adminui.h
 	"DataBase.h"
 	"AdminService.h"
+	"PizzaService.h"
+	"ValidateService.h"
 	<iostream>
 	<cstdlib>
 
-1512668592 c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\include\models\database.h
+1513263753 c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\include\models\database.h
 	"Extra.h"
 	"Location.h"
 	"Order.h"
@@ -275,17 +276,11 @@
 	"PriceList.h"
 	"Topping.h"
 	"SuperRepo.h"
-	<vector>
 
-1513007633 c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\include\models\extra.h
-	<iostream>
-	<iomanip>
-	<fstream>
+1513264041 c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\include\models\extra.h
 	<string>
 
-1513007633 c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\include\models\location.h
-	<iostream>
-	<iomanip>
+1513264041 c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\include\models\location.h
 	<string>
 
 1513083434 c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\include\models\order.h
@@ -299,33 +294,22 @@
 	"PizzaSize.h"
 	"PizzaType.h"
 
-1513007633 c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\include\models\topping.h
-	<iostream>
-	<iomanip>
-	<fstream>
+1513264041 c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\include\models\topping.h
 	<string>
 
-1513007633 c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\include\models\pizzasauce.h
-	<iostream>
-	<iomanip>
-	<fstream>
+1513264041 c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\include\models\pizzasauce.h
 	<string>
 
-1513081294 c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\include\models\pizzasize.h
-	<iostream>
-	<iomanip>
-
-1513081294 c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\include\models\pizzatype.h
-	<iostream>
-	<iomanip>
-	<fstream>
+1513264076 c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\include\models\pizzasize.h
 	<string>
 
-1513007633 c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\include\models\pricelist.h
-	<iostream>
-	<fstream>
+1513264041 c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\include\models\pizzatype.h
+	<string>
 
-1513182782 c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\include\repositories\superrepo.h
+1513264095 c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\include\models\pricelist.h
+	<string>
+
+1513264126 c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\include\repositories\superrepo.h
 	"Extra.h"
 	"Location.h"
 	"Order.h"
@@ -335,6 +319,9 @@
 	"PizzaType.h"
 	"PriceList.h"
 	"Topping.h"
+	<fstream>
+	<iostream>
+	<iomanip>
 
 1513178678 c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\include\services\adminservice.h
 	"SuperRepo.h"
@@ -351,69 +338,72 @@
 	"InvalidPizzaException.h"
 	"InvalidLocationException.h"
 
-1513163540 c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\include\ui\salesui.h
+1513263546 c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\include\ui\salesui.h
 	"DataBase.h"
 	"OrderService.h"
 	"PizzaService.h"
 	"ExtraService.h"
+	"ValidateService.h"
 	"AdminService.h"
 	<cstdlib>
 	<iomanip>
 
-1513180363 c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\include\services\orderservice.h
+1513248256 c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\include\services\orderservice.h
 	"DataBase.h"
 	"SuperRepo.h"
 	"pizzaService.h"
 
-1513163540 c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\include\services\pizzaservice.h
+1513250391 c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\include\services\pizzaservice.h
 	"DataBase.h"
 
 1513000197 c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\include\services\extraservice.h
 	"Extra.h"
 	"DataBase.h"
 
-1513176825 c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\include\ui\bakerui.h
+1513259224 c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\include\ui\bakerui.h
+	"DataBase.h"
+	"OrderService.h"
+	"ValidateService.h"
+	<iostream>
+	<cstdlib>
+
+1513249809 c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\include\ui\deliveryui.h
 	"DataBase.h"
 	"OrderService.h"
 	<iostream>
 	<cstdlib>
 
-1513170240 c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\include\ui\deliveryui.h
-	"DataBase.h"
-	<iostream>
-	<cstdlib>
-
-1513010568 source:c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\src\models\database.cpp
+1513263652 source:c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\src\models\database.cpp
 	"DataBase.h"
 
-1513002327 source:c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\src\models\extra.cpp
+1513259652 source:c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\src\models\extra.cpp
 	"Extra.h"
 
-1512650047 source:c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\src\models\location.cpp
+1513259652 source:c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\src\models\location.cpp
 	"Location.h"
 
-1512732095 source:c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\src\models\pizzasauce.cpp
+1513259804 source:c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\src\models\pizzasauce.cpp
 	"PizzaSauce.h"
 
-1513081294 source:c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\src\models\pizzasize.cpp
+1513259652 source:c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\src\models\pizzasize.cpp
 	"PizzaSize.h"
 
-1513081294 source:c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\src\models\pizzatype.cpp
+1513259652 source:c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\src\models\pizzatype.cpp
 	"PizzaType.h"
 
-1512650047 source:c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\src\models\pricelist.cpp
+1513259691 source:c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\src\models\pricelist.cpp
 	"PriceList.h"
 
-1512484707 source:c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\src\models\topping.cpp
+1513259691 source:c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\src\models\topping.cpp
 	"Topping.h"
 
-1513185480 source:c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\src\repositories\superrepo.cpp
+1513248256 source:c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\src\repositories\superrepo.cpp
 	"SuperRepo.h"
 
 1512995771 source:c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\src\services\extraservice.cpp
 	"ExtraService.h"
 
-1513182821 source:c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\src\services\orderservice.cpp
+1513248256 source:c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\src\services\orderservice.cpp
 	"OrderService.h"
 
 1512484707 source:c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\src\services\pizzasauceservice.cpp
@@ -421,7 +411,7 @@
 
 1513079102 c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\include\services\pizzasauceservice.h
 
-1513163540 source:c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\src\services\pizzaservice.cpp
+1513250391 source:c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\src\services\pizzaservice.cpp
 	"PizzaService.h"
 
 1512484707 source:c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\src\services\pizzasizeservice.cpp
@@ -434,16 +424,16 @@
 
 1512484707 c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\include\services\toppingservice.h
 
-1513182912 source:c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\src\ui\bakerui.cpp
+1513259224 source:c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\src\ui\bakerui.cpp
 	"BakerUI.h"
 
-1513170240 source:c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\src\ui\deliveryui.cpp
+1513249809 source:c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\src\ui\deliveryui.cpp
 	"DeliveryUI.h"
 
-1513004531 source:c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\src\ui\mainui.cpp
+1513248256 source:c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\src\ui\mainui.cpp
 	"MainUI.h"
 
-1513178678 source:c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\src\ui\salesui.cpp
+1513263546 source:c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\src\ui\salesui.cpp
 	"SalesUI.h"
 
 1512657894 source:c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\src\exceptions\unabletoreadfileexception.cpp
@@ -451,16 +441,16 @@
 
 1512657894 c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\include\exceptions\unabletoreadfileexception.h
 
-1513165038 source:c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\src\models\order.cpp
+1513259652 source:c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\src\models\order.cpp
 	"Order.h"
 
-1513087900 source:c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\src\models\pizza.cpp
+1513259715 source:c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\src\models\pizza.cpp
 	"Pizza.h"
 
 1513178678 source:c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\src\services\adminservice.cpp
 	"AdminService.h"
 
-1513170240 source:c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\src\ui\adminui.cpp
+1513249809 source:c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\src\ui\adminui.cpp
 	"AdminUI.h"
 
 1513166736 source:c:\users\greta\documents\3vv_vika3_pizza_3-layer\main.cpp
@@ -1391,5 +1381,37 @@
 1513257353 c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\include\exceptions\invalidactiveorderexception.h
 
 1513256998 source:c:\users\egill\documents\hr\Önn 1\3.viknaverkefni\vika2assignment\3vv_vika3_pizza_3-layer\src\exceptions\invalidactiveorderexception.cpp
+	"InvalidActiveOrderException.h"
+
+1513263133 c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\include\services\validateservice.h
+	"DataBase.h"
+	"SuperRepo.h"
+	"InvalidNameException.h"
+	"InvalidPriceException.h"
+	"InvalidSizeException.h"
+	"InvalidTypeException.h"
+	"InvalidSauceException.h"
+	"InvalidToppingException.h"
+	"InvalidMultException.h"
+	"InvalidOffsetException.h"
+	"InvalidExtraException.h"
+	"InvalidPizzaException.h"
+	"InvalidActiveOrderException.h"
+	"InvalidLocationException.h"
+
+1513259224 c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\include\exceptions\invalidactiveorderexception.h
+
+1513004546 source:c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\src\services\bakeruiservice.cpp
+	"BakerUIService.h"
+
+1513004546 c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\include\services\bakeruiservice.h
+
+1513178678 source:c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\src\exceptions\invalidpizzaexception.cpp
+	"InvalidPizzaException.h"
+
+1513263133 source:c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\src\services\validateservice.cpp
+	"ValidateService.h"
+
+1513259224 source:c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\src\exceptions\invalidactiveorderexception.cpp
 	"InvalidActiveOrderException.h"
 

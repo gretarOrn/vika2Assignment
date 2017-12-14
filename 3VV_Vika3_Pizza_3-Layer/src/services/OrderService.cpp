@@ -53,11 +53,6 @@ void OrderService::addInfoToOrder(Order& order, bool delivery, int locationId, s
     order.setOrderStatus(1);
 }
 
-void OrderService::copyOrderToInactiveFile(const Order& order) {
-    repo.writeToInactiveOrderFile(order);
-    dataBase.refreshInactiveOrder();
-}
-
 void OrderService::moveOrderToInactiveFile(int orderIndex) {
     Order* orderList = dataBase.activeOrderMaster;
 /*
@@ -85,11 +80,9 @@ void OrderService::moveOrderToInactiveFile(int orderIndex) {
 
 void OrderService::saveOrder(const Order& order) {
     repo.writeToActiveOrderFile(order);
-    dataBase.refreshActiveOrder();
 }
 void OrderService::saveOrders(Order* order) {
     repo.writeAllToActiveOrderFile(order);
-    dataBase.refreshActiveOrder();
 }
 
 double OrderService::getPrice(Order& order) {

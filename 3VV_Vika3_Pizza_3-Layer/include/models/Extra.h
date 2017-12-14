@@ -1,9 +1,6 @@
 #ifndef EXTRA_H
 #define EXTRA_H
 
-#include <iostream>
-#include <iomanip>
-#include <fstream>
 #include <string>
 using namespace std;
 

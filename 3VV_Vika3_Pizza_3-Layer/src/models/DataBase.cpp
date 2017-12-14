@@ -1,6 +1,6 @@
 #include "DataBase.h"
 
-DataBase::DataBase() {
+DataBase::DataBase() { /// constructor that gets everything from the dat files
     extraMaster = repo.readExtraFile();
     setExtraID();
     locationMaster = repo.readLocationFile();
@@ -76,6 +76,7 @@ DataBase::~DataBase() {
     }
 }
 ///***************************************************************************************
+/// Refresh the specific masterlists from the dat files
 void DataBase::refreshExtra() {
     if (extraMaster != 0) {
         delete[] extraMaster;

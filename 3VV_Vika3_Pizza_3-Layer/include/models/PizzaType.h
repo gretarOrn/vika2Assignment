@@ -2,9 +2,7 @@
 #define PIZZATYPE_H
 
 
-#include <iostream>
-#include <iomanip>
-#include <fstream>
+
 #include <string>
 using namespace std;
 

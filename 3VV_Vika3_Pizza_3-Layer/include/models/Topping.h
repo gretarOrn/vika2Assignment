@@ -1,9 +1,7 @@
 #ifndef TOPPING_H
 #define TOPPING_H
 
-#include <iostream>
-#include <iomanip>
-#include <fstream>
+
 #include <string>
 using namespace std;
 

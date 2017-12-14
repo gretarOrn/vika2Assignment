@@ -66,18 +66,3 @@ void Extra::strToCharArr(string nameStr) {
 
 ///***************************************************************************************
 
-istream&  operator >> (istream& in, Extra& extra) {
-    string nameStr;
-    cout << "Enter extra's name: ";
-    in >> ws;
-    getline(in, nameStr);
-    extra.strToCharArr(nameStr);
-    cout << "Enter price:        ";
-    in >> extra.priceCategory;
-    return in;
-}
-
-ostream& operator << (ostream& out, const Extra& extra) {
-    out << '\t' << setw(extra.MAX_STRING_LENGTH) << left << extra.name << " | Price: " << extra.priceCategory << endl;
-    return out;
-}

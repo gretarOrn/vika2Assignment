@@ -52,11 +52,3 @@ void PriceList::strToCharArr(string nameStr) {
 }
 
 ///***************************************************************************************
-
-istream& operator >> (istream& in, PriceList& price) {
-    return in;
-}
-
-ostream& operator << (ostream& out, const PriceList& price) {
-    return out;
-}
