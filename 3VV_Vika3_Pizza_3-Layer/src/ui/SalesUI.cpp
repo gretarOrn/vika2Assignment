@@ -8,12 +8,18 @@ SalesUI::SalesUI()
 void SalesUI::startUp() {
     system("CLS");
     int locationId;
-    bool valid = true;
+    bool valid = false;
     do {
         displayLocationList();
         cout << "Select location: ";
         cin >> locationId;
-        ///valid = adminSer.validateLocationSelection(locationId);
+        validate.isInt(locationId);
+        try {
+            validate.validateLocation(locationId, valid);
+        }
+        catch(InvalidLocationException) {
+            cout <<"Invalid location input." << endl;
+        }
     } while(!valid);
     defaultLocationId = locationId;
     system("CLS");
@@ -97,7 +103,7 @@ void SalesUI::addPizzaFromMenu(Order& order) {
     system("CLS");
     char c;
     int input;
-    bool valid = true;
+    bool valid = false;
     Pizza* pizzaMenu = dataBase.pizzaMaster;
     do{
         system("CLS");
@@ -113,8 +119,9 @@ void SalesUI::addPizzaFromMenu(Order& order) {
 
             cout << "Select Pizza: ";
             cin >> input;
+            validate.isInt(input);
             try {
-                adminSer.validatePizzaSelection(input,valid);
+                validate.validatePizzaSelection(input,valid);
             }
             catch(InvalidPizzaException) {
                 cout <<"Invalid selection." << endl;
@@ -146,6 +153,7 @@ void SalesUI::createCustomPizza(Order& order) {
     int sauceSelection;
     int toppingSelection[order.getPizzas()[0].MAX_TOPPINGS_PIZZA];
     Pizza pizza;
+    bool valid = false;
 
     char userInput;
     //int input;
@@ -165,30 +173,75 @@ void SalesUI::createCustomPizza(Order& order) {
         cout << "----------------------------------------------------------------" << endl << endl;
 
         displaySizeList();
-        cout << "Select size: ";
-        cin >> sizeSelection;
-        cout << endl;
+        do{
+            cout << "Select size: ";
+            cin >> sizeSelection;
+            validate.isInt(sizeSelection);
+            try {
+                validate.validateSizeSelection(sizeSelection, valid);
+            }
+            catch (InvalidSizeException) {
+                cout <<"Invalid size selection." << endl;
+            }
 
+            cout << endl;
+        }while(!valid);
+
+        valid = false;
         displayTypeList();
-        cout << "Select type: ";
-        cin >> typeSelection;
-        cout << endl;
+        do{
+            cout << "Select type: ";
+            cin >> typeSelection;
+            validate.isInt(typeSelection);
+            try {
+                validate.validateTypeSelection(typeSelection, valid);
+            }
+            catch(InvalidTypeException) {
+                cout <<"Invalid type selection." << endl;
+            }
+            cout << endl;
+        }while(!valid);
 
+        valid = false;
         displaySauceList();
-        cout << "Select sauce: " << endl;
-        cin >> sauceSelection;
-        cout << endl;
+        do{
+            cout << "Select sauce: ";
+            cin >> sauceSelection;
+            validate.isInt(sauceSelection);
+            try {
+                validate.validateSauceSelection(sauceSelection, valid);
+            }
+            catch(InvalidSauceException) {
+                cout << "Invalid sauce input." << endl;
+            }
+            cout << endl;
+        }while(!valid);
 
         displayToppingList();
         cout << "Select toppings (type 0 to stop)" << endl;
         toppingCounter = 0;
         //int arr[dataBase.pizzaMaster[0].MAX_TOPPINGS_PIZZA];
-        for(int j = 0; j < dataBase.pizzaMaster[0].MAX_TOPPINGS_PIZZA; j++) {
-            cin >> toppingSelection[j];
-            toppingCounter ++;
-            if(toppingSelection[j] == 0) {
+        while(toppingCounter < dataBase.pizzaMaster[0].MAX_TOPPINGS_PIZZA) {
+            valid = false;
+            do {
+                cin >> toppingSelection[toppingCounter];
+                validate.isInt(toppingSelection[toppingCounter]);
+                try{
+                    validate.validateToppingSelection(toppingSelection[toppingCounter], valid);
+                }
+                catch(InvalidToppingException) {
+                    cout <<"Invalid topping selection." << endl;
+                }
+
+
+            }while(!valid);
+
+
+            if(toppingSelection[toppingCounter] == 0) {
+                    toppingCounter++;
                 break;
             }
+            toppingCounter++;
         }
         pizza = pizzaSer.createPizza(sizeSelection, typeSelection, sauceSelection, toppingSelection);
         printPizza(pizza, toppingCounter);
@@ -228,12 +281,23 @@ void SalesUI::createCustomPizza(Order& order) {
 void SalesUI::addExtraToOrder(Order& order) {
     char c;
     int input;
+    bool valid = false;
     for (int i = 0; i < order.MAX_EXTRAS_ORDER; i++) {
         printExtra(order);
         cout << "----------------------------------------------------------------" << endl << endl;
         displayExtraList();
-        cout << "Select extra: ";
-        cin >> input;
+        do{
+            cout << "Select extra: ";
+            cin >> input;
+            validate.isInt(input);
+            try{
+                validate.validateExtraSelection(input, valid);
+            }
+            catch(InvalidExtraException) {
+                cout <<"Invalid extra selection." << endl;
+            }
+        }while(!valid);
+
         order.getExtras()[i].addExtra(extraSer.addExtra(input));
         cout << endl;
         cout << "Add another extra to order? (y/n) " << endl;

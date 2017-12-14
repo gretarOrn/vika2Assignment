@@ -89,7 +89,7 @@ void ValidateService::validateExtra(int priceInput,bool& valid) {
     }
 }
 void ValidateService::validateToppingSelection(int tempToppingSelection ,bool& valid) {
-    if(tempToppingSelection > 0 && dataBase.getToppingID() >= tempToppingSelection) {
+    if(tempToppingSelection >= 0 && dataBase.getToppingID() >= tempToppingSelection) {
         valid = true;
         return;
     }
@@ -122,6 +122,42 @@ void ValidateService::validateLocation(int locationSelection, bool& valid) {
     }
     if(!valid) {
         throw(InvalidLocationException());
+    }
+}
+void ValidateService::validateSizeSelection(int sizeSelection, bool& valid) {
+    if(sizeSelection > 0 && dataBase.getSizeID() >= sizeSelection) {
+        valid = true;
+        return;
+    }
+    if(!valid) {
+        throw(InvalidSizeException());
+    }
+}
+void ValidateService::validateTypeSelection(int typeSelection, bool& valid) {
+    if(typeSelection > 0 && dataBase.getTypeID() >= typeSelection) {
+        valid = true;
+        return;
+    }
+    if(!valid) {
+        throw(InvalidTypeException());
+    }
+}
+void ValidateService::validateSauceSelection(int sauceSelection, bool& valid) {
+    if(sauceSelection > 0 && dataBase.getSauceID() >= sauceSelection) {
+        valid = true;
+        return;
+    }
+    if(!valid) {
+        throw(InvalidSauceException());
+    }
+}
+void ValidateService::validateExtraSelection(int extraSelection, bool& valid) {
+    if(extraSelection > 0 && dataBase.getExtraID() >= extraSelection) {
+        valid = true;
+        return;
+    }
+    if(!valid) {
+        throw(InvalidExtraException());
     }
 }
 void ValidateService::isInt(int& num) {

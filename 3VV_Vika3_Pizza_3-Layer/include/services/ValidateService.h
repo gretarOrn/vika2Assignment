@@ -37,6 +37,10 @@ class ValidateService
         void validatePizzaSelection(int pizzaSelection, bool& valid);
         void validateActiveOrderSelection(int orderSelection, bool& valid);
         void validateLocation(int locationSelection, bool& valid);
+        void validateSizeSelection(int sizeSelection, bool& valid);
+        void validateTypeSelection(int typeSelection, bool& valid);
+        void validateSauceSelection(int sauceSelection, bool& valid);
+        void validateExtraSelection(int extraSelection, bool& valid);
 
         void validateTopping(int topping, bool& valid);
 
