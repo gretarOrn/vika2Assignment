@@ -20,7 +20,7 @@ void DeliveryUI::startUp() {
         do{
             cout << "Select an order: ";
             cin >> d;
-        }while(d <= repo.getActiveOrderLines());
+        }while(!(d <= repo.getActiveOrderLines()));
         orderID = findOrderID(d,c);
         for(int i = 0; i < dataBase.getOrderID(); i++) {
             if(orderList[i].getLocationId() == c) {
@@ -30,6 +30,8 @@ void DeliveryUI::startUp() {
                         cin >>answer;
                         if(answer == 'y') {
                             orderList[i].setOrderStatus(4);
+                            orderService.saveOrders(orderList);
+                            dataBase.refreshActiveOrder();
                         }
                     }
                     else if(orderList[i].getOrderStatus() == 4) {
@@ -37,6 +39,8 @@ void DeliveryUI::startUp() {
                         cin >>answer;
                         if(answer == 'y') {
                             orderList[i].setOrderStatus(5);
+                            orderService.saveOrders(orderList);
+                            dataBase.refreshActiveOrder();
                         }
                     }
                 }
@@ -69,10 +73,10 @@ void DeliveryUI::displayOrders(int locationID) {
     for(int i = 0; i < dataBase.getOrderID(); i++) {
         if(orderList[i].getLocationId() == locationID) {
             if(orderList[i].getOrderStatus() == 3) {
-                cout <<"\n" << counter <<")\t";
+                cout <<counter <<")\t|";
                 cout << "ID:" << orderList[i].getOrderId();
                 cout << ")\t" << setw(24) << left << orderList[i].getName();
-                cout << " | " << setw(5) << left << orderList[i].getAddress();
+                cout << " | " << setw(5) << left << orderList[i].getAddress() << endl;
                 counter++;
             }
         }
@@ -82,10 +86,10 @@ void DeliveryUI::displayOrders(int locationID) {
     for(int i = 0; i < dataBase.getOrderID(); i++) {
         if(orderList[i].getLocationId() == locationID) {
             if(orderList[i].getOrderStatus() == 4) {
-                cout <<"\n" << counter <<")\t";
-                cout << "\n" << orderList[i].getOrderId();
+                cout << counter <<")\t|";
+                cout << "ID:" << orderList[i].getOrderId();
                 cout << ")\t" << setw(24) << left << orderList[i].getName();
-                cout << " | " << setw(5) << left << orderList[i].getAddress();
+                cout << " | " << setw(5) << left << orderList[i].getAddress() << endl;
                 counter++;
             }
         }
