@@ -6,6 +6,7 @@
 #include "PizzaService.h"
 #include "ExtraService.h"
 #include "AdminService.h" //Temp
+#include "ValidateService.h"
 #include <cstdlib>
 #include <iomanip>
 
@@ -21,6 +22,7 @@ class SalesUI
         PizzaService pizzaSer;
         ExtraService extraSer;
         AdminService adminSer;
+        ValidateService validate;
 
         int defaultLocationId;
 

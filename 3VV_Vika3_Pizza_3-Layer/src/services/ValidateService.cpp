@@ -44,7 +44,7 @@ void ValidateService::validateTopping(int topping, bool& valid) {
     }
 }
 void ValidateService::validateSize(int sizeSelection, bool& valid) {
-    if(sizeSelection > 0) {
+    if(sizeSelection > 0 && dataBase.getPriceID() >= sizeSelection) {
         valid = true;
         return;
     }
@@ -116,7 +116,7 @@ void ValidateService::validateActiveOrderSelection(int orderSelection, bool& val
     }
 }
 void ValidateService::validateLocation(int locationSelection, bool& valid) {
-    if(locationSelection > 0 && dataBase.getLocationID() >= locationSelection) {
+    if(locationSelection >= 0 && dataBase.getLocationID() >= locationSelection) {
         valid = true;
         return;
     }

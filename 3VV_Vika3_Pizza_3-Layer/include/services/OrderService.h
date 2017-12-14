@@ -19,6 +19,7 @@ class OrderService
         void addPizzaToOrder(Order& order, const Pizza& pizza);
         void addExtraToOrder(Order& order, const Extra& extra);
         void addInfoToOrder(Order& order, bool delivery, int locationId, string address, string comment, bool payed);
+        void copyOrderToInactiveFile(const Order& order);
         void moveOrderToInactiveFile(int orderIndex);
         void saveOrder(const Order& order);
         void saveOrders(Order* order);

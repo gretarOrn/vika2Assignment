@@ -17,6 +17,7 @@ class BakerUI
 
     private:
         DataBase dataBase;
+        OrderService orderService;
         ValidateService validate;
         SuperRepo repo;
 
