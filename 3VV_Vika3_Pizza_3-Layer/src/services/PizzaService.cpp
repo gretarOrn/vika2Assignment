@@ -43,11 +43,9 @@ Topping* PizzaService::addTopping(int *arr, Pizza& pizza) {
         pizza.getToppings()[i].setActiveState(dataBase.toppingMaster[arr[i] - 1].getActiveState());
     }
     return pizza.getToppings();
-
-
 }
 
-void PizzaService::addPizzaToOrder(Pizza& pizza, const Topping& topping) {
+void PizzaService::addToppingToPizza(Pizza& pizza, const Topping& topping) {
     int counter = 0;
     while(counter < pizza.MAX_TOPPINGS_PIZZA) {
         // If a pizzas sauce has no name the pizza is created by the default constructor and is blank.
@@ -62,6 +60,18 @@ void PizzaService::addPizzaToOrder(Pizza& pizza, const Topping& topping) {
         cout << "You have reached the maximum amount of toppings on this pizza." << endl;
         cin.clear();
     }
+}
+
+Pizza PizzaService::createPizza(int sizeSelction, int typeSelction, int sauceSelction, int toppingSelction[]) {
+    Pizza pizza;
+    pizza.setSize(dataBase.sizeMaster[sizeSelction - 1]);
+    pizza.setType(dataBase.typeMaster[typeSelction - 1]);
+    pizza.setSauce(dataBase.sauceMaster[sauceSelction - 1]);
+
+    for (int i = 0; toppingSelction[i] != 0; i++) {
+        pizza.getToppings()[i] = dataBase.toppingMaster[toppingSelction[i] - 1];
+    }
+    return pizza;
 }
 
 double PizzaService::getPrice(Pizza pizza) {

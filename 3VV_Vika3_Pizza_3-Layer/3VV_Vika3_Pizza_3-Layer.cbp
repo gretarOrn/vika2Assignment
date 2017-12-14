@@ -50,6 +50,7 @@
 		<Unit filename="include/exceptions/InvalidMultException.h" />
 		<Unit filename="include/exceptions/InvalidNameException.h" />
 		<Unit filename="include/exceptions/InvalidOffsetException.h" />
+		<Unit filename="include/exceptions/InvalidPizzaException.h" />
 		<Unit filename="include/exceptions/InvalidPriceException.h" />
 		<Unit filename="include/exceptions/InvalidSauceException.h" />
 		<Unit filename="include/exceptions/InvalidSizeException.h" />
@@ -68,12 +69,14 @@
 		<Unit filename="include/models/Topping.h" />
 		<Unit filename="include/repositories/SuperRepo.h" />
 		<Unit filename="include/services/AdminService.h" />
+		<Unit filename="include/services/BakerUIService.h" />
 		<Unit filename="include/services/ExtraService.h" />
 		<Unit filename="include/services/OrderService.h" />
 		<Unit filename="include/services/PizzaSauceService.h" />
 		<Unit filename="include/services/PizzaService.h" />
 		<Unit filename="include/services/PizzaSizeService.h" />
 		<Unit filename="include/services/ToppingService.h" />
+		<Unit filename="include/services/ValidateService.h" />
 		<Unit filename="include/ui/AdminUI.h" />
 		<Unit filename="include/ui/BakerUI.h" />
 		<Unit filename="include/ui/DeliveryUI.h" />
@@ -85,6 +88,7 @@
 		<Unit filename="src/exceptions/InvalidMultException.cpp" />
 		<Unit filename="src/exceptions/InvalidNameException.cpp" />
 		<Unit filename="src/exceptions/InvalidOffsetException.cpp" />
+		<Unit filename="src/exceptions/InvalidPizzaException.cpp" />
 		<Unit filename="src/exceptions/InvalidPriceException.cpp" />
 		<Unit filename="src/exceptions/InvalidSauceException.cpp" />
 		<Unit filename="src/exceptions/InvalidSizeException.cpp" />
@@ -103,12 +107,14 @@
 		<Unit filename="src/models/Topping.cpp" />
 		<Unit filename="src/repositories/SuperRepo.cpp" />
 		<Unit filename="src/services/AdminService.cpp" />
+		<Unit filename="src/services/BakerUIService.cpp" />
 		<Unit filename="src/services/ExtraService.cpp" />
 		<Unit filename="src/services/OrderService.cpp" />
 		<Unit filename="src/services/PizzaSauceService.cpp" />
 		<Unit filename="src/services/PizzaService.cpp" />
 		<Unit filename="src/services/PizzaSizeService.cpp" />
 		<Unit filename="src/services/ToppingService.cpp" />
+		<Unit filename="src/services/ValidateService.cpp" />
 		<Unit filename="src/ui/AdminUI.cpp" />
 		<Unit filename="src/ui/BakerUI.cpp" />
 		<Unit filename="src/ui/DeliveryUI.cpp" />

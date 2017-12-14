@@ -189,23 +189,27 @@ void SalesUI::createCustomPizza(Order& order) {
                 break;
             }
         }
-        printPizza(order.getPizzas()[pizzaCounter], toppingCounter);
+        pizza = pizzaSer.createPizza(sizeSelection, typeSelection, sauceSelection, toppingSelection);
+        printPizza(pizza, toppingCounter);
 
         cout << endl;
-        cout << "Confirm pizza? (y/n) " << endl;
+        cout << "Confirm pizza? (y/n) ";
         cin >> userInput;
         if(userInput == 'y') {
+            order.getPizzas()[pizzaCounter] = pizza;
+            /*
             order.getPizzas()[pizzaCounter].setSize(pizzaSer.addSize(sizeSelection));
             order.getPizzas()[pizzaCounter].setType(pizzaSer.addType(typeSelection));
             order.getPizzas()[pizzaCounter].setSauce(pizzaSer.addSauce(sauceSelection));
             order.getPizzas()[pizzaCounter].addToppings(pizzaSer.addTopping(toppingSelection, order.getPizzas()[pizzaCounter]));
+            */
             //pizzaSer.addPizzaToOrder(order.getPizzas()[i], dataBase.toppingMaster[toppingSelection[j]]);
 
             pizzaCounter++;
         }
 
         cout << endl;
-        cout << "Add another pizza to order? (y/n) " << endl;
+        cout << "Add another pizza to order? (y/n) ";
         cin >> userInput;
     } while (userInput == 'y');
 
