@@ -12,7 +12,8 @@ class PizzaService
         PizzaType addType(int typeNR);
         PizzaSauce addSauce(int sauceNR);
         Topping* addTopping(int* arr, Pizza& pizza);
-        void addPizzaToOrder(Pizza& pizza, const Topping& topping);
+        Pizza createPizza(int sizeSelction, int typeSelction, int sauceSelction, int toppingSelction[]);
+        void addToppingToPizza(Pizza& pizza, const Topping& topping);
         double getPrice(Pizza pizza);
 
 
