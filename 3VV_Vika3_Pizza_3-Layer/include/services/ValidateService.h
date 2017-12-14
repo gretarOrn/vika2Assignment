@@ -1,8 +1,8 @@
 #ifndef VALIDATESERVICE_H
 #define VALIDATESERVICE_H
 
-#include "SuperRepo.h"
 #include "DataBase.h"
+#include "SuperRepo.h"
 
 #include "InvalidNameException.h"
 #include "InvalidPriceException.h"
@@ -14,6 +14,7 @@
 #include "InvalidOffsetException.h"
 #include "InvalidExtraException.h"
 #include "InvalidPizzaException.h"
+#include "InvalidActiveOrderException.h"
 #include "InvalidLocationException.h"
 
 class ValidateService
@@ -31,9 +32,10 @@ class ValidateService
         void validateSauce(int sauceSelection, bool& valid);
         void validateMult(double toppingMult, bool& valid);
         void validatePrice(double price, bool& valid);
-        void validateExtra(int priceInput,bool& valid);
-        void validateToppingSelection(int tempToppingSelection,bool& valid);
+        void validateExtra(int priceInput, bool& valid);
+        void validateToppingSelection(int tempToppingSelection, bool& valid);
         void validatePizzaSelection(int pizzaSelection, bool& valid);
+        void validateActiveOrderSelection(int orderSelection, bool& valid);
         void validateLocation(int locationSelection, bool& valid);
 
         void validateTopping(int topping, bool& valid);
