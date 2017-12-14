@@ -141,6 +141,21 @@ void SuperRepo::writeAllButToActiveOrderFile(Order* order, int lineNr) {
     fout.write((char*)(&order[lineNr + 1]), ((lines - lineNr - 1) * sizeof(Order)));
     fout.close();
 }
+void SuperRepo::writeAllToActiveOrderFile(Order* order) {
+    ifstream fin;
+    int recordCount = 0;
+    fin.open("ActiveOrders.dat", ios::binary);
+    if(fin.is_open()) {
+        fin.seekg(0, fin.end);
+        recordCount = fin.tellg() / sizeof(Order);
+        fin.seekg(0, fin.beg);
+    }
+    fin.close();
+    ofstream fout;
+    fout.open("ActiveOrders.dat", ios::binary);
+    fout.write((char*)(order), (recordCount * sizeof(Order)));
+    fout.close();
+}
 
 ///***************************************************************************************
 /// InactiveOrder

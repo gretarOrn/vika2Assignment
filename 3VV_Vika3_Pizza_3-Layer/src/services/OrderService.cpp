@@ -56,6 +56,9 @@ void OrderService::addInfoToOrder(Order& order, bool delivery, int locationId, s
 void OrderService::saveOrder(const Order& order) {
     repo.writeToActiveOrderFile(order);
 }
+void OrderService::saveOrders(Order* order) {
+        repo.writeAllToActiveOrderFile(order);
+}
 
 double OrderService::getPrice(Order& order) {
     double num = 0;

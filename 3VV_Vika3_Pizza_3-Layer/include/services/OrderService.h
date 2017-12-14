@@ -20,6 +20,7 @@ class OrderService
         void addExtraToOrder(Order& order, const Extra& extra);
         void addInfoToOrder(Order& order, bool delivery, int locationId, string address, string comment, bool payed);
         void saveOrder(const Order& order);
+        void saveOrders(Order* order);
         double getPrice(Order& order);
 
     private:

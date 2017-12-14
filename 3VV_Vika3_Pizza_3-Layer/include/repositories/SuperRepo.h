@@ -33,6 +33,7 @@ class SuperRepo
         Order* readActiveOrderFile();
         void writeToActiveOrderFile(const Order& order);
         void writeAllButToActiveOrderFile(Order* order, int lineNr);
+        void writeAllToActiveOrderFile(Order* order);
 
         /// InactiveOrder
         int getInactiveOrderLines() const;
