@@ -31,26 +31,24 @@ void SalesUI::startUp() {
             createOrder();
         } else if(c == '2') {
             Order* orderList = dataBase.activeOrderMaster;
-
-            int index;
-            cout << "Lines: " << orderSer.repo.getActiveOrderLines() << endl;
-            /*for(int i = 0; i < orderSer.repo.getActiveOrderLines(); i++) {
-
             int lines = orderSer.repo.getActiveOrderLines();
-            int lineNr;
-            cin >> lineNr;
-            displayOrder(orderList[lineNr]);
-           */ /*
-            for(int i = 0; i < lines; i++) {
-
+            int index;
+            cout << "Lines: " << lines << endl;
+            /*for(int i = 0; i < lines; i++) {
                 displayOrder(orderList[i]);
                 cout << endl;
             }*/
+
             cout << "Select order to move to inactive: ";
             cin >> index;
             orderSer.moveOrderToInactiveFile(index);
+            lines = orderSer.repo.getActiveOrderLines();
 
-            cout << "Lines: " << orderSer.repo.getActiveOrderLines() << endl;
+            cout << "Lines: " << lines << endl;
+            /*for(int i = 0; i < lines; i++) {
+                displayOrder(orderList[i]);
+                cout << endl;
+            }*/
         } else if(c == '3') {
             Order* inactiveOrderList = dataBase.inactiveOrderMaster;
             cout << orderSer.repo.getInactiveOrderLines() << endl;
@@ -345,7 +343,7 @@ void SalesUI::displayOrder(Order& order) {
     Location* locList = dataBase.locationMaster;
     cout << "Order ID: " << order.getOrderId() << endl;
     if(order.getName() != "") {
-        cout << order.getName() << endl;
+        cout << "Special: " << order.getName() << endl;
     }
     cout << "Pizzas in current order: " << endl;
     for(int i = 0; i < order.MAX_PIZZAS_ORDER; i++) {
