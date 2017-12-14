@@ -60,27 +60,12 @@ void OrderService::copyOrderToInactiveFile(const Order& order) {
 
 void OrderService::moveOrderToInactiveFile(int orderIndex) {
     Order* orderList = dataBase.activeOrderMaster;
-/*
-    int lines = repo.getActiveOrderLines();
-    int lineNr;
-    for(int i = 0; i < lines; i++) {
-        cout << i + 1 << ")  ";
-        displayOrder(orderList[i]);
-    }
-    cout << "Select order to remove: ";
-    cin >> lineNr;
-*/
+
     repo.writeAllButToActiveOrderFile(orderList, orderIndex);
     repo.writeToInactiveOrderFile(orderList[orderIndex - 1]);
 
     dataBase.refreshActiveOrder();
     dataBase.refreshInactiveOrder();
-/*
-    lines = orderSer.repo.getActiveOrderLines();
-    for(int i = 0; i < lines; i++) {
-        displayOrder(orderList[i]);
-    }
-*/
 }
 
 void OrderService::saveOrder(const Order& order) {
@@ -102,7 +87,7 @@ double OrderService::getPrice(Order& order) {
         num += priceList[order.getExtras()[i].getPriceCategory() - 1].getPrice();
     }
     if (order.isDelivered()) {
-        num += 800;
+        num += DELIVERY_COST;
     }
     return num;
 }

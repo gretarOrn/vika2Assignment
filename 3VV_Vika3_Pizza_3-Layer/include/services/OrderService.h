@@ -12,6 +12,8 @@ class OrderService
         OrderService();
         virtual ~OrderService();
 
+        static const int DELIVERY_COST = 1000;
+
         DataBase dataBase;
         SuperRepo repo;
 

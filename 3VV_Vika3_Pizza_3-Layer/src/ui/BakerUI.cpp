@@ -8,82 +8,90 @@ BakerUI::BakerUI()
 void BakerUI::startUp() {
     int locationSelection, orderSelection, SelectedOrderId, orderStatus;
     bool valid;
-    char userInput;
-    system("CLS");
-        cout <<"Locations: " <<endl;
-        displayLocations();
-        do {
-            cout << "Select Location: ";
-            cin >> locationSelection;
-            valid = false;
-            validate.isInt(locationSelection);
-            try {
-                validate.validateLocation(locationSelection, valid);
-            } catch(InvalidLocationException) {
-                cout << "Invalid location, try again." << endl;
-            }
-        } while(!valid);
-    do {
+    while(true) {
         system("CLS");
-        if(orderService.validateOrdersInLocation(locationSelection)) {
-            cout << "Location: " << dataBase.locationMaster[locationSelection - 1].getName() << endl;
-            displayOrders(locationSelection);
-
-            do{
-                cout << endl << "Select an order: ";
-                cin >> orderSelection;
+            cout <<"Locations: " <<endl;
+            displayLocations();
+            do {
+                cout << "Select Location, press 0 to go back: ";
+                cin >> locationSelection;
                 valid = false;
-                validate.isInt(orderSelection);
+                validate.isInt(locationSelection);
                 try {
-                    validate.validateActiveOrderSelection(orderSelection, valid);
-                } catch(InvalidActiveOrderException) {
-                    cout << "Invalid order selection, try again." << endl;
+                    validate.validateLocation(locationSelection, valid);
+                } catch(InvalidLocationException) {
+                    cout << "Invalid location, try again." << endl;
+                }
+                if(locationSelection == 0) {
+                    return;
                 }
             } while(!valid);
-            SelectedOrderId = findOrderID(orderSelection, locationSelection);
-            displayOrder(SelectedOrderId);
-            do {
-                cout <<"Set pizza status to \"In progress\"(1), \"done\"(2), \"Oh fuck, I dropped it\"(3) or no change(0): ";
-                cin >> orderStatus;
-                validate.isInt(SelectedOrderId);
-            } while(!(0 <= orderStatus && orderStatus <= 3));
+        do {
+            system("CLS");
+            if(orderService.validateOrdersInLocation(locationSelection)) {
+                cout << "Location: " << dataBase.locationMaster[locationSelection - 1].getName() << endl;
+                displayOrders(locationSelection);
 
-            Order* orderList = dataBase.activeOrderMaster;
-            if (orderStatus == 1) {
-                for(int i = 0; i < repo.getActiveOrderLines(); i++) {
-                    if(orderList[i].getOrderId() == SelectedOrderId) {
-                        orderList[i].setOrderStatus(2);
-                        orderService.saveOrders(orderList);
+                do{
+                    cout << endl << "Select an order, press 0 to go back: ";
+                    cin >> orderSelection;
+                    valid = false;
+                    validate.isInt(orderSelection);
+                    if(orderSelection == 0) {
+                        break;
                     }
-                }
-            } else if(orderStatus == 2) {
-                for(int i = 0; i < repo.getActiveOrderLines(); i++) {
-                    if(orderList[i].getOrderId() == SelectedOrderId) {
-                        orderList[i].setOrderStatus(3);
-                        orderService.saveOrders(orderList);
+                    try {
+                        validate.validateActiveOrderSelection(orderSelection, valid);
+                    } catch(InvalidActiveOrderException) {
+                        cout << "Invalid order selection, try again." << endl;
+                    }
+                } while(!valid);
+                SelectedOrderId = findOrderID(orderSelection, locationSelection);
+                displayOrder(SelectedOrderId);
+                do {
+                    if(orderSelection == 0) {
+                        break;
+                    }
+                    cout <<"Set pizza status to \"In progress\"(1), \"done\"(2), \"Oh fuck, I dropped it\"(3) or no change(0): ";
+                    cin >> orderStatus;
+                    validate.isInt(SelectedOrderId);
+                } while(!(0 <= orderStatus && orderStatus <= 3));
 
+                Order* orderList = dataBase.activeOrderMaster;
+                if (orderStatus == 1) {
+                    for(int i = 0; i < repo.getActiveOrderLines(); i++) {
+                        if(orderList[i].getOrderId() == SelectedOrderId) {
+                            orderList[i].setOrderStatus(2);
+                            orderService.saveOrders(orderList);
+                        }
+                    }
+                } else if(orderStatus == 2) {
+                    for(int i = 0; i < repo.getActiveOrderLines(); i++) {
+                        if(orderList[i].getOrderId() == SelectedOrderId) {
+                            orderList[i].setOrderStatus(3);
+                            orderService.saveOrders(orderList);
+
+                        }
+                    }
+                } else if(orderStatus == 3) {
+                    for(int i = 0; i < repo.getActiveOrderLines(); i++) {
+                        if(orderList[i].getOrderId() == SelectedOrderId) {
+                            orderList[i].setOrderStatus(6);
+                            orderService.copyOrderToInactiveFile(orderList[i]);
+                            orderList[i].setOrderStatus(1);
+                            orderService.saveOrders(orderList);
+                        }
                     }
                 }
-            } else if(orderStatus == 3) {
-                for(int i = 0; i < repo.getActiveOrderLines(); i++) {
-                    if(orderList[i].getOrderId() == SelectedOrderId) {
-                        orderList[i].setOrderStatus(6);
-                        orderService.copyOrderToInactiveFile(orderList[i]);
-                        orderList[i].setOrderStatus(1);
-                        orderService.saveOrders(orderList);
-                    }
-                }
+            } else {
+                cout << "No orders in that location: " << endl;
+                cout << "Select another location: " << endl;
             }
-        } else {
-            cout << "No orders in that location: " << endl;
-            cout << "Select another location: " << endl;
-        }
-        cin >> userInput;
-    } while(userInput == 'y');
+        } while(orderSelection != 0);
+    }
 }
 
 void BakerUI::displayLocations() {
-    //dataBase.refreshLocation();
     Location* locationList = dataBase.locationMaster;
         for(int i = 0; i < dataBase.getLocationID(); i++) {
             cout <<locationList[i].getIdNumber();
@@ -94,7 +102,6 @@ void BakerUI::displayLocations() {
 }
 
 void BakerUI::displayOrders(int locationID) {
-    //dataBase.refreshActiveOrder();
     Order* orderList = dataBase.activeOrderMaster;
     int counter = 1;
     cout << endl << "****************************************************************************************" << endl;
@@ -136,16 +143,16 @@ void BakerUI::displayOrders(int locationID) {
 }
 
 void BakerUI::displayOrder(int orderID) {
-    dataBase.refreshActiveOrder();
     Order* orderList = dataBase.activeOrderMaster;
     Pizza* pizzaList;
     Extra* extraList;
     for(int i = 0; i < repo.getActiveOrderLines(); i++) {
         if(orderList[i].getOrderId() == orderID) {
             pizzaList = orderList[i].getPizzas();
-            cout <<"OrderID: " << orderList[i].getOrderId();
+            cout << "OrderID: " << orderList[i].getOrderId() << endl;
+            cout << "Pizzas: " << endl;
             for(int j = 0; j < orderList[0].MAX_PIZZAS_ORDER; j++ ) {
-                    //pizzaList[j].getSize().getIdNumber() != 0 checkar hvort að pizzan hafi size
+                // pizzaList[j].getSize().getIdNumber() != 0 checkar hvort að pizzan hafi size
                 if(pizzaList[j].getSize().getIdNumber() != 0) {
                     displayPizza(pizzaList[j]);
                 }
@@ -153,9 +160,9 @@ void BakerUI::displayOrder(int orderID) {
         }
     }
     for(int i = 0; i < repo.getActiveOrderLines(); i++) {
-        if (orderList[i].getOrderId() == orderID) {
+        if(orderList[i].getOrderId() == orderID) {
             extraList = orderList[i].getExtras();
-            cout <<"Extras:" << endl;
+            cout << "Extras: " << endl;
             for(int j = 0; j < orderList[0].MAX_EXTRAS_ORDER; j++) {
                 if(extraList[j].getName() != "") {
                     displayExtra(extraList[j]);
@@ -167,19 +174,20 @@ void BakerUI::displayOrder(int orderID) {
 }
 
 void BakerUI::displayPizza(Pizza pizza) {
-    Topping* toppings = pizza.getToppings();
-    cout << endl;
-    cout <<"\n" << pizza.getName();
-    cout <<"\t" << "base: " << pizza.getType().getName();
-    cout <<"\t" << "size: " << pizza.getSize().getName();
-    cout <<"\t" << "sauce: " << pizza.getSauce().getName() << endl;
-    cout <<"Toppings: ";
-    for(int i = 0; pizza.getToppings()[i].getName() != ""; i++) {
-        if(toppings[i].getIdNumber() != 0) {
-            cout << toppings[i].getName() << ", ";
+    cout << "  " << pizza.getName() << endl;
+    cout << "    " <<  setw(9) << pizza.getSize().getName()
+         << " | " << pizza.getType().getName() + " base"
+         << " | " << pizza.getSauce().getName() + " sauce" << endl;
+    cout << "    " << "Toppings: ";
+    for(int j = 0; j < pizza.MAX_TOPPINGS_PIZZA; j++) {
+        if(pizza.getToppings()[j].getIdNumber() != 0) {
+            cout << pizza.getToppings()[j].getName() << ", ";
         }
     }
-    cout <<endl;
+    cout << endl;
+    //cout << "\n\t  " << "Price: " << pizzaSer.getPrice(pizzaList[i]) << "kr" << endl;
+
+
 }
 
 void BakerUI::displayExtra(Extra extra) {
