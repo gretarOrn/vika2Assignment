@@ -6,6 +6,7 @@ ValidateService::ValidateService()
 }
 
 void ValidateService::validateName(string name, bool& valid) {
+    valid = false;
     for(unsigned int i = 0; i < name.size(); i++) {
         if(isalpha(name.at(i))) {
             valid = true;
@@ -17,6 +18,7 @@ void ValidateService::validateName(string name, bool& valid) {
     }
 }
 void ValidateService::validatePriceCategory(int category, bool& valid) {
+    valid = false;
     if(0 < category ) {
         valid = true;
         return;
@@ -26,6 +28,7 @@ void ValidateService::validatePriceCategory(int category, bool& valid) {
     }
 }
 void ValidateService::validatePrice(double price, bool& valid) {
+    valid = false;
     if(0 < price) {
         valid = true;
         return;
@@ -35,6 +38,7 @@ void ValidateService::validatePrice(double price, bool& valid) {
     }
 }
 void ValidateService::validateTopping(int topping, bool& valid) {
+    valid = false;
     if(0 < topping && topping <= dataBase.getPriceID()) {
         valid = true;
         return;
@@ -44,6 +48,7 @@ void ValidateService::validateTopping(int topping, bool& valid) {
     }
 }
 void ValidateService::validateSize(int sizeSelection, bool& valid) {
+    valid = false;
     if(0 < sizeSelection && sizeSelection <= dataBase.getPriceID()) {
         valid = true;
         return;
@@ -53,6 +58,7 @@ void ValidateService::validateSize(int sizeSelection, bool& valid) {
     }
 }
 void ValidateService::validateType(int typeSelection, bool& valid) {
+    valid = false;
     if(0 < typeSelection && typeSelection <= dataBase.getPriceID()) {
         valid = true;
         return;
@@ -62,6 +68,7 @@ void ValidateService::validateType(int typeSelection, bool& valid) {
     }
 }
 void ValidateService::validateSauce(int sauceSelection, bool& valid) {
+    valid = false;
     if(0 < sauceSelection && sauceSelection <= dataBase.getPriceID()) {
         valid = true;
         return;
@@ -71,7 +78,8 @@ void ValidateService::validateSauce(int sauceSelection, bool& valid) {
     }
 }
 void ValidateService::validateMult(double toppingMult, bool& valid) {
-    if(0 < toppingMult && toppingMult <= 2) {
+    valid = false;
+    if(0 < toppingMult && toppingMult <= 3) {
         valid = true;
         return;
     }
@@ -80,6 +88,7 @@ void ValidateService::validateMult(double toppingMult, bool& valid) {
     }
 }
 void ValidateService::validateExtra(int priceInput,bool& valid) {
+    valid = false;
     if(0 < priceInput && priceInput <= dataBase.getPriceID()) {
         valid = true;
         return;
@@ -89,6 +98,7 @@ void ValidateService::validateExtra(int priceInput,bool& valid) {
     }
 }
 void ValidateService::validateToppingSelection(int tempToppingSelection ,bool& valid) {
+    valid = false;
     if(0 <= tempToppingSelection && tempToppingSelection <= dataBase.getToppingID()) {
         valid = true;
         return;
@@ -98,6 +108,7 @@ void ValidateService::validateToppingSelection(int tempToppingSelection ,bool& v
     }
 }
 void ValidateService::validatePizzaSelection(int pizzaSelection, bool& valid) {
+    valid = false;
     if(0 < pizzaSelection && pizzaSelection <= dataBase.getPizzaID()) {
         valid = true;
         return;
@@ -107,6 +118,7 @@ void ValidateService::validatePizzaSelection(int pizzaSelection, bool& valid) {
     }
 }
 void ValidateService::validateActiveOrderSelection(int orderSelection, int counter, bool& valid) {
+    valid = false;
     if(0 < orderSelection && orderSelection <= counter) {
         valid = true;
         return;
@@ -116,6 +128,7 @@ void ValidateService::validateActiveOrderSelection(int orderSelection, int count
     }
 }
 void ValidateService::validateLocation(int locationSelection, bool& valid) {
+    valid = false;
     if(0 < locationSelection && locationSelection <= dataBase.getLocationID()) {
         valid = true;
         return;
@@ -125,6 +138,7 @@ void ValidateService::validateLocation(int locationSelection, bool& valid) {
     }
 }
 void ValidateService::validateSizeSelection(int sizeSelection, bool& valid) {
+    valid = false;
     if(0 < sizeSelection && sizeSelection <= dataBase.getSizeID()) {
         valid = true;
         return;
@@ -134,6 +148,7 @@ void ValidateService::validateSizeSelection(int sizeSelection, bool& valid) {
     }
 }
 void ValidateService::validateTypeSelection(int typeSelection, bool& valid) {
+    valid = false;
     if(0 < typeSelection && typeSelection <= dataBase.getTypeID()) {
         valid = true;
         return;
@@ -143,6 +158,7 @@ void ValidateService::validateTypeSelection(int typeSelection, bool& valid) {
     }
 }
 void ValidateService::validateSauceSelection(int sauceSelection, bool& valid) {
+    valid = false;
     if(0 < sauceSelection && sauceSelection <= dataBase.getSauceID()) {
         valid = true;
         return;
@@ -152,6 +168,7 @@ void ValidateService::validateSauceSelection(int sauceSelection, bool& valid) {
     }
 }
 void ValidateService::validateExtraSelection(int extraSelection, bool& valid) {
+    valid = false;
     if(0 < extraSelection && extraSelection <= dataBase.getExtraID()) {
         valid = true;
         return;
@@ -160,7 +177,6 @@ void ValidateService::validateExtraSelection(int extraSelection, bool& valid) {
         throw(InvalidExtraException());
     }
 }
-
 void ValidateService::validateOrdersInLocationBaker(int locationID, bool& valid) {
     valid = false;
     dataBase.refreshActiveOrder();

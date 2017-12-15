@@ -149,6 +149,7 @@ void AdminUI::addPizzas() {
     bool valid = false;
     do {
         system("CLS");
+        dataBase.refreshPizza();
         displayPizzaMenu();
         cout << "Add a Pizza: " << endl;
         do{
@@ -396,7 +397,7 @@ void AdminUI::addToppings() {
             cin >> priceInput;
             validate.isInt(priceInput);
             try {
-                validate.validateTopping(priceInput,valid);
+                validate.validateTopping(priceInput, valid);
             }
             catch(InvalidToppingException) {
                 cout <<"Invalid price input." << endl;

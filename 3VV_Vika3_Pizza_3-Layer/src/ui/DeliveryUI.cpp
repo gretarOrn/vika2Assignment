@@ -8,6 +8,7 @@ DeliveryUI::DeliveryUI()
 void DeliveryUI::startUp() {
     int locationSelection, orderSelection, selectedOrderId, orderStatus, orderCount, allOrderLines;
     bool valid;
+    bool paymentError = false;
     while(true) {
         system("CLS");
         cout << "Delivery:" << endl;
@@ -31,10 +32,14 @@ void DeliveryUI::startUp() {
         } while(!valid);
         do {
             system("CLS");
+                if(paymentError) {
+                    cout << "Cannot deliver order without payment. pay first" << endl << endl;
+                    paymentError = false;
+                }
                 cout << "Location: " << dataBase.locationMaster[locationSelection - 1].getName() << " | Delivery" << endl;
                 orderCount = displayOrders(locationSelection);
                 allOrderLines = repo.getActiveOrderLines();
-                do{
+                do {
                     cout << endl << "Select an order, press 0 to go back: ";
                     cin >> orderSelection;
                     valid = false;
@@ -46,7 +51,7 @@ void DeliveryUI::startUp() {
                     } catch(InvalidActiveOrderException) {
                         cout << "Invalid order selection, try again." << endl;
                     }
-                }while(!valid);
+                } while(!valid);
                 selectedOrderId = findOrderID(orderSelection, locationSelection);
                 do {
                     if(orderSelection == 0) {
@@ -74,8 +79,13 @@ void DeliveryUI::startUp() {
                 } else if(orderStatus == 2) {
                     for(int i = 0; i < allOrderLines; i++) {
                         if(orderList[i].getOrderId() == selectedOrderId) {
-                            orderList[i].setOrderStatus(5);
-                            orderService.moveOrderToInactiveFile(i);
+                            if(orderList[i].getPaymentStatus()) {
+                                orderList[i].setOrderStatus(5);
+                                orderService.moveOrderToInactiveFile(i);
+                            } else {
+                                paymentError = true;
+                                break;
+                            }
                         }
                     }
                 } else if(orderStatus == 3) {
@@ -110,7 +120,7 @@ int DeliveryUI::displayOrders(int locationID) {
     cout << "Orders ready for pickup: " << endl;
     for(int i = 0; i < lines; i++) {
         if(orderList[i].getLocationId() == locationID) {
-            if(orderList[i].getOrderStatus() == 3 || orderList[i].getOrderStatus() == 4) {
+            if(orderList[i].getOrderStatus() == 3) {
                if(!orderList[i].isDelivered()) {
                     cout << counter << ")\t";
                     cout << "Order ID: " << setw(5) << right << orderList[i].getOrderId();
@@ -149,20 +159,48 @@ int DeliveryUI::displayOrders(int locationID) {
     for(int i = 0; i < lines; i++) {
         if(orderList[i].getLocationId() == locationID) {
             if(orderList[i].getOrderStatus() == 2) {
+                cout << counter << ")\t";
+                cout << "Order ID: " << setw(5) << right << orderList[i].getOrderId();
+                cout << " | ";
                 if(orderList[i].isDelivered()) {
-                    cout << counter << ")\t";
-                    cout << "Order ID: " << setw(5) << right << orderList[i].getOrderId();
-                    cout << " | Address: " << setw(dataBase.locationMaster[0].MAX_ADDRESS_LENGTH) << left << orderList[i].getAddress();
-                    if(orderList[i].getPaymentStatus()){
-                        cout << " | Payment status: Payed" << endl;
-                    } else {
-                        cout << " | Payment status: Pay on delivery" << endl;
-                    }
-                    counter++;
+                    cout << "Address: ";
+                } else {
+                    cout << "Pickup:  ";
                 }
+                cout << setw(dataBase.locationMaster[0].MAX_ADDRESS_LENGTH) << left << orderList[i].getAddress();
+                if(orderList[i].getPaymentStatus()){
+                    cout << " | Payment status: Payed" << endl;
+                } else {
+                    cout << " | Payment status: Pay on delivery" << endl;
+                }
+                counter++;
             }
         }
     }
+    cout << endl << "****************************************************************************************" << endl;
+    cout << "Orders awaiting processing: " << endl;
+    for(int i = 0; i < lines; i++) {
+        if(orderList[i].getLocationId() == locationID) {
+            if(orderList[i].getOrderStatus() == 2) {
+                cout << counter << ")\t";
+                cout << "Order ID: " << setw(5) << right << orderList[i].getOrderId();
+                cout << " | ";
+                if(orderList[i].isDelivered()) {
+                    cout << "Address: ";
+                } else {
+                    cout << "Pickup:  ";
+                }
+                cout << setw(dataBase.locationMaster[0].MAX_ADDRESS_LENGTH) << left << orderList[i].getAddress();
+                if(orderList[i].getPaymentStatus()){
+                    cout << " | Payment status: Payed" << endl;
+                } else {
+                    cout << " | Payment status: Pay on delivery" << endl;
+                }
+                counter++;
+            }
+        }
+    }
+    cout << endl << "****************************************************************************************" << endl;
     return counter;
 }
 
@@ -197,12 +235,20 @@ int DeliveryUI::findOrderID(int orderSelection, int locationID) {
     for(int i = 0; i < lines; i++) {
         if(orderList[i].getLocationId() == locationID) {
             if(orderList[i].getOrderStatus() == 2) {
-                if(orderList[i].isDelivered()) {
-                    if(counter == orderSelection) {
-                        return orderList[i].getOrderId();
-                    }
-                    counter++;
+                if(counter == orderSelection) {
+                    return orderList[i].getOrderId();
                 }
+                counter++;
+            }
+        }
+    }
+    for(int i = 0; i < lines; i++) {
+        if(orderList[i].getLocationId() == locationID) {
+            if(orderList[i].getOrderStatus() == 1) {
+                if(counter == orderSelection) {
+                    return orderList[i].getOrderId();
+                }
+                counter++;
             }
         }
     }
