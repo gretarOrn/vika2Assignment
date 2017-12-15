@@ -43,7 +43,8 @@ class ValidateService
         void validateSauceSelection(int sauceSelection, bool& valid);
         void validateExtraSelection(int extraSelection, bool& valid);
         void validateTopping(int topping, bool& valid);
-
+        void validateOrdersInLocationBaker(int locationID, bool& valid);
+        void validateOrdersInLocationDelivery(int locationID, bool& valid);
         ///calls by referance an instance of a number that's just been cin'd and checks if it is an int or double, if not it returns -1.
         void isInt(int& num);
         void isDouble(double& num);

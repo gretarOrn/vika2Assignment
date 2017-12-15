@@ -23,13 +23,17 @@ void BakerUI::startUp() {
                 return;
             } try {
                 validate.validateLocation(locationSelection, valid);
+                validate.validateOrdersInLocationBaker(locationSelection, valid);
             } catch(InvalidLocationException) {
                 cout << "Invalid location, try again." << endl;
+            } catch (InvalidActiveOrderException) {
+                cout << "No orders in location, try again later" << endl;
             }
-        } while(!valid);
+        }
+         while(!valid);
+
         do {
             system("CLS");
-            if(orderService.validateOrdersInLocation(locationSelection)) {
                 cout << "Location: " << dataBase.locationMaster[locationSelection - 1].getName() << " | Baking" << endl;
                 orderCount = displayOrders(locationSelection);
                 do{
@@ -86,11 +90,6 @@ void BakerUI::startUp() {
                         }
                     }
                 }
-            } else {
-                cout << "No orders in that location: " << endl;
-                cout << "Select another location: " << endl;
-                orderSelection = 0;
-            }
         } while(orderSelection != 0);
     }
 }

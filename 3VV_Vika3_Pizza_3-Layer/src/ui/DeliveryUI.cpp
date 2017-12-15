@@ -22,13 +22,15 @@ void DeliveryUI::startUp() {
                 return;
             } try {
                 validate.validateLocation(locationSelection, valid);
+                validate.validateOrdersInLocationDelivery(locationSelection, valid);
             } catch(InvalidLocationException) {
                 cout << "Invalid location, try again." << endl;
+            } catch(InvalidActiveOrderException) {
+                cout << "No orders in location, try again later." << endl;
             }
         } while(!valid);
         do {
             system("CLS");
-            if(orderService.validateOrdersInLocation(locationSelection)) {
                 cout << "Location: " << dataBase.locationMaster[locationSelection - 1].getName() << " | Delivery" << endl;
                 orderCount = displayOrders(locationSelection);
                 allOrderLines = repo.getActiveOrderLines();
@@ -86,11 +88,6 @@ void DeliveryUI::startUp() {
                         }
                     }
                 }
-            } else {
-                cout << "No orders in that location: " << endl;
-                cout << "Select another location: " << endl;
-                orderSelection = 0;
-            }
         } while(orderSelection != 0);
     }
 }

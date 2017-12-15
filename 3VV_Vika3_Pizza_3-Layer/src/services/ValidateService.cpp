@@ -160,6 +160,37 @@ void ValidateService::validateExtraSelection(int extraSelection, bool& valid) {
         throw(InvalidExtraException());
     }
 }
+
+void ValidateService::validateOrdersInLocationBaker(int locationID, bool& valid) {
+    valid = false;
+    dataBase.refreshActiveOrder();
+    Order* orderList = dataBase.activeOrderMaster;
+    for (int i = 0; i < repo.getActiveOrderLines(); i++) {
+        if (orderList[i].getLocationId() == locationID) {
+            if (orderList[i].getOrderStatus() == 1 || orderList[i].getOrderStatus() == 2) {
+                valid = true;
+                return;
+            }
+        }
+    }
+    if (!valid) {
+        throw (InvalidActiveOrderException());
+    }
+}
+void ValidateService::validateOrdersInLocationDelivery(int locationID, bool& valid) {
+    valid = false;
+    dataBase.refreshActiveOrder();
+    Order* orderList = dataBase.activeOrderMaster;
+    for (int i = 0; i < repo.getActiveOrderLines(); i++) {
+        if (orderList[i].getLocationId() == locationID) {
+            valid = true;
+            return;
+        }
+    }
+    if (!valid) {
+        throw (InvalidActiveOrderException());
+    }
+}
 void ValidateService::isInt(int& num) {
     if (cin.fail()) {
         cin.clear();
