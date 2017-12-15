@@ -8,12 +8,11 @@ class PizzaService
 {
     public:
         PizzaService();
-        PizzaSize addSize(int sizeNR);
-        PizzaType addType(int typeNR);
-        PizzaSauce addSauce(int sauceNR);
-        Topping* addTopping(int* arr, Pizza& pizza);
+
+       /// takes in the position of ingredients of ingredients in their respective files, and adds them to an instance of pizza.
         Pizza createPizza(int sizeSelction, int typeSelction, int sauceSelction, int toppingSelction[]);
-        void addToppingToPizza(Pizza& pizza, const Topping& topping);
+
+        /// takes in an instance of pizza and returns its price.
         double getPrice(Pizza pizza);
 
 

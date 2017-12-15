@@ -1,0 +1,10 @@
+#ifndef INVALIDPERORDEREXCEPTION_H
+#define INVALIDPERORDEREXCEPTION_H
+
+
+class InvalidPerOrderException
+{
+
+};
+
+#endif // INVALIDPERORDEREXCEPTION_H

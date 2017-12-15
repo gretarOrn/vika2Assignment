@@ -4,17 +4,7 @@
 #include "SuperRepo.h"
 #include "DataBase.h"
 
-#include "InvalidNameException.h"
-#include "InvalidPriceException.h"
-#include "InvalidSizeException.h"
-#include "InvalidTypeException.h"
-#include "InvalidSauceException.h"
-#include "InvalidToppingException.h"
-#include "InvalidMultException.h"
-#include "InvalidOffsetException.h"
-#include "InvalidExtraException.h"
-#include "InvalidPizzaException.h"
-#include "InvalidLocationException.h"
+
 
 class AdminService
 {
@@ -23,32 +13,22 @@ class AdminService
 
         DataBase dataBase;
         SuperRepo repo;
-
+        /// Takes in a name, a size, type(base), a sauce , an array of toppings, and the total price and sends that to the repo to be filed as a type of pizza in the menu file.
         void addPizza(string name, int sizeSelection, int typeSelection, int sauceSelection, int toppingSelection[], double totalPrice);
+        /// Takes in a name and a price for a new price category to be sent to the repo and placed in a file.
         void addPriceCategory(string name, int price);
+        /// takes in a name and a price category for a new topping to be sent to the repo and placed in a file.
         void addTopping(string name, int priceCat);
+        /// Takes in a name and a price category for a new topping to be sent to the repo and placed in a file.
         void addExtra(string name, int prizeCat);
+        /// takes in a name, a price category, a topping multiplier and a topping offset for a new size to be sent to the repo and placed in a file.
         void addSize(string name, int prizeCat, double toppingMult, double toppingOffset);
+        /// Takes in a name and a price category for a new sauce to be sent to the repo and placed in a file.
         void addSauce(string name, int prizeCat);
+        /// takes in a name and a price offset for a new type(base) to be sent to the repo and placed in a file.
         void addType(string name, double priceOffset);
+        /// takes in a name and an address of a new location to be sent to the repo and placed in a file.
         void addLocation(string name, string address);
-
-        void validateName(string name, bool& valid);
-        void validatePriceCategory(int category, bool& valid);
-        void validateSize(int sizeSelection, bool& valid);
-        void validateType(int typeSelection, bool& valid);
-        void validateSauce(int sauceSelection, bool& valid);
-        void validateMult(double toppingMult, bool& valid);
-        void validatePrice(double price, bool& valid);
-        void validateExtra(int priceInput,bool& valid);
-        void validateToppingSelection(int tempToppingSelection,bool& valid);
-        void validatePizzaSelection(int pizzaSelection, bool& valid);
-        void validateLocation(int locationSelection, bool& valid);
-
-        void validateTopping(int topping, bool& valid);
-
-        void isInt(int& num);
-        void isDouble(double& num);
 
     private:
 
