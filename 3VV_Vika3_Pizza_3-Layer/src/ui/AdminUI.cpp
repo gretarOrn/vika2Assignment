@@ -331,7 +331,6 @@ void AdminUI::addPizzas() {
 void AdminUI::PriceOptions() {
     char c;
     while(c != 'q') {
-        system("CLS");
         cout << "Price options" << endl;
         cout << "1)\t" << "Add a price category" << endl;
         //cout << "2)\t" << "Edit a price category" << endl;
@@ -883,7 +882,6 @@ void AdminUI::addBase() {
 void AdminUI::locationOptions() {
     char c;
     while(c != 'q') {
-        system("CLS");
         cout << "Location options" << endl;
         cout << "1)\t" << "Add a location" << endl;
         //cout << "2)\t" << "Edit a location" << endl;

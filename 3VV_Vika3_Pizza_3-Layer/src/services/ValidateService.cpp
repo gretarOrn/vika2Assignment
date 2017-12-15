@@ -29,7 +29,7 @@ void ValidateService::validatePriceCategory(int category, bool& valid) {
 }
 void ValidateService::validatePrice(double price, bool& valid) {
     valid = false;
-    if(0 < price) {
+    if(0 <= price) {
         valid = true;
         return;
     }
