@@ -8,9 +8,8 @@ void AdminUI::startUp() {
     char c;
 
     while(c != 'q') {
-        system("CLS");
         cout << "Please select an admin option:" << endl;
-        cout << "1)\t" << "Special menu" << endl;
+        cout << "1)\t" << "Order menu" << endl;
         cout << "2)\t" << "Pizza menu" << endl;
         cout << "3)\t" << "Price category" << endl;
         cout << "4)\t" << "Pizza topping" << endl;
@@ -23,22 +22,31 @@ void AdminUI::startUp() {
 
         cin >> c;
                if (c == '1') {
+            system("CLS");
             orderOptions();
         } else if (c == '2') {
+            system("CLS");
             pizzaOptions();
         } else if (c == '3') {
+            system("CLS");
             PriceOptions();
         } else if (c == '4') {
+            system("CLS");
             toppingOptions();
         } else if (c == '5') {
+            system("CLS");
             extraOptions();
         } else if (c == '6') {
+            system("CLS");
             sizeOptions();
         } else if (c == '7') {
+            system("CLS");
             sauceOptions();
         } else if (c == '8') {
+            system("CLS");
             baseOptions();
         } else if (c == '9') {
+            system("CLS");
             locationOptions();
         }
     }
@@ -49,36 +57,113 @@ void AdminUI::startUp() {
 void AdminUI::orderOptions() {
     char c;
     while(c != 'q') {
-        cout << "Special options" << endl;
-        cout << "1)\t" << "Add a special" << endl;
-        cout << "2)\t" << "Edit a special" << endl;
-        cout << "3)\t" << "Display specials" << endl;
+        cout << "Order options" << endl;
+        cout << "1)\t" << "Display active orders" << endl;
+        cout << "2)\t" << "Display inactive orders" << endl;
+        cout << " )\t" << "......................." << endl;
         cout << "q)\t" << "Go back" << endl;
         cin >> c;
                if (c == '1') {
-            addOrders();
+            system("CLS");
+            //addOrders();
+            displayActiveOrders();
         } else if (c == '2') {
-            editOrders();
+            system("CLS");
+            //editOrders();
+            displayInactiveOrders();
         } else if (c == '3') {
-            displaySpecialsOrders();
+            //displaySpecialsOrders();
         }
-        system("CLS");
     }
+    system("CLS");
 }
 void AdminUI::displayActiveOrders() {
+    Order* InactiveOrderList = dataBase.activeOrderMaster;
+    int lines = adminService.repo.getInactiveOrderLines();
+    Location* locList = dataBase.locationMaster;
 
+    for(int i = 0; i < lines; i++) {
+        cout << "Order ID: " << InactiveOrderList[i].getOrderId() << endl;
+        cout << "Pizzas in current order: " << endl;
+        for(int j = 0; j < InactiveOrderList[0].MAX_PIZZAS_ORDER; j++) {
+            if(InactiveOrderList[i].getPizzas()[j].getName() != "") {
+                cout << (j + 1) << ")  " << InactiveOrderList[i].getPizzas()[j].getName() << endl;
+            } else if(InactiveOrderList[i].getPizzas()[j].getSauce().getIdNumber() != 0) {
+                cout << (j + 1) << ")  Custom pizza" << endl;
+            }
+        }
+        cout << "Extras in current order: " << endl;
+        for(int j = 0; j < InactiveOrderList[0].MAX_EXTRAS_ORDER; j++) {
+            if(InactiveOrderList[i].getExtras()[j].getName() != "") {
+                cout << (j + 1) << ")  " << InactiveOrderList[i].getExtras()[j].getName() << endl;
+            }
+        }
+        if(InactiveOrderList[i].isDelivered()) {
+            cout << "Deliver to: " << InactiveOrderList[i].getAddress() << endl;
+            cout << "Total price: " << orderService.getPrice(InactiveOrderList[i]) << endl;
+            if(InactiveOrderList[i].getPaymentStatus()) {
+                cout << "Payment status: Payed" << endl;
+            } else {
+                cout << "Payment status: Payed at delivery" << endl;
+            }
+        } else {
+            cout << "Pickup at: " << locList[InactiveOrderList[i].getLocationId() - 1].getAddress() << endl;
+            cout << "Name or phone: " << InactiveOrderList[i].getAddress() << endl;
+            cout << "Total price: " << orderService.getPrice(InactiveOrderList[i]) << endl;
+            if(InactiveOrderList[i].getPaymentStatus()) {
+                cout << "Payment status: Payed" << endl;
+            } else {
+                cout << "Payment status: Payed at delivery" << endl;
+            }
+        }
+        if(InactiveOrderList[i].getComment() != "") {
+            cout << "Comment: " << InactiveOrderList[i].getComment() << endl;
+        }
+    }
 }
 void AdminUI::displayInactiveOrders() {
+    Order* InactiveOrderList = dataBase.inactiveOrderMaster;
+    int lines = adminService.repo.getInactiveOrderLines();
+    Location* locList = dataBase.locationMaster;
 
-}
-void AdminUI::displaySpecialsOrders() {
-
-}
-void AdminUI::addOrders() {
-
-}
-void AdminUI::editOrders() {
-
+    for(int i = 0; i < lines; i++) {
+        cout << "Order ID: " << InactiveOrderList[i].getOrderId() << endl;
+        cout << "Pizzas in current order: " << endl;
+        for(int j = 0; j < InactiveOrderList[0].MAX_PIZZAS_ORDER; j++) {
+            if(InactiveOrderList[i].getPizzas()[j].getName() != "") {
+                cout << (j + 1) << ")  " << InactiveOrderList[i].getPizzas()[j].getName() << endl;
+            } else if(InactiveOrderList[i].getPizzas()[j].getSauce().getIdNumber() != 0) {
+                cout << (j + 1) << ")  Custom pizza" << endl;
+            }
+        }
+        cout << "Extras in current order: " << endl;
+        for(int j = 0; j < InactiveOrderList[0].MAX_EXTRAS_ORDER; j++) {
+            if(InactiveOrderList[i].getExtras()[j].getName() != "") {
+                cout << (j + 1) << ")  " << InactiveOrderList[i].getExtras()[j].getName() << endl;
+            }
+        }
+        if(InactiveOrderList[i].isDelivered()) {
+            cout << "Deliver to: " << InactiveOrderList[i].getAddress() << endl;
+            cout << "Total price: " << orderService.getPrice(InactiveOrderList[i]) << endl;
+            if(InactiveOrderList[i].getPaymentStatus()) {
+                cout << "Payment status: Payed" << endl;
+            } else {
+                cout << "Payment status: Payed at delivery" << endl;
+            }
+        } else {
+            cout << "Pickup at: " << locList[InactiveOrderList[i].getLocationId() - 1].getAddress() << endl;
+            cout << "Name or phone: " << InactiveOrderList[i].getAddress() << endl;
+            cout << "Total price: " << orderService.getPrice(InactiveOrderList[i]) << endl;
+            if(InactiveOrderList[i].getPaymentStatus()) {
+                cout << "Payment status: Payed" << endl;
+            } else {
+                cout << "Payment status: Payed at delivery" << endl;
+            }
+        }
+        if(InactiveOrderList[i].getComment() != "") {
+            cout << "Comment: " << InactiveOrderList[i].getComment() << endl;
+        }
+    }
 }
 
 /// Pizza menu
@@ -87,7 +172,7 @@ void AdminUI::pizzaOptions() {
     while(c != 'q') {
         cout << "Pizza menu options" << endl;
         cout << "1)\t" << "Add a pizza to the menu" << endl;
-        cout << "2)\t" << "Edit a pizza in the menu" << endl;
+        //cout << "2)\t" << "Edit a pizza in the menu" << endl;
         cout << "3)\t" << "Display pizza menu" << endl;
         cout << "q)\t" << "Go back" << endl;
         cin >> c;
@@ -97,14 +182,14 @@ void AdminUI::pizzaOptions() {
             system("CLS");
         } else if (c == '2') {
             system("CLS");
-            editPizzas();
+            //editPizzas();
             system("CLS");
         } else if (c == '3') {
             system("CLS");
             displayPizzaMenu();
         }
-
     }
+    system("CLS");
 }
 void AdminUI::displayPizzaMenu() {
     Pizza* pizzaList = dataBase.pizzaMaster;
@@ -241,9 +326,6 @@ void AdminUI::addPizzas() {
     } while(userInput == 'y');
     system("CLS");
 }
-void AdminUI::editPizzas() {
-
-}
 
 /// Price Category
 void AdminUI::PriceOptions() {
@@ -252,18 +334,19 @@ void AdminUI::PriceOptions() {
         system("CLS");
         cout << "Price options" << endl;
         cout << "1)\t" << "Add a price category" << endl;
-        cout << "2)\t" << "Edit a price category" << endl;
+        //cout << "2)\t" << "Edit a price category" << endl;
         cout << "3)\t" << "Display price categories" << endl;
         cout << "q)\t" << "Go back" << endl;
         cin >> c;
                if (c == '1') {
             addPriceCategory();
         } else if (c == '2') {
-            editPriceCategory();
+            //editPriceCategory();
         } else if (c == '3') {
             displayPriceCategory();
         }
     }
+    system("CLS");
 }
 void AdminUI::displayPriceCategory() {
     dataBase.refreshPrice();
@@ -320,9 +403,7 @@ void AdminUI::addPriceCategory() {
         cin >> userInput;
     } while(userInput == 'y');
 }
-void AdminUI::editPriceCategory() {
 
-}
 
 /// Topping
 void AdminUI::toppingOptions() {
@@ -332,18 +413,20 @@ void AdminUI::toppingOptions() {
         system("CLS");
         cout << "Topping options" << endl;
         cout << "1)\t" << "Add a topping" << endl;
-        cout << "2)\t" << "Edit a topping" << endl;
+        //cout << "2)\t" << "Edit a topping" << endl;
         cout << "3)\t" << "Display a toppings" << endl;
         cout << "q)\t" << "Go back" << endl;
         cin >> c;
         if (c == '1') {
+            system("CLS");
             addToppings();
         } else if (c == '2') {
-            editToppings();
+            //editToppings();
         } else if (c == '3') {
             displayToppings();
         }
     }
+    system("CLS");
 }
 void AdminUI::displayToppings() {
     Topping* toppingList = dataBase.toppingMaster;
@@ -401,8 +484,8 @@ void AdminUI::addToppings() {
     } while(userInput == 'y');
     system("CLS");
 }
+/*
 void AdminUI::editToppings() {
-    /*
     int userSelection;
     char userInput;
     string newNameInput;
@@ -448,8 +531,8 @@ void AdminUI::editToppings() {
     adminService.editTopping((toppingList[userInput - 1].getIdNumber()), newNameInput, newPriceInput, newStateInput);
     dataBase.refreshTopping();
     system("CLS");
-    */
 }
+*/
 
 
 /// Extras
@@ -459,18 +542,21 @@ void AdminUI::extraOptions() {
         system("CLS");
         cout << "Extra options" << endl;
         cout << "1)\t" << "Add a extra" << endl;
-        cout << "2)\t" << "Edit a extra" << endl;
+        //cout << "2)\t" << "Edit a extra" << endl;
         cout << "3)\t" << "Display extras" << endl;
         cout << "q)\t" << "Go back" << endl;
         cin >> c;
                if (c == '1') {
+            system("CLS");
             addExtras();
         } else if (c == '2') {
-            editExtras();
+            //editExtras();
         } else if (c == '3') {
+            system("CLS");
             displayExtras();
         }
     }
+    system("CLS");
 }
 void AdminUI::displayExtras() {
     Extra* extraList = dataBase.extraMaster;
@@ -526,31 +612,32 @@ void AdminUI::addExtras() {
         cout << "Continue? (y/n) ";
         cin >> userInput;
     } while(userInput == 'y');
+    system("CLS");
 }
-void AdminUI::editExtras() {
 
-}
 
 
 /// Size
 void AdminUI::sizeOptions() {
     char c;
     while(c != 'q') {
-        system("CLS");
         cout << "Size options" << endl;
         cout << "1)\t" << "Add a size" << endl;
-        cout << "2)\t" << "Edit a size" << endl;
+        //cout << "2)\t" << "Edit a size" << endl;
         cout << "3)\t" << "Display sizes" << endl;
         cout << "q)\t" << "Go back" << endl;
         cin >> c;
                if (c == '1') {
+            system("CLS");
             addSize();
         } else if (c == '2') {
-            editSize();
+            //editSize();
         } else if (c == '3') {
+            system("CLS");
             displaySizes();
         }
     }
+    system("CLS");
 }
 void AdminUI::displaySizes() {
     PizzaSize* sizeList = dataBase.sizeMaster;
@@ -628,28 +715,28 @@ void AdminUI::addSize() {
         cout << "Continue? (y/n) ";
         cin >> userInput;
     } while(userInput == 'y');
-}
-void AdminUI::editSize() {
 
 }
+
 
 
 /// Sauce
 void AdminUI::sauceOptions() {
     char c;
     while(c != 'q') {
-        system("CLS");
         cout << "Sauce options" << endl;
         cout << "1)\t" << "Add a sauce" << endl;
-        cout << "2)\t" << "Edit a sauce" << endl;
+        //cout << "2)\t" << "Edit a sauce" << endl;
         cout << "3)\t" << "Display sauces" << endl;
         cout << "q)\t" << "Go back" << endl;
         cin >> c;
         if (c == '1') {
+            system("CLS");
             addSauces();
         } else if (c == '2') {
-            editSauces();
+            //editSauces();
         } else if (c == '3') {
+            system("CLS");
             displaySauces();
         }
     }
@@ -710,27 +797,27 @@ void AdminUI::addSauces() {
         cout << "Continue? (y/n) ";
         cin >> userInput;
     } while(userInput == 'y');
+    system("CLS");
 }
-void AdminUI::editSauces() {
 
-}
 
 /// Base
 void AdminUI::baseOptions() {
     char c;
     while(c != 'q') {
-        system("CLS");
         cout << "Pizza base options" << endl;
         cout << "1)\t" << "Add a base" << endl;
-        cout << "2)\t" << "Edit a base" << endl;
+        //cout << "2)\t" << "Edit a base" << endl;
         cout << "3)\t" << "Display bases" << endl;
         cout << "q)\t" << "Go back" << endl;
         cin >> c;
         if (c == '1') {
+            system("CLS");
             addBase();
         } else if (c == '2') {
-            editBase();
+            //editBase();
         } else if (c == '3') {
+            system("CLS");
             displayBases();
         }
     }
@@ -788,9 +875,7 @@ void AdminUI::addBase() {
         cout << "Continue? (y/n) ";
         cin >> userInput;
     } while(userInput == 'y');
-}
-void AdminUI::editBase() {
-
+    system("CLS");
 }
 
 
@@ -801,15 +886,17 @@ void AdminUI::locationOptions() {
         system("CLS");
         cout << "Location options" << endl;
         cout << "1)\t" << "Add a location" << endl;
-        cout << "2)\t" << "Edit a location" << endl;
+        //cout << "2)\t" << "Edit a location" << endl;
         cout << "3)\t" << "Display locations" << endl;
         cout << "q)\t" << "Go back" << endl;
         cin >> c;
         if (c == '1') {
+            system("CLS");
             addLocation();
         } else if (c == '2') {
-            editLocation();
+            //editLocation();
         } else if (c == '3') {
+            system("CLS");
             displayLocations();
         }
     }
@@ -867,7 +954,5 @@ void AdminUI::addLocation() {
         cout << "Continue? (y/n) ";
         cin >> userInput;
     } while(userInput == 'y');
-}
-void AdminUI::editLocation() {
-
+    system("CLS");
 }
