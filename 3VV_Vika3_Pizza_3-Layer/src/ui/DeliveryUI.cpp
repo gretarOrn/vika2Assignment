@@ -60,10 +60,12 @@ void DeliveryUI::startUp() {
                 } while(!(0 <= orderStatus && orderStatus <= 3));
 
                 Order* orderList = dataBase.activeOrderMaster;
+                allOrderLines = repo.getActiveOrderLines();
                 if (orderStatus == 1) {
                     for(int i = 0; i < allOrderLines; i++) {
                         if(orderList[i].getOrderId() == selectedOrderId) {
-                            orderList[i].setOrderStatus(4);
+                            orderList[i].setOrderStatus(3);
+                            orderList[i].setPaymentStatus(true);
                             orderService.saveOrders(orderList);
                         }
                     }
@@ -154,20 +156,24 @@ int DeliveryUI::findOrderID(int orderSelection, int locationID) {
        for(int i = 0; i < repo.getActiveOrderLines(); i++) {
         if(orderList[i].getLocationId() == locationID) {
             if(orderList[i].getOrderStatus() == 3) {
-                if(counter == orderSelection) {
-                    return orderList[i].getOrderId();
-                }
+                if(!orderList[i].isDelivered()) {
+                    if(counter == orderSelection) {
+                        return orderList[i].getOrderId();
+                    }
                 counter++;
+                }
             }
         }
     }
     for(int i = 0; i < repo.getActiveOrderLines(); i++) {
         if(orderList[i].getLocationId() == locationID) {
             if(orderList[i].getOrderStatus() == 4) {
-                if(counter == orderSelection) {
-                    return orderList[i].getOrderId();
+                if(orderList[i].isDelivered()) {
+                    if(counter == orderSelection) {
+                        return orderList[i].getOrderId();
+                    }
+                    counter++;
                 }
-                counter++;
             }
         }
     }

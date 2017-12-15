@@ -61,6 +61,7 @@ void BakerUI::startUp() {
                 } while(!(0 <= orderStatus && orderStatus <= 3));
 
                 Order* orderList = dataBase.activeOrderMaster;
+                allOrderLines = repo.getActiveOrderLines();
                 if (orderStatus == 1) {
                     for(int i = 0; i < allOrderLines; i++) {
                         if(orderList[i].getOrderId() == selectedOrderId) {
