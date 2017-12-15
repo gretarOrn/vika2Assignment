@@ -22,7 +22,7 @@ void DeliveryUI::startUp() {
             if(locationSelection == 0) {
                 return;
             } try {
-                validate.validateLocation(locationSelection, valid);
+                validate.validateLocationSelection(locationSelection, valid);
                 validate.validateOrdersInLocationDelivery(locationSelection, valid);
             } catch(InvalidLocationException) {
                 cout << "Invalid location, try again." << endl;
@@ -32,13 +32,13 @@ void DeliveryUI::startUp() {
         } while(!valid);
         do {
             system("CLS");
+                cout << "Location: " << dataBase.locationMaster[locationSelection - 1].getName() << " | Delivery" << endl;
+                orderCount = displayOrders(locationSelection);
+                allOrderLines = repo.getActiveOrderLines();
                 if(paymentError) {
                     cout << "Cannot deliver order without payment. pay first" << endl << endl;
                     paymentError = false;
                 }
-                cout << "Location: " << dataBase.locationMaster[locationSelection - 1].getName() << " | Delivery" << endl;
-                orderCount = displayOrders(locationSelection);
-                allOrderLines = repo.getActiveOrderLines();
                 do {
                     cout << endl << "Select an order, press 0 to go back: ";
                     cin >> orderSelection;

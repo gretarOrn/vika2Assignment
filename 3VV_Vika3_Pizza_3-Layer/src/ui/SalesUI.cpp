@@ -15,7 +15,7 @@ void SalesUI::startUp() {
         cin >> locationId;
         validate.isInt(locationId);
         try {
-            validate.validateLocation(locationId, valid);
+            validate.validateLocationSelection(locationId, valid);
         }
         catch(InvalidLocationException) {
             cout <<"Invalid location input." << endl;
@@ -353,7 +353,7 @@ void SalesUI::addInfo(Order& order) {
             cin >> userSelection;
             validate.isInt(userSelection);
             try{
-                validate.validateLocation(userSelection, valid);
+                validate.validateLocationSelection(userSelection, valid);
             }
             catch(InvalidLocationException) {
                 cout <<"Invalid location." << endl;

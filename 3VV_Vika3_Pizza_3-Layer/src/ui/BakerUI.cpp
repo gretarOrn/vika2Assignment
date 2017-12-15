@@ -22,7 +22,7 @@ void BakerUI::startUp() {
             if(locationSelection == 0) {
                 return;
             } try {
-                validate.validateLocation(locationSelection, valid);
+                validate.validateLocationSelection(locationSelection, valid);
                 validate.validateOrdersInLocationBaker(locationSelection, valid);
             } catch(InvalidLocationException) {
                 cout << "Invalid location, try again." << endl;
