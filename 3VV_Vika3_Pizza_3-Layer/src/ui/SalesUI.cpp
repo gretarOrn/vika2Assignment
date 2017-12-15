@@ -338,7 +338,7 @@ void SalesUI::addInfo(Order& order) {
             cin >> ws;
             getline(cin, address);
             try{
-                adminSer.validateName(address, valid);
+                validate.validateName(address, valid);
             } catch(InvalidNameException) {
                 cout << "Invalid address." << endl;
             }
@@ -351,8 +351,9 @@ void SalesUI::addInfo(Order& order) {
             displayLocationList();
             cout << "Select pickup location: ";
             cin >> userSelection;
+            validate.isInt(userSelection);
             try{
-                adminSer.validateLocation(userSelection, valid);
+                validate.validateLocation(userSelection, valid);
             }
             catch(InvalidLocationException) {
                 cout <<"Invalid location." << endl;

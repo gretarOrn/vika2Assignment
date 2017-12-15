@@ -723,14 +723,15 @@
 	"BakerUI.h"
 	"DeliveryUI.h"
 
-1513177405 c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\include\ui\adminui.h
+1513267626 c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\include\ui\adminui.h
 	"DataBase.h"
 	"AdminService.h"
 	"ValidateService.h"
+	"PizzaService.h"
 	<iostream>
 	<cstdlib>
 
-1513166740 c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\include\models\database.h
+1513266079 c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\include\models\database.h
 	"Extra.h"
 	"Location.h"
 	"Order.h"
@@ -741,17 +742,11 @@
 	"PriceList.h"
 	"Topping.h"
 	"SuperRepo.h"
-	<vector>
 
-1513166740 c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\include\models\extra.h
-	<iostream>
-	<iomanip>
-	<fstream>
+1513266079 c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\include\models\extra.h
 	<string>
 
-1513166740 c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\include\models\location.h
-	<iostream>
-	<iomanip>
+1513266079 c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\include\models\location.h
 	<string>
 
 1513166740 c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\include\models\order.h
@@ -765,33 +760,22 @@
 	"PizzaSize.h"
 	"PizzaType.h"
 
-1513166740 c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\include\models\topping.h
-	<iostream>
-	<iomanip>
-	<fstream>
+1513266079 c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\include\models\topping.h
 	<string>
 
-1513166740 c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\include\models\pizzasauce.h
-	<iostream>
-	<iomanip>
-	<fstream>
+1513266079 c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\include\models\pizzasauce.h
 	<string>
 
-1513166740 c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\include\models\pizzasize.h
-	<iostream>
-	<iomanip>
-
-1513166740 c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\include\models\pizzatype.h
-	<iostream>
-	<iomanip>
-	<fstream>
+1513266079 c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\include\models\pizzasize.h
 	<string>
 
-1513166740 c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\include\models\pricelist.h
-	<iostream>
-	<fstream>
+1513266079 c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\include\models\pizzatype.h
+	<string>
 
-1513166740 c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\include\repositories\superrepo.h
+1513266079 c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\include\models\pricelist.h
+	<string>
+
+1513266079 c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\include\repositories\superrepo.h
 	"Extra.h"
 	"Location.h"
 	"Order.h"
@@ -801,21 +785,13 @@
 	"PizzaType.h"
 	"PriceList.h"
 	"Topping.h"
+	<fstream>
+	<iostream>
+	<iomanip>
 
-1513173477 c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\include\services\adminservice.h
+1513336051 c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\include\services\adminservice.h
 	"SuperRepo.h"
 	"DataBase.h"
-	"InvalidNameException.h"
-	"InvalidPriceException.h"
-	"InvalidSizeException.h"
-	"InvalidTypeException.h"
-	"InvalidSauceException.h"
-	"InvalidToppingException.h"
-	"InvalidMultException.h"
-	"InvalidOffsetException.h"
-	"InvalidExtraException.h"
-	"InvalidPizzaException.h"
-	"InvalidLocationException.h"
 
 1513085780 c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\include\exceptions\invalidnameexception.h
 
@@ -835,34 +811,40 @@
 
 1513100302 c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\include\exceptions\invalidextraexception.h
 
-1513166740 c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\include\ui\salesui.h
+1513266079 c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\include\ui\salesui.h
 	"DataBase.h"
 	"OrderService.h"
 	"PizzaService.h"
 	"ExtraService.h"
+	"ValidateService.h"
 	"AdminService.h"
 	<cstdlib>
 	<iomanip>
 
-1513166740 c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\include\services\orderservice.h
+1513335812 c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\include\services\orderservice.h
 	"DataBase.h"
 	"SuperRepo.h"
 	"pizzaService.h"
 
-1513166740 c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\include\services\pizzaservice.h
+1513335982 c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\include\services\pizzaservice.h
 	"DataBase.h"
 
-1513166740 c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\include\services\extraservice.h
+1513276518 c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\include\services\extraservice.h
 	"Extra.h"
 	"DataBase.h"
 
-1513079420 c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\include\ui\bakerui.h
+1513335624 c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\include\ui\bakerui.h
 	"DataBase.h"
+	"OrderService.h"
+	"ValidateService.h"
+	"SuperRepo.h"
 	<iostream>
 	<cstdlib>
 
-1513081952 c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\include\ui\deliveryui.h
+1513335624 c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\include\ui\deliveryui.h
 	"DataBase.h"
+	"OrderService.h"
+	"ValidateService.h"
 	<iostream>
 	<cstdlib>
 
@@ -903,46 +885,46 @@
 
 1513166740 c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\include\exceptions\unabletoreadfileexception.h
 
-1513166742 source:c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\src\models\database.cpp
+1513266079 source:c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\src\models\database.cpp
 	"DataBase.h"
 
-1513166742 source:c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\src\models\extra.cpp
+1513266079 source:c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\src\models\extra.cpp
 	"Extra.h"
 
-1513166742 source:c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\src\models\location.cpp
+1513266079 source:c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\src\models\location.cpp
 	"Location.h"
 
-1513166742 source:c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\src\models\order.cpp
+1513267621 source:c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\src\models\order.cpp
 	"Order.h"
 
-1513166742 source:c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\src\models\pizza.cpp
+1513266079 source:c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\src\models\pizza.cpp
 	"Pizza.h"
 
-1513166742 source:c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\src\models\pizzasauce.cpp
+1513266079 source:c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\src\models\pizzasauce.cpp
 	"PizzaSauce.h"
 
-1513166742 source:c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\src\models\pizzasize.cpp
+1513266079 source:c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\src\models\pizzasize.cpp
 	"PizzaSize.h"
 
-1513166742 source:c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\src\models\pizzatype.cpp
+1513266079 source:c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\src\models\pizzatype.cpp
 	"PizzaType.h"
 
-1513166742 source:c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\src\models\pricelist.cpp
+1513266079 source:c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\src\models\pricelist.cpp
 	"PriceList.h"
 
-1513166742 source:c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\src\models\topping.cpp
+1513266079 source:c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\src\models\topping.cpp
 	"Topping.h"
 
-1513166742 source:c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\src\repositories\superrepo.cpp
+1513335624 source:c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\src\repositories\superrepo.cpp
 	"SuperRepo.h"
 
-1513173412 source:c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\src\services\adminservice.cpp
+1513336051 source:c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\src\services\adminservice.cpp
 	"AdminService.h"
 
-1513166742 source:c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\src\services\extraservice.cpp
+1513276518 source:c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\src\services\extraservice.cpp
 	"ExtraService.h"
 
-1513166742 source:c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\src\services\orderservice.cpp
+1513335812 source:c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\src\services\orderservice.cpp
 	"OrderService.h"
 
 1513166742 source:c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\src\services\pizzasauceservice.cpp
@@ -950,7 +932,7 @@
 
 1513166740 c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\include\services\pizzasauceservice.h
 
-1513166742 source:c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\src\services\pizzaservice.cpp
+1513335960 source:c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\src\services\pizzaservice.cpp
 	"PizzaService.h"
 
 1513166742 source:c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\src\services\pizzasizeservice.cpp
@@ -963,19 +945,19 @@
 
 1513166740 c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\include\services\toppingservice.h
 
-1513168693 source:c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\src\ui\adminui.cpp
+1513266075 source:c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\src\ui\adminui.cpp
 	"AdminUI.h"
 
-1513171357 source:c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\src\ui\bakerui.cpp
+1513335624 source:c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\src\ui\bakerui.cpp
 	"BakerUI.h"
 
-1513176568 source:c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\src\ui\deliveryui.cpp
+1513335624 source:c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\src\ui\deliveryui.cpp
 	"DeliveryUI.h"
 
-1513166743 source:c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\src\ui\mainui.cpp
+1513248995 source:c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\src\ui\mainui.cpp
 	"MainUI.h"
 
-1513173596 source:c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\src\ui\salesui.cpp
+1513336131 source:c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\src\ui\salesui.cpp
 	"SalesUI.h"
 
 1513172678 c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\include\exceptions\invalidpizzaexception.h
@@ -983,9 +965,9 @@
 1513172687 source:c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\src\exceptions\invalidpizzaexception.cpp
 	"InvalidPizzaException.h"
 
-1513177317 c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\include\services\validateservice.h
-	"SuperRepo.h"
+1513336184 c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\include\services\validateservice.h
 	"DataBase.h"
+	"SuperRepo.h"
 	"InvalidNameException.h"
 	"InvalidPriceException.h"
 	"InvalidSizeException.h"
@@ -996,9 +978,10 @@
 	"InvalidOffsetException.h"
 	"InvalidExtraException.h"
 	"InvalidPizzaException.h"
+	"InvalidActiveOrderException.h"
 	"InvalidLocationException.h"
 
-1513177317 source:c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\src\services\validateservice.cpp
+1513335624 source:c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\src\services\validateservice.cpp
 	"ValidateService.h"
 
 1513177317 ervice.h"
@@ -1410,4 +1393,16 @@
 
 1513259224 source:c:\c++\vika2\vika2assignment\3vv_vika3_pizza_3-layer\src\exceptions\invalidactiveorderexception.cpp
 	"InvalidActiveOrderException.h"
+
+1513259720 c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\include\exceptions\invalidactiveorderexception.h
+
+1513333733 source:c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\src\exceptions\invalidperorderexception.cpp
+	"InvalidPerOrderException.h"
+
+1513333750 c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\include\exceptions\invalidperorderexception.h
+
+1513166742 source:c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\src\services\bakeruiservice.cpp
+	"BakerUIService.h"
+
+1513166740 c:\users\greta\documents\3viknaafangi\vika2assignment\3vv_vika3_pizza_3-layer\include\services\bakeruiservice.h
 
