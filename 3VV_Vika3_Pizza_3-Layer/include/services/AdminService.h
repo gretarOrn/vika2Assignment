@@ -13,8 +13,10 @@ class AdminService
 
         DataBase dataBase;
         SuperRepo repo;
-        /// Takes in a name, a size, type(base), a sauce , an array of toppings, and the total price and sends that to the repo to be filed as a type of pizza in the menu file.
-        void addPizza(string name, int sizeSelection, int typeSelection, int sauceSelection, int toppingSelection[], double totalPrice);
+        /// Takes in a name, a size, type(base), a sauce , an array of toppings, and the total price and returns a pizza.
+        Pizza addPizza(string name, int sizeSelection, int typeSelection, int sauceSelection, int toppingSelection[], double totalPrice);
+        /// Takes a pizza to the repo to be filed as a type of pizza in the menu file
+        void SavePizza(const Pizza& pizza);
         /// Takes in a name and a price for a new price category to be sent to the repo and placed in a file.
         void addPriceCategory(string name, int price);
         /// takes in a name and a price category for a new topping to be sent to the repo and placed in a file.

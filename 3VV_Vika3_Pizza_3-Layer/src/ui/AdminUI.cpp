@@ -80,9 +80,6 @@ void AdminUI::addOrders() {
 void AdminUI::editOrders() {
 
 }
-void AdminUI::removeOrders() {
-
-}
 
 /// Pizza menu
 void AdminUI::pizzaOptions() {
@@ -149,8 +146,7 @@ void AdminUI::addPizzas() {
     for(int i = 0; i < pizza.MAX_TOPPINGS_PIZZA; i++) {
         toppingSelection[i] = 0;
     }
-
-        bool valid = false;
+    bool valid = false;
     do {
         system("CLS");
         displayPizzaMenu();
@@ -161,8 +157,7 @@ void AdminUI::addPizzas() {
             getline(cin, nameInput);
             try {
                 validate.validateName(nameInput,valid);
-            }
-            catch(InvalidNameException) {
+            } catch(InvalidNameException) {
                 cout <<"Invalid name input." << endl;
             }
         } while(!valid);
@@ -174,11 +169,9 @@ void AdminUI::addPizzas() {
             validate.isInt(sizeSelection);
             try {
                 validate.validateSize(sizeSelection, valid);
-            }
-            catch(InvalidSizeException) {
+            } catch(InvalidSizeException) {
                 cout <<"Invalid size input" << endl;
             }
-
         } while(!valid);
         displayBases();
         valid = false;
@@ -188,11 +181,9 @@ void AdminUI::addPizzas() {
             validate.isInt(typeSelection);
             try {
                 validate.validateType(typeSelection, valid);
-            }
-            catch(InvalidTypeException) {
+            } catch(InvalidTypeException) {
                 cout <<"Invalid type input." << endl;
             }
-
         } while(!valid);
         displaySauces();
         valid = false;
@@ -202,16 +193,13 @@ void AdminUI::addPizzas() {
             validate.isInt(sauceSelection);
             try {
                 validate.validateSauce(sauceSelection, valid);
-            }
-            catch(InvalidSauceException) {
+            } catch(InvalidSauceException) {
                 cout << "Invalid sauce input." << endl;
             }
-            valid = true;
         } while(!valid);
         displayToppings();
         valid = false;
         cout << endl << "Choose toppings: ";
-
         int counter = 0;
         int tempToppingSelection;
         cout << "Select toppings, press 0 to stop." << endl;
@@ -225,27 +213,36 @@ void AdminUI::addPizzas() {
             }
             try {
                 validate.validateToppingSelection(tempToppingSelection, valid);
-            }
-            catch(InvalidToppingException) {
+            } catch(InvalidToppingException) {
                 cout << "Invalid topping input." << endl;
             }
                toppingSelection[counter] = tempToppingSelection;
                counter++;
         }
-        for(int i = 0; i < 10; i++) {
-            cout << toppingSelection[i] << " ";
+        pizza = adminService.addPizza(nameInput, sizeSelection, typeSelection, sauceSelection, toppingSelection, totalPrice);
+        cout << pizzaService.getPrice(pizza) << "kr" << endl;
+        cout << "Set fixed price? (y/n) ";
+        cin >> userInput;
+        if(userInput == 'y') {
+            valid = false;
+            do {
+                cin >> totalPrice;
+                validate.isDouble(totalPrice);
+                try {
+                    validate.validatePrice(totalPrice, valid);
+                } catch(InvalidOffsetException) {
+                    cout << "Invalid Price, try again." << endl;
+                }
+            } while(!valid);
+            pizza.setTotalPrice(totalPrice);
         }
-        adminService.addPizza(nameInput, sizeSelection, typeSelection, sauceSelection, toppingSelection, totalPrice);
-        dataBase.refreshPizza();
+        adminService.SavePizza(pizza);
         cout << "Continue? (y/n) ";
         cin >> userInput;
     } while(userInput == 'y');
     system("CLS");
 }
 void AdminUI::editPizzas() {
-
-}
-void AdminUI::removePizzas() {
 
 }
 
@@ -330,9 +327,7 @@ void AdminUI::addPriceCategory() {
 void AdminUI::editPriceCategory() {
 
 }
-void AdminUI::removePriceCategory() {
 
-}
 
 /// Topping
 void AdminUI::toppingOptions() {
@@ -415,9 +410,9 @@ void AdminUI::addToppings() {
     system("CLS");
 }
 void AdminUI::editToppings() {
-/*
-    int userInput;
-    char userInput2;
+    /*
+    int userSelection;
+    char userInput;
     string newNameInput;
     int newPriceInput;
     bool newStateInput;
@@ -427,15 +422,19 @@ void AdminUI::editToppings() {
 
     do {
         cout << "Select topping: ";
-        cin >> userInput;
-        //valid = adminService.validateSelection();
-        valid = true;
+        cin >> userSelection;
+        valid = false;
+        validate.isInt(userSelection, valid);
+        if(userSelection != 0) {
+            validate.validateToppingSelection(userSelection, valid);
+        }
     } while(!valid);
     do{
         cout << "Enter new topping name: ";
         cin >> ws;
         getline(cin, newNameInput);
-        valid = adminService.validateName(newNameInput);
+        valid = false;
+        validate.validateName(newNameInput, valid);
     } while(!valid);
     displayPriceCategory();
     do {
@@ -445,23 +444,21 @@ void AdminUI::editToppings() {
     } while(!valid);
     while(true) {
         cout << "Is active? (y/n) ";
-        cin >> userInput2;
-        if(userInput2 == 'y' || userInput2 == 'Y') {
+        cin >> userInput;
+        if(userInput == 'y' || userInput == 'Y') {
             newStateInput = true;
             break;
-        } else if(userInput2 == 'n' || userInput2 == 'N') {
+        } else if(userInput == 'n' || userInput == 'N') {
             newStateInput = false;
             break;
         }
     }
-//    adminService.editTopping((toppingList[userInput - 1].getIdNumber()), newNameInput, newPriceInput, newStateInput);
+    adminService.editTopping((toppingList[userInput - 1].getIdNumber()), newNameInput, newPriceInput, newStateInput);
     dataBase.refreshTopping();
     system("CLS");
-*/
+    */
 }
-void AdminUI::removeToppings() {
 
-}
 
 /// Extras
 void AdminUI::extraOptions() {
@@ -544,9 +541,7 @@ void AdminUI::addExtras() {
 void AdminUI::editExtras() {
 
 }
-void AdminUI::removeExtras() {
 
-}
 
 /// Size
 void AdminUI::sizeOptions() {
@@ -657,9 +652,7 @@ void AdminUI::addSize() {
 void AdminUI::editSize() {
 
 }
-void AdminUI::removeSize() {
 
-}
 
 /// Sauce
 void AdminUI::sauceOptions() {
@@ -746,9 +739,6 @@ void AdminUI::addSauces() {
 void AdminUI::editSauces() {
 
 }
-void AdminUI::removeSauces() {
-
-}
 
 /// Base
 void AdminUI::baseOptions() {
@@ -831,9 +821,7 @@ void AdminUI::addBase() {
 void AdminUI::editBase() {
 
 }
-void AdminUI::removeBase() {
 
-}
 
 /// Location
 void AdminUI::locationOptions() {
@@ -914,8 +902,5 @@ void AdminUI::addLocation() {
     } while(userInput == 'y');
 }
 void AdminUI::editLocation() {
-
-}
-void AdminUI::removeLocation() {
 
 }

@@ -144,13 +144,33 @@ int DeliveryUI::displayOrders(int locationID) {
             }
         }
     }
+    cout << endl << "****************************************************************************************" << endl;
+    cout << "Orders in progress: " << endl;
+    for(int i = 0; i < lines; i++) {
+        if(orderList[i].getLocationId() == locationID) {
+            if(orderList[i].getOrderStatus() == 2) {
+                if(orderList[i].isDelivered()) {
+                    cout << counter << ")\t";
+                    cout << "Order ID: " << setw(5) << right << orderList[i].getOrderId();
+                    cout << " | Address: " << setw(dataBase.locationMaster[0].MAX_ADDRESS_LENGTH) << left << orderList[i].getAddress();
+                    if(orderList[i].getPaymentStatus()){
+                        cout << " | Payment status: Payed" << endl;
+                    } else {
+                        cout << " | Payment status: Pay on delivery" << endl;
+                    }
+                    counter++;
+                }
+            }
+        }
+    }
     return counter;
 }
 
 int DeliveryUI::findOrderID(int orderSelection, int locationID) {
     Order* orderList = dataBase.activeOrderMaster;
+    int lines = repo.getActiveOrderLines();
     int counter = 1;
-       for(int i = 0; i < repo.getActiveOrderLines(); i++) {
+       for(int i = 0; i < lines; i++) {
         if(orderList[i].getLocationId() == locationID) {
             if(orderList[i].getOrderStatus() == 3) {
                 if(!orderList[i].isDelivered()) {
@@ -162,9 +182,21 @@ int DeliveryUI::findOrderID(int orderSelection, int locationID) {
             }
         }
     }
-    for(int i = 0; i < repo.getActiveOrderLines(); i++) {
+    for(int i = 0; i < lines; i++) {
         if(orderList[i].getLocationId() == locationID) {
-            if(orderList[i].getOrderStatus() == 4) {
+            if(orderList[i].getOrderStatus() == 3) {
+                if(orderList[i].isDelivered()) {
+                    if(counter == orderSelection) {
+                        return orderList[i].getOrderId();
+                    }
+                    counter++;
+                }
+            }
+        }
+    }
+    for(int i = 0; i < lines; i++) {
+        if(orderList[i].getLocationId() == locationID) {
+            if(orderList[i].getOrderStatus() == 2) {
                 if(orderList[i].isDelivered()) {
                     if(counter == orderSelection) {
                         return orderList[i].getOrderId();

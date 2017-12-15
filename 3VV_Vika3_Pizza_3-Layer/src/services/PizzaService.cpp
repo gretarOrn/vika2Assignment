@@ -18,20 +18,20 @@ Pizza PizzaService::createPizza(int sizeSelction, int typeSelction, int sauceSel
 
 double PizzaService::getPrice(Pizza pizza) {
     PriceList* priceList = dataBase.priceMaster;
+    if(pizza.getTotalPrice() == 0.0) {
+        double num = 0;
+        double mult = pizza.getSize().getToppingMult();
+        double off = pizza.getSize().getToppingOffset();
+        for (int i = 0; pizza.getToppings()[i].getName() != ""; i++) {
+            num += priceList[pizza.getToppings()[i].getPriceCategory()-1].getPrice() * mult + off;
+        }
+        num += priceList[pizza.getSize().getPriceCategory() - 1].getPrice();
+        num += pizza.getType().getPriceOffset() * mult;
 
-    double num = 0;
-    double mult = pizza.getSize().getToppingMult();
-    double off = pizza.getSize().getToppingOffset();
-    for (int i = 0; pizza.getToppings()[i].getName() != ""; i++) {
-        num += priceList[pizza.getToppings()[i].getPriceCategory()-1].getPrice() * mult + off;
+        return  num;
+    } else {
+        return pizza.getTotalPrice();
     }
-    num += priceList[pizza.getSize().getPriceCategory() - 1].getPrice();
-    num += pizza.getType().getPriceOffset() * mult;
-
-    return  num;
-
-
-
 }
 
 

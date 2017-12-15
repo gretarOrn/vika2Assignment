@@ -4,7 +4,7 @@ AdminService::AdminService()
 {
     //ctor
 }
-void AdminService::addPizza(string name, int sizeSelection, int typeSelection, int sauceSelection, int* toppingSelection, double totalPrice) {
+Pizza AdminService::addPizza(string name, int sizeSelection, int typeSelection, int sauceSelection, int* toppingSelection, double totalPrice) {
     Pizza pizza;
     dataBase.incrementPizzaID();
     pizza.setIdNumber(dataBase.getPizzaID());
@@ -23,7 +23,12 @@ void AdminService::addPizza(string name, int sizeSelection, int typeSelection, i
     }
     pizza.setTotalPrice(totalPrice);
     pizza.setActiveState(true);
+    return pizza;
+}
+
+void AdminService::SavePizza(const Pizza& pizza) {
     repo.writeToPizzaFile(pizza);
+    dataBase.refreshPizza();
 }
 
 void AdminService::addPriceCategory(string name, int price) {
@@ -34,6 +39,7 @@ void AdminService::addPriceCategory(string name, int price) {
     priceCat.setPrice(price);
     priceCat.setActiveState(true);
     repo.writeToPriceFile(priceCat);
+    dataBase.refreshPrice();
 }
 
 void AdminService::addTopping(string name, int priceCat) {
@@ -44,6 +50,7 @@ void AdminService::addTopping(string name, int priceCat) {
     topping.setPriceCategory(priceCat);
     topping.setActiveState(true);
     repo.writeToToppingFile(topping);
+    dataBase.refreshTopping();
 }
 
 void AdminService::addExtra(string name, int priceCat) {
@@ -54,6 +61,7 @@ void AdminService::addExtra(string name, int priceCat) {
     extra.setPriceCategory(priceCat);
     extra.setActiveState(true);
     repo.writeToExtraFile(extra);
+    dataBase.refreshExtra();
 }
 
 void AdminService::addSize(string name, int priceCat, double toppingMult, double toppingOffset) {
@@ -66,6 +74,7 @@ void AdminService::addSize(string name, int priceCat, double toppingMult, double
     size.setToppingOffset(toppingOffset);
     size.setActiveState(true);
     repo.writeToSizeFile(size);
+    dataBase.refreshSize();
 }
 
 void AdminService::addSauce(string name, int priceCat) {
@@ -76,6 +85,7 @@ void AdminService::addSauce(string name, int priceCat) {
     sauce.setPriceCategory(priceCat);
     sauce.setActiveState(true);
     repo.writeToSauceFile(sauce);
+    dataBase.refreshSauce();
 }
 
 void AdminService::addType(string name, double priceOffset) {
@@ -86,6 +96,7 @@ void AdminService::addType(string name, double priceOffset) {
     type.setPriceOffset(priceOffset);
     type.setActiveState(true);
     repo.writeToTypeFile(type);
+    dataBase.refreshType();
 }
 
 void AdminService::addLocation(string name, string address) {
@@ -96,6 +107,7 @@ void AdminService::addLocation(string name, string address) {
     loc.setAddress(address);
     loc.setActiveState(true);
     repo.writeToLocationFile(loc);
+    dataBase.refreshLocation();
 }
 
 
