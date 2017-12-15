@@ -89,7 +89,7 @@ void ValidateService::validateExtra(int priceInput,bool& valid) {
     }
 }
 void ValidateService::validateToppingSelection(int tempToppingSelection ,bool& valid) {
-    if(0 < tempToppingSelection && tempToppingSelection <= dataBase.getToppingID()) {
+    if(0 <= tempToppingSelection && tempToppingSelection <= dataBase.getToppingID()) {
         valid = true;
         return;
     }

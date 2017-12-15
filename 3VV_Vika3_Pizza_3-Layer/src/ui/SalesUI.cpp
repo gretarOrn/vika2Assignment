@@ -47,7 +47,7 @@ void SalesUI::startUp() {
 
             cout << "Select order to move to inactive: ";
             cin >> index;
-            orderSer.moveOrderToInactiveFile(index);
+            orderSer.moveOrderToInactiveFile(index - 1);
             lines = orderSer.repo.getActiveOrderLines();
             orderList = dataBase.activeOrderMaster;
             cout << "*********************************************************************" << endl;
@@ -251,6 +251,7 @@ void SalesUI::createCustomPizza(Order& order) {
         cin >> userInput;
         if(userInput == 'y') {
             order.getPizzas()[pizzaCounter] = pizza;
+
             /*
             order.getPizzas()[pizzaCounter].setSize(pizzaSer.addSize(sizeSelection));
             order.getPizzas()[pizzaCounter].setType(pizzaSer.addType(typeSelection));

@@ -114,10 +114,12 @@ Order* SuperRepo::readActiveOrderFile() {
             fin.seekg(0, fin.end);
             int recordCount = fin.tellg() / sizeof(Order);
             fin.seekg(0, fin.beg);
-
-            masterList = new Order[recordCount];
-
-            fin.read((char*)(masterList), (recordCount * sizeof(Order)));
+            //if(recordCount < 0) {
+                masterList = new Order[recordCount];
+                fin.read((char*)(masterList), (recordCount * sizeof(Order)));
+            //} else {
+            //    remove(".\\data\\ActiveOrders.dat");
+            //}
         } else {
             cout << "Unable to open file.";
         }
@@ -134,12 +136,23 @@ void SuperRepo::writeToActiveOrderFile(const Order& order) {
 
 void SuperRepo::writeAllButToActiveOrderFile(Order* order, int lineNr) {
     int lines = getActiveOrderLines();
-    ofstream fout(".\\data\\ActiveOrders.dat", ios::binary|ios::trunc);
-    fout.write((char*)(order), ((lineNr) * sizeof(Order)));
-    fout.close();
-    fout.open(".\\data\\ActiveOrders.dat", ios::binary|ios::app);
-    fout.write((char*)(&order[lineNr + 1]), ((lines - lineNr - 1) * sizeof(Order)));
-    fout.close();
+    if(lines != 1) {
+        ofstream fout;
+        if(lineNr > 0) {
+            fout.open(".\\data\\TempFile.dat", ios::binary|ios::app);
+            fout.write((char*)(order), ((lineNr) * sizeof(Order)));
+            fout.close();
+        }
+        if((lines - lineNr - 1) > 0) {
+            fout.open(".\\data\\TempFile.dat", ios::binary|ios::app);
+            fout.write((char*)(&order[lineNr + 1]), ((lines - lineNr - 1) * sizeof(Order)));
+            fout.close();
+        }
+        remove(".\\data\\ActiveOrders.dat");
+        rename(".\\data\\TempFile.dat", ".\\data\\ActiveOrders.dat");
+    } else {
+        remove(".\\data\\ActiveOrders.dat");
+    }
 }
 void SuperRepo::writeAllToActiveOrderFile(Order* order) {
     ifstream fin;
@@ -148,7 +161,7 @@ void SuperRepo::writeAllToActiveOrderFile(Order* order) {
     if(fin.is_open()) {
         fin.seekg(0, fin.end);
         recordCount = fin.tellg() / sizeof(Order);
-        fin.seekg(0, fin.beg);
+        //fin.seekg(0, fin.beg);
     }
     fin.close();
     ofstream fout;

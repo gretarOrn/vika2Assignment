@@ -62,7 +62,7 @@ void OrderService::moveOrderToInactiveFile(int orderIndex) {
     Order* orderList = dataBase.activeOrderMaster;
 
     repo.writeAllButToActiveOrderFile(orderList, orderIndex);
-    repo.writeToInactiveOrderFile(orderList[orderIndex - 1]);
+    repo.writeToInactiveOrderFile(orderList[orderIndex]);
 
     dataBase.refreshActiveOrder();
     dataBase.refreshInactiveOrder();
@@ -70,9 +70,11 @@ void OrderService::moveOrderToInactiveFile(int orderIndex) {
 
 void OrderService::saveOrder(const Order& order) {
     repo.writeToActiveOrderFile(order);
+    dataBase.refreshActiveOrder();
 }
 void OrderService::saveOrders(Order* order) {
     repo.writeAllToActiveOrderFile(order);
+    dataBase.refreshActiveOrder();
 }
 
 double OrderService::getPrice(Order& order) {

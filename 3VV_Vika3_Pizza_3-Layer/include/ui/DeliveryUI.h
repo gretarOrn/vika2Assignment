@@ -3,6 +3,7 @@
 
 #include "DataBase.h"
 #include "OrderService.h"
+#include "ValidateService.h"
 
 #include <iostream>
 #include <cstdlib>
@@ -18,9 +19,10 @@ class DeliveryUI
         DataBase dataBase;
         SuperRepo repo;
         OrderService orderService;
+        ValidateService validate;
 
         void displayLocations();
-        void displayOrders(int locationID);
+        int displayOrders(int locationID);
         int findOrderID(int conter, int locationID);
 };
 

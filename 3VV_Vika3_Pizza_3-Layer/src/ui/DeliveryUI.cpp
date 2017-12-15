@@ -4,119 +4,170 @@ DeliveryUI::DeliveryUI()
 {
     //ctor
 }
+
 void DeliveryUI::startUp() {
-    int c,d;
-    int orderID;
-    char answer;
-    Order* orderList = dataBase.activeOrderMaster;
-    while(c != 0) {
+    int locationSelection, orderSelection, selectedOrderId, orderStatus, orderCount, allOrderLines;
+    bool valid;
+    while(true) {
         system("CLS");
-        cout <<"Locations: "<<endl;
+        cout << "Delivery:" << endl;
+        cout << "Locations: " << endl;
         displayLocations();
-        cout << "Select Location: ";
-        cin >> c;
-        /// validate input í orderservice
-        displayOrders(c);
-        do{
-            cout << "Select an order: ";
-            cin >> d;
-        }while(!(d <= repo.getActiveOrderLines()));
-        orderID = findOrderID(d,c);
-        for(int i = 0; i < dataBase.getOrderID(); i++) {
-            if(orderList[i].getLocationId() == c) {
-                if(orderList[i].getOrderId() == orderID) {
-                    if(orderList[i].getOrderStatus() == 3){
-                        cout <<"Set order to \"in transit\"?(y/n): ";
-                        cin >>answer;
-                        if(answer == 'y') {
+        do {
+            cout << "Select Location, press 0 to go back: ";
+            cin >> locationSelection;
+            valid = false;
+            validate.isInt(locationSelection);
+            if(locationSelection == 0) {
+                return;
+            } try {
+                validate.validateLocation(locationSelection, valid);
+            } catch(InvalidLocationException) {
+                cout << "Invalid location, try again." << endl;
+            }
+        } while(!valid);
+        do {
+            system("CLS");
+            if(orderService.validateOrdersInLocation(locationSelection)) {
+                cout << "Location: " << dataBase.locationMaster[locationSelection - 1].getName() << " | Delivery" << endl;
+                orderCount = displayOrders(locationSelection);
+                allOrderLines = repo.getActiveOrderLines();
+                do{
+                    cout << endl << "Select an order, press 0 to go back: ";
+                    cin >> orderSelection;
+                    valid = false;
+                    validate.isInt(orderSelection);
+                    if(orderSelection == 0) {
+                        break;
+                    } try {
+                        validate.validateActiveOrderSelection(orderSelection, orderCount, valid);
+                    } catch(InvalidActiveOrderException) {
+                        cout << "Invalid order selection, try again." << endl;
+                    }
+                }while(!valid);
+                selectedOrderId = findOrderID(orderSelection, locationSelection);
+                do {
+                    if(orderSelection == 0) {
+                        break;
+                    }
+                    cout << "Set order status to: " << endl;
+                    cout << "1)  Payed" << endl;
+                    cout << "2)  Delivered" << endl;
+                    cout << "3)  Oh fuck, I dropped it" << endl;
+                    cout << "0)  Go back" << endl;
+                    cin >> orderStatus;
+                    validate.isInt(selectedOrderId);
+                } while(!(0 <= orderStatus && orderStatus <= 3));
+
+                Order* orderList = dataBase.activeOrderMaster;
+                if (orderStatus == 1) {
+                    for(int i = 0; i < allOrderLines; i++) {
+                        if(orderList[i].getOrderId() == selectedOrderId) {
                             orderList[i].setOrderStatus(4);
                             orderService.saveOrders(orderList);
-                            dataBase.refreshActiveOrder();
                         }
                     }
-                    else if(orderList[i].getOrderStatus() == 4) {
-                        cout <<"Set order to \"delivered\"?(y/n): ";
-                        cin >>answer;
-                        if(answer == 'y') {
+                } else if(orderStatus == 2) {
+                    for(int i = 0; i < allOrderLines; i++) {
+                        if(orderList[i].getOrderId() == selectedOrderId) {
                             orderList[i].setOrderStatus(5);
+                            orderService.moveOrderToInactiveFile(i);
+                        }
+                    }
+                } else if(orderStatus == 3) {
+                    for(int i = 0; i < allOrderLines; i++) {
+                        if(orderList[i].getOrderId() == selectedOrderId) {
+                            orderList[i].setOrderStatus(6);
+                            orderService.copyOrderToInactiveFile(orderList[i]);
+                            orderList[i].setOrderStatus(1);
                             orderService.saveOrders(orderList);
-                            dataBase.refreshActiveOrder();
                         }
                     }
                 }
+            } else {
+                cout << "No orders in that location: " << endl;
+                cout << "Select another location: " << endl;
+                orderSelection = 0;
             }
-        }
-
-
+        } while(orderSelection != 0);
     }
 }
+
 void DeliveryUI::displayLocations() {
-    dataBase.refreshLocation();
     Location* locationList = dataBase.locationMaster;
         for(int i = 0; i < dataBase.getLocationID(); i++) {
             cout <<locationList[i].getIdNumber();
-            cout << ")\t" << setw(24) << left << locationList[i].getName();
-            cout << " | " << setw(5) << left << locationList[i].getAddress();
-            if(locationList[i].getActiveState()) {
-                cout << "\t|Active";
-            } else {
-                cout << "\t|Inactive";
-            }
+            cout << ")\t" << setw(locationList[0].MAX_STRING_LENGTH) << left << locationList[i].getName();
+            cout << " | " << locationList[i].getAddress();
             cout << endl;
         }
 }
-void DeliveryUI::displayOrders(int locationID) {
-    dataBase.refreshActiveOrder();
+
+int DeliveryUI::displayOrders(int locationID) {
     Order* orderList = dataBase.activeOrderMaster;
     int counter = 1;
+    int lines = repo.getActiveOrderLines();
+    cout << endl << "****************************************************************************************" << endl;
+    cout << "Orders ready for pickup: " << endl;
+    for(int i = 0; i < lines; i++) {
+        if(orderList[i].getLocationId() == locationID) {
+            if(orderList[i].getOrderStatus() == 3 || orderList[i].getOrderStatus() == 4) {
+               if(!orderList[i].isDelivered()) {
+                    cout << counter << ")\t";
+                    cout << "Order ID: " << setw(5) << right << orderList[i].getOrderId();
+                    cout << " | Pickup:  " << setw(dataBase.locationMaster[0].MAX_ADDRESS_LENGTH) << left << orderList[i].getAddress();
+                    if(orderList[i].getPaymentStatus()){
+                        cout << " | Payment status: Payed" << endl;
+                    } else {
+                        cout << " | Payment status: Pay on delivery" << endl;
+                    }
+                    counter++;
+               }
+            }
+        }
+    }
+    cout << endl << "****************************************************************************************" << endl;
     cout << "Orders ready for delivery: " << endl;
-    for(int i = 0; i < dataBase.getOrderID(); i++) {
+    for(int i = 0; i < lines; i++) {
         if(orderList[i].getLocationId() == locationID) {
             if(orderList[i].getOrderStatus() == 3) {
-                cout <<counter <<")\t|";
-                cout << "ID:" << orderList[i].getOrderId();
-                cout << ")\t" << setw(24) << left << orderList[i].getName();
-                cout << " | " << setw(5) << left << orderList[i].getAddress() << endl;
-                counter++;
+                if(orderList[i].isDelivered()) {
+                    cout << counter << ")\t";
+                    cout << "Order ID: " << setw(5) << right << orderList[i].getOrderId();
+                    cout << " | Address: " << setw(dataBase.locationMaster[0].MAX_ADDRESS_LENGTH) << left << orderList[i].getAddress();
+                    if(orderList[i].getPaymentStatus()){
+                        cout << " | Payment status: Payed" << endl;
+                    } else {
+                        cout << " | Payment status: Pay on delivery" << endl;
+                    }
+                    counter++;
+                }
             }
         }
     }
-    cout <<"\n**********************************************************" << endl;
-    cout <<"\nOrders in transit: " << endl;
-    for(int i = 0; i < dataBase.getOrderID(); i++) {
-        if(orderList[i].getLocationId() == locationID) {
-            if(orderList[i].getOrderStatus() == 4) {
-                cout << counter <<")\t|";
-                cout << "ID:" << orderList[i].getOrderId();
-                cout << ")\t" << setw(24) << left << orderList[i].getName();
-                cout << " | " << setw(5) << left << orderList[i].getAddress() << endl;
-                counter++;
-            }
-        }
-    }
+    return counter;
 }
-int DeliveryUI::findOrderID(int counter, int locationID) {
-    dataBase.refreshActiveOrder();
+
+int DeliveryUI::findOrderID(int orderSelection, int locationID) {
     Order* orderList = dataBase.activeOrderMaster;
-    int counter2 = 1;
+    int counter = 1;
        for(int i = 0; i < repo.getActiveOrderLines(); i++) {
         if(orderList[i].getLocationId() == locationID) {
             if(orderList[i].getOrderStatus() == 3) {
-                if(counter2 == counter) {
+                if(counter == orderSelection) {
                     return orderList[i].getOrderId();
                 }
-                counter2++;
+                counter++;
             }
         }
     }
-
     for(int i = 0; i < repo.getActiveOrderLines(); i++) {
         if(orderList[i].getLocationId() == locationID) {
             if(orderList[i].getOrderStatus() == 4) {
-                if(counter2 == counter) {
+                if(counter == orderSelection) {
                     return orderList[i].getOrderId();
                 }
-                counter2++;
+                counter++;
             }
         }
     }

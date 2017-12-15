@@ -13,7 +13,6 @@ class BakerUI
 {
     public:
         BakerUI();
-
         void startUp();
 
     private:
@@ -23,12 +22,11 @@ class BakerUI
         SuperRepo repo;
 
         void displayLocations();
-        ///breyta exit conditioninu í startup UI?
         int displayOrders(int locationID);
         void displayOrder(int orderID);
         void displayPizza(Pizza pizza);
         void displayExtra(Extra extra);
-        int findOrderID(int counter, int locationID);
+        int findOrderID(int orderSelection, int locationID);
 };
 
 #endif // BAKERUI_H
